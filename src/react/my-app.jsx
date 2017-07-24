@@ -1,22 +1,21 @@
 "use strict";
 
 const React = require("react");
-const rss2json = require("../rss2json");
+const feed = require('rss-to-json');
 let url;
-let data = Array();
 
 class MyApp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: data
-    };
     url = this.props.url;
+    this.state = {
+      data: []
+    };
   }
   render() {
-    var itemNodes = this.state.data.map(function(items) {
+    var itemNodes = this.state.data.map(function(items, idx) {
       return (
-        <div>{items.title}</div>
+        <li key={idx}>{items.title}</li>
       )
     });
     return (
@@ -27,13 +26,14 @@ class MyApp extends React.Component {
     );
   }
   componentDidMount() {
-    this.loadajax();
-    setInterval(this.loadajax, 5000);
-    // console.log(this);
+    var setState = this;
+    this.loadajax(setState);
+    setInterval(this.loadajax(setState), 10000);
   }
-  loadajax() {
-    data = rss2json(url);
-    // console.log(data);
+  loadajax(obj) {
+    feed.load(url, function(err, rss) {
+      obj.setState({data: rss.items});
+    });
   }
 }
 
