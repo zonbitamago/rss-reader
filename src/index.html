@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Electron App</title>
+  </head>
+  <body>
+    <h1>Hello Electron!</h1>
+    <div id="root-dom"></div>
+    <script>
+      require("babel-register")({
+        plugins: "transform-react-jsx"
+      });
+      const React = require("react");
+      const ReactDOM = require("react-dom");
+      const MyApp = require("./react/my-app");
+
+    </script>
+  </body>
+</html>

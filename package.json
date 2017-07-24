@@ -4,12 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "electron src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "rss-to-json": "^1.0.2"
+    "rss-to-json": "^1.0.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "redux": "^3.7.2",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-register": "^6.24.1"
+  },
+  "devDependencies": {
+    "electron-packager": "^8.7.2",
+    "electron-prebuilt": "^1.4.13"
   }
 }
