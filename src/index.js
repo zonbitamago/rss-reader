@@ -18,6 +18,10 @@ app.on("ready", e => {
       height: 1000
     }; // デフォルトバリュー
   }
+
+  electron.ipcMain.on('openBrowser', (event, arg) => { // イベントバインディング
+    electron.shell.openExternal(arg);
+  })
   mainWindow = new BrowserWindow(bounds_info);
   mainWindow.loadURL(`${ROOT_PATH}/index.html`);
 });

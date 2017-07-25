@@ -2,7 +2,6 @@
 
 const React = require("react");
 const feed = require('rss-to-json');
-const shell = require("electron").shell;
 let url;
 
 class MyApp extends React.Component {
@@ -20,7 +19,7 @@ class MyApp extends React.Component {
       var domain = rssSite.split('/')[2];
       var favicon_url = "http://www.google.com/s2/favicons?domain=" + domain;
       var openBrowser = function() {
-        shell.openExternal(url);
+        require("electron").ipcRenderer.send('openBrowser', url);
       };
       return (
         <article className='panel' key={idx}>
