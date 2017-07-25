@@ -1,0 +1,34 @@
+:root {
+  --white: #fff;
+  --red: #df4a76;
+  --black: #292f33;
+  --image-width: 58px;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+a {
+  color: var(--red);
+}
+
+.panel {
+  background-color: var(--white);
+  border-bottom-color: #e1e8ed;
+  border-bottom-style: solid;
+}
+
+.favicon {
+  width: var(--image-width);
+}
+
+.favicon img {
+  width: inherit;
+  -webkit-border-radius: 30px;
+}
+
+.main {
+  padding-left: var(--image-width);
+}

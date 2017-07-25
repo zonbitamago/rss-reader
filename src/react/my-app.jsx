@@ -18,12 +18,16 @@ class MyApp extends React.Component {
       var url = items.link;
       var openBrowser = function() {
         shell.openExternal(url);
-        console.log(url);
       };
       return (
-        <li key={idx}>
-          <a href="javascript:void(0)" onClick={openBrowser} target="_brank">{items.title}</a>
-        </li>
+        <article className='panel' key={idx}>
+          <div className='favicon'>
+            <img src="http://www.google.com/s2/favicons?domain=www.lifehacker.jp"/>
+          </div>
+          <div className='main'>
+            <a href="javascript:void(0)" onClick={openBrowser} target="_brank">{items.title}</a>
+          </div>
+        </article>
       )
     });
     return (
@@ -40,6 +44,7 @@ class MyApp extends React.Component {
   }
   loadajax(obj) {
     feed.load(url, function(err, rss) {
+      console.log(rss.items);
       obj.setState({data: rss.items});
     });
   }
