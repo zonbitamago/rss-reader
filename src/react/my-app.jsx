@@ -2,6 +2,7 @@
 
 const React = require("react");
 const feed = require('rss-to-json');
+const shell = require("electron").shell;
 let url;
 
 class MyApp extends React.Component {
@@ -14,8 +15,15 @@ class MyApp extends React.Component {
   }
   render() {
     var itemNodes = this.state.data.map(function(items, idx) {
+      var url = items.link;
+      var openBrowser = function() {
+        shell.openExternal(url);
+        console.log(url);
+      };
       return (
-        <li key={idx}>{items.title}</li>
+        <li key={idx}>
+          <a href="javascript:void(0)" onClick={openBrowser} target="_brank">{items.title}</a>
+        </li>
       )
     });
     return (
