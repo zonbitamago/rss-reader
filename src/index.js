@@ -19,6 +19,7 @@ app.on("ready", e => {
     }; // デフォルトバリュー
   }
 
+  // レンダリングプロセスから受信する
   electron.ipcMain.on('openBrowser', (event, arg) => { // イベントバインディング
     electron.shell.openExternal(arg);
   })
