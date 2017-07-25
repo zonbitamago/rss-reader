@@ -4,7 +4,7 @@ const package = require("./package.json");
 
 packager({
     name: package["name"],
-    dir: "./src",// ソースフォルダのパス
+    dir: "./",// ソースフォルダのパス
     out: "./dist",// 出力先フォルダのパス
     // icon: "./source/icon.ico",// アイコンのパス
     platform: "darwin",
