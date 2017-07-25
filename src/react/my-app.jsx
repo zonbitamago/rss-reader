@@ -16,13 +16,16 @@ class MyApp extends React.Component {
   render() {
     var itemNodes = this.state.data.map(function(items, idx) {
       var url = items.link;
+      var rssSite = items.link.substr(items.link.indexOf('u=') + 2);
+      var domain = rssSite.split('/')[2];
+      var favicon_url = "http://www.google.com/s2/favicons?domain=" + domain;
       var openBrowser = function() {
         shell.openExternal(url);
       };
       return (
         <article className='panel' key={idx}>
           <div className='favicon'>
-            <img src="http://www.google.com/s2/favicons?domain=www.lifehacker.jp"/>
+            <img src={favicon_url}/>
           </div>
           <div className='main'>
             <a href="javascript:void(0)" onClick={openBrowser} target="_brank">{items.title}</a>
@@ -39,8 +42,13 @@ class MyApp extends React.Component {
   }
   componentDidMount() {
     var setState = this;
-    this.loadajax(setState);
-    setInterval(this.loadajax(setState), 10000);
+    var load = function() {
+      feed.load(url, function(err, rss) {
+        setState.setState({data: rss.items});
+      });
+    }
+    load();
+    setInterval(load, 60000);
   }
   loadajax(obj) {
     feed.load(url, function(err, rss) {
@@ -52,7 +60,8 @@ class MyApp extends React.Component {
 
 const rootDOM = document.getElementById("root-dom");
 
+// 「https://newsformat.jp/」利用
 ReactDOM.render(
-  <MyApp url='https://www.lifehacker.jp/feed/index.xml'/>, rootDOM);
+  <MyApp url='http://newsformat.jp/r/z0xvr4soEhJBI!1.xml'/>, rootDOM);
 
 module.exports = MyApp
