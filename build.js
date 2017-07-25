@@ -10,11 +10,11 @@ packager({
     platform: "darwin",
     // platform: "win32", //windows用
     arch: "x64",
-    version: "1.6.11",// Electronのバージョン
+    electronVersion: "1.6.11",// Electronのバージョン
     overwrite: true,// 上書き
     asar: false,// asarパッケージ化
-    "app-version": package["version"],// アプリバージョン
-    "app-copyright": "Copyright (C) 2017 "+package["author"]+".",// コピーライト
+    "appVersion": package["version"],// アプリバージョン
+    "appCopyright": "Copyright (C) 2017 "+package["author"]+".",// コピーライト
 
     // "version-string": {// Windowsのみのオプション
     //     CompanyName: "totoraj.net",
