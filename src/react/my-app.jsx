@@ -19,7 +19,7 @@ class MyApp extends React.Component {
       var domain = rssSite.split('/')[2];
       var favicon_url = "http://www.google.com/s2/favicons?domain=" + domain;
       var date = new Date(items.created).toString();
-      date=date.substr(0,date.indexOf('GMT'));
+      date = date.substr(0, date.indexOf('GMT'));
       var openBrowser = function() {
         //メインプロセスへ送信する
         require("electron").ipcRenderer.send('openBrowser', url);
@@ -43,8 +43,14 @@ class MyApp extends React.Component {
     });
     return (
       <div>
-        <h1>React in Electron!</h1>
-        {itemNodes}
+        <div className="header">
+          <div className="header-content">
+            React in rss-reader
+          </div>
+        </div>
+        <div className='body-content'>
+          {itemNodes}
+        </div>
       </div>
     );
   }

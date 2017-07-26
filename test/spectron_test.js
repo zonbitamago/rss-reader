@@ -31,7 +31,7 @@ app.start().then(function () {
   return app.client.getTitle();
 }).then(function (title) {
   // ウィンドウのタイトルが"My App"であるか
-  assert.equal(title, "Electron App")
+  assert.equal(title, "rss-reader");
 }).then(function () {
   // 終わったらアプリケーションを停止する
   console.info("Test Success");

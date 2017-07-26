@@ -20,6 +20,26 @@ a {
   border-bottom-style: solid;
 }
 
+.header {
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  background-color: var(--black);
+  /* 位置(上0px) */
+  top: 0px;
+  /* 位置(左0px) */
+  left: 0px;
+}
+
+.header-content {
+  height: 50px;
+  width: 100%;
+}
+
+.body-content {
+  padding-top: 50px;
+}
+
 .head {
   height: 30px;
   color: black;
@@ -33,7 +53,7 @@ a {
 .date {
   float: right;
   margin: 2.5px 2.5px 2.5px 2.5px;
-  color:#BDC3C7;
+  color: #BDC3C7;
   font-size: smaller;
 }
 
