@@ -2,7 +2,7 @@
   --white: #fff;
   --red: #df4a76;
   --black: #292f33;
-  --image-width: 58px;
+  --image-width: 25px;
 }
 
 body {
@@ -20,15 +20,33 @@ a {
   border-bottom-style: solid;
 }
 
-.favicon {
-  width: var(--image-width);
+.head {
+  height: 30px;
+  color: black;
 }
 
-.favicon img {
+.site_icon, .site_info {
+  float: left;
+  margin: 2.5px 2.5px 2.5px 2.5px;
+}
+
+.date {
+  float: right;
+  margin: 2.5px 2.5px 2.5px 2.5px;
+  color:#BDC3C7;
+  font-size: smaller;
+}
+
+.site_icon {
   width: inherit;
-  -webkit-border-radius: 30px;
+  height: var(--image-width);
+  -webkit-border-radius: var(--image-width);
+}
+
+.site_info {
+  vertical-align: middle;
 }
 
 .main {
-  padding-left: var(--image-width);
+  padding-left: 2em;
 }
