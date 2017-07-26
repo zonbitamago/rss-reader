@@ -44,17 +44,21 @@ class MyApp extends React.Component {
     var setState = this;
     var load = function() {
       feed.load(url, function(err, rss) {
+        rss.items.sort(function(val1, val2) {
+          var val1 = val1.created;
+          var val2 = val2.created;
+          if (val1 < val2) {
+            return 1;
+          } else {
+            return -1;
+          }
+        });
+        console.log(rss.items);
         setState.setState({data: rss.items});
       });
     }
     load();
     setInterval(load, 60000);
-  }
-  loadajax(obj) {
-    feed.load(url, function(err, rss) {
-      console.log(rss.items);
-      obj.setState({data: rss.items});
-    });
   }
 }
 
