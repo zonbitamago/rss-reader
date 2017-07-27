@@ -26,7 +26,7 @@ class MyApp extends React.Component {
       };
       return (
         <article className='panel' key={idx}>
-          <div className='head'>
+          <header className='head'>
             <img className='site_icon' src={favicon_url}/>
             <div className='site_info'>
               {domain}
@@ -34,23 +34,23 @@ class MyApp extends React.Component {
             <div className='date'>
               {date}
             </div>
-          </div>
-          <div className='main'>
+          </header>
+          <main className='main'>
             <a href="javascript:void(0)" onClick={openBrowser} target="_brank">{items.title}</a>
-          </div>
+          </main>
         </article>
       )
     });
     return (
       <div>
-        <div className="header">
+        <header className="header">
           <div className="header-content">
             React in rss-reader
           </div>
-        </div>
-        <div className='body-content'>
+        </header>
+        <main className='body-content'>
           {itemNodes}
-        </div>
+        </main>
       </div>
     );
   }
