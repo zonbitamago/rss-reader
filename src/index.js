@@ -24,10 +24,13 @@ app.on("ready", e => {
     electron.shell.openExternal(arg);
   })
   mainWindow = new BrowserWindow(bounds_info);
+  mainWindow.on("close", e => {
+    fs.writeFileSync(info_path, JSON.stringify(mainWindow.getBounds()));
+  });
+
   mainWindow.loadURL(`${ROOT_PATH}/index.html`);
 });
 
 app.on("window-all-closed", e => {
-  fs.writeFileSync(info_path, JSON.stringify(mainWindow.getBounds()));
   app.quit();
 });
