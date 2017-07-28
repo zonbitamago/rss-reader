@@ -3,6 +3,7 @@
   --red: #df4a76;
   --black: #292f33;
   --image-width: 25px;
+  --home-icon-size: 25px;
 }
 
 body {
@@ -23,21 +24,42 @@ a {
 .header {
   height: 50px;
   position: fixed;
-  width: 100%;
-  background-color: var(--black);
+  width: 97vw;
   /* 位置(上0px) */
   top: 0px;
-  /* 位置(左0px) */
-  left: 0px;
+  background-color: #e1e8ed;
 }
 
 .header-content {
   height: 50px;
   width: 100%;
+  color: var(--black);
+  /*display: table-cell;
+  vertical-align: middle;*/
+}
+
+.header-content * {
+  float: left;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.home {
+  height: var(--home-icon-size);
+  width: var(--home-icon-size);
+  margin-left: 3px;
+  margin-right: 3px;
+  cursor: pointer;
+  cursor: hand;
+}
+
+h1 {
+  font-size: 24px;
 }
 
 .body-content {
-  padding-top: 50px;
+  padding-top: 42px;
+  width: 97vw;
 }
 
 .head {

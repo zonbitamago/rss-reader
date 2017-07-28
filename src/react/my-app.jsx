@@ -2,6 +2,8 @@
 
 const React = require("react");
 const feed = require('rss-to-json');
+const HomeIcon = require('react-icons/lib/ti/home-outline');
+const $ = require("jquery");
 let url;
 
 class MyApp extends React.Component {
@@ -41,11 +43,16 @@ class MyApp extends React.Component {
         </article>
       )
     });
+    var scrollTop = function() {
+      $('html, body').animate({scrollTop: 0});
+    }
+
     return (
       <div>
         <header className="header">
           <div className="header-content">
-            React in rss-reader
+            <HomeIcon onClick={scrollTop} className="home"/>
+            <h1>Rss-Reader in React-Electron</h1>
           </div>
         </header>
         <main className='body-content'>
