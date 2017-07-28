@@ -11,6 +11,10 @@ body {
   color: var(--white);
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 a {
   color: var(--red);
 }
