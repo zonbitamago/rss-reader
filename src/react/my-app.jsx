@@ -22,6 +22,7 @@ class MyApp extends React.Component {
 
     return (
       <div>
+        <aside className='sidebar'>aside</aside>
         <header className="header">
           <div className="header-content">
             <HomeIcon onClick={scrollTop} className="home"/>
