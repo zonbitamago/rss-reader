@@ -4,6 +4,7 @@ const React = require("react");
 const feed = require('rss-to-json');
 const HomeIcon = require('react-icons/lib/ti/home-outline');
 const ItemNodes = require('./itemNodes');
+const Side = require('./side');
 const $ = require("jquery");
 let url;
 
@@ -22,7 +23,7 @@ class MyApp extends React.Component {
 
     return (
       <div>
-        <aside className='sidebar'>aside</aside>
+        <Side/>
         <header className="header">
           <div className="header-content">
             <HomeIcon onClick={scrollTop} className="home"/>
