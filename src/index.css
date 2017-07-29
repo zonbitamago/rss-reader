@@ -71,7 +71,8 @@ h1 {
 .body-content {
   padding-top: 42px;
   width: var(--main-width);
-  left: var(--sidebar-width);
+  /*left: var(--sidebar-width);*/
+  margin-left: var(--sidebar-width);
   position: relative;
 }
 
@@ -110,13 +111,13 @@ h1 {
   float: left;
   height: 100vh;
   width: var(--sidebar-width);
-  position: fixed;
+  /*position: fixed;*/
 }
 
 .sideicon {
   height: var(--side-icon-size);
   width: var(--side-icon-size);
-  margin-left:3px;
+  margin-left: 3px;
 }
 
 .rss {

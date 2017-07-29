@@ -18,6 +18,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-icons": "^2.2.5",
+    "react-tooltip": "^3.3.0",
     "redux": "^3.7.2",
     "rss-to-json": "^1.0.2"
   },
