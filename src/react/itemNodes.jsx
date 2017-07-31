@@ -5,7 +5,7 @@ class ItemNodes extends React.Component {
     super(props);
   };
   render() {
-      var nodes = this.props.data.map(function(items, idx) {
+    var nodes = this.props.data.map(function(items, idx) {
       var url = items.link;
       var rssSite = items.link.substr(items.link.indexOf('u=') + 2);
       var domain = rssSite.split('/')[2];
@@ -35,7 +35,7 @@ class ItemNodes extends React.Component {
     });
     return (
       <main className='body-content'>
-      {nodes}
+        {nodes}
       </main>
     );
   }
