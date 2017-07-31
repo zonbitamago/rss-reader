@@ -118,8 +118,13 @@ h1 {
   height: var(--side-icon-size);
   width: var(--side-icon-size);
   margin-left: 3px;
+  position: fixed;
 }
 
 .rss {
   color: orange;
+}
+
+.__react_component_tooltip {
+  pointer-events: all !important;
 }

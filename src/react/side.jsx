@@ -12,7 +12,7 @@ class Side extends React.Component {
       <aside className='sidebar'>
         <nav>
           <RSS className='sideicon rss' data-tip data-for='rss' data-event='click focus'/>
-          <ReactTooltip place="right" id='rss' type="light" effect="solid" globalEventOff='click'>
+          <ReactTooltip scrollHide={false} place="right" id='rss' type="success" effect="solid" globalEventOff=''>
             <RssList/>
           </ReactTooltip>
         </nav>
