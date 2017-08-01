@@ -18,6 +18,7 @@ app.on("ready", e => {
       height: 1000
     }; // デフォルトバリュー
   }
+  bounds_info.frame = false;
 
   // レンダリングプロセスから受信する
   electron.ipcMain.on('openBrowser', (event, arg) => { // イベントバインディング

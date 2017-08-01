@@ -13,6 +13,7 @@
 body {
   background-color: var(--black);
   color: var(--white);
+  -webkit-app-region: drag;
 }
 
 body::-webkit-scrollbar {
@@ -62,6 +63,7 @@ a {
   margin-right: 3px;
   cursor: pointer;
   cursor: hand;
+  -webkit-app-region: no-drag;
 }
 
 h1 {
@@ -74,6 +76,7 @@ h1 {
   /*left: var(--sidebar-width);*/
   margin-left: var(--sidebar-width);
   position: relative;
+  -webkit-app-region: no-drag;
 }
 
 .head {
@@ -119,6 +122,7 @@ h1 {
   width: var(--side-icon-size);
   margin-left: 3px;
   position: fixed;
+  -webkit-app-region: no-drag;
 }
 
 .rss {
