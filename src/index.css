@@ -132,3 +132,9 @@ h1 {
 .__react_component_tooltip {
   pointer-events: all !important;
 }
+
+.updated {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  float: right;
+}

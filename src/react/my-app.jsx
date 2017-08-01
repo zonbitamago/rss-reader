@@ -5,6 +5,7 @@ const feed = require('rss-to-json');
 const HomeIcon = require('react-icons/lib/ti/home-outline');
 const ItemNodes = require('./itemNodes');
 const Side = require('./side');
+const moment = require('moment');
 const $ = require("jquery");
 let url;
 
@@ -13,7 +14,8 @@ class MyApp extends React.Component {
     super(props);
     url = this.props.url;
     this.state = {
-      data: []
+      data: [],
+      updated: moment().format('HH:mm:ss')
     };
   }
   render() {
@@ -28,8 +30,10 @@ class MyApp extends React.Component {
           <div className="header-content">
             <HomeIcon onClick={scrollTop} className="home"/>
             <h1>Rss-Reader in React-Electron</h1>
+            <time className='updated'>updated:{this.state.updated}</time>
           </div>
         </header>
+
         <ItemNodes url={url} data={this.state.data}/>
       </div>
     );
@@ -48,7 +52,12 @@ class MyApp extends React.Component {
           }
         });
         console.log(rss.items);
-        setState.setState({data: rss.items});
+        setState.setState(
+          {
+            data: rss.items,
+            updated: moment().format('HH:mm:ss')
+          }
+        );
       });
     }
     load();
