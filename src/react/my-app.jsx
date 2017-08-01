@@ -8,6 +8,7 @@ const Side = require('./side');
 const moment = require('moment');
 const $ = require("jquery");
 let url;
+let load;
 
 class MyApp extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class MyApp extends React.Component {
 
     return (
       <div>
-        <Side/>
+        <Side load={load}/>
         <header className="header">
           <div className="header-content">
             <HomeIcon onClick={scrollTop} className="home"/>
@@ -40,7 +41,7 @@ class MyApp extends React.Component {
   }
   componentDidMount() {
     var setState = this;
-    var load = function() {
+    load = function() {
       feed.load(url, function(err, rss) {
         rss.items.sort(function(val1, val2) {
           var val1 = val1.created;
@@ -52,12 +53,7 @@ class MyApp extends React.Component {
           }
         });
         console.log(rss.items);
-        setState.setState(
-          {
-            data: rss.items,
-            updated: moment().format('HH:mm:ss')
-          }
-        );
+        setState.setState({data: rss.items, updated: moment().format('HH:mm:ss')});
       });
     }
     load();

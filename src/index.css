@@ -117,12 +117,17 @@ h1 {
   /*position: fixed;*/
 }
 
+.sidefixed {
+  position: fixed;
+}
+
 .sideicon {
   height: var(--side-icon-size);
   width: var(--side-icon-size);
   margin-left: 3px;
-  position: fixed;
+  /*position: fixed;*/
   -webkit-app-region: no-drag;
+  margin-bottom: 1em;
 }
 
 .rss {
