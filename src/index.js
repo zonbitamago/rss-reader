@@ -24,6 +24,11 @@ app.on("ready", e => {
   electron.ipcMain.on('openBrowser', (event, arg) => { // イベントバインディング
     electron.shell.openExternal(arg);
   })
+  electron.ipcMain.on('closeApp', (event, arg) => { // イベントバインディング
+    fs.writeFileSync(info_path, JSON.stringify(mainWindow.getBounds()));
+    app.quit();
+  })
+
   mainWindow = new BrowserWindow(bounds_info);
   mainWindow.on("close", e => {
     fs.writeFileSync(info_path, JSON.stringify(mainWindow.getBounds()));

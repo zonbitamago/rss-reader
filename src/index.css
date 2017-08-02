@@ -128,10 +128,16 @@ h1 {
   /*position: fixed;*/
   -webkit-app-region: no-drag;
   margin-bottom: 1em;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .rss {
   color: orange;
+}
+
+.delete {
+  color: red;
 }
 
 .__react_component_tooltip {
