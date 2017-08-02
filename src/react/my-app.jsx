@@ -40,8 +40,19 @@ class MyApp extends React.Component {
     );
   }
   componentDidMount() {
+
     var setState = this;
     load = function() {
+      // まずはlocalStorageからデータを取得し、セットする。
+      if (localStorage) {
+        console.log('get from localStorage');
+        if (localStorage.rss) {
+          let localRss = JSON.parse(localStorage.rss);
+          console.log(localRss);
+          setState.setState({data: localRss, updated: moment().format('HH:mm:ss')});
+        }
+      }
+      // 実際にRSSをHTTP経由で取得
       feed.load(url, function(err, rss) {
         rss.items.sort(function(val1, val2) {
           var val1 = val1.created;
@@ -52,7 +63,11 @@ class MyApp extends React.Component {
             return -1;
           }
         });
+        console.log('get from http');
         console.log(rss.items);
+        if (localStorage) {
+          localStorage.rss = JSON.stringify(rss.items);
+        }
         setState.setState({data: rss.items, updated: moment().format('HH:mm:ss')});
       });
     }
