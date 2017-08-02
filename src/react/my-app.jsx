@@ -26,7 +26,7 @@ class MyApp extends React.Component {
 
     return (
       <div>
-        <Side load={load}/>
+        <Side load={load} moment={moment}/>
         <header className="header">
           <div className="header-content">
             <HomeIcon onClick={scrollTop} className="home"/>

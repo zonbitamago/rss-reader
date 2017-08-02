@@ -132,6 +132,13 @@ h1 {
   cursor: hand;
 }
 
+.sidetime {
+  position: fixed;
+      bottom: 5px;
+  left: 7px;
+  font-size: 12px;
+}
+
 .rss {
   color: orange;
 }
