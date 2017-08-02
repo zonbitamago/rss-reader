@@ -52,6 +52,9 @@ class MyApp extends React.Component {
           setState.setState({data: localRss, updated: moment().format('HH:mm:ss')});
         }
       }
+
+      // 表示速度改善のため、非同期処理とする。
+      setTimeout(
       // 実際にRSSをHTTP経由で取得
       feed.load(url, function(err, rss) {
         rss.items.sort(function(val1, val2) {
@@ -69,7 +72,7 @@ class MyApp extends React.Component {
           localStorage.rss = JSON.stringify(rss.items);
         }
         setState.setState({data: rss.items, updated: moment().format('HH:mm:ss')});
-      });
+      }), 0);
     }
     load();
     setInterval(load, 1000 * 60 * 5);
