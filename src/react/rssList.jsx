@@ -1,33 +1,33 @@
 const React = require("react");
 const fs = require("fs");
 const path = require("path");
-const info_path = path.join("./urlList.json");
+const info_path = path.join("./src/urlList.json");
 
 class RssList extends React.Component {
   constructor(props) {
     super(props);
   };
   render() {
-    // let urlList = JSON.parse('[{  "name": "test1","url": "urs"}, {  "name": "test2",  "url": "url2"}]');
-    // let urlList = JSON.parse(fs.readFileSync("./src/urlList.json", 'utf8'));
-    // let liNodes = urlList.map(function(items, idx) {
-    //   return (
-    //     <li key={idx}>{items.name}</li>
-    //   )
-    // });
-
-    let isExists = function(file) {
+    var isExists = function(file) {
       try {
         fs.statSync(file);
-        return "true"
+        return true
       } catch (err) {
         if (err.code === 'ENOENT')
-          return "false"
+          return false
       }
     }
+    let liNodes = "";
 
-    let liNodes = isExists('src/urlList.json');
-    // let liNodes = __dirname;
+    if (isExists(info_path)) {
+      // let urlList = JSON.parse('[{  "name": "test1","url": "urs"}, {  "name": "test2",  "url": "url2"}]');
+      let urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
+      liNodes = urlList.map(function(items, idx) {
+        return (
+          <li key={idx}>{items.name}</li>
+        )
+      });
+    }
 
     let save = function() {
       console.log('save');

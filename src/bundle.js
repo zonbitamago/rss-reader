@@ -82402,7 +82402,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var React = __webpack_require__(18);
 var fs = __webpack_require__(126);
 var path = __webpack_require__(78);
-var info_path = path.join("./urlList.json");
+var info_path = path.join("./src/urlList.json");
 
 var RssList = function (_React$Component) {
   _inherits(RssList, _React$Component);
@@ -82416,25 +82416,27 @@ var RssList = function (_React$Component) {
   _createClass(RssList, [{
     key: "render",
     value: function render() {
-      // let urlList = JSON.parse('[{  "name": "test1","url": "urs"}, {  "name": "test2",  "url": "url2"}]');
-      // let urlList = JSON.parse(fs.readFileSync("./src/urlList.json", 'utf8'));
-      // let liNodes = urlList.map(function(items, idx) {
-      //   return (
-      //     <li key={idx}>{items.name}</li>
-      //   )
-      // });
-
       var isExists = function isExists(file) {
         try {
           fs.statSync(file);
-          return "true";
+          return true;
         } catch (err) {
-          if (err.code === 'ENOENT') return "false";
+          if (err.code === 'ENOENT') return false;
         }
       };
+      var liNodes = "";
 
-      var liNodes = isExists('src/urlList.json');
-      // let liNodes = __dirname;
+      if (isExists(info_path)) {
+        // let urlList = JSON.parse('[{  "name": "test1","url": "urs"}, {  "name": "test2",  "url": "url2"}]');
+        var urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
+        liNodes = urlList.map(function (items, idx) {
+          return React.createElement(
+            "li",
+            { key: idx },
+            items.name
+          );
+        });
+      }
 
       var save = function save() {
         console.log('save');
