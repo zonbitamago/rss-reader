@@ -6,7 +6,8 @@
   "scripts": {
     "start": "./node_modules/.bin/webpack && electron ./src",
     "test": "node test/spectron_test.js",
-    "build": "./node_modules/.bin/webpack",
+    "build": "./node_modules/.bin/webpack && node build.js",
+    "jsx_build": "./node_modules/.bin/webpack",
     "dev_build":"./node_modules/.bin/webpack --watch"
   },
   "keywords": [],
