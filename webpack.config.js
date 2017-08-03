@@ -4,15 +4,8 @@ module.exports = {
   entry: './src/react/my-app.jsx',
   output: {
     filename: './src/bundle.js'
-    // ,libraryTarget: 'commonjs2'
   },
-  target: "electron",
-  // node: {
-  //   fs: 'empty',
-  //   net: 'empty',
-  //   tls: 'empty'
-  // },
-  // externals: ['fs'],
+  target: "electron-main",
   module: {
     rules: [
       {
@@ -26,5 +19,6 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  // debug: true
 };

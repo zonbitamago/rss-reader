@@ -8,12 +8,26 @@ class RssList extends React.Component {
     super(props);
   };
   render() {
-    let urlList = JSON.parse(fs.readFileSync("./src/urlList.json", 'utf8'));
-    let liNodes = urlList.map(function(items, idx) {
-      return (
-        <li key={idx}>{items.name}</li>
-      )
-    });
+    // let urlList = JSON.parse('[{  "name": "test1","url": "urs"}, {  "name": "test2",  "url": "url2"}]');
+    // let urlList = JSON.parse(fs.readFileSync("./src/urlList.json", 'utf8'));
+    // let liNodes = urlList.map(function(items, idx) {
+    //   return (
+    //     <li key={idx}>{items.name}</li>
+    //   )
+    // });
+
+    let isExists = function(file) {
+      try {
+        fs.statSync(file);
+        return "true"
+      } catch (err) {
+        if (err.code === 'ENOENT')
+          return "false"
+      }
+    }
+
+    let liNodes = isExists('src/urlList.json');
+    // let liNodes = __dirname;
 
     let save = function() {
       console.log('save');

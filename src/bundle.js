@@ -1,4 +1,3 @@
-module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -64785,7 +64784,7 @@ MemoryCookieStore.prototype.getAllCookies = function(cb) {
 /* 563 */
 /***/ (function(module, exports) {
 
-module.exports = {"_args":[[{"raw":"tough-cookie@~2.3.0","scope":null,"escapedName":"tough-cookie","name":"tough-cookie","rawSpec":"~2.3.0","spec":">=2.3.0 <2.4.0","type":"range"},"c:\\node\\src\\rss-reader\\node_modules\\request"]],"_from":"tough-cookie@>=2.3.0 <2.4.0","_id":"tough-cookie@2.3.2","_inCache":true,"_location":"/tough-cookie","_nodeVersion":"7.0.0","_npmOperationalInternal":{"host":"packages-12-west.internal.npmjs.com","tmp":"tmp/tough-cookie-2.3.2.tgz_1477415232912_0.6133609430398792"},"_npmUser":{"name":"jstash","email":"jstash@gmail.com"},"_npmVersion":"3.10.8","_phantomChildren":{},"_requested":{"raw":"tough-cookie@~2.3.0","scope":null,"escapedName":"tough-cookie","name":"tough-cookie","rawSpec":"~2.3.0","spec":">=2.3.0 <2.4.0","type":"range"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.2.tgz","_shasum":"f081f76e4c85720e6c37a5faced737150d84072a","_shrinkwrap":null,"_spec":"tough-cookie@~2.3.0","_where":"c:\\node\\src\\rss-reader\\node_modules\\request","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"directories":{},"dist":{"shasum":"f081f76e4c85720e6c37a5faced737150d84072a","tarball":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.2.tgz"},"engines":{"node":">=0.8"},"files":["lib"],"gitHead":"2610df5dc8ef7373a483d509006e5887572a4076","homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","maintainers":[{"name":"awaterma","email":"awaterma@awaterma.net"},{"name":"jstash","email":"jstash@gmail.com"},{"name":"nexxy","email":"emily@contactvibe.com"}],"name":"tough-cookie","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.2"}
+module.exports = {"_args":[[{"raw":"tough-cookie@~2.3.0","scope":null,"escapedName":"tough-cookie","name":"tough-cookie","rawSpec":"~2.3.0","spec":">=2.3.0 <2.4.0","type":"range"},"/Users/k-takiuchi/Documents/rss-reader/node_modules/request"]],"_from":"tough-cookie@>=2.3.0 <2.4.0","_id":"tough-cookie@2.3.2","_inCache":true,"_location":"/tough-cookie","_nodeVersion":"7.0.0","_npmOperationalInternal":{"host":"packages-12-west.internal.npmjs.com","tmp":"tmp/tough-cookie-2.3.2.tgz_1477415232912_0.6133609430398792"},"_npmUser":{"name":"jstash","email":"jstash@gmail.com"},"_npmVersion":"3.10.8","_phantomChildren":{},"_requested":{"raw":"tough-cookie@~2.3.0","scope":null,"escapedName":"tough-cookie","name":"tough-cookie","rawSpec":"~2.3.0","spec":">=2.3.0 <2.4.0","type":"range"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.2.tgz","_shasum":"f081f76e4c85720e6c37a5faced737150d84072a","_shrinkwrap":null,"_spec":"tough-cookie@~2.3.0","_where":"/Users/k-takiuchi/Documents/rss-reader/node_modules/request","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"directories":{},"dist":{"shasum":"f081f76e4c85720e6c37a5faced737150d84072a","tarball":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.2.tgz"},"engines":{"node":">=0.8"},"files":["lib"],"gitHead":"2610df5dc8ef7373a483d509006e5887572a4076","homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","maintainers":[{"name":"awaterma","email":"awaterma@awaterma.net"},{"name":"jstash","email":"jstash@gmail.com"},{"name":"nexxy","email":"emily@contactvibe.com"}],"name":"tough-cookie","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.2"}
 
 /***/ }),
 /* 564 */
@@ -67551,7 +67550,7 @@ internals.nonceFunc = function (key, nonce, ts, nonceCallback) {
 /* 574 */
 /***/ (function(module, exports) {
 
-module.exports = {"_args":[[{"raw":"hawk@~3.1.3","scope":null,"escapedName":"hawk","name":"hawk","rawSpec":"~3.1.3","spec":">=3.1.3 <3.2.0","type":"range"},"c:\\node\\src\\rss-reader\\node_modules\\request"]],"_from":"hawk@>=3.1.3 <3.2.0","_id":"hawk@3.1.3","_inCache":true,"_location":"/hawk","_nodeVersion":"5.4.1","_npmUser":{"name":"hueniverse","email":"eran@hammer.io"},"_npmVersion":"3.3.12","_phantomChildren":{},"_requested":{"raw":"hawk@~3.1.3","scope":null,"escapedName":"hawk","name":"hawk","rawSpec":"~3.1.3","spec":">=3.1.3 <3.2.0","type":"range"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/hawk/-/hawk-3.1.3.tgz","_shasum":"078444bd7c1640b0fe540d2c9b73d59678e8e1c4","_shrinkwrap":null,"_spec":"hawk@~3.1.3","_where":"c:\\node\\src\\rss-reader\\node_modules\\request","author":{"name":"Eran Hammer","email":"eran@hammer.io","url":"http://hueniverse.com"},"browser":"./lib/browser.js","bugs":{"url":"https://github.com/hueniverse/hawk/issues"},"contributors":[],"dependencies":{"boom":"2.x.x","cryptiles":"2.x.x","hoek":"2.x.x","sntp":"1.x.x"},"description":"HTTP Hawk Authentication Scheme","devDependencies":{"code":"1.x.x","lab":"5.x.x"},"directories":{},"dist":{"shasum":"078444bd7c1640b0fe540d2c9b73d59678e8e1c4","tarball":"https://registry.npmjs.org/hawk/-/hawk-3.1.3.tgz"},"engines":{"node":">=0.10.32"},"gitHead":"2f0b93b34ed9b0ebc865838ef70c6a4035591430","homepage":"https://github.com/hueniverse/hawk#readme","keywords":["http","authentication","scheme","hawk"],"license":"BSD-3-Clause","main":"lib/index.js","maintainers":[{"name":"hueniverse","email":"eran@hueniverse.com"}],"name":"hawk","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git://github.com/hueniverse/hawk.git"},"scripts":{"test":"lab -a code -t 100 -L","test-cov-html":"lab -a code -r html -o coverage.html"},"version":"3.1.3"}
+module.exports = {"_args":[[{"raw":"hawk@~3.1.3","scope":null,"escapedName":"hawk","name":"hawk","rawSpec":"~3.1.3","spec":">=3.1.3 <3.2.0","type":"range"},"/Users/k-takiuchi/Documents/rss-reader/node_modules/request"]],"_from":"hawk@>=3.1.3 <3.2.0","_id":"hawk@3.1.3","_inCache":true,"_location":"/hawk","_nodeVersion":"5.4.1","_npmUser":{"name":"hueniverse","email":"eran@hammer.io"},"_npmVersion":"3.3.12","_phantomChildren":{},"_requested":{"raw":"hawk@~3.1.3","scope":null,"escapedName":"hawk","name":"hawk","rawSpec":"~3.1.3","spec":">=3.1.3 <3.2.0","type":"range"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/hawk/-/hawk-3.1.3.tgz","_shasum":"078444bd7c1640b0fe540d2c9b73d59678e8e1c4","_shrinkwrap":null,"_spec":"hawk@~3.1.3","_where":"/Users/k-takiuchi/Documents/rss-reader/node_modules/request","author":{"name":"Eran Hammer","email":"eran@hammer.io","url":"http://hueniverse.com"},"browser":"./lib/browser.js","bugs":{"url":"https://github.com/hueniverse/hawk/issues"},"contributors":[],"dependencies":{"boom":"2.x.x","cryptiles":"2.x.x","hoek":"2.x.x","sntp":"1.x.x"},"description":"HTTP Hawk Authentication Scheme","devDependencies":{"code":"1.x.x","lab":"5.x.x"},"directories":{},"dist":{"shasum":"078444bd7c1640b0fe540d2c9b73d59678e8e1c4","tarball":"https://registry.npmjs.org/hawk/-/hawk-3.1.3.tgz"},"engines":{"node":">=0.10.32"},"gitHead":"2f0b93b34ed9b0ebc865838ef70c6a4035591430","homepage":"https://github.com/hueniverse/hawk#readme","keywords":["http","authentication","scheme","hawk"],"license":"BSD-3-Clause","main":"lib/index.js","maintainers":[{"name":"hueniverse","email":"eran@hueniverse.com"}],"name":"hawk","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git://github.com/hueniverse/hawk.git"},"scripts":{"test":"lab -a code -t 100 -L","test-cov-html":"lab -a code -r html -o coverage.html"},"version":"3.1.3"}
 
 /***/ }),
 /* 575 */
@@ -82417,14 +82416,25 @@ var RssList = function (_React$Component) {
   _createClass(RssList, [{
     key: "render",
     value: function render() {
-      var urlList = JSON.parse(fs.readFileSync("./src/urlList.json", 'utf8'));
-      var liNodes = urlList.map(function (items, idx) {
-        return React.createElement(
-          "li",
-          { key: idx },
-          items.name
-        );
-      });
+      // let urlList = JSON.parse('[{  "name": "test1","url": "urs"}, {  "name": "test2",  "url": "url2"}]');
+      // let urlList = JSON.parse(fs.readFileSync("./src/urlList.json", 'utf8'));
+      // let liNodes = urlList.map(function(items, idx) {
+      //   return (
+      //     <li key={idx}>{items.name}</li>
+      //   )
+      // });
+
+      var isExists = function isExists(file) {
+        try {
+          fs.statSync(file);
+          return "true";
+        } catch (err) {
+          if (err.code === 'ENOENT') return "false";
+        }
+      };
+
+      var liNodes = isExists('src/urlList.json');
+      // let liNodes = __dirname;
 
       var save = function save() {
         console.log('save');
