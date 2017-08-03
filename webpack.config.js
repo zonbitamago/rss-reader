@@ -3,8 +3,8 @@ const path = require('path');
 module.exports = {
   entry: './src/react/my-app.jsx',
   output: {
-    filename: './src/bundle.js',
-    libraryTarget: 'commonjs2'
+    filename: './src/bundle.js'
+    // ,libraryTarget: 'commonjs2'
   },
   target: "electron",
   // node: {
@@ -12,7 +12,7 @@ module.exports = {
   //   net: 'empty',
   //   tls: 'empty'
   // },
-  externals: ['fs'],
+  // externals: ['fs'],
   module: {
     rules: [
       {
