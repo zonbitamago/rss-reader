@@ -1,14 +1,14 @@
 const React = require("react");
 const fs = require("fs");
 const path = require("path");
-const info_path = path.join(__dirname, "./urlList.json");
+const info_path = path.join("./urlList.json");
 
 class RssList extends React.Component {
   constructor(props) {
     super(props);
   };
   render() {
-    let urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
+    let urlList = JSON.parse(fs.readFileSync("./src/urlList.json", 'utf8'));
     let liNodes = urlList.map(function(items, idx) {
       return (
         <li key={idx}>{items.name}</li>

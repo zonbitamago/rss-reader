@@ -1,10 +1,11 @@
 "use strict";
 
 const React = require("react");
+const ReactDOM = require("react-dom");
 const feed = require('rss-to-json');
 const HomeIcon = require('react-icons/lib/ti/home-outline');
-const ItemNodes = require('./itemNodes');
-const Side = require('./side');
+const ItemNodes = require('./itemNodes.jsx');
+const Side = require('./side.jsx');
 const moment = require('moment');
 const $ = require("jquery");
 let url;

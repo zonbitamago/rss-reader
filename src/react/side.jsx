@@ -3,7 +3,7 @@ const RSS = require('react-icons/lib/ti/rss');
 const UPDATE = require('react-icons/lib/ti/arrow-sync');
 const CLOSE = require('react-icons/lib/ti/delete-outline');
 const ReactTooltip = require('react-tooltip')
-const RssList = require('./rssList');
+const RssList = require('./rssList.jsx');
 let moment;
 
 const getMMDD = function() {
