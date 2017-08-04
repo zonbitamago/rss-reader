@@ -82402,7 +82402,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var React = __webpack_require__(18);
 var fs = __webpack_require__(126);
 var path = __webpack_require__(78);
-var info_path = path.join("./src/urlList.json");
+var info_path = path.join("./urlList.json");
 
 var RssList = function (_React$Component) {
   _inherits(RssList, _React$Component);
@@ -82410,7 +82410,13 @@ var RssList = function (_React$Component) {
   function RssList(props) {
     _classCallCheck(this, RssList);
 
-    return _possibleConstructorReturn(this, (RssList.__proto__ || Object.getPrototypeOf(RssList)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (RssList.__proto__ || Object.getPrototypeOf(RssList)).call(this, props));
+
+    _this.state = {
+      name: "",
+      url: ""
+    };
+    return _this;
   }
 
   _createClass(RssList, [{
@@ -82429,6 +82435,7 @@ var RssList = function (_React$Component) {
       if (isExists(info_path)) {
         // let urlList = JSON.parse('[{  "name": "test1","url": "urs"}, {  "name": "test2",  "url": "url2"}]');
         var urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
+        console.log(urlList);
         liNodes = urlList.map(function (items, idx) {
           return React.createElement(
             "li",
@@ -82438,8 +82445,24 @@ var RssList = function (_React$Component) {
         });
       }
 
-      var save = function save() {
-        console.log('save');
+      var setState = this;
+
+      var changeName = function changeName(e) {
+        setState.state.name = e.target.value;
+      };
+
+      var changeURL = function changeURL(e) {
+        setState.state.url = e.target.value;
+      };
+
+      var save = function save(e) {
+        console.log(setState.state);
+        // fs.writeFile(info_path, JSON.stringify(setState.state.toString()), function(err) {
+        //   console.log('err');
+        //   console.log(err);
+        // });
+        setState.setState({ name: "", url: "" });
+        console.log(setState.state);
       };
       return React.createElement(
         "div",
@@ -82466,7 +82489,7 @@ var RssList = function (_React$Component) {
               React.createElement(
                 "td",
                 null,
-                React.createElement("input", { type: "text" })
+                React.createElement("input", { type: "text", onChange: changeName })
               )
             ),
             React.createElement(
@@ -82480,7 +82503,7 @@ var RssList = function (_React$Component) {
               React.createElement(
                 "td",
                 null,
-                React.createElement("input", { type: "text" })
+                React.createElement("input", { type: "text", onChange: changeURL })
               )
             )
           )

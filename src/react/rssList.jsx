@@ -1,11 +1,15 @@
 const React = require("react");
 const fs = require("fs");
 const path = require("path");
-const info_path = path.join("./src/urlList.json");
+const info_path = path.join("./urlList.json");
 
 class RssList extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      name: "",
+      url: ""
+    }
   };
   render() {
     var isExists = function(file) {
@@ -22,6 +26,7 @@ class RssList extends React.Component {
     if (isExists(info_path)) {
       // let urlList = JSON.parse('[{  "name": "test1","url": "urs"}, {  "name": "test2",  "url": "url2"}]');
       let urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
+      console.log(urlList);
       liNodes = urlList.map(function(items, idx) {
         return (
           <li key={idx}>{items.name}</li>
@@ -29,8 +34,24 @@ class RssList extends React.Component {
       });
     }
 
-    let save = function() {
-      console.log('save');
+    let setState = this;
+
+    let changeName = function(e) {
+      setState.state.name = e.target.value;
+    }
+
+    let changeURL = function(e) {
+      setState.state.url = e.target.value;
+    }
+
+    let save = function(e) {
+      console.log(setState.state);
+      // fs.writeFile(info_path, JSON.stringify(setState.state.toString()), function(err) {
+      //   console.log('err');
+      //   console.log(err);
+      // });
+      setState.setState({name:"",url:""});
+      console.log(setState.state);
     };
     return (
       <div>
@@ -44,7 +65,7 @@ class RssList extends React.Component {
                 name:
               </td>
               <td>
-                <input type='text'/>
+                <input type='text' onChange={changeName}/>
               </td>
             </tr>
             <tr>
@@ -52,7 +73,7 @@ class RssList extends React.Component {
                 url:
               </td>
               <td>
-                <input type='text'/>
+                <input type='text' onChange={changeURL}/>
               </td>
             </tr>
           </tbody>
