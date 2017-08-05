@@ -17,7 +17,8 @@ class MyApp extends React.Component {
     url = this.props.url;
     this.state = {
       data: [],
-      updated: moment().format('HH:mm:ss')
+      updated: moment().format('HH:mm:ss'),
+      isFetching: true
     };
   }
   render() {
@@ -36,7 +37,7 @@ class MyApp extends React.Component {
           </div>
         </header>
 
-        <ItemNodes url={url} data={this.state.data}/>
+        <ItemNodes url={url} data={this.state.data} isFetching={this.state.isFetching}/>
       </div>
     );
   }
@@ -44,6 +45,7 @@ class MyApp extends React.Component {
 
     var setState = this;
     load = function() {
+      setState.setState({isFetching: true});
       // まずはlocalStorageからデータを取得し、セットする。
       if (localStorage) {
         console.log('get from localStorage');
@@ -72,7 +74,7 @@ class MyApp extends React.Component {
         if (localStorage) {
           localStorage.rss = JSON.stringify(rss.items);
         }
-        setState.setState({data: rss.items, updated: moment().format('HH:mm:ss')});
+        setState.setState({data: rss.items, updated: moment().format('HH:mm:ss'), isFetching: false});
       }), 0);
     }
     load();

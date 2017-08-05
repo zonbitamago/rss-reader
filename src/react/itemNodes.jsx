@@ -1,4 +1,5 @@
 const React = require("react");
+const Loading = require('react-loading-animation');
 
 class ItemNodes extends React.Component {
   constructor(props) {
@@ -35,7 +36,9 @@ class ItemNodes extends React.Component {
     });
     return (
       <main className='body-content'>
+        <Loading isLoading={this.props.isFetching}>
         {nodes}
+        </Loading>
       </main>
     );
   }
