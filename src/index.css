@@ -156,3 +156,7 @@ h1 {
   margin-bottom: 16px;
   float: right;
 }
+
+.rssList{
+  list-style: none;
+}

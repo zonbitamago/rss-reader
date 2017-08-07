@@ -25,13 +25,35 @@ class RssList extends React.Component {
     let liNodes = "";
     set = new Set();
 
+    let clearURLContent = function(set, name) {
+      var delState;
+      set.forEach(function(val) {
+        if (val.name == name) {
+          delState = val;
+        }
+      });
+      set.delete(delState);
+    };
+
+    let delItem = function(e) {
+      console.log('delItem');
+      clearURLContent(set, e.target.value);
+      fs.writeFileSync(info_path, JSON.stringify([...set]), function(err) {
+        console.log('err');
+        console.log(err);
+      });
+      console.log(set);
+    };
+
     if (isExists(info_path)) {
       let urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
       console.log(urlList);
       liNodes = urlList.map(function(items, idx) {
         set.add(items);
         return (
-          <li key={idx}>{items.name}</li>
+          <li className='rssList' key={idx}>
+            <input type='checkbox' onChange={delItem} value={items.name}/> {items.name}
+          </li>
         )
       });
     }
@@ -74,6 +96,7 @@ class RssList extends React.Component {
       });
       setState.setState({name: "", url: ""});
     };
+
     return (
       <div>
         <ul>
