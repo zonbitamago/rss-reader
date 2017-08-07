@@ -1,7 +1,7 @@
 const React = require("react");
 const fs = require("fs");
 const path = require("path");
-const info_path = path.join("./urlList.json");
+const info_path = path.join(require('electron').remote.app.getPath("userData"), "./urlList.json");
 let set;
 
 class RssList extends React.Component {
@@ -58,7 +58,7 @@ class RssList extends React.Component {
           }
         });
 
-        if(!exists){
+        if (!exists) {
           set.add(state.state);
         }
       }
@@ -67,14 +67,12 @@ class RssList extends React.Component {
     let save = function(e) {
       setURLContent(set, setState);
 
-      // set.add(setState.state);
       console.log('set:', set);
       fs.writeFileSync(info_path, JSON.stringify([...set]), function(err) {
         console.log('err');
         console.log(err);
       });
       setState.setState({name: "", url: ""});
-      // console.log(setState.state);
     };
     return (
       <div>
