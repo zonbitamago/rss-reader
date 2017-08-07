@@ -43,7 +43,7 @@ class Side extends React.Component {
             <br/>
             <UPDATE className='sideicon update' onClick={this.props.load}/>
             <br/>
-            <RSS className='sideicon rss' data-tip data-for='rss' data-event='click focus'/>
+            <RSS className='sideicon rss' data-tip data-for='rss' data-event='click'/>
           </div>
           <ReactTooltip scrollHide={false} place="right" id='rss' type="success" effect="solid" globalEventOff=''>
             <RssList/>
