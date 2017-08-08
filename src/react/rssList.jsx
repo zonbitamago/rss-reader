@@ -42,6 +42,7 @@ class RssList extends React.Component {
         console.log('err');
         console.log(err);
       });
+      setState.setState({name: "", url: ""});
       console.log(set);
     };
 
@@ -94,7 +95,6 @@ class RssList extends React.Component {
         console.log('err');
         console.log(err);
       });
-      setState.setState({name: "", url: ""});
     };
 
     return (
