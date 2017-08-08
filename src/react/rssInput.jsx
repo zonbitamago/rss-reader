@@ -26,11 +26,11 @@ class RssInput extends React.Component {
 
   setURLContent() {
     var state = this;
-    if (set.size == 0) {
-      set.add(state.state);
+    if (this.props.set.size == 0) {
+      this.props.set.add(state.state);
     } else {
       var exists = false;
-      set.forEach(function(val) {
+      this.props.set.forEach(function(val) {
         if (val.name == state.state.name) {
           exists = true;
           val.url = state.state.url;
@@ -38,7 +38,7 @@ class RssInput extends React.Component {
       });
 
       if (!exists) {
-        set.add(state.state);
+        this.props.set.add(state.state);
       }
     }
   };
@@ -46,8 +46,8 @@ class RssInput extends React.Component {
   save() {
     this.setURLContent();
 
-    console.log('set:', set);
-    fs.writeFileSync(info_path, JSON.stringify([...set]), function(err) {
+    console.log('set:', this.props.set);
+    fs.writeFileSync(info_path, JSON.stringify([...this.props.set]), function(err) {
       console.log('err');
       console.log(err);
     });

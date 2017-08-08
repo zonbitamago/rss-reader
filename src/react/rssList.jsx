@@ -66,7 +66,7 @@ class RssList extends React.Component {
         <ul>
           {liNodes}
         </ul>
-        <RssInput/>
+        <RssInput set={set}/>
       </div>
     );
   }
