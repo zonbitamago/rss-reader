@@ -82575,20 +82575,23 @@ var RssList = function (_React$Component) {
       name: "",
       url: ""
     };
+    _this.isExists = _this.isExists.bind(_this);
     return _this;
   }
 
   _createClass(RssList, [{
+    key: "isExists",
+    value: function isExists(file) {
+      try {
+        fs.statSync(file);
+        return true;
+      } catch (err) {
+        if (err.code === 'ENOENT') return false;
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var isExists = function isExists(file) {
-        try {
-          fs.statSync(file);
-          return true;
-        } catch (err) {
-          if (err.code === 'ENOENT') return false;
-        }
-      };
       var liNodes = "";
       set = new Set();
       var setState = this;
@@ -82610,11 +82613,12 @@ var RssList = function (_React$Component) {
           console.log('err');
           console.log(err);
         });
-        setState.setState({ name: "", url: "" });
+        // setState.setState({name: "", url: ""});
+        setState.forceUpdate();
         console.log(set);
       };
 
-      if (isExists(info_path)) {
+      if (this.isExists(info_path)) {
         var urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
         console.log(urlList);
         liNodes = urlList.map(function (items, idx) {
@@ -82637,7 +82641,7 @@ var RssList = function (_React$Component) {
           null,
           liNodes
         ),
-        React.createElement(RssInput, { set: set })
+        React.createElement(RssInput, { parent: setState, set: set })
       );
     }
   }]);
@@ -82729,6 +82733,7 @@ var RssInput = function (_React$Component) {
         console.log('err');
         console.log(err);
       });
+      this.props.parent.forceUpdate();
       console.log('save');
     }
   }, {

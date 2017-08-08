@@ -51,6 +51,7 @@ class RssInput extends React.Component {
       console.log('err');
       console.log(err);
     });
+    this.props.parent.forceUpdate();
     console.log('save');
   };
 

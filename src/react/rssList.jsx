@@ -12,17 +12,19 @@ class RssList extends React.Component {
       name: "",
       url: ""
     }
+    this.isExists = this.isExists.bind(this);
   };
-  render() {
-    var isExists = function(file) {
-      try {
-        fs.statSync(file);
-        return true
-      } catch (err) {
-        if (err.code === 'ENOENT')
-          return false
-      }
+  isExists(file) {
+    try {
+      fs.statSync(file);
+      return true
+    } catch (err) {
+      if (err.code === 'ENOENT')
+        return false
     }
+  };
+
+  render() {
     let liNodes = "";
     set = new Set();
     let setState = this;
@@ -44,11 +46,12 @@ class RssList extends React.Component {
         console.log('err');
         console.log(err);
       });
-      setState.setState({name: "", url: ""});
+      // setState.setState({name: "", url: ""});
+      setState.forceUpdate();
       console.log(set);
     };
 
-    if (isExists(info_path)) {
+    if (this.isExists(info_path)) {
       let urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
       console.log(urlList);
       liNodes = urlList.map(function(items, idx) {
@@ -66,7 +69,7 @@ class RssList extends React.Component {
         <ul>
           {liNodes}
         </ul>
-        <RssInput set={set}/>
+        <RssInput parent={setState} set={set}/>
       </div>
     );
   }
