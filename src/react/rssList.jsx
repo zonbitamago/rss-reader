@@ -1,4 +1,5 @@
 const React = require("react");
+const RssInput = require('./rssInput.jsx');
 const fs = require("fs");
 const path = require("path");
 const info_path = path.join(require('electron').remote.app.getPath("userData"), "./urlList.json");
@@ -24,6 +25,7 @@ class RssList extends React.Component {
     }
     let liNodes = "";
     set = new Set();
+    let setState = this;
 
     let clearURLContent = function(set, name) {
       var delState;
@@ -59,71 +61,12 @@ class RssList extends React.Component {
       });
     }
 
-    let setState = this;
-
-    let changeName = function(e) {
-      setState.state.name = e.target.value;
-    }
-
-    let changeURL = function(e) {
-      setState.state.url = e.target.value;
-    }
-
-    let setURLContent = function(set, state) {
-      if (set.size == 0) {
-        set.add(state.state);
-      } else {
-        var exists = false;
-        set.forEach(function(val) {
-          if (val.name == state.state.name) {
-            exists = true;
-            val.url = state.state.url;
-          }
-        });
-
-        if (!exists) {
-          set.add(state.state);
-        }
-      }
-    };
-
-    let save = function(e) {
-      setURLContent(set, setState);
-
-      console.log('set:', set);
-      fs.writeFileSync(info_path, JSON.stringify([...set]), function(err) {
-        console.log('err');
-        console.log(err);
-      });
-    };
-
     return (
       <div>
         <ul>
           {liNodes}
         </ul>
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                name:
-              </td>
-              <td>
-                <input type='text' value={setState.name} onChange={changeName}/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                url:
-              </td>
-              <td>
-                <input type='text' value={setState.url} onChange={changeURL}/>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <br/>
-        <button onClick={save}>save</button>
+        <RssInput/>
       </div>
     );
   }
