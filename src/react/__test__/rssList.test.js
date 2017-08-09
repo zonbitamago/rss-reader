@@ -15,6 +15,9 @@ test('rssList', function() {
     const rssListNode = ReactDOM.findDOMNode(instance);
     return {instance, rssListNode};
 
-    expect(true).to.eq(true);
   }
+
+  test('sample',function(){
+    expect(true).to.eq(true);
+  })
 });
