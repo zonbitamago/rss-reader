@@ -14,7 +14,7 @@ app.on("ready", e => {
     bounds_info = JSON.parse(fs.readFileSync(info_path, 'utf8'));
   } catch (e) {
     bounds_info = {
-      width: 800,
+      width: 510,
       height: 1000
     }; // デフォルトバリュー
   }
