@@ -82607,14 +82607,16 @@ var RssList = function (_React$Component) {
       };
 
       var delItem = function delItem(e) {
-        console.log('delItem');
-        clearURLContent(set, e.target.value);
-        fs.writeFileSync(info_path, JSON.stringify([].concat(_toConsumableArray(set))), function (err) {
-          console.log('err');
-          console.log(err);
-        });
-        setState.forceUpdate();
-        console.log(set);
+        if (confirm('削除しますか?')) {
+          console.log('delItem');
+          clearURLContent(set, e.target.value);
+          fs.writeFileSync(info_path, JSON.stringify([].concat(_toConsumableArray(set))), function (err) {
+            console.log('err');
+            console.log(err);
+          });
+          setState.forceUpdate();
+          console.log(set);
+        }
       };
 
       if (this.isExists(info_path)) {

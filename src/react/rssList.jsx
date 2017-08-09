@@ -40,14 +40,16 @@ class RssList extends React.Component {
     };
 
     let delItem = function(e) {
-      console.log('delItem');
-      clearURLContent(set, e.target.value);
-      fs.writeFileSync(info_path, JSON.stringify([...set]), function(err) {
-        console.log('err');
-        console.log(err);
-      });
-      setState.forceUpdate();
-      console.log(set);
+      if (confirm('削除しますか?')) {
+        console.log('delItem');
+        clearURLContent(set, e.target.value);
+        fs.writeFileSync(info_path, JSON.stringify([...set]), function(err) {
+          console.log('err');
+          console.log(err);
+        });
+        setState.forceUpdate();
+        console.log(set);
+      }
     };
 
     if (this.isExists(info_path)) {
