@@ -46,7 +46,6 @@ class RssList extends React.Component {
         console.log('err');
         console.log(err);
       });
-      // setState.setState({name: "", url: ""});
       setState.forceUpdate();
       console.log(set);
     };
@@ -56,9 +55,14 @@ class RssList extends React.Component {
       console.log(urlList);
       liNodes = urlList.map(function(items, idx) {
         set.add(items);
+        var openBrowser = function() {
+          //メインプロセスへ送信する
+          require("electron").ipcRenderer.send('openBrowser', items.url);
+        };
         return (
           <li className='rssList' key={idx}>
-            <input type='checkbox' onChange={delItem} value={items.name}/> {items.name}
+            <input type='checkbox' onChange={delItem} value={items.name}/>
+            <a href='#' onClick={openBrowser}>{items.name}</a>
           </li>
         )
       });
