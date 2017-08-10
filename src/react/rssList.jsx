@@ -2,7 +2,7 @@ const React = require("react");
 const RssInput = require('./rssInput.jsx');
 const fs = require("fs");
 const path = require("path");
-const info_path = path.join(require('electron').remote.app.getPath("userData"), "./urlList.json");
+let info_path;
 let set;
 
 class RssList extends React.Component {
@@ -12,6 +12,7 @@ class RssList extends React.Component {
       name: "",
       url: ""
     }
+    info_path = this.props.info_path;
     this.isExists = this.isExists.bind(this);
   };
   isExists(file) {
@@ -75,7 +76,7 @@ class RssList extends React.Component {
         <ul>
           {liNodes}
         </ul>
-        <RssInput parent={setState} set={set}/>
+        <RssInput parent={setState} set={set} info_path={info_path}/>
       </div>
     );
   }

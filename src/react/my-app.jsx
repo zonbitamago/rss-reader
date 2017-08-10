@@ -8,6 +8,8 @@ const ItemNodes = require('./itemNodes.jsx');
 const Side = require('./side.jsx');
 const moment = require('moment');
 const $ = require("jquery");
+const path = require("path");
+const info_path = path.join(require('electron').remote.app.getPath("userData"), "./urlList.json");
 let url;
 let load;
 
@@ -28,7 +30,7 @@ class MyApp extends React.Component {
 
     return (
       <div>
-        <Side load={load} moment={moment}/>
+        <Side load={load} moment={moment} info_path={info_path}/>
         <header className="header">
           <div className="header-content">
             <HomeIcon onClick={scrollTop} className="home"/>
