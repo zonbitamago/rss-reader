@@ -2,7 +2,7 @@
 
 const React = require("react");
 const ReactDOM = require("react-dom");
-const feed = require('rss-to-json');
+const feed = require('dans-rss-to-json');
 const HomeIcon = require('react-icons/lib/ti/home-outline');
 const ItemNodes = require('./itemNodes.jsx');
 const Side = require('./side.jsx');

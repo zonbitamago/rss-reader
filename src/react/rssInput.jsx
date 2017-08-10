@@ -2,7 +2,7 @@ const React = require("react");
 const fs = require("fs");
 const path = require("path");
 const info_path = path.join(require('electron').remote.app.getPath("userData"), "./urlList.json");
-const feed = require('rss-to-json');
+const feed = require('dans-rss-to-json');
 let set = new Set();
 
 class RssInput extends React.Component {
@@ -55,8 +55,6 @@ class RssInput extends React.Component {
           reject(err);
         }
       });
-      console.log('process');
-      console.log(feed);
     });
 
     promise.then(function(rss) {
