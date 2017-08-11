@@ -9,6 +9,7 @@ const Side = require('./side.jsx');
 const moment = require('moment');
 const $ = require("jquery");
 const path = require("path");
+const fs = require("fs");
 const info_path = path.join(require('electron').remote.app.getPath("userData"), "./urlList.json");
 let url;
 let load;
@@ -39,7 +40,7 @@ class MyApp extends React.Component {
           </div>
         </header>
 
-        <ItemNodes url={url} data={this.state.data} isFetching={this.state.isFetching}/>
+        <ItemNodes data={this.state.data} isFetching={this.state.isFetching}/>
       </div>
     );
   }
@@ -58,11 +59,27 @@ class MyApp extends React.Component {
         }
       }
 
-      // 表示速度改善のため、非同期処理とする。
-      setTimeout(
-      // 実際にRSSをHTTP経由で取得
-      feed.load(url, function(err, rss) {
-        rss.items.sort(function(val1, val2) {
+      var urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
+      console.log(urlList);
+      var dataList = [];
+
+      var promiseList = urlList.map(function(items, idx) {
+        return (new Promise(function(resolve, reject) {
+          feed.load(items.url, function(err, rss) {
+            rss.items.map(function(rssItems, idx) {
+              rssItems.name=items.name;
+            });
+            resolve(rss);
+          });
+        }))
+
+      });
+      Promise.all(promiseList).then(function(arr) {
+        arr.map(function(rss, idx) {
+          Array.prototype.push.apply(dataList, rss.items);
+        });
+
+        dataList.sort(function(val1, val2) {
           var val1 = val1.created;
           var val2 = val2.created;
           if (val1 < val2) {
@@ -71,13 +88,14 @@ class MyApp extends React.Component {
             return -1;
           }
         });
-        console.log('get from http');
-        console.log(rss.items);
         if (localStorage) {
-          localStorage.rss = JSON.stringify(rss.items);
+          localStorage.rss = JSON.stringify(dataList);
         }
-        setState.setState({data: rss.items, updated: moment().format('HH:mm:ss'), isFetching: false});
-      }), 0);
+
+        setState.setState({data: dataList, updated: moment().format('HH:mm:ss'), isFetching: false});
+      });
+
+
     }
     load();
     setInterval(load, 1000 * 60 * 5);
@@ -86,8 +104,7 @@ class MyApp extends React.Component {
 
 const rootDOM = document.getElementById("root-dom");
 
-// 「https://newsformat.jp/」利用
 ReactDOM.render(
-  <MyApp url='http://newsformat.jp/r/z0xvr4soEhJBI!1.xml'/>, rootDOM);
+  <MyApp/>, rootDOM);
 
 module.exports = MyApp

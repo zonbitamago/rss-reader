@@ -8,8 +8,7 @@ class ItemNodes extends React.Component {
   render() {
     var nodes = this.props.data.map(function(items, idx) {
       var url = items.link;
-      var rssSite = items.link.substr(items.link.indexOf('u=') + 2);
-      var domain = rssSite.split('/')[2];
+      var domain = url.split('/')[2];
       var favicon_url = "http://www.google.com/s2/favicons?domain=" + domain;
       var date = new Date(items.created).toString();
       date = date.substr(0, date.indexOf('GMT'));
@@ -22,7 +21,7 @@ class ItemNodes extends React.Component {
           <header className='head'>
             <img className='site_icon' src={favicon_url}/>
             <div className='site_info'>
-              {domain}
+              {items.name}
             </div>
             <div className='date'>
               {date}
