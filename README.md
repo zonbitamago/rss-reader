@@ -1,5 +1,12 @@
-# rss-reader
+# RSS-Reader
 
-TweetDeck風rss-reader
+### TweetDeck風RSS-Reader
 
-作成中。。。
+##### アプリケーションキャプチャ　
+![アプリケーションキャプチャ](https://raw.github.com/zonbitamago/rss-reader/images/App_capture.png)
+
+##### ローディング
+![ローディング](https://raw.github.com/zonbitamago/rss-reader/images/App_loading_capture.png)
+
+##### RSS一覧
+![RSS一覧](https://raw.github.com/zonbitamago/rss-reader/images/App_rssList_capture.png)
