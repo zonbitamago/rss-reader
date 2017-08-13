@@ -80986,7 +80986,7 @@ var Side = function (_React$Component) {
           React.createElement(
             ReactTooltip,
             { scrollHide: false, place: 'right', id: 'rss', type: 'success', effect: 'solid', globalEventOff: '' },
-            React.createElement(RssList, { info_path: this.props.info_path })
+            React.createElement(RssList, { info_path: this.props.info_path, load: this.props.load })
           )
         ),
         React.createElement(
@@ -82641,6 +82641,8 @@ var RssList = function (_React$Component) {
           });
           setState.forceUpdate();
           console.log(set);
+
+          setState.props.load();
         }
       };
 
@@ -82674,7 +82676,7 @@ var RssList = function (_React$Component) {
           null,
           liNodes
         ),
-        React.createElement(RssInput, { parent: setState, set: set, info_path: info_path })
+        React.createElement(RssInput, { parent: setState, set: set, info_path: info_path, load: this.props.load })
       );
     }
   }]);
@@ -82784,6 +82786,8 @@ var RssInput = function (_React$Component) {
         });
         state.props.parent.forceUpdate();
         console.log('save');
+
+        state.props.load();
       }, function (err) {
         console.log('err:');
         console.log(err);

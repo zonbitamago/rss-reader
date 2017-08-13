@@ -46,7 +46,7 @@ class Side extends React.Component {
             <RSS className='sideicon rss' data-tip data-for='rss' data-event='click'/>
           </div>
           <ReactTooltip scrollHide={false} place="right" id='rss' type="success" effect="solid" globalEventOff=''>
-            <RssList info_path={this.props.info_path}/>
+            <RssList info_path={this.props.info_path} load={this.props.load}/>
           </ReactTooltip>
         </nav>
         <div className='sidetime'>

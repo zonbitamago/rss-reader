@@ -70,6 +70,8 @@ class RssInput extends React.Component {
       state.props.parent.forceUpdate();
       console.log('save');
 
+      state.props.load();
+
     }, function(err) {
       console.log('err:');
       console.log(err);

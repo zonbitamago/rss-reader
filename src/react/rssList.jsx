@@ -50,6 +50,8 @@ class RssList extends React.Component {
         });
         setState.forceUpdate();
         console.log(set);
+
+        setState.props.load();
       }
     };
 
@@ -76,7 +78,7 @@ class RssList extends React.Component {
         <ul>
           {liNodes}
         </ul>
-        <RssInput parent={setState} set={set} info_path={info_path}/>
+        <RssInput parent={setState} set={set} info_path={info_path} load={this.props.load}/>
       </div>
     );
   }
