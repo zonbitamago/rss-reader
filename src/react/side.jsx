@@ -2,6 +2,7 @@ const React = require("react");
 const RSS = require('react-icons/lib/ti/rss');
 const UPDATE = require('react-icons/lib/ti/arrow-sync');
 const CLOSE = require('react-icons/lib/ti/delete-outline');
+const INFO = require('react-icons/lib/ti/info-large');
 const ReactTooltip = require('react-tooltip')
 const RssList = require('./rssList.jsx');
 let moment;
@@ -35,6 +36,10 @@ class Side extends React.Component {
       //メインプロセスへ送信する
       require("electron").ipcRenderer.send('closeApp');
     };
+    var openReadme = function() {
+      //メインプロセスへ送信する
+      require("electron").ipcRenderer.send('openBrowser', 'https://github.com/zonbitamago/rss-reader/blob/master/README.md');
+    };
     return (
       <aside className='sidebar'>
         <nav>
@@ -44,6 +49,8 @@ class Side extends React.Component {
             <UPDATE className='sideicon update' onClick={this.props.load}/>
             <br/>
             <RSS className='sideicon rss' data-tip data-for='rss' data-event='click'/>
+            <br/>
+            <INFO className='sideicon info' onClick={openReadme}/>
           </div>
           <ReactTooltip scrollHide={false} place="right" id='rss' type="success" effect="solid" globalEventOff=''>
             <RssList info_path={this.props.info_path} load={this.props.load}/>

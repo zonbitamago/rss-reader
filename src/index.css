@@ -147,6 +147,10 @@ h1 {
   color: red;
 }
 
+.info{
+  color:#2db6f4;
+}
+
 .__react_component_tooltip {
   pointer-events: all !important;
 }
