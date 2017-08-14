@@ -2,11 +2,10 @@
 
 ### TweetDeck風RSS-Reader
 
-##### アプリケーションキャプチャ　
-![アプリケーションキャプチャ](https://raw.github.com/zonbitamago/rss-reader/images/App_capture.png)
+##### キャプチャ画像
 
-##### ローディング
-![ローディング](https://raw.github.com/zonbitamago/rss-reader/images/App_loading_capture.png)
+<img src="https://raw.github.com/zonbitamago/rss-reader/images/App_capture.png" width="50%"/>
 
-##### RSS一覧
-![RSS一覧](https://raw.github.com/zonbitamago/rss-reader/images/App_rssList_capture.png)
+<img src="https://raw.github.com/zonbitamago/rss-reader/images/App_loading_capture.png" width="50%"/>
+
+<img src="https://raw.github.com/zonbitamago/rss-reader/images/App_rssList_capture.png" width="50%"/>
