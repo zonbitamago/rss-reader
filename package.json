@@ -8,7 +8,10 @@
     "test": "node test/spectron_test.js && jest",
     "build": "./node_modules/.bin/webpack && node build.js",
     "jsx_build": "./node_modules/.bin/webpack",
-    "dev_build": "./node_modules/.bin/webpack --watch"
+    "dev_build": "./node_modules/.bin/webpack --watch",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "win_dist": "electron-builder --win"
   },
   "jest": {
     "unmockedModulePathPatterns": [
@@ -17,6 +20,12 @@
       "<rootDir>/node_modules/react-addons-test-utils"
     ]
   },
+  "build": {
+    "appId": "electron-rss-reader",
+    "mac": {
+      "target": "dmg"
+    }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -24,7 +33,6 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-register": "^6.24.1",
     "dans-rss-to-json": "^1.5.0",
-    "electron": "^1.7.5",
     "jquery": "^3.2.1",
     "moment": "^2.18.1",
     "react": "^15.6.1",
@@ -36,6 +44,8 @@
     "webpack": "^3.4.1"
   },
   "devDependencies": {
+    "electron": "^1.7.5",
+    "electron-builder": "^19.22.1",
     "babel-core": "^6.25.0",
     "babel-jest": "^20.0.3",
     "babel-loader": "^7.1.1",
