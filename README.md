@@ -13,7 +13,9 @@ nothing
 <!-- ## Usage -->
 
 ## Install
-To Be Updated
+以下からダウンロードし、利用してください。<br/>
+Download Here<br/>
+https://github.com/zonbitamago/rss-reader/releases
 
 <!-- ## Contribution -->
 
