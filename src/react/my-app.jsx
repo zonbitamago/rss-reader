@@ -1,5 +1,6 @@
 "use strict";
 
+import  './style/index.css'
 const React = require("react");
 const ReactDOM = require("react-dom");
 const feed = require('dans-rss-to-json');
