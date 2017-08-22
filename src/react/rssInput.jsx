@@ -1,7 +1,6 @@
 const React = require("react");
 const fs = require("fs");
 const path = require("path");
-const feed = require('dans-rss-to-json');
 const FeedMe = require('feedme');
 const http = require('http');
 const https = require('https');
