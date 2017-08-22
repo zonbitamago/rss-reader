@@ -2,6 +2,9 @@ const React = require("react");
 const fs = require("fs");
 const path = require("path");
 const feed = require('dans-rss-to-json');
+const FeedMe = require('feedme');
+const http = require('http');
+const https = require('https');
 let info_path;
 let set = new Set();
 
@@ -48,14 +51,17 @@ class RssInput extends React.Component {
 
   save() {
     var state = this;
+    var url = state.state.url;
     var promise = new Promise(function(resolve, reject) {
-      feed.load(state.state.url, function(err, rss) {
-        console.log('feed');
-        if (!err) {
-          resolve(rss);
-        } else {
-          reject(err);
-        }
+      var protocol = (url.startsWith('https:')
+        ? https
+        : http);
+      protocol.get(url, function(res) {
+        var parser = new FeedMe(true);
+        res.pipe(parser);
+        parser.on('end', function() {
+          resolve(parser.done());
+        });
       });
     });
 
