@@ -1,9 +1,11 @@
 "use strict";
 
-import  './style/index.css'
+import './style/index.css'
 const React = require("react");
 const ReactDOM = require("react-dom");
-const feed = require('dans-rss-to-json');
+const FeedMe = require('feedme');
+const http = require('http');
+const https = require('https');
 const HomeIcon = require('react-icons/lib/ti/home-outline');
 const ItemNodes = require('./itemNodes.jsx');
 const Side = require('./side.jsx');
@@ -66,11 +68,22 @@ class MyApp extends React.Component {
 
       var promiseList = urlList.map(function(items, idx) {
         return (new Promise(function(resolve, reject) {
-          feed.load(items.url, function(err, rss) {
-            rss.items.map(function(rssItems, idx) {
-              rssItems.name=items.name;
+          var protocol = (items.url.startsWith('https:')
+            ? https
+            : http);
+          protocol.get(items.url, function(res) {
+            var parser = new FeedMe(true);
+            parser.on('item', function(rssItems) {
+              rssItems.name = items.name;
+
+              rssItems.created = rssItems.pubdate
+                ? Date.parse(rssItems.pubdate)
+                : Date.parse(rssItems.updated);
             });
-            resolve(rss);
+            res.pipe(parser);
+            parser.on('end', function() {
+              resolve(parser.done());
+            });
           });
         }))
 
@@ -95,7 +108,6 @@ class MyApp extends React.Component {
 
         setState.setState({data: dataList, updated: moment().format('HH:mm:ss'), isFetching: false});
       });
-
 
     }
     load();

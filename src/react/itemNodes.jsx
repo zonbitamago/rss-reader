@@ -8,6 +8,9 @@ class ItemNodes extends React.Component {
   render() {
     var nodes = this.props.data.map(function(items, idx) {
       var url = items.link;
+      if(Object.prototype.toString.call(items.link) == '[object Array]'){
+        url = items.link[0].href;
+      }
       var domain = url.split('/')[2];
       var favicon_url = "http://www.google.com/s2/favicons?domain=" + domain;
       var date = new Date(items.created).toString();
