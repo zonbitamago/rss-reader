@@ -1,16 +1,19 @@
-const React = require("react");
-const RSS = require('react-icons/lib/ti/rss');
-const UPDATE = require('react-icons/lib/ti/arrow-sync');
-const CLOSE = require('react-icons/lib/ti/delete-outline');
-const INFO = require('react-icons/lib/ti/info-large');
-const ReactTooltip = require('react-tooltip')
-const RssList = require('./rssList.jsx');
+"use strict";
+
+import React from 'react';
+import RSS from 'react-icons/lib/ti/rss';
+import UPDATE from 'react-icons/lib/ti/arrow-sync';
+import CLOSE from 'react-icons/lib/ti/delete-outline';
+import INFO from 'react-icons/lib/ti/info-large';
+import ReactTooltip from 'react-tooltip';
+import RssList from './rssList.jsx';
+import {ipcRenderer} from 'electron';
 let moment;
 
-const getMMDD = function() {
+const getMMDD = () => {
   return moment().format('M/D');
 }
-const HHmmss = function() {
+const HHmmss = () => {
   return moment().format('HH:mm:ss');
 }
 
@@ -26,19 +29,19 @@ class Side extends React.Component {
   componentDidMount() {
     // setInterval(this.setState({time: this.props.moment().format()}), 1000);
     let setState = this;
-    const setTime = function() {
+    const setTime = () => {
       setState.setState({MMDD: getMMDD(), HHmmss: HHmmss()});
     };
     setInterval(setTime, 1000);
   }
   render() {
-    var closeApp = function() {
+    var closeApp = () =>{
       //メインプロセスへ送信する
-      require("electron").ipcRenderer.send('closeApp');
+      ipcRenderer.send('closeApp');
     };
-    var openReadme = function() {
+    var openReadme = () =>{
       //メインプロセスへ送信する
-      require("electron").ipcRenderer.send('openBrowser', 'https://github.com/zonbitamago/rss-reader/blob/master/README.md');
+      ipcRenderer.send('openBrowser', 'https://github.com/zonbitamago/rss-reader/blob/master/README.md');
     };
     return (
       <aside className='sidebar'>
