@@ -1,7 +1,9 @@
-const React = require("react");
-const RssInput = require('./rssInput.jsx');
-const fs = require("fs");
-const path = require("path");
+'use strict';
+import React from 'react';
+import RssInput from './rssInput.jsx';
+import fs from 'fs';
+import path from 'path';
+import {ipcRenderer} from 'electron';
 let info_path;
 let set;
 
@@ -30,9 +32,9 @@ class RssList extends React.Component {
     set = new Set();
     let setState = this;
 
-    let clearURLContent = function(set, name) {
+    let clearURLContent = (set, name) => {
       var delState;
-      set.forEach(function(val) {
+      set.forEach((val) => {
         if (val.name == name) {
           delState = val;
         }
@@ -40,11 +42,11 @@ class RssList extends React.Component {
       set.delete(delState);
     };
 
-    let delItem = function(e) {
+    let delItem = (e) => {
       if (confirm('削除しますか?')) {
         console.log('delItem');
         clearURLContent(set, e.target.value);
-        fs.writeFileSync(info_path, JSON.stringify([...set]), function(err) {
+        fs.writeFileSync(info_path, JSON.stringify([...set]), (err) => {
           console.log('err');
           console.log(err);
         });
@@ -58,11 +60,11 @@ class RssList extends React.Component {
     if (this.isExists(info_path)) {
       let urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
       console.log(urlList);
-      liNodes = urlList.map(function(items, idx) {
+      liNodes = urlList.map((items, idx) => {
         set.add(items);
-        var openBrowser = function() {
+        var openBrowser = () => {
           //メインプロセスへ送信する
-          require("electron").ipcRenderer.send('openBrowser', items.url);
+          ipcRenderer.send('openBrowser', items.url);
         };
         return (
           <li className='rssList' key={idx}>

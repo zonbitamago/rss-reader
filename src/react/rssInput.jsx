@@ -1,9 +1,11 @@
-const React = require("react");
-const fs = require("fs");
-const path = require("path");
-const FeedMe = require('feedme');
-const http = require('http');
-const https = require('https');
+'use strict';
+
+import React from 'react';
+import fs from 'fs';
+import path from 'path';
+import FeedMe from 'feedme';
+import http from 'http';
+import https from 'https';
 let info_path;
 let set = new Set();
 
@@ -35,7 +37,7 @@ class RssInput extends React.Component {
       this.props.set.add(state.state);
     } else {
       var exists = false;
-      this.props.set.forEach(function(val) {
+      this.props.set.forEach((val) => {
         if (val.name == state.state.name) {
           exists = true;
           val.url = state.state.url;
@@ -51,20 +53,20 @@ class RssInput extends React.Component {
   save() {
     var state = this;
     var url = state.state.url;
-    var promise = new Promise(function(resolve, reject) {
+    var promise = new Promise((resolve, reject) => {
       var protocol = (url.startsWith('https:')
         ? https
         : http);
-      protocol.get(url, function(res) {
+      protocol.get(url, (res) => {
         var parser = new FeedMe(true);
         res.pipe(parser);
-        parser.on('end', function() {
+        parser.on('end', () => {
           resolve(parser.done());
         });
       });
     });
 
-    promise.then(function(rss) {
+    promise.then((rss) => {
       state.setURLContent();
 
       console.log('set:', state.props.set);
@@ -77,7 +79,7 @@ class RssInput extends React.Component {
 
       state.props.load();
 
-    }, function(err) {
+    }, (err) => {
       console.log('err:');
       console.log(err);
       alert('登録できないURLです。');
