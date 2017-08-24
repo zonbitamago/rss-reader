@@ -7,7 +7,7 @@ module.exports = {
   output: {
     filename: './src/bundle.js'
   },
-  plugins: PROD
+  plugins: PROD == 'true'
     ? [
       new webpack.DefinePlugin({
         'process.env': {
@@ -26,12 +26,24 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015', 'react']
+            presets: [
+              'es2015', 'react'
+            ],
+            "plugins": [
+              [
+                "lodash", {
+                  "id": ["lodash", "semantic-ui-react"]
+                }
+              ]
+            ]
           }
         }
       }, {
         test: /\.css$/,
         loader: ['style-loader', 'css-loader']
+      }, {
+        test: /\.(eot|svg|ttf|woff|woff2|png)$/,
+        loader: 'file-loader?name=semantic/dist/themes/default/assets/fonts/[name].[ext]'
       }
     ]
   }
