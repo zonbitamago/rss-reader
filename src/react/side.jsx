@@ -8,6 +8,8 @@ import INFO from 'react-icons/lib/ti/info-large';
 import ReactTooltip from 'react-tooltip';
 import RssList from './rssList.jsx';
 import {ipcRenderer} from 'electron';
+import { Icon } from 'semantic-ui-react'
+
 let moment;
 
 const getMMDD = () => {

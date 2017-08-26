@@ -4,7 +4,7 @@
   --black: #292f33;
   --image-width: 25px;
   --home-icon-size: 25px;
-  --sidebar-width: 3em;
+  --sidebar-width: 4em;
   --main-width: 89vw;
   --side-icon-size: 2em;
   /*--main-width: 100%;*/
@@ -31,14 +31,14 @@ a {
 }
 
 .header {
-  height: 50px;
+  height: 42px;
   position: fixed;
   width: var(--main-width);
   /* 位置(上0px) */
   top: 0px;
   background-color: #e1e8ed;
   /*margin-left: var(--sidebar-width);*/
-  left: 56px;
+  left: var(--sidebar-width);
   z-index: 10;
 }
 
@@ -52,8 +52,8 @@ a {
 
 .header-content * {
   float: left;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 7px;
+  margin-bottom: 10px;
 }
 
 .home {
@@ -119,6 +119,8 @@ h1 {
 
 .sidefixed {
   position: fixed;
+  left: 10px;
+  top: 10px;
 }
 
 .sideicon {
@@ -134,9 +136,9 @@ h1 {
 
 .sidetime {
   position: fixed;
-      bottom: 5px;
+  bottom: 5px;
   left: 7px;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .rss {
@@ -147,8 +149,8 @@ h1 {
   color: red;
 }
 
-.info{
-  color:#2db6f4;
+.info {
+  color: #2db6f4;
 }
 
 .__react_component_tooltip {
@@ -161,6 +163,6 @@ h1 {
   float: right;
 }
 
-.rssList{
+.rssList {
   list-style: none;
 }
