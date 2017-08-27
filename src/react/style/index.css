@@ -40,6 +40,7 @@ a {
   /*margin-left: var(--sidebar-width);*/
   left: var(--sidebar-width);
   z-index: 10;
+  min-width: 455px;
 }
 
 .header-content {
@@ -131,7 +132,6 @@ h1 {
   -webkit-app-region: no-drag;
   margin-bottom: 1em;
   cursor: pointer;
-  cursor: hand;
 }
 
 .sidetime {
@@ -165,4 +165,16 @@ h1 {
 
 .rssList {
   list-style: none;
+}
+
+.ui.labeled.icon.menu .item {
+  min-width: 5em !important;
+}
+
+i.icon {
+  left: -4px;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
 }

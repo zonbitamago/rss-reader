@@ -1,14 +1,10 @@
 "use strict";
 
 import React from 'react';
-import RSS from 'react-icons/lib/ti/rss';
-import UPDATE from 'react-icons/lib/ti/arrow-sync';
-import CLOSE from 'react-icons/lib/ti/delete-outline';
-import INFO from 'react-icons/lib/ti/info-large';
 import ReactTooltip from 'react-tooltip';
 import RssList from './rssList.jsx';
 import {ipcRenderer} from 'electron';
-import { Icon } from 'semantic-ui-react'
+import {Icon, Sidebar, Menu} from 'semantic-ui-react'
 
 let moment;
 
@@ -29,7 +25,6 @@ class Side extends React.Component {
     }
   };
   componentDidMount() {
-    // setInterval(this.setState({time: this.props.moment().format()}), 1000);
     let setState = this;
     const setTime = () => {
       setState.setState({MMDD: getMMDD(), HHmmss: HHmmss()});
@@ -37,30 +32,39 @@ class Side extends React.Component {
     setInterval(setTime, 1000);
   }
   render() {
-    var closeApp = () =>{
+    var closeApp = () => {
       //メインプロセスへ送信する
       ipcRenderer.send('closeApp');
     };
-    var openReadme = () =>{
+    var openReadme = () => {
       //メインプロセスへ送信する
       ipcRenderer.send('openBrowser', 'https://github.com/zonbitamago/rss-reader/blob/master/README.md');
     };
+    var minimizeApp = () =>{
+      ipcRenderer.send('minimizeApp');
+    };
     return (
       <aside className='sidebar'>
-        <nav>
-          <div className='sidefixed'>
-            <CLOSE className='sideicon delete' onClick={closeApp}/>
-            <br/>
-            <UPDATE className='sideicon update' onClick={this.props.load}/>
-            <br/>
-            <RSS className='sideicon rss' data-tip data-for='rss' data-event='click'/>
-            <br/>
-            <INFO className='sideicon info' onClick={openReadme}/>
-          </div>
-          <ReactTooltip scrollHide={false} place="right" id='rss' type="success" effect="solid" globalEventOff=''>
-            <RssList info_path={this.props.info_path} load={this.props.load}/>
-          </ReactTooltip>
-        </nav>
+        <Sidebar as={Menu} text size='small' width='very thin' visible={true} icon='labeled' vertical inverted>
+          <Menu.Item header={false} link name='shutdown' as={Icon}>
+            <Icon color='red' name='shutdown' onClick={closeApp}/>
+          </Menu.Item>
+          <Menu.Item link name='refresh' as={Icon} onClick={this.props.load}>
+            <Icon name='refresh'/>
+          </Menu.Item>
+          <Menu.Item link name='rss' as={Icon} data-tip data-for='rss' data-event='click'>
+            <Icon color='yellow' name='rss'/>
+          </Menu.Item>
+          <Menu.Item link name='minus square' as={Icon} onClick={minimizeApp}>
+            <Icon color='green' name='minus square'/>
+          </Menu.Item>
+          <Menu.Item link name='github' as={Icon}>
+            <Icon color='olive' name='github' onClick={openReadme}/>
+          </Menu.Item>
+        </Sidebar>
+        <ReactTooltip scrollHide={false} place="right" id='rss' type="success" effect="solid" globalEventOff=''>
+          <RssList info_path={this.props.info_path} load={this.props.load}/>
+        </ReactTooltip>
         <div className='sidetime'>
           <time className='MMDD'>{this.state.MMDD}</time>
           <br/>

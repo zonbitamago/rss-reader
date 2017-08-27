@@ -30,6 +30,9 @@ app.on("ready", e => {
     fs.writeFileSync(info_path, JSON.stringify(mainWindow.getBounds()));
     app.quit();
   })
+  electron.ipcMain.on('minimizeApp', (event, arg) => { // イベントバインディング
+    mainWindow.minimize();
+  })
 
   mainWindow = new BrowserWindow(bounds_info);
   mainWindow.on("close", e => {
