@@ -18,6 +18,7 @@ module.exports = {
     ]
     : [new webpack.optimize.UglifyJsPlugin()],
   target: "electron-main",
+  devtool: '#inline-source-map',
   module: {
     rules: [
       {
