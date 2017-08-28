@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Loading from 'react-loading-animation';
+import {Dimmer, Loader} from 'semantic-ui-react'
 import ItemPanel from './itemPanel.jsx'
 
 class ItemNodes extends React.Component {
@@ -15,11 +16,12 @@ class ItemNodes extends React.Component {
     });
     return (
       <main className='body-content'>
-        <Loading isLoading={this.props.isFetching}>
-          {nodes}
-        </Loading>
+        <Dimmer page active={this.props.isFetching}>
+          <Loader>Loading</Loader>
+        </Dimmer>
+        {nodes}
       </main>
-    );
+    )
   }
 }
 

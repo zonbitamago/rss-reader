@@ -178,3 +178,7 @@ i.icon {
 .sidebar::-webkit-scrollbar {
   display: none;
 }
+
+.ui.active.transition.visible.page.dimmer {
+  margin-left: var(--sidebar-width);
+}
