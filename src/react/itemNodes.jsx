@@ -16,7 +16,7 @@ class ItemNodes extends React.Component {
     });
     return (
       <main className='body-content'>
-        <Dimmer page active={this.props.isFetching}>
+        <Dimmer className='Loading' page active={this.props.isFetching}>
           <Loader>Loading</Loader>
         </Dimmer>
         {nodes}

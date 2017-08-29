@@ -12,7 +12,7 @@
 
 body {
   background-color: var(--black);
-  color: var(--white);
+  /*color: var(--white);*/
   -webkit-app-region: drag;
 }
 
@@ -139,6 +139,7 @@ h1 {
   bottom: 5px;
   left: 7px;
   font-size: 11px;
+  color: var(--white);
 }
 
 .rss {
@@ -181,4 +182,8 @@ i.icon {
 
 .ui.active.transition.visible.page.dimmer {
   margin-left: var(--sidebar-width);
+}
+
+.rssListModal {
+  width: 84vw !important;
 }

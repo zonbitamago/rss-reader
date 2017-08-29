@@ -1,10 +1,10 @@
 "use strict";
 
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
-import RssList from './rssList.jsx';
+// import RssList from './rssList.jsx';
+import RssList from './rssListModal.jsx';
 import {ipcRenderer} from 'electron';
-import {Icon, Sidebar, Menu} from 'semantic-ui-react'
+import {Icon, Sidebar, Menu, Modal, Header, Button} from 'semantic-ui-react'
 
 let moment;
 
@@ -40,7 +40,7 @@ class Side extends React.Component {
       //メインプロセスへ送信する
       ipcRenderer.send('openBrowser', 'https://github.com/zonbitamago/rss-reader/blob/master/README.md');
     };
-    var minimizeApp = () =>{
+    var minimizeApp = () => {
       ipcRenderer.send('minimizeApp');
     };
     return (
@@ -52,8 +52,8 @@ class Side extends React.Component {
           <Menu.Item link name='refresh' as={Icon} onClick={this.props.load}>
             <Icon name='refresh'/>
           </Menu.Item>
-          <Menu.Item link name='rss' as={Icon} data-tip data-for='rss' data-event='click'>
-            <Icon color='yellow' name='rss'/>
+          <Menu.Item link name='rss' as={Icon}>
+              <RssList info_path={this.props.info_path} load={this.props.load}/>
           </Menu.Item>
           <Menu.Item link name='minus square' as={Icon} onClick={minimizeApp}>
             <Icon color='green' name='minus square'/>
@@ -62,9 +62,6 @@ class Side extends React.Component {
             <Icon color='olive' name='github' onClick={openReadme}/>
           </Menu.Item>
         </Sidebar>
-        <ReactTooltip scrollHide={false} place="right" id='rss' type="success" effect="solid" globalEventOff=''>
-          <RssList info_path={this.props.info_path} load={this.props.load}/>
-        </ReactTooltip>
         <div className='sidetime'>
           <time className='MMDD'>{this.state.MMDD}</time>
           <br/>

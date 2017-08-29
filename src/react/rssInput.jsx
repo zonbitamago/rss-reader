@@ -110,7 +110,6 @@ class RssInput extends React.Component {
           </tbody>
         </table>
         <br/>
-        <button onClick={this.save}>save</button>
       </div>
     );
   }
