@@ -62,7 +62,9 @@ class MyApp extends React.Component {
                 : Date.parse(rssItems.updated);
             });
             res.pipe(parser);
+            console.log('parser start:'+ moment().format('HH:mm:ss'));
             parser.on('end', () => {
+              console.log('parser end:'+ moment().format('HH:mm:ss'));
               resolve(parser.done());
             });
           });
