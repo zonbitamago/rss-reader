@@ -106,6 +106,7 @@ class RssList extends React.Component {
         onClose={this.handleClose}
         trigger={<Icon onClick={this.handleOpen} color='yellow' name='rss'/>}
       >
+        <Modal.Header>RssList</Modal.Header>
         <Modal.Content scrolling>
           <div>
             <ul>

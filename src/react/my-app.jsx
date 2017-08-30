@@ -102,7 +102,7 @@ class MyApp extends React.Component {
     return (
       <div>
         <Side load={load} moment={moment} info_path={info_path}/>
-        <header className="header">
+        <header className="header-items">
           <div className="header-content">
             <HomeIcon onClick={scrollTop} className="home"/>
             <h1>Rss-Reader in React-Electron</h1>

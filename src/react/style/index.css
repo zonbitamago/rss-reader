@@ -30,7 +30,7 @@ a {
   border-bottom-style: solid;
 }
 
-.header {
+.header-items {
   height: 42px;
   position: fixed;
   width: var(--main-width);
