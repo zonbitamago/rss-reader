@@ -101,7 +101,7 @@ class RssList extends React.Component {
 
     return (
       <Modal
-        className='rssListModal'
+        className='sideModal'
         open={this.state.open}
         onClose={this.handleClose}
         trigger={<Icon onClick={this.handleOpen} color='yellow' name='rss'/>}

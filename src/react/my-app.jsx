@@ -16,7 +16,7 @@ import fs from 'fs';
 import {remote} from 'electron';
 const info_path = path.join(remote.app.getPath("userData"), "./urlList.json");
 let url;
-let load;
+let timerId;
 
 class MyApp extends React.Component {
   constructor(props) {
@@ -27,74 +27,82 @@ class MyApp extends React.Component {
       updated: moment().format('HH:mm:ss'),
       isFetching: true
     };
+    this.load = this.load.bind(this);
+    this.setLoadDuration = this.setLoadDuration.bind(this);
+    this.clearLoadDuration = this.clearLoadDuration.bind(this);
   }
-  componentDidMount() {
-
+  load() {
     var setState = this;
-    load = () => {
-      setState.setState({isFetching: true});
-      // まずはlocalStorageからデータを取得し、セットする。
-      if (localStorage) {
-        console.log('get from localStorage');
-        if (localStorage.rss) {
-          let localRss = JSON.parse(localStorage.rss);
-          console.log(localRss);
-          setState.setState({data: localRss, updated: moment().format('HH:mm:ss')});
+    setState.setState({isFetching: true});
+    // まずはlocalStorageからデータを取得し、セットする。
+    if (localStorage) {
+      console.log('get from localStorage');
+      if (localStorage.rss) {
+        let localRss = JSON.parse(localStorage.rss);
+        console.log(localRss);
+        setState.setState({data: localRss, updated: moment().format('HH:mm:ss')});
+      }
+    }
+
+    var urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
+    console.log(urlList);
+    var dataList = [];
+
+    var promiseList = urlList.map((items, idx) => {
+      return (new Promise((resolve, reject) => {
+        var protocol = (items.url.startsWith('https:')
+          ? https
+          : http);
+        protocol.get(items.url, (res) => {
+          var parser = new FeedMe(true);
+          parser.on('item', (rssItems) => {
+            rssItems.name = items.name;
+
+            rssItems.created = rssItems.pubdate
+              ? Date.parse(rssItems.pubdate)
+              : Date.parse(rssItems.updated);
+          });
+          res.pipe(parser);
+          console.log('parser start:' + moment().format('HH:mm:ss'));
+          parser.on('end', () => {
+            console.log('parser end:' + moment().format('HH:mm:ss'));
+            resolve(parser.done());
+          });
+        });
+      }))
+
+    });
+    Promise.all(promiseList).then((arr) => {
+      arr.map((rss, idx) => {
+        Array.prototype.push.apply(dataList, rss.items);
+      });
+
+      dataList.sort((val1, val2) => {
+        var val1 = val1.created;
+        var val2 = val2.created;
+        if (val1 < val2) {
+          return 1;
+        } else {
+          return -1;
         }
+      });
+      if (localStorage) {
+        localStorage.rss = JSON.stringify(dataList);
       }
 
-      var urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
-      console.log(urlList);
-      var dataList = [];
+      setState.setState({data: dataList, updated: moment().format('HH:mm:ss'), isFetching: false});
+    });
 
-      var promiseList = urlList.map((items, idx) => {
-        return (new Promise((resolve, reject) => {
-          var protocol = (items.url.startsWith('https:')
-            ? https
-            : http);
-          protocol.get(items.url, (res) => {
-            var parser = new FeedMe(true);
-            parser.on('item', (rssItems) => {
-              rssItems.name = items.name;
-
-              rssItems.created = rssItems.pubdate
-                ? Date.parse(rssItems.pubdate)
-                : Date.parse(rssItems.updated);
-            });
-            res.pipe(parser);
-            console.log('parser start:'+ moment().format('HH:mm:ss'));
-            parser.on('end', () => {
-              console.log('parser end:'+ moment().format('HH:mm:ss'));
-              resolve(parser.done());
-            });
-          });
-        }))
-
-      });
-      Promise.all(promiseList).then((arr) => {
-        arr.map((rss, idx) => {
-          Array.prototype.push.apply(dataList, rss.items);
-        });
-
-        dataList.sort((val1, val2) => {
-          var val1 = val1.created;
-          var val2 = val2.created;
-          if (val1 < val2) {
-            return 1;
-          } else {
-            return -1;
-          }
-        });
-        if (localStorage) {
-          localStorage.rss = JSON.stringify(dataList);
-        }
-
-        setState.setState({data: dataList, updated: moment().format('HH:mm:ss'), isFetching: false});
-      });
-
-    }
-    load();
-    setInterval(load, 1000 * 60 * 5);
+  }
+  setLoadDuration(ms) {
+    timerId = setInterval(this.load(), ms);
+  }
+  clearLoadDuration() {
+    clearInterval(timerId);
+  }
+  componentDidMount() {
+    // this.load();
+    this.setLoadDuration(1000 * 60 * 5);
   }
   render() {
     var scrollTop = () => {
@@ -103,7 +111,7 @@ class MyApp extends React.Component {
 
     return (
       <div>
-        <Side load={load} moment={moment} info_path={info_path}/>
+        <Side load={this.load} moment={moment} info_path={info_path}/>
         <header className="header-items">
           <div className="header-content">
             <HomeIcon onClick={scrollTop} className="home"/>

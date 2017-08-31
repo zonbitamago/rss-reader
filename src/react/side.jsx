@@ -1,8 +1,8 @@
 "use strict";
 
 import React from 'react';
-// import RssList from './rssList.jsx';
 import RssList from './rssListModal.jsx';
+import Settings from './settings.jsx'
 import {ipcRenderer} from 'electron';
 import {Icon, Sidebar, Menu, Modal, Header, Button} from 'semantic-ui-react'
 
@@ -57,6 +57,9 @@ class Side extends React.Component {
           </Menu.Item>
           <Menu.Item link name='minus square' as={Icon} onClick={minimizeApp}>
             <Icon color='green' name='minus square'/>
+          </Menu.Item>
+          <Menu.Item link name='settings' as={Icon}>
+            <Settings/>
           </Menu.Item>
           <Menu.Item link name='github' as={Icon}>
             <Icon color='olive' name='github' onClick={openReadme}/>

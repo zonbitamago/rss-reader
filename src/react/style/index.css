@@ -184,6 +184,6 @@ i.icon {
   margin-left: var(--sidebar-width);
 }
 
-.rssListModal {
+.sideModal {
   width: 84vw !important;
 }
