@@ -166,6 +166,7 @@ h1 {
 
 .rssList {
   list-style: none;
+  margin-bottom: 3px;
 }
 
 .ui.labeled.icon.menu .item {

@@ -66,10 +66,10 @@ class RssList extends React.Component {
       set.delete(delState);
     };
 
-    let delItem = (e) => {
+    let delItem = (val) => {
       if (confirm('削除しますか?')) {
         console.log('delItem');
-        clearURLContent(set, e.target.value);
+        clearURLContent(set, val);
         fs.writeFileSync(info_path, JSON.stringify([...set]), (err) => {
           console.log('err');
           console.log(err);
@@ -92,7 +92,7 @@ class RssList extends React.Component {
         };
         return (
           <li className='rssList' key={idx}>
-            <input type='checkbox' onChange={delItem} value={items.name}/>
+            <Button size='mini' icon='remove' content='Delete' color='blue' onClick={delItem.bind(this,items.name)} />
             <a href='#' onClick={openBrowser}>{items.name}</a>
           </li>
         )
