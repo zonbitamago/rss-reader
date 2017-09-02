@@ -59,7 +59,7 @@ class Side extends React.Component {
             <Icon color='green' name='minus square'/>
           </Menu.Item>
           <Menu.Item link name='settings' as={Icon}>
-            <Settings/>
+            <Settings setLoadDuration={this.props.setLoadDuration} updateDuration={this.props.updateDuration}/>
           </Menu.Item>
           <Menu.Item link name='github' as={Icon}>
             <Icon color='olive' name='github' onClick={openReadme}/>

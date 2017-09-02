@@ -7,17 +7,50 @@ class Settings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      updateDuration: this.props.updateDuration,
+      open: false,
+      error: false
     };
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.changeDuration = this.changeDuration.bind(this);
+    this.isNum = this.isNum.bind(this);
   };
   handleOpen() {
-    this.setState({open: true})
+    this.setState(
+      {
+        updateDuration: this.state.updateDuration,
+        open: true,
+        error: this.state.error
+      }
+    )
   };
   handleClose() {
-    this.setState({open: false})
+    this.setState(
+      {
+        updateDuration: this.state.updateDuration,
+        open: false,
+        error: this.state.error
+      }
+    )
   };
+  isNum(obj){
+    return (isFinite(obj) && parseInt(obj) > 0) ? true : false;
+  }
+  changeDuration(e){
+    var error = true;
+    if(this.isNum(e.target.value)){
+      error = false;
+    }
+    this.setState(
+      {
+        updateDuration: e.target.value,
+        open: this.state.open,
+        error: error
+      }
+    )
+
+  }
   render() {
     return (
       <Modal
@@ -31,11 +64,12 @@ class Settings extends React.Component {
           <div>
           <Input
             labelPosition='right'
-            placeholder='Enter ms...'
+            placeholder='Enter min...'
+            error={this.state.error}
           >
           <Label tag>Update Duration</Label>
-          <input />
-          <Label basic>ms</Label>
+          <input value={this.state.updateDuration} onChange={this.changeDuration}/>
+          <Label basic>min</Label>
           </Input>
           </div>
         </Modal.Content>
@@ -44,7 +78,7 @@ class Settings extends React.Component {
             <Icon name='remove'/>
             No
           </Button>
-          <Button color='green' onClick={this.save}>
+          <Button color='green' disabled={this.state.error} onClick={this.props.setLoadDuration.bind(this,this.state.updateDuration)}>
             <Icon name='checkmark'/>
             Yes
           </Button>

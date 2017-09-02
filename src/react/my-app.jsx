@@ -17,6 +17,10 @@ import {remote} from 'electron';
 const info_path = path.join(remote.app.getPath("userData"), "./urlList.json");
 let url;
 let timerId;
+let updateDuration = localStorage.settings
+ ? JSON.parse(localStorage.settings).updateDuration
+ : 5;
+
 
 class MyApp extends React.Component {
   constructor(props) {
@@ -30,6 +34,7 @@ class MyApp extends React.Component {
     this.load = this.load.bind(this);
     this.setLoadDuration = this.setLoadDuration.bind(this);
     this.clearLoadDuration = this.clearLoadDuration.bind(this);
+    this.setSettings = this.setSettings.bind(this);
   }
   load() {
     var setState = this;
@@ -94,15 +99,22 @@ class MyApp extends React.Component {
     });
 
   }
-  setLoadDuration(ms) {
-    timerId = setInterval(this.load(), ms);
+  setSettings(min) {
+    localStorage.settings = JSON.stringify({updateDuration: parseInt(min)});
+  }
+  setLoadDuration(min) {
+    if (timerId) {
+      this.clearLoadDuration();
+    }
+    this.load();
+    timerId = setInterval(this.load, parseInt(min) * 1000 * 60);
+    this.setSettings(min);
   }
   clearLoadDuration() {
     clearInterval(timerId);
   }
   componentDidMount() {
-    // this.load();
-    this.setLoadDuration(1000 * 60 * 5);
+    this.setLoadDuration(updateDuration);
   }
   render() {
     var scrollTop = () => {
@@ -111,7 +123,7 @@ class MyApp extends React.Component {
 
     return (
       <div>
-        <Side load={this.load} moment={moment} info_path={info_path}/>
+        <Side load={this.load} moment={moment} info_path={info_path} setLoadDuration={this.setLoadDuration} updateDuration={updateDuration}/>
         <header className="header-items">
           <div className="header-content">
             <HomeIcon onClick={scrollTop} className="home"/>
