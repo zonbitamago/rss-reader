@@ -6,6 +6,7 @@ import path from 'path';
 import FeedMe from 'feedme';
 import http from 'http';
 import https from 'https';
+import { Input, Label} from 'semantic-ui-react'
 let info_path;
 let set = new Set();
 
@@ -88,29 +89,26 @@ class RssInput extends React.Component {
   };
   render() {
     return (
-      <div>
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                name:
-              </td>
-              <td>
-                <input type='text' value={this.state.name} onChange={this.changeName}/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                url:
-              </td>
-              <td>
-                <input type='text' value={this.state.url} onChange={this.changeURL}/>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <br/>
-      </div>
+      <ul className='rss-input-list'>
+        <li>
+        <Input
+          labelPosition='left'
+          placeholder='Enter Name'
+        >
+          <Label tag className='rss-input-tag'>Name</Label>
+          <input value={this.state.name} onChange={this.changeName}/>
+        </Input>
+        </li>
+        <li>
+        <Input
+          labelPosition='left'
+          placeholder='Enter URL'
+        >
+          <Label tag className='rss-input-tag'>URL</Label>
+          <input value={this.state.url} onChange={this.changeURL}/>
+        </Input>
+        </li>
+      </ul>
     );
   }
 }

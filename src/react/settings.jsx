@@ -67,7 +67,7 @@ class Settings extends React.Component {
             placeholder='Enter min...'
             error={this.state.error}
           >
-          <Label tag>Update Duration</Label>
+          <Label tag className='setting-input-tag'>Update Duration</Label>
           <input value={this.state.updateDuration} onChange={this.changeDuration}/>
           <Label basic>min</Label>
           </Input>

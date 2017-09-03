@@ -188,3 +188,33 @@ i.icon {
 .sideModal {
   width: 84vw !important;
 }
+
+.rss-input-tag {
+  width: 82px;
+}
+
+.rss-input-tag.ui.tag.label:after {
+  left: 5.75em !important;
+}
+
+.rss-input-tag.ui.tag.label:before {
+  transform: translateY(-50%) translateX(430%) rotate(-45deg);
+  -webkit-transform: translateY(-50%) translateX(430%) rotate(-45deg);
+}
+
+.rss-input-list {
+  list-style: none;
+}
+
+.rss-input-list li {
+  margin-bottom: 5px;
+}
+
+.setting-input-tag.ui.tag.label:after {
+  left: 10.25em !important;
+}
+
+.setting-input-tag.ui.tag.label:before {
+  transform: translateY(-50%) translateX(727%) rotate(-45deg);
+  -webkit-transform: translateY(-50%) translateX(727%) rotate(-45deg);
+}
