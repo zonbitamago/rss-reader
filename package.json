@@ -1,7 +1,7 @@
 {
   "name": "rss-reader",
-  "version": "1.0.1",
-  "description": "",
+  "version": "1.2.0",
+  "description": "Desktop rss-reader for RSS/Atom",
   "main": "src/index.js",
   "scripts": {
     "start": "./node_modules/.bin/webpack --progress && electron ./src",
@@ -26,8 +26,8 @@
       "target": "dmg"
     }
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["rss-reader","RSS","Atom","electron"],
+  "author": "zonbitamago",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.25.0",
