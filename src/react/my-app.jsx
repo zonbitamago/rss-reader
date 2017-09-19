@@ -18,9 +18,8 @@ const info_path = path.join(remote.app.getPath("userData"), "./urlList.json");
 let url;
 let timerId;
 let updateDuration = localStorage.settings
- ? JSON.parse(localStorage.settings).updateDuration
- : 5;
-
+  ? JSON.parse(localStorage.settings).updateDuration
+  : 5;
 
 class MyApp extends React.Component {
   constructor(props) {
@@ -49,54 +48,59 @@ class MyApp extends React.Component {
       }
     }
 
-    var urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
-    console.log(urlList);
-    var dataList = [];
+    try {
+      var urlList = JSON.parse(fs.readFileSync(info_path, 'utf8'));
+      console.log(urlList);
+      var dataList = [];
 
-    var promiseList = urlList.map((items, idx) => {
-      return (new Promise((resolve, reject) => {
-        var protocol = (items.url.startsWith('https:')
-          ? https
-          : http);
-        protocol.get(items.url, (res) => {
-          var parser = new FeedMe(true);
-          parser.on('item', (rssItems) => {
-            rssItems.name = items.name;
+      var promiseList = urlList.map((items, idx) => {
+        return (new Promise((resolve, reject) => {
+          var protocol = (items.url.startsWith('https:')
+            ? https
+            : http);
+          protocol.get(items.url, (res) => {
+            var parser = new FeedMe(true);
+            parser.on('item', (rssItems) => {
+              rssItems.name = items.name;
 
-            rssItems.created = rssItems.pubdate
-              ? Date.parse(rssItems.pubdate)
-              : Date.parse(rssItems.updated);
+              rssItems.created = rssItems.pubdate
+                ? Date.parse(rssItems.pubdate)
+                : Date.parse(rssItems.updated);
+            });
+            res.pipe(parser);
+            console.log('parser start:' + moment().format('HH:mm:ss'));
+            parser.on('end', () => {
+              console.log('parser end:' + moment().format('HH:mm:ss'));
+              resolve(parser.done());
+            });
           });
-          res.pipe(parser);
-          console.log('parser start:' + moment().format('HH:mm:ss'));
-          parser.on('end', () => {
-            console.log('parser end:' + moment().format('HH:mm:ss'));
-            resolve(parser.done());
-          });
+        }))
+
+      });
+      Promise.all(promiseList).then((arr) => {
+        arr.map((rss, idx) => {
+          Array.prototype.push.apply(dataList, rss.items);
         });
-      }))
 
-    });
-    Promise.all(promiseList).then((arr) => {
-      arr.map((rss, idx) => {
-        Array.prototype.push.apply(dataList, rss.items);
-      });
-
-      dataList.sort((val1, val2) => {
-        var val1 = val1.created;
-        var val2 = val2.created;
-        if (val1 < val2) {
-          return 1;
-        } else {
-          return -1;
+        dataList.sort((val1, val2) => {
+          var val1 = val1.created;
+          var val2 = val2.created;
+          if (val1 < val2) {
+            return 1;
+          } else {
+            return -1;
+          }
+        });
+        if (localStorage) {
+          localStorage.rss = JSON.stringify(dataList);
         }
-      });
-      if (localStorage) {
-        localStorage.rss = JSON.stringify(dataList);
-      }
 
-      setState.setState({data: dataList, updated: moment().format('HH:mm:ss'), isFetching: false});
-    });
+        setState.setState({data: dataList, updated: moment().format('HH:mm:ss'), isFetching: false});
+      });
+    } catch (error) {
+      // 何もしない。
+      setState.setState({data: setState.state.data, updated: moment().format('HH:mm:ss'), isFetching: false});
+    }
 
   }
   setSettings(min) {
