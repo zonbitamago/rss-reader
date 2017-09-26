@@ -1,0 +1,78 @@
+{
+  "name": "rss-reader",
+  "version": "1.2.0",
+  "description": "Desktop rss-reader for RSS/Atom",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/webpack --progress && electron ./src",
+    "test": "node test/spectron_test.js && jest",
+    "jest": "jest",
+    "dev_jest": "jest --watch --coverage",
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress && node build.js",
+    "jsx_build": "./node_modules/.bin/webpack --progress",
+    "dev_build": "./node_modules/.bin/webpack --progress --verbose",
+    "pack": "NODE_ENV=production ./node_modules/.bin/webpack --progress && electron-builder --dir",
+    "dist": "NODE_ENV=production ./node_modules/.bin/webpack --progress && electron-builder",
+    "win_dist": "NODE_ENV=production ./node_modules/.bin/webpack --progress && electron-builder --win"
+  },
+  "babel": {
+    "presets": ["react", "es2015"]
+  },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    }
+  },
+  "build": {
+    "appId": "electron-rss-reader",
+    "mac": {
+      "target": "dmg"
+    }
+  },
+  "keywords": [
+    "rss-reader",
+    "RSS",
+    "Atom",
+    "electron"
+  ],
+  "author": "zonbitamago",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "electron": "^1.7.8",
+    "feedme": "^1.0.1",
+    "file-loader": "^0.11.2",
+    "jquery": "^3.2.1",
+    "moment": "^2.18.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-icons": "^2.2.5",
+    "react-loading-animation": "^1.3.0",
+    "react-tooltip": "^3.3.0",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.71.4",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.4.1"
+  },
+  "devDependencies": {
+    "babel-jest": "^20.0.3",
+    "electron-builder": "^19.22.1",
+    "electron-packager": "^8.7.2",
+    "jest-cli": "^20.0.4",
+    "react-addons-test-utils": "^15.6.0",
+    "react-tools": "^0.13.3",
+    "spectron": "^3.7.2"
+  }
+}
