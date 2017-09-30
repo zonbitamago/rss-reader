@@ -1,23 +1,10 @@
 'use strict';
 
-import React from 'react';
 import ReactDOM from 'react-dom';
-
-class Init extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <main>
-        Hello World!!
-      </main>
-    )
-  }
-}
+import App from './components/app.jsx'
 
 const rootDom = document.getElementById("root-dom");
 ReactDOM.render(
-  <Init/>, rootDom);
+  <App/>, rootDom);
 
 module.exports = Init
