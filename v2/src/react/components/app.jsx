@@ -1,15 +1,16 @@
 'use strict';
 
 import React from 'react';
+import Side from './side.jsx';
+import MainPanels from './mainPanels.jsx';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <main>
-        Hello World3!!
+        Hello World!!
+        <Side/>
+        <MainPanels/>
       </main>
     )
   }

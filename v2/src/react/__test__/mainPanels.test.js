@@ -1,8 +1,8 @@
 'user strict';
-jest.dontMock('../components/app.jsx');
+jest.dontMock('../components/mainPanels.jsx');
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from '../components/app.jsx';
+import MainPanels from '../components/mainPanels.jsx';
 
 test('samle', function() {
   expect(1).toBe(1);
@@ -10,7 +10,7 @@ test('samle', function() {
 
 test('snapshot', function() {
   const tree = renderer.create(
-    <App/>
+    <MainPanels/>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

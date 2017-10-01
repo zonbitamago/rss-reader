@@ -1,8 +1,8 @@
 'user strict';
-jest.dontMock('../components/app.jsx');
+jest.dontMock('../components/side.jsx');
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from '../components/app.jsx';
+import Side from '../components/side.jsx';
 
 test('samle', function() {
   expect(1).toBe(1);
@@ -10,7 +10,7 @@ test('samle', function() {
 
 test('snapshot', function() {
   const tree = renderer.create(
-    <App/>
+    <Side/>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

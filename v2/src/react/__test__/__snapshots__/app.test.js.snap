@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<main>
+  Hello World!!
+  <aside>
+    side
+  </aside>
+  <section>
+    mainPanels
+  </section>
+</main>
+`;
