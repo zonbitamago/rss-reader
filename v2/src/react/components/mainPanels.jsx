@@ -1,11 +1,12 @@
 'use strict';
 
 import React from 'react';
+import styles from '../styles/mainPanels.css'
 
 class MainPanels extends React.Component {
   render() {
     return (
-      <section>
+      <section className={styles.mainPanels}>
         mainPanels
       </section>
     )
