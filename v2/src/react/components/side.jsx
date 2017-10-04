@@ -30,7 +30,7 @@ class Side extends React.Component {
     return (
       <aside>
         <Sidebar as={Menu} size='small' width='very thin' visible={true} icon='labeled' vertical inverted>
-          <Menu.Item header={false} link name='shutdown' as={Icon} className={styles.icon}>
+          <Menu.Item header={false} link name='shutdown' as={Icon} className={styles.icon} onClick={this.props.actions.onShutDownClick}>
             <Icon color='red' name='shutdown'/>
           </Menu.Item>
           <Menu.Item link name='refresh' as={Icon} className={styles.icon}>
@@ -39,13 +39,13 @@ class Side extends React.Component {
           <Menu.Item link name='rss' as={Icon} className={styles.icon}>
             <Icon color='yellow' name='rss'/>
           </Menu.Item>
-          <Menu.Item link name='minus square' as={Icon} className={styles.icon}>
+          <Menu.Item link name='minus square' as={Icon} className={styles.icon} onClick={this.props.actions.onMimizeClick}>
             <Icon color='green' name='minus square'/>
           </Menu.Item>
           <Menu.Item link name='settings' as={Icon} className={styles.icon}>
             <Icon color='teal' name='settings'/>
           </Menu.Item>
-          <Menu.Item link name='github' as={Icon} className={styles.icon}>
+          <Menu.Item link name='github' as={Icon} className={styles.icon} onClick={this.props.actions.onOpenGithubClick}>
             <Icon color='olive' name='github'/>
           </Menu.Item>
         </Sidebar>

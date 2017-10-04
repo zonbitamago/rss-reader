@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require("webpack");
+const UglifyESPlugin = require('uglify-es-webpack-plugin')
 const PROD = JSON.stringify(process.env.NODE_ENV === "production");
 
 module.exports = {
@@ -14,16 +15,16 @@ module.exports = {
           NODE_ENV: JSON.stringify('production')
         }
       }),
-      new webpack.optimize.UglifyJsPlugin()
+      new UglifyESPlugin()
     ]
-    : [new webpack.optimize.UglifyJsPlugin()],
+    : [new UglifyESPlugin()],
   target: "electron-main",
-  devtool: '#inline-source-map',
+  // devtool: '#inline-source-map',
   cache: true,
   module: {
     rules: [
       {
-        test: /\.jsx/,
+        test: /\.(jsx|js)/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',

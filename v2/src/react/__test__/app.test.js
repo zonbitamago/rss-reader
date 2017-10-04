@@ -1,8 +1,8 @@
 'user strict';
-jest.dontMock('../components/app.jsx');
+jest.dontMock('../containers/app.jsx');
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from '../components/app.jsx';
+import App from '../containers/app.jsx';
 import mockdate from 'mockdate';
 
 test('sample', function() {

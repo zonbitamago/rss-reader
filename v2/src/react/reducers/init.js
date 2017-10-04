@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import counter from './side';
+import side from './side';
 
 const reducer = combineReducers({side});
 
