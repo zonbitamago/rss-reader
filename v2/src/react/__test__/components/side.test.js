@@ -1,10 +1,10 @@
 'user strict';
-jest.dontMock('../components/side.jsx');
+jest.dontMock('../../components/side.jsx');
 jest.useFakeTimers();
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
 import renderer from 'react-test-renderer';
-import Side from '../components/side.jsx';
+import Side from '../../components/side.jsx';
 import mockdate from 'mockdate';
 
 test('snapshot', function() {

@@ -14,7 +14,7 @@ class ItemPanel extends React.Component {
     };
 
     var items = this.props.items;
-    
+
     var url = items.link;
     if (Object.prototype.toString.call(items.link) == '[object Array]') {
       url = items.link[0].href;
