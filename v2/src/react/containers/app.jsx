@@ -10,7 +10,7 @@ import styles from '../styles/app.css';
 import * as actions from '../actions/index.js';
 
 
-class App extends React.Component {
+export class App extends React.Component {
   render() {
     const {mapstate, actions} = this.props;
     return (
