@@ -2,7 +2,6 @@
 import {ipcRenderer} from 'electron';
 import * as actionTypes from '../utils/actionTypes';
 
-const initialNum = 0;
 const initialAppState = {
   power: 'on'
 };

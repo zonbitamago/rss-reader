@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<div
+  className="ui blue inverted pointing secondary menu"
+>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <i
+      aria-hidden="true"
+      className="home large icon"
+    />
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <h3
+      className="ui inverted header"
+    >
+      Home
+    </h3>
+  </div>
+</div>
+`;

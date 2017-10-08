@@ -1,4 +1,4 @@
-'user strict';
+'use strict';
 jest.dontMock('../../components/side.jsx');
 jest.useFakeTimers();
 import React from 'react';

@@ -4,6 +4,28 @@ exports[`snapshot 1`] = `
 <section
   className="mainPanels"
 >
-  mainPanels
+  <div
+    className="ui blue inverted pointing secondary menu"
+  >
+    <div
+      className="item"
+      onClick={[Function]}
+    >
+      <i
+        aria-hidden="true"
+        className="home large icon"
+      />
+    </div>
+    <div
+      className="item"
+      onClick={[Function]}
+    >
+      <h3
+        className="ui inverted header"
+      >
+        Home
+      </h3>
+    </div>
+  </div>
 </section>
 `;
