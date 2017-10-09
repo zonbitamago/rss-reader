@@ -7,7 +7,7 @@ class Head extends React.Component {
   render() {
     return (
       <Menu pointing secondary color='blue' inverted>
-        <Menu.Item>
+        <Menu.Item link onClick={this.props.actions.onHomeClick}>
           <Icon name='home' size='large'/>
         </Menu.Item>
         <Menu.Item>

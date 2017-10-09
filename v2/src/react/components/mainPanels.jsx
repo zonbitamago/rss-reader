@@ -10,7 +10,7 @@ class MainPanels extends React.Component {
   render() {
     return (
       <section className={styles.mainPanels}>
-        <Head/>
+        <Head actions={this.props.actions}/>
       </section>
     )
   }

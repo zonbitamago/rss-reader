@@ -16,7 +16,7 @@ export class App extends React.Component {
     return (
       <main className={styles.main}>
         <Side actions={actions}/>
-        <MainPanels/>
+        <MainPanels actions={actions}/>
       </main>
     )
   }
