@@ -7,15 +7,15 @@ exports[`snapshot 1`] = `
   <div
     className="ui blue inverted pointing secondary menu"
   >
-    <div
-      className="item"
+    <a
+      className="link item"
       onClick={[Function]}
     >
       <i
         aria-hidden="true"
         className="home large icon"
       />
-    </div>
+    </a>
     <div
       className="item"
       onClick={[Function]}

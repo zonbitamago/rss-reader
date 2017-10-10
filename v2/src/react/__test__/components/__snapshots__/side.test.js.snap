@@ -33,6 +33,11 @@ exports[`snapshot 1`] = `
       <i
         aria-hidden="true"
         className="yellow rss icon"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       />
     </i>
     <i

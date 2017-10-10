@@ -15,3 +15,7 @@ test('onMimizeClick', () => {
 test('onOpenGithubClick', () => {
   expect(actions.onOpenGithubClick()).toEqual({type: actionTypes.OPEN_GITHUB});
 });
+
+test('onHomeClick', () => {
+  expect(actions.onHomeClick()).toEqual({type: actionTypes.HOME});
+});

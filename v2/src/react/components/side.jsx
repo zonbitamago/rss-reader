@@ -3,7 +3,8 @@
 import React from 'react';
 import {Icon, Sidebar, Menu} from 'semantic-ui-react'
 import moment from 'moment';
-import styles from '../styles/side.css'
+import RssListModal from './rssListModal.jsx';
+import styles from '../styles/side.css';
 
 const getMMDD = () => {
   return moment().format('M/D');
@@ -37,7 +38,7 @@ class Side extends React.Component {
             <Icon name='refresh'/>
           </Menu.Item>
           <Menu.Item link name='rss' as={Icon} className={styles.icon}>
-            <Icon color='yellow' name='rss'/>
+            <RssListModal actions={this.props.actions} open={this.props.rssListModal}/>
           </Menu.Item>
           <Menu.Item link name='minus square' as={Icon} className={styles.icon} onClick={this.props.actions.onMimizeClick}>
             <Icon color='green' name='minus square'/>

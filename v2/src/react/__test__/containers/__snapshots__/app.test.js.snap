@@ -36,6 +36,11 @@ exports[`snapshot 1`] = `
         <i
           aria-hidden="true"
           className="yellow rss icon"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         />
       </i>
       <i
@@ -92,7 +97,7 @@ exports[`snapshot 1`] = `
       className="ui blue inverted pointing secondary menu"
     >
       <div
-        className="item"
+        className="link item"
         onClick={[Function]}
       >
         <i
