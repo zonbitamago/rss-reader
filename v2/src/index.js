@@ -1,4 +1,5 @@
 const electron = require("electron");
+const loadDevtool = require('electron-load-devtool');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const ROOT_PATH = `file://${__dirname}`;
@@ -40,6 +41,9 @@ app.on("ready", e => {
   });
 
   mainWindow.loadURL(`${ROOT_PATH}/index.html`);
+  loadDevtool(loadDevtool.REACT_DEVELOPER_TOOLS);
+
+  mainWindow.openDevTools();
 });
 
 app.on("window-all-closed", e => {

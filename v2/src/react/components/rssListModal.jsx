@@ -7,6 +7,8 @@ class RssListModal extends React.Component {
   render() {
     return (
       <Modal
+        open={this.props.open}
+        onClose={this.props.actions.onRssListModalClick}
         trigger={<Icon color='yellow' name='rss' />}
       >
         <Modal.Header>RssList</Modal.Header>

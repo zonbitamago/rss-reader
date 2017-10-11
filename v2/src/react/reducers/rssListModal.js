@@ -7,14 +7,13 @@ const initialAppState = {
 
 const rssListModal = (state = initialAppState, action) => {
   if (action.type === actionTypes.RSSLISTMODAL) {
-    console.log('rssListModalClick!');
     return {
       state,
-      rssListModalOpen: !state.open
+      rssListModalOpen: !state.rssListModalOpen
     };
   } else {
     return state;
   }
-}
+};
 
 export default rssListModal;

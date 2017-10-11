@@ -37,7 +37,7 @@ class Side extends React.Component {
           <Menu.Item link name='refresh' as={Icon} className={styles.icon}>
             <Icon name='refresh'/>
           </Menu.Item>
-          <Menu.Item link name='rss' as={Icon} className={styles.icon}>
+          <Menu.Item link name='rss' as={Icon} className={styles.icon} onClick={this.props.actions.onRssListModalClick}>
             <RssListModal actions={this.props.actions} open={this.props.rssListModal}/>
           </Menu.Item>
           <Menu.Item link name='minus square' as={Icon} className={styles.icon} onClick={this.props.actions.onMimizeClick}>
