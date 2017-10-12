@@ -19,3 +19,7 @@ test('onOpenGithubClick', () => {
 test('onHomeClick', () => {
   expect(actions.onHomeClick()).toEqual({type: actionTypes.HOME});
 });
+
+test('onRssListModalClick',() => {
+  expect(actions.onRssListModalClick()).toEqual({type: actionTypes.RSSLISTMODAL});  
+})

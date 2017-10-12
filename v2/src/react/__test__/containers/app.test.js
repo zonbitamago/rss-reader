@@ -6,6 +6,11 @@ import {App} from '../../containers/app.jsx';
 import mockdate from 'mockdate';
 
 const actions = {};
+const mapstate = {
+  rssListModal: {
+    rssListModalOpen: false
+  }
+};
 
 test('sample', function() {
   expect(1).toBe(1);
@@ -13,7 +18,7 @@ test('sample', function() {
 
 test('snapshot', function() {
   mockdate.set(1434319925275);
-  const tree = renderer.create(<App actions={actions}/>).toJSON();
+  const tree = renderer.create(<App actions={actions} mapstate={mapstate}/>).toJSON();
   expect(tree).toMatchSnapshot();
 
   mockdate.reset();
