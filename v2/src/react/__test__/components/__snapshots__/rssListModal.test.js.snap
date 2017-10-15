@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`modal open 1`] = `"<div class=\\"ui modal transition visible active background\\"><div class=\\"header\\">RssList</div><div class=\\"scrolling content\\"><div><ul></ul></div></div><div class=\\"actions\\"><button class=\\"ui red button\\" role=\\"button\\"><i aria-hidden=\\"true\\" class=\\"remove icon\\"></i>No</button><button class=\\"ui green button\\" role=\\"button\\"><i aria-hidden=\\"true\\" class=\\"checkmark icon\\"></i>Yes</button></div></div>"`;
+
 exports[`snapshot 1`] = `
 <i
   aria-hidden="true"

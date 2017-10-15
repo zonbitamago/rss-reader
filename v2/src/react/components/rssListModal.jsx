@@ -12,7 +12,6 @@ class RssListModal extends React.Component {
         onClose={this.props.actions.onRssListModalClick}
         trigger={<Icon color='yellow' name='rss' />}
         className={styles.background}
-        mountNode={document.querySelector('section')}
       >
         <Modal.Header>RssList</Modal.Header>
         <Modal.Content scrolling>
