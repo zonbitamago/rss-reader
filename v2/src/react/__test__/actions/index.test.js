@@ -20,10 +20,10 @@ test('onHomeClick', () => {
   expect(actions.onHomeClick()).toEqual({type: actionTypes.HOME});
 });
 
-test('onRssListModalClick',() => {
+test('onRssListModalClick', () => {
   expect(actions.onRssListModalClick()).toEqual({type: actionTypes.RSSLISTMODAL});
 })
 
-test('onRssInputClick',() => {
-  expect(actions.onRssInputClick()).toEqual({type: actionTypes.RSSINPUT});  
+test('onRssInputClick', () => {
+  expect(actions.onRssInputClick('name', 'url')).toEqual({type: actionTypes.RSSINPUT, name: 'name', url: 'url'});
 })

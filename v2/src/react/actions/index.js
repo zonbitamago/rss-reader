@@ -6,4 +6,4 @@ export const onMimizeClick = () => ({type: actionTypes.MINIMIZE});
 export const onOpenGithubClick = () => ({type: actionTypes.OPEN_GITHUB});
 export const onHomeClick = () => ({type: actionTypes.HOME});
 export const onRssListModalClick = () => ({type: actionTypes.RSSLISTMODAL});
-export const onRssInputClick = () => ({type: actionTypes.RSSINPUT});
+export const onRssInputClick = (name, url) => ({type: actionTypes.RSSINPUT, name: name, url: url});

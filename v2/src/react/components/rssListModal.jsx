@@ -5,6 +5,26 @@ import {Button, Header, Icon, Modal, Input, Label} from 'semantic-ui-react';
 import styles from '../styles/rssListModal.css';
 
 class RssListModal extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      name:'',
+      url:''
+    };
+    this.changeName = this.changeName.bind(this);
+    this.changeURL = this.changeURL.bind(this);
+    this.onRssListModalClick = this.onRssListModalClick.bind(this);
+  };
+  changeName(e) {
+    this.setState({name: e.target.value});
+  };
+
+  changeURL(e) {
+    this.setState({url: e.target.value});
+  };
+  onRssListModalClick(){
+    this.props.actions.onRssInputClick(this.state.name, this.state.url);
+  }
   render() {
     return (
       <Modal
@@ -25,7 +45,7 @@ class RssListModal extends React.Component {
                 className={styles.rssInputTag}
               >
                 <Label tag>Name</Label>
-                <input/>
+                <input value={this.state.name} onChange={this.changeName}/>
               </Input>
               </li>
               <li>
@@ -35,7 +55,7 @@ class RssListModal extends React.Component {
                 className={styles.rssInputTag}
               >
                 <Label tag>URL</Label>
-                <input/>
+                <input value={this.state.url} onChange={this.changeURL}/>
               </Input>
               </li>
             </ul>
@@ -46,7 +66,7 @@ class RssListModal extends React.Component {
             <Icon name='remove'/>
             No
           </Button>
-          <Button color='green' onClick={this.props.actions.onRssInputClick}>
+          <Button color='green' onClick={this.onRssListModalClick}>
             <Icon name='checkmark'/>
             Yes
           </Button>
