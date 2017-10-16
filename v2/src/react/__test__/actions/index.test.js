@@ -21,5 +21,9 @@ test('onHomeClick', () => {
 });
 
 test('onRssListModalClick',() => {
-  expect(actions.onRssListModalClick()).toEqual({type: actionTypes.RSSLISTMODAL});  
+  expect(actions.onRssListModalClick()).toEqual({type: actionTypes.RSSLISTMODAL});
+})
+
+test('onRssInputClick',() => {
+  expect(actions.onRssInputClick()).toEqual({type: actionTypes.RSSINPUT});  
 })

@@ -1,3 +1,20 @@
-.modal {
-  margin-left: 60px;
+.rssInputList {
+  list-style: none;
+}
+
+.rssInputList li {
+  margin-bottom: 5px;
+}
+
+.rssInputTag div {
+  width: 82px;
+}
+
+.rssInputTag div:after {
+  left: 5.75em !important;
+}
+
+.rssInputTag div:before {
+  transform: translateY(-50%) translateX(430%) rotate(-45deg) !important;
+  -webkit-transform: translateY(-50%) translateX(430%) rotate(-45deg) !important;
 }

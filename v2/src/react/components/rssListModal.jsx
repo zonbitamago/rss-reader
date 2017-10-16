@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import {Button, Header, Icon, Modal} from 'semantic-ui-react';
+import {Button, Header, Icon, Modal, Input, Label} from 'semantic-ui-react';
 import styles from '../styles/rssListModal.css';
 
 class RssListModal extends React.Component {
@@ -17,6 +17,28 @@ class RssListModal extends React.Component {
         <Modal.Content scrolling>
           <div>
             <ul></ul>
+            <ul className={styles.rssInputList}>
+              <li>
+              <Input
+                labelPosition='left'
+                placeholder='Enter Name'
+                className={styles.rssInputTag}
+              >
+                <Label tag>Name</Label>
+                <input/>
+              </Input>
+              </li>
+              <li>
+              <Input
+                labelPosition='left'
+                placeholder='Enter URL'
+                className={styles.rssInputTag}
+              >
+                <Label tag>URL</Label>
+                <input/>
+              </Input>
+              </li>
+            </ul>
           </div>
         </Modal.Content>
         <Modal.Actions>
@@ -24,7 +46,7 @@ class RssListModal extends React.Component {
             <Icon name='remove'/>
             No
           </Button>
-          <Button color='green'>
+          <Button color='green' onClick={this.props.actions.onRssInputClick}>
             <Icon name='checkmark'/>
             Yes
           </Button>

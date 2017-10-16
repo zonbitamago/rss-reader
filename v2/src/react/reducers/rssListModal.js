@@ -11,6 +11,12 @@ const rssListModal = (state = initialAppState, action) => {
       state,
       rssListModalOpen: !state.rssListModalOpen
     };
+  } else if (action.type === actionTypes.RSSINPUT) {
+    console.log('rssInputClick!');
+    return {
+      state,
+      rssListModalOpen: state.rssListModalOpen
+    };
   } else {
     return state;
   }

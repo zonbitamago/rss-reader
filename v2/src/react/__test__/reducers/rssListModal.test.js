@@ -15,6 +15,14 @@ test('rssListModal', () => {
   expect(rssListModalAction).toEqual({rssListModalOpen: true, state: initialAppState});
 })
 
+test('rssInput', () => {
+  var action = {
+    type: actionTypes.RSSINPUT
+  };
+  var rssListModalAction = rssListModal(initialAppState, action);
+  expect(rssListModalAction).toEqual({rssListModalOpen: false, state: initialAppState});
+})
+
 test('else', () => {
   var action = {
     type: 'else'
