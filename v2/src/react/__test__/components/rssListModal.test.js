@@ -34,25 +34,25 @@ test('modal close button',() => {
    expect(onRssListModalClick).toHaveBeenCalled();
 })
 
-test('input name',() => {
-  const wrapper = mount(<RssListModal actions={actions} open={true}/>);
-  var modal = document.querySelector('.ui.page.modals.dimmer.transition.visible.active');
-  var name = modal.querySelectorAll('.ui.left.labeled.input input')[0];
-  var url = modal.querySelectorAll('.ui.left.labeled.input input')[1];
-
-  name.value='testName';
-
-  $(name).val('testName').change();
-  // name.onchange();
-  // var event = document.createEvent( "HTMLEvents" ); // イベントオブジェクトを作成
-  // event.initEvent("change", false, true); // イベントの内容を設定
-  // name.dispatchEvent(event);
-
-  // document
-  // .getElementsByClassName('.ui.page.modals.dimmer.transition.visible.active')
-  // .getElementsByClassName('.ui.left.labeled.input')
-  // .getElementsByTagName('input')[0].onchange();
-
-  expect(name.value).toEqual('testName');
-
-});
+// test('input name',() => {
+//   const wrapper = mount(<RssListModal actions={actions} open={true}/>);
+//   var modal = document.querySelector('.ui.page.modals.dimmer.transition.visible.active');
+//   var name = modal.querySelectorAll('.ui.left.labeled.input input')[0];
+//   var url = modal.querySelectorAll('.ui.left.labeled.input input')[1];
+//
+//   name.value='testName';
+//
+//   $(name).val('testName').change();
+//   // name.onchange();
+//   // var event = document.createEvent( "HTMLEvents" ); // イベントオブジェクトを作成
+//   // event.initEvent("change", false, true); // イベントの内容を設定
+//   // name.dispatchEvent(event);
+//
+//   // document
+//   // .getElementsByClassName('.ui.page.modals.dimmer.transition.visible.active')
+//   // .getElementsByClassName('.ui.left.labeled.input')
+//   // .getElementsByTagName('input')[0].onchange();
+//
+//   expect(name.value).toEqual('testName');
+//
+// });
