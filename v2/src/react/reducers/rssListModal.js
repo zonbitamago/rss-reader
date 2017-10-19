@@ -1,8 +1,11 @@
 'use strict';
 import * as actionTypes from '../utils/actionTypes';
+import * as constants from '../utils/constants';
+import fs from 'fs';
 
 const initialAppState = {
-  rssListModalOpen: false
+  rssListModalOpen: false,
+  urlList: getUrlList()
 };
 
 const rssListModal = (state = initialAppState, action) => {
@@ -38,6 +41,14 @@ const setURLContent = () => {
   }
 };
 
+function getUrlList() {
+  var urlList = '';
+  try {
+    urlList = JSON.parse(fs.readFileSync(constants.info_path, 'utf8'));
+  } catch (e) {};
+  return urlList;
+}
+
 const save = () => {
   var state = this;
   var url = state.state.url;
@@ -58,7 +69,7 @@ const save = () => {
     state.setURLContent();
 
     console.log('set:', state.props.set);
-    fs.writeFileSync(info_path, JSON.stringify([...state.props.set]), function(err) {
+    fs.writeFileSync(constants.info_path, JSON.stringify([...state.props.set]), function(err) {
       console.log('err');
       console.log(err);
     });
