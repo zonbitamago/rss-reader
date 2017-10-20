@@ -22,27 +22,27 @@ const rssListModal = (state = initialAppState, action) => {
   }
 };
 
-const setURLContent = () => {
-  var state = this;
-  if (this.props.set.size == 0) {
-    this.props.set.add(state.state);
+const setURLContent = (urlList, name, url) => {
+  if (urlLisl == 0) {
+    return urlList;
   } else {
     var exists = false;
-    this.props.set.forEach((val) => {
-      if (val.name == state.state.name) {
+    urlList.forEach((val) => {
+      if (val.name == name) {
         exists = true;
-        val.url = state.state.url;
+        val.url = url;
       }
     });
 
     if (!exists) {
-      this.props.set.add(state.state);
+      urlList.add({name: name, url: url});
     }
+    return urlList;
   }
 };
 
 function getUrlList() {
-  var urlList = '';
+  var urlList = {};
   try {
     urlList = JSON.parse(fs.readFileSync(constants.info_path, 'utf8'));
   } catch (e) {};
