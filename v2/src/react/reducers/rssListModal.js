@@ -5,18 +5,20 @@ import fs from 'fs';
 
 const initialAppState = {
   rssListModalOpen: false,
-  urlList: getUrlList()
+  urlList: {}
 };
 
 const rssListModal = (state = initialAppState, action) => {
   if (action.type === actionTypes.RSSLISTMODAL) {
     return {
       state,
-      rssListModalOpen: !state.rssListModalOpen
+      rssListModalOpen: !state.rssListModalOpen,
+      urlList: getUrlList()
     };
   } else if (action.type === actionTypes.RSSINPUT) {
     console.log('rssInputClick!');
-    return {state, rssListModalOpen: state.rssListModalOpen};
+    var urlList = getUrlList();
+    return {state, rssListModalOpen: state.rssListModalOpen, urlList: urlList};
   } else {
     return state;
   }
@@ -45,7 +47,7 @@ function getUrlList() {
   var urlList = {};
   try {
     urlList = JSON.parse(fs.readFileSync(constants.info_path, 'utf8'));
-  } catch (e) {};
+  } catch (e) {console.log(e);};
   return urlList;
 }
 
