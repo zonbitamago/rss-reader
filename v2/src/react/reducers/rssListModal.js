@@ -18,6 +18,7 @@ const rssListModal = (state = initialAppState, action) => {
   } else if (action.type === actionTypes.RSSINPUT) {
     console.log('rssInputClick!');
     var urlList = getUrlList();
+    // urlList = setURLContent(urlList, action.name, action.url);
     return {state, rssListModalOpen: state.rssListModalOpen, urlList: urlList};
   } else {
     return state;
@@ -47,7 +48,9 @@ function getUrlList() {
   var urlList = {};
   try {
     urlList = JSON.parse(fs.readFileSync(constants.info_path, 'utf8'));
-  } catch (e) {console.log(e);};
+  } catch (e) {
+    console.log(e);
+  };
   return urlList;
 }
 
