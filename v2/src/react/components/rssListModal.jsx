@@ -36,7 +36,12 @@ class RssListModal extends React.Component {
         <Modal.Header>RssList</Modal.Header>
         <Modal.Content scrolling>
           <div>
-            <ul></ul>
+            <ul className={styles.rssInputList}>
+              <li>
+                <Button size='mini' icon='remove' content='Delete' color='blue'/>
+                <a href='#'>test</a>
+              </li>
+            </ul>
             <ul className={styles.rssInputList}>
               <li>
               <Input

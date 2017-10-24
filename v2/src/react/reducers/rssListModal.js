@@ -2,10 +2,13 @@
 import * as actionTypes from '../utils/actionTypes';
 import * as constants from '../utils/constants';
 import fs from 'fs';
+import FeedMe from 'feedme';
+import http from 'http';
+import https from 'https';
 
 const initialAppState = {
   rssListModalOpen: false,
-  urlList: {}
+  urlList: getUrlList()
 };
 
 const rssListModal = (state = initialAppState, action) => {
@@ -19,6 +22,7 @@ const rssListModal = (state = initialAppState, action) => {
     console.log('rssInputClick!');
     var urlList = getUrlList();
     // urlList = setURLContent(urlList, action.name, action.url);
+    urlList = save(urlList, action.name, action.url);
     return {state, rssListModalOpen: state.rssListModalOpen, urlList: urlList};
   } else {
     return state;
@@ -26,7 +30,7 @@ const rssListModal = (state = initialAppState, action) => {
 };
 
 const setURLContent = (urlList, name, url) => {
-  if (urlLisl == 0) {
+  if (!urlList.length || urlList.length == 0) {
     return urlList;
   } else {
     var exists = false;
@@ -49,14 +53,13 @@ function getUrlList() {
   try {
     urlList = JSON.parse(fs.readFileSync(constants.info_path, 'utf8'));
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   };
   return urlList;
 }
 
-const save = () => {
+const save = (urlList, name, url) => {
   var state = this;
-  var url = state.state.url;
   var promise = new Promise((resolve, reject) => {
     var protocol = (url.startsWith('https:')
       ? https
@@ -71,22 +74,23 @@ const save = () => {
   });
 
   promise.then((rss) => {
-    state.setURLContent();
+    urlList = setURLContent(urlList, name, url);
 
-    console.log('set:', state.props.set);
-    fs.writeFileSync(constants.info_path, JSON.stringify([...state.props.set]), function(err) {
+    fs.writeFileSync(constants.info_path, JSON.stringify(urlList), function(err) {
       console.log('err');
       console.log(err);
     });
-    state.props.parent.forceUpdate();
+    // state.props.parent.forceUpdate();
     console.log('save');
 
-    state.props.load();
+    // state.props.load();
+    return urlList;
 
   }, (err) => {
     console.log('err:');
     console.log(err);
     alert('登録できないURLです。');
+    return urlList;
   });
 
 };
