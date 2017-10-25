@@ -26,6 +26,18 @@ class RssListModal extends React.Component {
     this.props.actions.onRssInputClick(this.state.name, this.state.url);
   }
   render() {
+    var liNodes;
+    // console.log(this.props.urlList);
+    if(this.props.urlList && this.props.urlList.length && this.props.urlList.length != 0){
+      liNodes = this.props.urlList.map((item,idx) => {
+        return(
+          <li key={idx}>
+            <Button size='mini' icon='remove' content='Delete' color='blue'/>
+            <a href='#'>{item.name}</a>
+          </li>
+        );
+      });
+    }
     return (
       <Modal
         open={this.props.open}
@@ -37,6 +49,7 @@ class RssListModal extends React.Component {
         <Modal.Content scrolling>
           <div>
             <ul className={styles.rssInputList}>
+              {liNodes}
               <li>
                 <Button size='mini' icon='remove' content='Delete' color='blue'/>
                 <a href='#'>test</a>

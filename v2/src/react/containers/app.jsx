@@ -14,7 +14,7 @@ export class App extends React.Component {
     const {mapstate, actions} = this.props;
     return (
       <main className={styles.main}>
-        <Side actions={actions} rssListModal={mapstate.rssListModal.rssListModalOpen}/>
+        <Side actions={actions} rssListModal={mapstate.rssListModal.rssListModalOpen} urlList={mapstate.rssListModal.urlList}/>
         <MainPanels actions={actions}/>
       </main>
     )

@@ -31,7 +31,7 @@ const rssListModal = (state = initialAppState, action) => {
 
 const setURLContent = (urlList, name, url) => {
   if (!urlList.length || urlList.length == 0) {
-    return urlList;
+    return {name: name, url: url};
   } else {
     var exists = false;
     urlList.forEach((val) => {
