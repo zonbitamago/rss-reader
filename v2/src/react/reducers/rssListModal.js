@@ -164,13 +164,13 @@ var checkURL = (url) => {
   }, (err) => {
     // console.log('err:');
     // console.log(err);
-    // console.log(2);
+    console.log(2);
     isCheck = false;
     alert('登録できないURLです。');
     // setIsCheck(false);
   });
   // console.log(promise);
-  // console.log(1);
+  console.log(1);
   return isCheck;
 };
 
