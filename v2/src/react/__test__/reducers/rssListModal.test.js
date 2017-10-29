@@ -1,38 +1,55 @@
 'use strict';
 jest.dontMock('../../reducers/rssListModal');
-import rssListModal, {save} from '../../reducers/rssListModal';
+import rssListModal, {save, getRssList} from '../../reducers/rssListModal';
 import * as actionTypes from '../../utils/actionTypes';
 import * as constants from '../../utils/constants';
 
 const initialAppState = {
-  rssListModalOpen: false
+  rssListModalOpen: false,
+  rssList: [{}]
 };
 
-test('rssListModal', () => {
-  var action = {
-    type: actionTypes.RSSLISTMODAL
-  };
-  var rssListModalAction = rssListModal(initialAppState, action);
-  expect(rssListModalAction).toEqual({rssListModalOpen: true, state: initialAppState, urlList: {}});
+beforeEach(() => {
+  localStorage.rssList = undefined;
 })
+describe('reducers', () => {
 
-// test('rssInput', () => {
-//   var action = {
-//     type: actionTypes.RSSINPUT,
-//     name: 'name',
-//     url: 'url'
-//   };
-//   var rssListModalAction = rssListModal(initialAppState, action);
-//
-//   expect(rssListModalAction).toEqual({
-//     rssListModalOpen: false,
-//     state: initialAppState,
-//     urlList: {
-//       name: 'name',
-//       url: 'url'
-//     }
-//   });
-// })
+  test('rssListModal', () => {
+    var action = {
+      type: actionTypes.RSSLISTMODAL
+    };
+    var rssListModalAction = rssListModal(initialAppState, action);
+    expect(rssListModalAction).toEqual({rssListModalOpen: true, state: initialAppState, rssList: [{}]});
+  })
+
+  test('rssInput', () => {
+    var action = {
+      type: actionTypes.RSSINPUT,
+      name: 'name',
+      url: 'http://www.feedforall.com/sample-feed.xml'
+    };
+    var rssListModalAction = rssListModal(initialAppState, action);
+
+    expect(rssListModalAction).toEqual({
+      rssListModalOpen: false,
+      state: initialAppState,
+      rssList: [
+        {
+          name: 'name',
+          url: 'http://www.feedforall.com/sample-feed.xml'
+        }
+      ]
+    });
+  })
+
+  test('else', () => {
+    var action = {
+      type: 'else'
+    };
+    var elseaction = rssListModal(initialAppState, action);
+    expect(elseaction).toEqual(initialAppState);
+  });
+});
 
 describe('functions', () => {
   test('引数を受け取って、rssListを保存する。', () => {
@@ -73,7 +90,6 @@ describe('functions', () => {
   });
 
   test('重複した内容のrssListを保存する', () => {
-    localStorage.rssList = undefined;
     save('name1', 'http://www.feedforall.com/sample-feed.xml');
     save('name2', 'http://www.feedforall.com/sample.xml');
     save('name2', 'http://www.feedforall.com/sample.xml');
@@ -116,12 +132,21 @@ describe('functions', () => {
     ]);
 
   });
-});
 
-test('else', () => {
-  var action = {
-    type: 'else'
-  };
-  var elseaction = rssListModal(initialAppState, action);
-  expect(elseaction).toEqual(initialAppState);
+  test('rsslistを取得する。', () => {
+    expect(getRssList()).toEqual([{}]);
+
+    localStorage.rssList = JSON.stringify([
+      {
+        name: 'name1',
+        url: 'http://www.feedforall.com/sample-feed.xml'
+      }
+    ]);
+    expect(getRssList()).toEqual([
+      {
+        name: 'name1',
+        url: 'http://www.feedforall.com/sample-feed.xml'
+      }
+    ]);
+  });
 });

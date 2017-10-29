@@ -9,7 +9,7 @@ import request from 'sync-request';
 
 const initialAppState = {
   rssListModalOpen: false,
-  urlList: getUrlList()
+  rssList: getRssList()
 };
 
 const rssListModal = (state = initialAppState, action) => {
@@ -17,32 +17,23 @@ const rssListModal = (state = initialAppState, action) => {
     return {
       state,
       rssListModalOpen: !state.rssListModalOpen,
-      urlList: getUrlList()
+      rssList: state.rssList
     };
   } else if (action.type === actionTypes.RSSINPUT) {
     console.log('rssInputClick!');
-    var urlList = getUrlList();
-    // urlList = setURLContent(urlList, action.name, action.url);
-    save(urlList, action.name, action.url);
-    var newUrlList = getUrlList();
-    console.log(newUrlList);
-    return {state, rssListModalOpen: state.rssListModalOpen, urlList: newUrlList};
+    save(action.name, action.url);
+    return {state, rssListModalOpen: state.rssListModalOpen, rssList: getRssList()};
   } else {
     return state;
   }
 
 };
 
-
-// function getUrlList() {
-//   var urlList = {};
-//   try {
-//     urlList = JSON.parse(fs.readFileSync(constants.info_path, 'utf8'));
-//   } catch (e) {
-//     // console.log(e);
-//   };
-//   return urlList;
-// }
+export function getRssList() {
+  return localStorage.rssList == undefined
+    ? [{}]
+    : JSON.parse(localStorage.rssList);
+};
 
 export var save = (name, url) => {
   if (!checkURL(url)) {
