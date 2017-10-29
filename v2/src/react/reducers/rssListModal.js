@@ -1,10 +1,6 @@
 'use strict';
 import * as actionTypes from '../utils/actionTypes';
-import * as constants from '../utils/constants';
-import fs from 'fs';
 import FeedMe from 'feedme';
-import http from 'http';
-import https from 'https';
 import request from 'sync-request';
 
 const initialAppState = {
@@ -82,7 +78,10 @@ var checkURL = (url) => {
     if (parser.done() != undefined) {
       isAvailable = true;
     }
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+    alert('登録できないURLです。')
+  }
 
   return isAvailable;
 };

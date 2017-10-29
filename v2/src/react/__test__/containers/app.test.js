@@ -12,10 +12,6 @@ const mapstate = {
   }
 };
 
-test('sample', function() {
-  expect(1).toBe(1);
-});
-
 test('snapshot', function() {
   mockdate.set(1434319925275);
   const tree = renderer.create(<App actions={actions} mapstate={mapstate}/>).toJSON();

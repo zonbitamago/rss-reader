@@ -16,8 +16,11 @@ test('snapshot', function() {
   expect(tree).toMatchSnapshot();
 });
 
-test('onClick home',() => {
-  const head = mount(<Head actions={actions}/>);
-  head.find('.home.large.icon').simulate('click');
-  expect(onHomeClick).toHaveBeenCalled();
-})
+describe('functions', () => {
+
+  test('homeボタンクリック', () => {
+    const head = mount(<Head actions={actions}/>);
+    head.find('.home.large.icon').simulate('click');
+    expect(onHomeClick).toHaveBeenCalled();
+  })
+});
