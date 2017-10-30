@@ -28,8 +28,8 @@ class RssListModal extends React.Component {
   render() {
     var liNodes;
     // console.log(this.props.urlList);
-    if(this.props.urlList && this.props.urlList.length && this.props.urlList.length != 0){
-      liNodes = this.props.urlList.map((item,idx) => {
+    if(this.props.rssList && this.props.rssList.length && this.props.rssList.length != 0){
+      liNodes = this.props.rssList.map((item,idx) => {
         return(
           <li key={idx}>
             <Button size='mini' icon='remove' content='Delete' color='blue'/>
