@@ -5,3 +5,4 @@ export const OPEN_GITHUB = 'OPEN_GITHUB';
 export const HOME = 'HOME';
 export const RSSLISTMODAL = 'RSSLISTMODAL';
 export const RSSINPUT = 'RSSINPUT';
+export const RSSISLOADING = 'RSSISLOADING';

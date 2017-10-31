@@ -6,7 +6,10 @@ import * as constants from '../../utils/constants';
 
 const initialAppState = {
   rssListModalOpen: false,
-  rssList: [{}]
+  rssList: [
+    {}
+  ],
+  isLoading: false
 };
 
 beforeEach(() => {
@@ -19,7 +22,9 @@ describe('reducers', () => {
       type: actionTypes.RSSLISTMODAL
     };
     var rssListModalAction = rssListModal(initialAppState, action);
-    expect(rssListModalAction).toEqual({rssListModalOpen: true, state: initialAppState, rssList: [{}]});
+    expect(rssListModalAction).toEqual({rssListModalOpen: true, state: initialAppState, rssList: [
+        {}
+      ], isLoading: false});
   })
 
   test('rssInput', () => {
@@ -38,7 +43,8 @@ describe('reducers', () => {
           name: 'name',
           url: 'http://www.feedforall.com/sample-feed.xml'
         }
-      ]
+      ],
+      isLoading: false
     });
   })
 
@@ -54,7 +60,7 @@ describe('reducers', () => {
 describe('functions', () => {
   test('引数を受け取って、rssListを保存する。', () => {
     localStorage.rssList = undefined;
-    save('name1', 'http://www.feedforall.com/sample-feed.xml');
+    save('name1', 'http://www.feedforall.com/sample-feed.xml', constants.FEED_STATUS_SUCCESS);
     var rssList = JSON.parse(localStorage.rssList);
     expect(rssList).toEqual([
       {
@@ -64,7 +70,7 @@ describe('functions', () => {
     ]);
 
     localStorage.rssList = undefined;
-    save('name2', 'http://www.feedforall.com/sample.xml');
+    save('name2', 'http://www.feedforall.com/sample.xml', constants.FEED_STATUS_SUCCESS);
     var rssList = JSON.parse(localStorage.rssList);
     expect(rssList).toEqual([
       {
@@ -74,8 +80,8 @@ describe('functions', () => {
     ]);
 
     localStorage.rssList = undefined;
-    save('name1', 'http://www.feedforall.com/sample-feed.xml');
-    save('name2', 'http://www.feedforall.com/sample.xml');
+    save('name1', 'http://www.feedforall.com/sample-feed.xml', constants.FEED_STATUS_SUCCESS);
+    save('name2', 'http://www.feedforall.com/sample.xml', constants.FEED_STATUS_SUCCESS);
     var rssList = JSON.parse(localStorage.rssList);
     expect(rssList).toEqual([
       {
@@ -90,9 +96,9 @@ describe('functions', () => {
   });
 
   test('重複した内容のrssListを保存する', () => {
-    save('name1', 'http://www.feedforall.com/sample-feed.xml');
-    save('name2', 'http://www.feedforall.com/sample.xml');
-    save('name2', 'http://www.feedforall.com/sample.xml');
+    save('name1', 'http://www.feedforall.com/sample-feed.xml', constants.FEED_STATUS_SUCCESS);
+    save('name2', 'http://www.feedforall.com/sample.xml', constants.FEED_STATUS_SUCCESS);
+    save('name2', 'http://www.feedforall.com/sample.xml', constants.FEED_STATUS_SUCCESS);
     var rssList = JSON.parse(localStorage.rssList);
     expect(rssList).toEqual([
       {
@@ -107,7 +113,7 @@ describe('functions', () => {
 
   test('引数で受け取ったURLが有効かを確認する。', () => {
     localStorage.rssList = undefined;
-    save('name1', 'http://www.feedforall.com/sample-feed.xml');
+    save('name1', 'http://www.feedforall.com/sample-feed.xml', constants.FEED_STATUS_SUCCESS);
     var rssList = JSON.parse(localStorage.rssList);
     expect(rssList).toEqual([
       {
@@ -117,12 +123,12 @@ describe('functions', () => {
     ]);
 
     localStorage.rssList = undefined;
-    save('name2', 'NG');
+    save('name2', 'NG', constants.FEED_STATUS_ERROR);
     expect(localStorage.rssList).toEqual(undefined);
 
     localStorage.rssList = undefined;
-    save('name1', 'http://www.feedforall.com/sample-feed.xml');
-    save('name2', 'NG');
+    save('name1', 'http://www.feedforall.com/sample-feed.xml', constants.FEED_STATUS_SUCCESS);
+    save('name2', 'NG', constants.FEED_STATUS_ERROR);
     var rssList = JSON.parse(localStorage.rssList);
     expect(rssList).toEqual([
       {

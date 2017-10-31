@@ -11,10 +11,10 @@ import * as actions from '../actions/index.js';
 
 export class App extends React.Component {
   render() {
-    const {mapstate, actions} = this.props;
+    const {mapstate, actions, store} = this.props;
     return (
       <main className={styles.main}>
-        <Side actions={actions} rssListModal={mapstate.rssListModal.rssListModalOpen} urlList={mapstate.rssListModal.urlList}/>
+        <Side actions={actions} rssListModal={mapstate.rssListModal.rssListModalOpen} urlList={mapstate.rssListModal.urlList} store={store}/>
         <MainPanels actions={actions}/>
       </main>
     )

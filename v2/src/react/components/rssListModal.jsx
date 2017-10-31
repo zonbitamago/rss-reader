@@ -1,15 +1,22 @@
 'use strict';
 
 import React from 'react';
-import {Button, Header, Icon, Modal, Input, Label} from 'semantic-ui-react';
+import {
+  Button,
+  Header,
+  Icon,
+  Modal,
+  Input,
+  Label
+} from 'semantic-ui-react';
 import styles from '../styles/rssListModal.css';
 
 class RssListModal extends React.Component {
-  constructor(){
+  constructor() {
     super();
-    this.state={
-      name:'',
-      url:''
+    this.state = {
+      name: '',
+      url: ''
     };
     this.changeName = this.changeName.bind(this);
     this.changeURL = this.changeURL.bind(this);
@@ -22,15 +29,16 @@ class RssListModal extends React.Component {
   changeURL(e) {
     this.setState({url: e.target.value});
   };
-  onRssListModalClick(){
-    this.props.actions.onRssInputClick(this.state.name, this.state.url);
+  onRssListModalClick() {
+    this.props.store.dispatch(this.props.actions.onRssInputClick(this.state.name, this.state.url));
+    // this.props.actions.onRssInputClick(this.state.name, this.state.url)
   }
   render() {
     var liNodes;
     // console.log(this.props.urlList);
-    if(this.props.rssList && this.props.rssList.length && this.props.rssList.length != 0){
-      liNodes = this.props.rssList.map((item,idx) => {
-        return(
+    if (this.props.rssList && this.props.rssList.length && this.props.rssList.length != 0) {
+      liNodes = this.props.rssList.map((item, idx) => {
+        return (
           <li key={idx}>
             <Button size='mini' icon='remove' content='Delete' color='blue'/>
             <a href='#'>{item.name}</a>
@@ -39,12 +47,7 @@ class RssListModal extends React.Component {
       });
     }
     return (
-      <Modal
-        open={this.props.open}
-        onClose={this.props.actions.onRssListModalClick}
-        trigger={<Icon color='yellow' name='rss' />}
-        className={styles.background}
-      >
+      <Modal open={this.props.open} onClose={this.props.actions.onRssListModalClick} trigger={< Icon color = 'yellow' name = 'rss' />} className={styles.background}>
         <Modal.Header>RssList</Modal.Header>
         <Modal.Content scrolling>
           <div>
@@ -57,24 +60,16 @@ class RssListModal extends React.Component {
             </ul>
             <ul className={styles.rssInputList}>
               <li>
-              <Input
-                labelPosition='left'
-                placeholder='Enter Name'
-                className={styles.rssInputTag}
-              >
-                <Label tag>Name</Label>
-                <input value={this.state.name} onChange={this.changeName}/>
-              </Input>
+                <Input labelPosition='left' placeholder='Enter Name' className={styles.rssInputTag}>
+                  <Label tag>Name</Label>
+                  <input value={this.state.name} onChange={this.changeName}/>
+                </Input>
               </li>
               <li>
-              <Input
-                labelPosition='left'
-                placeholder='Enter URL'
-                className={styles.rssInputTag}
-              >
-                <Label tag>URL</Label>
-                <input value={this.state.url} onChange={this.changeURL}/>
-              </Input>
+                <Input labelPosition='left' placeholder='Enter URL' className={styles.rssInputTag}>
+                  <Label tag>URL</Label>
+                  <input value={this.state.url} onChange={this.changeURL}/>
+                </Input>
               </li>
             </ul>
           </div>
