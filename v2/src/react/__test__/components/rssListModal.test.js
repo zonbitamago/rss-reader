@@ -21,38 +21,60 @@ test('snapshot', function() {
   expect(tree).toMatchSnapshot();
 });
 
-test('modal open',() => {
-   const wrapper = mount(<RssListModal actions={actions} open={true}/>);
-   var modal = document.querySelector('.ui.page.modals.dimmer.transition.visible.active').innerHTML
-   expect(modal).toMatchSnapshot();
+test('modal open', () => {
+  const wrapper = mount(<RssListModal actions={actions} open={true}/>);
+  var modal = document.querySelector('.ui.page.modals.dimmer.transition.visible.active').innerHTML
+  expect(modal).toMatchSnapshot();
 })
 
-test('modal close button',() => {
-   const wrapper = mount(<RssListModal actions={actions} open={true}/>);
-   var modal = document.querySelector('.ui.page.modals.dimmer.transition.visible.active')
-   modal.querySelector('.ui.red.button').click();
-   expect(onRssListModalClick).toHaveBeenCalled();
+test('modal close button', () => {
+  const wrapper = mount(<RssListModal actions={actions} open={true}/>);
+  var modal = document.querySelector('.ui.page.modals.dimmer.transition.visible.active')
+  modal.querySelector('.ui.red.button').click();
+  expect(onRssListModalClick).toHaveBeenCalled();
 })
 
-// test('input name',() => {
-//   const wrapper = mount(<RssListModal actions={actions} open={true}/>);
-//   var modal = document.querySelector('.ui.page.modals.dimmer.transition.visible.active');
-//   var name = modal.querySelectorAll('.ui.left.labeled.input input')[0];
-//   var url = modal.querySelectorAll('.ui.left.labeled.input input')[1];
-//
-//   name.value='testName';
-//
-//   $(name).val('testName').change();
-//   // name.onchange();
-//   // var event = document.createEvent( "HTMLEvents" ); // イベントオブジェクトを作成
-//   // event.initEvent("change", false, true); // イベントの内容を設定
-//   // name.dispatchEvent(event);
-//
-//   // document
-//   // .getElementsByClassName('.ui.page.modals.dimmer.transition.visible.active')
-//   // .getElementsByClassName('.ui.left.labeled.input')
-//   // .getElementsByTagName('input')[0].onchange();
-//
-//   expect(name.value).toEqual('testName');
-//
-// });
+describe('rssList', () => {
+  describe('表示', () => {
+
+    test('rssListが空の場合は何も表示されない', () => {
+      var rssList = undefined;
+      const wrapper = mount(<RssListModal actions={actions} open={true} rssList={rssList}/>);
+      var rssList = document.querySelectorAll('body > div.ui.page.modals.dimmer.transition.visible.active > div > div.scrolling.content > div > ul:nth-child(1) > li');
+      expect(rssList.length).toEqual(0);
+    });
+
+    test('rssListが1つの場合は1つ表示される', () => {
+      var rssList = [
+        {
+          name: 'name1',
+          url: 'url1'
+        }
+      ];
+      const wrapper = mount(<RssListModal actions={actions} open={true} rssList={rssList}/>);
+      var rssList = document.querySelectorAll('body > div.ui.page.modals.dimmer.transition.visible.active > div > div.scrolling.content > div > ul:nth-child(1) > li');
+      expect(rssList.length).toEqual(1);
+    });
+
+    test('rssListが2つの場合は2つ表示される', () => {
+      var rssList = [
+        {
+          name: 'name1',
+          url: 'url1'
+        }, {
+          name: 'name2',
+          url: 'url2'
+        }
+      ];
+      const wrapper = mount(<RssListModal actions={actions} open={true} rssList={rssList}/>);
+      var rssList = document.querySelectorAll('body > div.ui.page.modals.dimmer.transition.visible.active > div > div.scrolling.content > div > ul:nth-child(1) > li');
+      expect(rssList.length).toEqual(2);
+    });
+
+  });
+
+  describe('削除',() => {
+    test('rssListが1つの場合は何も表示されなくなる。')
+  });
+
+})

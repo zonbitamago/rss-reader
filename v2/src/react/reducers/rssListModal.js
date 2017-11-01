@@ -11,7 +11,6 @@ const initialAppState = {
 };
 
 const rssListModal = (state = initialAppState, action) => {
-  console.log('reducer!');
   if (action.type === actionTypes.RSSLISTMODAL) {
     return {
       state,
@@ -20,12 +19,13 @@ const rssListModal = (state = initialAppState, action) => {
       isLoading: state.isLoading
     };
   } else if (action.type === actionTypes.RSSINPUT) {
-    console.log('rssInputClick!');
     save(action.name, action.url, action.status);
     return {state, rssListModalOpen: state.rssListModalOpen, rssList: getRssList(), isLoading: false};
   } else if (action.type === actionTypes.RSSISLOADING) {
-    console.log('rssLoading!');
     return {state, rssListModalOpen: state.rssListModalOpen, rssList: getRssList(), isLoading: true};
+  } else if (action.type === actionTypes.RSSLISTDELETE) {
+    deleteRssList(action.name, action.url);
+    return {state, rssListModalOpen: state.rssListModalOpen, rssList: getRssList(), isLoading: false};
   } else {
     return state;
   }
@@ -34,7 +34,7 @@ const rssListModal = (state = initialAppState, action) => {
 
 export function getRssList() {
   return localStorage.rssList == undefined
-    ? [{}]
+    ? undefined
     : JSON.parse(localStorage.rssList);
 };
 
@@ -77,21 +77,16 @@ var setURLContent = (rssList, name, url) => {
   return rssList;
 };
 
-// var checkURL = (url) => {
-//   var isAvailable = false;
-//   try {
-//     var res = request('GET', url);
-//     var parser = new FeedMe(true);
-//     parser.write(res.getBody());
-//     if (parser.done() != undefined) {
-//       isAvailable = true;
-//     }
-//   } catch (e) {
-//     console.log(e);
-//     alert('登録できないURLです。')
-//   }
-//
-//   return isAvailable;
-// };
+export var deleteRssList = (name, url) => {
+  var rssList = JSON.parse(localStorage.rssList);
+  rssList = rssList.filter((v) => {
+    return v.name != name && v.url != url;
+  })
+  if (rssList.length > 0) {
+    localStorage.rssList = JSON.stringify(rssList);
+  } else {
+    localStorage.rssList = undefined;
+  }
+};
 
 export default rssListModal;

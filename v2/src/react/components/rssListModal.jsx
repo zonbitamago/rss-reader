@@ -25,17 +25,14 @@ class RssListModal extends React.Component {
   changeName(e) {
     this.setState({name: e.target.value});
   };
-
   changeURL(e) {
     this.setState({url: e.target.value});
   };
   onRssListModalClick() {
     this.props.store.dispatch(this.props.actions.onRssInputClick(this.state.name, this.state.url));
-    // this.props.actions.onRssInputClick(this.state.name, this.state.url)
   }
   render() {
     var liNodes;
-    // console.log(this.props.urlList);
     if (this.props.rssList && this.props.rssList.length && this.props.rssList.length != 0) {
       liNodes = this.props.rssList.map((item, idx) => {
         return (
@@ -53,10 +50,6 @@ class RssListModal extends React.Component {
           <div>
             <ul className={styles.rssInputList}>
               {liNodes}
-              <li>
-                <Button size='mini' icon='remove' content='Delete' color='blue'/>
-                <a href='#'>test</a>
-              </li>
             </ul>
             <ul className={styles.rssInputList}>
               <li>

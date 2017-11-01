@@ -6,3 +6,4 @@ export const HOME = 'HOME';
 export const RSSLISTMODAL = 'RSSLISTMODAL';
 export const RSSINPUT = 'RSSINPUT';
 export const RSSISLOADING = 'RSSISLOADING';
+export const RSSLISTDELETE = 'RSSLISTDELETE';
