@@ -8,8 +8,10 @@ import RssListModal from '../../components/rssListModal.jsx';
 
 const open = false;
 const onRssListModalClick = jest.fn();
+const onRssListDeleteClick = jest.fn();
 const actions = {
-  onRssListModalClick: onRssListModalClick
+  onRssListModalClick: onRssListModalClick,
+  onRssListDeleteClick: onRssListDeleteClick
 };
 
 beforeEach(() => {
@@ -73,8 +75,21 @@ describe('rssList', () => {
 
   });
 
-  describe('削除',() => {
-    test('rssListが1つの場合は何も表示されなくなる。')
+  describe('削除', () => {
+    test('削除処理が呼び出される。', () => {
+      var rssList = [
+        {
+          name: 'name1',
+          url: 'url1'
+        }
+      ];
+      localStorage.setItem('rssList', rssList);
+      const wrapper = mount(<RssListModal actions={actions} open={true} rssList={rssList}/>);
+      var deleteButton = document.querySelector('body > div.ui.page.modals.dimmer.transition.visible.active > div > div.scrolling.content > div > ul:nth-child(1) > li:nth-child(1) > button');
+      deleteButton.click();
+      expect(onRssListDeleteClick).toHaveBeenCalled();
+
+    })
   });
 
 })

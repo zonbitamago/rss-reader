@@ -3,6 +3,7 @@ jest.dontMock('../../reducers/rssListModal');
 import rssListModal, {save, getRssList, deleteRssList} from '../../reducers/rssListModal';
 import * as actionTypes from '../../utils/actionTypes';
 import * as constants from '../../utils/constants';
+import {ipcRenderer} from 'electron';
 
 const initialAppState = {
   rssListModalOpen: false,
@@ -11,7 +12,9 @@ const initialAppState = {
 };
 
 beforeEach(() => {
-  localStorage.rssList = undefined;
+  // localStorage.rssList = undefined;
+  localStorage.clear();
+  // console.log(localStorage);
 })
 describe('reducers', () => {
 
@@ -57,12 +60,12 @@ describe('reducers', () => {
   });
 
   test('rssListDelete', () => {
-    localStorage.rssList = JSON.stringify([
+    localStorage.setItem('rssList', JSON.stringify([
       {
         name: 'name1',
         url: 'url1'
       }
-    ]);
+    ]));
     var action = {
       type: actionTypes.RSSLISTDELETE,
       name: 'name1',
@@ -71,6 +74,18 @@ describe('reducers', () => {
     var rssListModalAction = rssListModal(initialAppState, action);
 
     expect(rssListModalAction).toEqual({rssListModalOpen: false, state: initialAppState, rssList: undefined, isLoading: false});
+
+  });
+
+  test('openRssURL', () => {
+    var action = {
+      type: actionTypes.OPEN_RSSURL,
+      url: 'url'
+    };
+    var rssListModalAction = rssListModal(initialAppState, action);
+
+    expect(rssListModalAction).toEqual({rssListModalOpen: initialAppState.rssListModalOpen, state: initialAppState, rssList: initialAppState.rssList, isLoading: initialAppState.isLoading});
+    expect(ipcRenderer.send).toHaveBeenCalled();
 
   });
 
@@ -87,9 +102,9 @@ describe('functions', () => {
   describe('保存', () => {
 
     test('引数を受け取って、rssListを保存する。', () => {
-      localStorage.rssList = undefined;
+      localStorage.clear();
       save('name1', 'http://www.feedforall.com/sample-feed.xml', constants.FEED_STATUS_SUCCESS);
-      var rssList = JSON.parse(localStorage.rssList);
+      var rssList = JSON.parse(localStorage.getItem('rssList'));
       expect(rssList).toEqual([
         {
           name: 'name1',
@@ -97,9 +112,9 @@ describe('functions', () => {
         }
       ]);
 
-      localStorage.rssList = undefined;
+      localStorage.clear();
       save('name2', 'http://www.feedforall.com/sample.xml', constants.FEED_STATUS_SUCCESS);
-      var rssList = JSON.parse(localStorage.rssList);
+      var rssList = JSON.parse(localStorage.getItem('rssList'));
       expect(rssList).toEqual([
         {
           name: 'name2',
@@ -107,10 +122,10 @@ describe('functions', () => {
         }
       ]);
 
-      localStorage.rssList = undefined;
+      localStorage.clear();
       save('name1', 'http://www.feedforall.com/sample-feed.xml', constants.FEED_STATUS_SUCCESS);
       save('name2', 'http://www.feedforall.com/sample.xml', constants.FEED_STATUS_SUCCESS);
-      var rssList = JSON.parse(localStorage.rssList);
+      var rssList = JSON.parse(localStorage.getItem('rssList'));
       expect(rssList).toEqual([
         {
           name: 'name1',
@@ -127,7 +142,7 @@ describe('functions', () => {
       save('name1', 'http://www.feedforall.com/sample-feed.xml', constants.FEED_STATUS_SUCCESS);
       save('name2', 'http://www.feedforall.com/sample.xml', constants.FEED_STATUS_SUCCESS);
       save('name2', 'http://www.feedforall.com/sample.xml', constants.FEED_STATUS_SUCCESS);
-      var rssList = JSON.parse(localStorage.rssList);
+      var rssList = JSON.parse(localStorage.getItem('rssList'));
       expect(rssList).toEqual([
         {
           name: 'name1',
@@ -140,9 +155,9 @@ describe('functions', () => {
     });
 
     test('引数で受け取ったURLが有効かを確認する。', () => {
-      localStorage.rssList = undefined;
+      localStorage.clear();
       save('name1', 'http://www.feedforall.com/sample-feed.xml', constants.FEED_STATUS_SUCCESS);
-      var rssList = JSON.parse(localStorage.rssList);
+      var rssList = JSON.parse(localStorage.getItem('rssList'));
       expect(rssList).toEqual([
         {
           name: 'name1',
@@ -150,14 +165,14 @@ describe('functions', () => {
         }
       ]);
 
-      localStorage.rssList = undefined;
+      localStorage.clear();
       save('name2', 'NG', constants.FEED_STATUS_ERROR);
-      expect(localStorage.rssList).toEqual(undefined);
+      expect(localStorage.getItem('rssList')).toEqual(null);
 
-      localStorage.rssList = undefined;
+      localStorage.clear();
       save('name1', 'http://www.feedforall.com/sample-feed.xml', constants.FEED_STATUS_SUCCESS);
       save('name2', 'NG', constants.FEED_STATUS_ERROR);
-      var rssList = JSON.parse(localStorage.rssList);
+      var rssList = JSON.parse(localStorage.getItem('rssList'));
       expect(rssList).toEqual([
         {
           name: 'name1',
@@ -173,12 +188,12 @@ describe('functions', () => {
     test('rsslistを取得する。', () => {
       expect(getRssList()).toEqual(undefined);
 
-      localStorage.rssList = JSON.stringify([
+      localStorage.setItem('rssList', JSON.stringify([
         {
           name: 'name1',
           url: 'http://www.feedforall.com/sample-feed.xml'
         }
-      ]);
+      ]));
       expect(getRssList()).toEqual([
         {
           name: 'name1',
@@ -190,31 +205,31 @@ describe('functions', () => {
 
   describe('削除', () => {
     test('rssListからURLを削除し、rssListがなくなる', () => {
-      localStorage.rssList = JSON.stringify([
+      localStorage.setItem('rssList', JSON.stringify([
         {
           name: 'name1',
           url: 'url1'
         }
-      ]);
+      ]));
       deleteRssList('name1', 'url1');
-      expect(localStorage.rssList).toEqual(undefined);
+      expect(localStorage.__STORE__['rssList']).toEqual(undefined);
     });
 
     test('rssListからURLを削除し、rssListが残る', () => {
-      localStorage.rssList = JSON.stringify([
+      localStorage.setItem('rssList', JSON.stringify([
         {
           name: 'name1',
           url: 'url1'
         }, {
           name: 'name2',
-          url: 'url2'
+          url: 'url1'
         }
-      ]);
+      ]));
       deleteRssList('name1', 'url1');
-      expect(JSON.parse(localStorage.rssList)).toEqual([
+      expect(JSON.parse(localStorage.getItem('rssList'))).toEqual([
         {
           name: 'name2',
-          url: 'url2'
+          url: 'url1'
         }
       ]);
     });

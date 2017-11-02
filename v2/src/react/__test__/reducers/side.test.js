@@ -2,6 +2,7 @@
 jest.dontMock('../../reducers/side');
 import side from '../../reducers/side';
 import * as actionTypes from '../../utils/actionTypes';
+import {ipcRenderer} from 'electron';
 
 const initialAppState = {
   power: 'on'
@@ -30,6 +31,7 @@ describe('reducers', () => {
     }
     var open_github = side(initialAppState, action);
     expect(open_github).toEqual({power: 'on', state: initialAppState});
+    expect(ipcRenderer.send).toHaveBeenCalled();
 
   });
 

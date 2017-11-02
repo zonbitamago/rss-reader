@@ -30,14 +30,18 @@ class RssListModal extends React.Component {
   };
   onRssListModalClick() {
     this.props.store.dispatch(this.props.actions.onRssInputClick(this.state.name, this.state.url));
-  }
+  };
   render() {
     var liNodes;
+    var localProps = this.props;
     if (this.props.rssList && this.props.rssList.length && this.props.rssList.length != 0) {
       liNodes = this.props.rssList.map((item, idx) => {
+        var delItem = (name, url) => {
+          localProps.actions.onRssListDeleteClick(name, url);
+        }
         return (
           <li key={idx}>
-            <Button size='mini' icon='remove' content='Delete' color='blue'/>
+            <Button size='mini' icon='remove' content='Delete' color='blue' onClick={delItem.bind(this, item.name, item.url)}/>
             <a href='#'>{item.name}</a>
           </li>
         );

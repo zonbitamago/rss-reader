@@ -33,9 +33,9 @@ const rssListModal = (state = initialAppState, action) => {
 };
 
 export function getRssList() {
-  return localStorage.rssList == undefined
+  return localStorage.getItem('rssList') == null
     ? undefined
-    : JSON.parse(localStorage.rssList);
+    : JSON.parse(localStorage.getItem('rssList'));
 };
 
 export var save = (name, url, status) => {
@@ -43,11 +43,11 @@ export var save = (name, url, status) => {
     alert('登録できないURLです。')
     return;
   };
-  localStorage.rssList = JSON.stringify(setRssList(name, url));
+  localStorage.setItem('rssList', JSON.stringify(setRssList(name, url)));
 };
 
 var setRssList = (name, url) => {
-  if (localStorage.rssList === undefined || localStorage.rssList.length == 0) {
+  if (localStorage.getItem('rssList') == undefined || localStorage.getItem('rssList').length == 0) {
     var rssList = [
       {
         name: name,
@@ -56,7 +56,7 @@ var setRssList = (name, url) => {
     ];
     return rssList;
   } else {
-    var rssList = setURLContent(JSON.parse(localStorage.rssList), name, url);
+    var rssList = setURLContent(JSON.parse(localStorage.getItem('rssList')), name, url);
     return rssList;
   }
 
@@ -78,14 +78,14 @@ var setURLContent = (rssList, name, url) => {
 };
 
 export var deleteRssList = (name, url) => {
-  var rssList = JSON.parse(localStorage.rssList);
+  var rssList = JSON.parse(localStorage.getItem('rssList'));
   rssList = rssList.filter((v) => {
-    return v.name != name && v.url != url;
+    return !(v.name == name && v.url == url);
   })
   if (rssList.length > 0) {
-    localStorage.rssList = JSON.stringify(rssList);
+    localStorage.setItem('rssList', JSON.stringify(rssList));
   } else {
-    localStorage.rssList = undefined;
+    localStorage.removeItem('rssList');
   }
 };
 

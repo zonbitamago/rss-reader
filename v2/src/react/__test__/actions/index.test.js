@@ -24,6 +24,14 @@ test('onRssListModalClick', () => {
   expect(actions.onRssListModalClick()).toEqual({type: actionTypes.RSSLISTMODAL});
 })
 
+test('onRssListDeleteClick', () => {
+  expect(actions.onRssListDeleteClick('name', 'url')).toEqual({type: actionTypes.RSSLISTDELETE, name: 'name', url: 'url'});
+});
+
+test('onRssListURLClick', () => {
+  expect(actions.onRssListURLClick('url')).toEqual({type: actionTypes.OPEN_RSSURL, url: 'url'});
+});
+
 // test('onRssInputClick', () => {
 //   expect(actions.onRssInputClick('name', 'url')).toEqual({type: actionTypes.RSSINPUT, name: 'name', url: 'url'});
 // })
