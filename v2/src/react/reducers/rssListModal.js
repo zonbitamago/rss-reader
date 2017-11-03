@@ -3,6 +3,7 @@ import * as actionTypes from '../utils/actionTypes';
 import * as constants from '../utils/constants';
 import FeedMe from 'feedme';
 import request from 'sync-request';
+import {ipcRenderer} from 'electron';
 
 const initialAppState = {
   rssListModalOpen: false,
@@ -26,6 +27,9 @@ const rssListModal = (state = initialAppState, action) => {
   } else if (action.type === actionTypes.RSSLISTDELETE) {
     deleteRssList(action.name, action.url);
     return {state, rssListModalOpen: state.rssListModalOpen, rssList: getRssList(), isLoading: false};
+  } else if (action.type === actionTypes.OPEN_RSSURL) {
+    ipcRenderer.send('openBrowser', action.url);
+    return {state, rssListModalOpen: state.rssListModalOpen, rssList: getRssList(), isLoading: state.isLoading};
   } else {
     return state;
   }
