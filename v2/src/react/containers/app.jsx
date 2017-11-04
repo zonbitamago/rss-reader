@@ -12,12 +12,10 @@ import * as actions from '../actions/index.js';
 export class App extends React.Component {
   render() {
     const {mapstate, actions, store} = this.props;
-    return (
-      <main className={styles.main}>
-        <Side actions={actions} rssListModal={mapstate.rssListModal.rssListModalOpen} rssList={mapstate.rssListModal.rssList} store={store}/>
-        <MainPanels actions={actions}/>
-      </main>
-    )
+    return (<main className={styles.main}>
+      <Side actions={actions} rssListModal={mapstate.rssListModal.rssListModalOpen} rssList={mapstate.rssListModal.rssList} store={store}/>
+      <MainPanels actions={actions} store={store} itemList={mapstate.itemList.itemList}/>
+    </main>)
   }
 }
 

@@ -8,3 +8,4 @@ export const RSSINPUT = 'RSSINPUT';
 export const RSSISLOADING = 'RSSISLOADING';
 export const RSSLISTDELETE = 'RSSLISTDELETE';
 export const OPEN_RSSURL = 'OPEN_RSSURL';
+export const ITEMLISTLOAD = 'ITEMLISTLOAD';

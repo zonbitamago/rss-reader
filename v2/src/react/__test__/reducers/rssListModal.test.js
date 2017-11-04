@@ -183,26 +183,6 @@ describe('functions', () => {
     });
   });
 
-  describe('取得', () => {
-
-    test('rsslistを取得する。', () => {
-      expect(getRssList()).toEqual(undefined);
-
-      localStorage.setItem('rssList', JSON.stringify([
-        {
-          name: 'name1',
-          url: 'http://www.feedforall.com/sample-feed.xml'
-        }
-      ]));
-      expect(getRssList()).toEqual([
-        {
-          name: 'name1',
-          url: 'http://www.feedforall.com/sample-feed.xml'
-        }
-      ]);
-    });
-  });
-
   describe('削除', () => {
     test('rssListからURLを削除し、rssListがなくなる', () => {
       localStorage.setItem('rssList', JSON.stringify([
