@@ -2,6 +2,7 @@
 import React from 'react';
 import {Feed, Divider} from 'semantic-ui-react'
 import {ipcRenderer} from 'electron';
+import {transformDate} from '../utils/utils';
 import styles from '../styles/itemPanel.css';
 
 class ItemPanel extends React.Component {
@@ -19,6 +20,8 @@ class ItemPanel extends React.Component {
       ipcRenderer.send('openBrowser', url);
     };
 
+    var date = transformDate(item.created);
+
     return (<Feed>
       <Feed.Event>
         <Feed.Label className={styles.icon}>
@@ -27,7 +30,7 @@ class ItemPanel extends React.Component {
         <Feed.Content>
           <Feed.Summary>
             {item.name}
-            <Feed.Date>1 Hour Ago</Feed.Date>
+            <Feed.Date>{date}</Feed.Date>
           </Feed.Summary>
           <Feed.Extra>
             <a href='javascript:void(0);' onClick={openBrowser}>{item.title}</a>

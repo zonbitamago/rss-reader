@@ -28,13 +28,6 @@ export const loadItemList = () => {
       }).then((rss) => {
         var parser = new FeedMe(true);
         parser.write(rss);
-        // parser.on('item', (rssItems) => {
-        //   rssItems.name = items.name;
-        //
-        //   rssItems.created = rssItems.pubdate
-        //     ? Date.parse(rssItems.pubdate)
-        //     : Date.parse(rssItems.updated);
-        // });
 
         var json = parser.done();
         json.items.map((node, idx) => {

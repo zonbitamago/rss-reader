@@ -94,7 +94,7 @@ exports[`snapshot 1`] = `
     className="mainPanels"
   >
     <div
-      className="ui blue inverted pointing secondary menu"
+      className="ui blue inverted pointing secondary head menu"
     >
       <div
         className="link item"
@@ -116,7 +116,9 @@ exports[`snapshot 1`] = `
         </h3>
       </div>
     </div>
-     
+    <div
+      className="itemPanel"
+    />
   </section>
 </main>
 `;

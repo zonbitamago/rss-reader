@@ -19,7 +19,10 @@ class MainPanels extends React.Component {
       });
     }
     return (<section className={styles.mainPanels}>
-      <Head actions={this.props.actions}/> {itemPanel}
+      <Head actions={this.props.actions}/>
+      <div className={styles.itemPanel}>
+        {itemPanel}
+      </div>
     </section>)
   }
 }

@@ -5,13 +5,16 @@ import ReactTestUtils from 'react-dom/test-utils';
 import renderer from 'react-test-renderer';
 import {ipcRenderer} from 'electron';
 import {mount} from 'enzyme';
+import mockdate from 'mockdate';
 import ItemPanel from '../../components/itemPanel.jsx';
 
 test('snapshot', () => {
+  mockdate.set(new Date(2017, 10, 15, 7, 12, 5));
   var item = {
     link: "https://xxx/1",
     name: 'name1',
-    title: 'title1'
+    title: 'title1',
+    created: new Date(2017, 10, 15, 7, 10, 5).getTime()
   };
 
   const tree = renderer.create(<ItemPanel item={item}/>);
@@ -33,12 +36,4 @@ test('記事リンククリック', () => {
   wrapper.find('a').simulate('click');
 
   expect(ipcRenderer.send).toHaveBeenCalled();
-});
-
-describe('記事投稿日時',() => {
-  test('分表記');
-
-  test('時間表記');
-
-  test('年月日表記');
 });

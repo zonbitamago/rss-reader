@@ -11,10 +11,12 @@ import mockdate from 'mockdate';
 const onShutDownClick = jest.fn();
 const onMimizeClick = jest.fn();
 const onOpenGithubClick = jest.fn();
+const loadItemList = jest.fn();
 var actions = {
   onShutDownClick: onShutDownClick,
   onMimizeClick: onMimizeClick,
-  onOpenGithubClick: onOpenGithubClick
+  onOpenGithubClick: onOpenGithubClick,
+  loadItemList: loadItemList
 }
 
 test('snapshot', function() {
@@ -30,7 +32,7 @@ describe('functions', () => {
 
   test('現在時刻表記', function() {
     // new Dateをモック化する
-    mockdate.set(new Date(2017,5,15,7,12,5));
+    mockdate.set(new Date(2017, 5, 15, 7, 12, 5));
     const side = ReactTestUtils.renderIntoDocument(<Side actions={actions}/>);
     // 1秒待ち、setIntervalを実行する。
     jest.runTimersToTime(1000);
@@ -38,7 +40,7 @@ describe('functions', () => {
     expect(side.state.HHmmss).toBe('07:12:05');
     mockdate.reset();
 
-    mockdate.set(new Date(1989,3,13,13,45,50));
+    mockdate.set(new Date(1989, 3, 13, 13, 45, 50));
     const side2 = ReactTestUtils.renderIntoDocument(<Side actions={actions}/>);
     // 1秒待ち、setIntervalを実行する。
     jest.runTimersToTime(1000);
@@ -65,4 +67,6 @@ describe('functions', () => {
     side.find('.olive.github.icon').simulate('click');
     expect(onOpenGithubClick).toHaveBeenCalled();
   });
+
+  test('refreshボタンクリック')
 });

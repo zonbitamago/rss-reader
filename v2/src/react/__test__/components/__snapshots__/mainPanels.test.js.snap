@@ -5,7 +5,7 @@ exports[`snapshot 記事が0個 1`] = `
   className="mainPanels"
 >
   <div
-    className="ui blue inverted pointing secondary menu"
+    className="ui blue inverted pointing secondary head menu"
   >
     <a
       className="link item"
@@ -27,7 +27,9 @@ exports[`snapshot 記事が0個 1`] = `
       </h3>
     </div>
   </div>
-   
+  <div
+    className="itemPanel"
+  />
 </section>
 `;
 
@@ -36,7 +38,7 @@ exports[`snapshot 記事が1個 1`] = `
   className="mainPanels"
 >
   <div
-    className="ui blue inverted pointing secondary menu"
+    className="ui blue inverted pointing secondary head menu"
   >
     <a
       className="link item"
@@ -58,48 +60,51 @@ exports[`snapshot 記事が1個 1`] = `
       </h3>
     </div>
   </div>
-   
   <div
-    className="ui feed"
+    className="itemPanel"
   >
     <div
-      className="event"
+      className="ui feed"
     >
       <div
-        className="label icon"
-      >
-        <img
-          src="http://www.google.com/s2/favicons?domain=xxx"
-        />
-      </div>
-      <div
-        className="content"
+        className="event"
       >
         <div
-          className="summary"
+          className="label icon"
         >
-          name1
+          <img
+            src="http://www.google.com/s2/favicons?domain=xxx"
+          />
+        </div>
+        <div
+          className="content"
+        >
           <div
-            className="date"
+            className="summary"
           >
-            1 Hour Ago
+            name1
+            <div
+              className="date"
+            >
+              a few seconds ago
+            </div>
+          </div>
+          <div
+            className="extra"
+          >
+            <a
+              href="javascript:void(0);"
+              onClick={[Function]}
+            >
+              title1
+            </a>
           </div>
         </div>
-        <div
-          className="extra"
-        >
-          <a
-            href="javascript:void(0);"
-            onClick={[Function]}
-          >
-            title1
-          </a>
-        </div>
       </div>
+      <div
+        className="ui divider"
+      />
     </div>
-    <div
-      className="ui divider"
-    />
   </div>
 </section>
 `;
@@ -109,7 +114,7 @@ exports[`snapshot 記事が2個 1`] = `
   className="mainPanels"
 >
   <div
-    className="ui blue inverted pointing secondary menu"
+    className="ui blue inverted pointing secondary head menu"
   >
     <a
       className="link item"
@@ -131,90 +136,93 @@ exports[`snapshot 記事が2個 1`] = `
       </h3>
     </div>
   </div>
-   
   <div
-    className="ui feed"
+    className="itemPanel"
   >
     <div
-      className="event"
+      className="ui feed"
     >
       <div
-        className="label icon"
-      >
-        <img
-          src="http://www.google.com/s2/favicons?domain=xxx"
-        />
-      </div>
-      <div
-        className="content"
+        className="event"
       >
         <div
-          className="summary"
+          className="label icon"
         >
-          name1
+          <img
+            src="http://www.google.com/s2/favicons?domain=xxx"
+          />
+        </div>
+        <div
+          className="content"
+        >
           <div
-            className="date"
+            className="summary"
           >
-            1 Hour Ago
+            name1
+            <div
+              className="date"
+            >
+              a few seconds ago
+            </div>
+          </div>
+          <div
+            className="extra"
+          >
+            <a
+              href="javascript:void(0);"
+              onClick={[Function]}
+            >
+              title1
+            </a>
           </div>
         </div>
-        <div
-          className="extra"
-        >
-          <a
-            href="javascript:void(0);"
-            onClick={[Function]}
-          >
-            title1
-          </a>
-        </div>
       </div>
+      <div
+        className="ui divider"
+      />
     </div>
     <div
-      className="ui divider"
-    />
-  </div>
-  <div
-    className="ui feed"
-  >
-    <div
-      className="event"
+      className="ui feed"
     >
       <div
-        className="label icon"
-      >
-        <img
-          src="http://www.google.com/s2/favicons?domain=xxx"
-        />
-      </div>
-      <div
-        className="content"
+        className="event"
       >
         <div
-          className="summary"
+          className="label icon"
         >
-          name2
+          <img
+            src="http://www.google.com/s2/favicons?domain=xxx"
+          />
+        </div>
+        <div
+          className="content"
+        >
           <div
-            className="date"
+            className="summary"
           >
-            1 Hour Ago
+            name2
+            <div
+              className="date"
+            >
+              a few seconds ago
+            </div>
+          </div>
+          <div
+            className="extra"
+          >
+            <a
+              href="javascript:void(0);"
+              onClick={[Function]}
+            >
+              title2
+            </a>
           </div>
         </div>
-        <div
-          className="extra"
-        >
-          <a
-            href="javascript:void(0);"
-            onClick={[Function]}
-          >
-            title2
-          </a>
-        </div>
       </div>
+      <div
+        className="ui divider"
+      />
     </div>
-    <div
-      className="ui divider"
-    />
   </div>
 </section>
 `;

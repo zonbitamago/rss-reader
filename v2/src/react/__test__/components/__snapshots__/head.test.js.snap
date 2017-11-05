@@ -2,7 +2,7 @@
 
 exports[`snapshot 1`] = `
 <div
-  className="ui blue inverted pointing secondary menu"
+  className="ui blue inverted pointing secondary head menu"
 >
   <a
     className="link item"
