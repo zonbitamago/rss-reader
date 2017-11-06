@@ -68,5 +68,9 @@ describe('functions', () => {
     expect(onOpenGithubClick).toHaveBeenCalled();
   });
 
-  test('refreshボタンクリック')
+  test('refreshボタンクリック',() => {
+    const side = mount(<Side actions={actions}/>);
+    side.find('.refresh.icon').simulate('click');
+    expect(loadItemList).toHaveBeenCalled();
+  })
 });

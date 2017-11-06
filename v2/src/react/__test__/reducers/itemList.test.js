@@ -4,7 +4,10 @@ import itemList from '../../reducers/itemList';
 import * as actionTypes from '../../utils/actionTypes';
 
 const initialAppState = {
-  itemList: [{}]
+  itemList: [
+    {}
+  ],
+  loading: false
 };
 
 describe('reducers', () => {
@@ -16,7 +19,7 @@ describe('reducers', () => {
         itemList: []
       };
       var itemListAction = itemList(initialAppState, action);
-      expect(itemListAction).toEqual({itemList: [], state: initialAppState});
+      expect(itemListAction).toEqual({itemList: [], loading: false, state: initialAppState});
     });
 
     test('記事が1個の場合', () => {
@@ -35,6 +38,7 @@ describe('reducers', () => {
             title: 'title1'
           }
         ],
+        loading: false,
         state: initialAppState
       });
     });
@@ -59,9 +63,20 @@ describe('reducers', () => {
             title: 'title2'
           }
         ],
+        loading: false,
         state: initialAppState
       });
     });
+  });
+
+  test('loading', () => {
+    var action = {
+      type: actionTypes.ITEMLISTLOADING,
+      itemList: [],
+      loading: true
+    };
+    var itemListAction = itemList(initialAppState, action);
+    expect(itemListAction).toEqual({itemList: [], loading: true, state: initialAppState});
   });
 
   test('else', () => {

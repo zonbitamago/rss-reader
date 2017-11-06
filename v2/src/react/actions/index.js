@@ -18,6 +18,8 @@ export const loadItemList = () => {
   return(dispatch) => {
     var dataList = [];
 
+    dispatch(() => ({type: actionTypes.ITEMLISTLOADING, itemList: dataList}));
+
     var rssList = utils.getRssList();
     if (rssList == undefined) {
       return dispatch(() => ({type: actionTypes.ITEMLISTLOAD, itemList: dataList}));
