@@ -14,7 +14,6 @@ export const onRssListDeleteClick = (name, url) => ({type: actionTypes.RSSLISTDE
 export const onRssListURLClick = (url) => ({type: actionTypes.OPEN_RSSURL, url: url});
 // export const loadItemList = () => ({type: actionTypes.ITEMLISTLOAD, itemList: [{},{}]});
 export const loadItemList = () => {
-  console.log('loadItemList!');
   return(dispatch) => {
     var dataList = [];
 

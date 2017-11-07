@@ -20,12 +20,16 @@ class Side extends React.Component {
       MMDD: getMMDD(),
       HHmmss: HHmmss()
     }
+    this.loadItemList = this.loadItemList.bind(this);
   }
   componentDidMount() {
     const setTime = () => {
       this.setState({MMDD: getMMDD(), HHmmss: HHmmss()});
     };
     setInterval(setTime, 1000);
+  }
+  loadItemList(){
+    this.props.store.dispatch(this.props.actions.loadItemList());
   }
   render() {
     return (
@@ -34,7 +38,7 @@ class Side extends React.Component {
           <Menu.Item header={false} link name='shutdown' as={Icon} className={styles.icon} onClick={this.props.actions.onShutDownClick}>
             <Icon color='red' name='shutdown'/>
           </Menu.Item>
-          <Menu.Item link name='refresh' as={Icon} className={styles.icon} onClick={this.props.actions.loadItemList}>
+          <Menu.Item link name='refresh' as={Icon} className={styles.icon} onClick={this.loadItemList}>
             <Icon name='refresh'/>
           </Menu.Item>
           <Menu.Item link name='rss' as={Icon} className={styles.icon} onClick={this.props.actions.onRssListModalClick}>
