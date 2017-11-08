@@ -115,6 +115,14 @@ exports[`snapshot 1`] = `
           Home
         </h3>
       </div>
+      <div
+        className="item"
+        onClick={[Function]}
+      >
+        <h5
+          className="ui inverted header"
+        />
+      </div>
     </div>
     <div
       className="itemPanel"

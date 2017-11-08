@@ -5,6 +5,7 @@ import {Icon, Sidebar, Menu} from 'semantic-ui-react'
 import moment from 'moment';
 import RssListModal from './rssListModal.jsx';
 import styles from '../styles/side.css';
+import * as actionUtils from '../actions/actionUtils';
 
 const getMMDD = () => {
   return moment().format('M/D');
@@ -29,7 +30,7 @@ class Side extends React.Component {
     setInterval(setTime, 1000);
   }
   loadItemList(){
-    this.props.store.dispatch(this.props.actions.loadItemList());
+    actionUtils.loadItem(this.props.store, this.props.actions.loadingItemList, this.props.actions.loadItemList);
   }
   render() {
     return (
@@ -39,7 +40,7 @@ class Side extends React.Component {
             <Icon color='red' name='shutdown'/>
           </Menu.Item>
           <Menu.Item link name='refresh' as={Icon} className={styles.icon} onClick={this.loadItemList}>
-            <Icon name='refresh'/>
+            <Icon name='refresh' loading={this.props.loading}/>
           </Menu.Item>
           <Menu.Item link name='rss' as={Icon} className={styles.icon} onClick={this.props.actions.onRssListModalClick}>
             <RssListModal actions={this.props.actions} open={this.props.rssListModal} rssList={this.props.rssList} store={this.props.store}/>

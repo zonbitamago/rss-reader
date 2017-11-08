@@ -15,6 +15,9 @@ class Head extends React.Component {
         <Menu.Item>
           <Header as='h3' inverted>Home</Header>
         </Menu.Item>
+        <Menu.Item>
+          <Header as='h5' inverted>{this.props.updated}</Header>
+        </Menu.Item>
       </Menu>
     )
   }

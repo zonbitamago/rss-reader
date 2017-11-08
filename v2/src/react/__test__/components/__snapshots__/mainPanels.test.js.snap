@@ -26,6 +26,14 @@ exports[`snapshot 記事が0個 1`] = `
         Home
       </h3>
     </div>
+    <div
+      className="item"
+      onClick={[Function]}
+    >
+      <h5
+        className="ui inverted header"
+      />
+    </div>
   </div>
   <div
     className="itemPanel"
@@ -58,6 +66,14 @@ exports[`snapshot 記事が1個 1`] = `
       >
         Home
       </h3>
+    </div>
+    <div
+      className="item"
+      onClick={[Function]}
+    >
+      <h5
+        className="ui inverted header"
+      />
     </div>
   </div>
   <div
@@ -134,6 +150,14 @@ exports[`snapshot 記事が2個 1`] = `
       >
         Home
       </h3>
+    </div>
+    <div
+      className="item"
+      onClick={[Function]}
+    >
+      <h5
+        className="ui inverted header"
+      />
     </div>
   </div>
   <div

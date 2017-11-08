@@ -5,11 +5,12 @@ import {Button, Menu} from 'semantic-ui-react';
 
 import Head from './head.jsx';
 import ItemPanel from './itemPanel.jsx';
+import * as actionUtils from '../actions/actionUtils';
 import styles from '../styles/mainPanels.css';
 
 class MainPanels extends React.Component {
   componentWillMount() {
-    this.props.store.dispatch(this.props.actions.loadItemList());
+    actionUtils.loadItem(this.props.store, this.props.actions.loadingItemList, this.props.actions.loadItemList);
   }
   render() {
     var itemPanel;
@@ -19,7 +20,7 @@ class MainPanels extends React.Component {
       });
     }
     return (<section className={styles.mainPanels}>
-      <Head actions={this.props.actions}/>
+      <Head actions={this.props.actions} updated={this.props.updated}/>
       <div className={styles.itemPanel}>
         {itemPanel}
       </div>

@@ -7,21 +7,23 @@ import renderer from 'react-test-renderer';
 import {mount} from 'enzyme';
 import Side from '../../components/side.jsx';
 import mockdate from 'mockdate';
+import * as actionUtils from '../../actions/actionUtils';
 
 const onShutDownClick = jest.fn();
 const onMimizeClick = jest.fn();
 const onOpenGithubClick = jest.fn();
 const loadItemList = jest.fn();
+const loadingItemList = jest.fn();
 var actions = {
   onShutDownClick: onShutDownClick,
   onMimizeClick: onMimizeClick,
   onOpenGithubClick: onOpenGithubClick,
-  loadItemList: loadItemList
+  loadItemList: loadItemList,
+  loadingItemList: loadingItemList
 }
 const store = {
   dispatch: jest.fn()
 };
-
 
 test('snapshot', function() {
   // new Dateをモック化する
@@ -72,9 +74,10 @@ describe('functions', () => {
     expect(onOpenGithubClick).toHaveBeenCalled();
   });
 
-  test('refreshボタンクリック',() => {
+  test('refreshボタンクリック', () => {
     const side = mount(<Side actions={actions} store={store}/>);
     side.find('.refresh.icon').simulate('click');
+    expect(loadingItemList).toHaveBeenCalled();
     expect(loadItemList).toHaveBeenCalled();
   })
 });

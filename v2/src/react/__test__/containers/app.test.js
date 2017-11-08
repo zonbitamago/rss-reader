@@ -6,7 +6,8 @@ import {App} from '../../containers/app.jsx';
 import mockdate from 'mockdate';
 
 const actions = {
-  loadItemList: jest.fn()
+  loadItemList: jest.fn(),
+  loadingItemList:jest.fn()
 };
 const mapstate = {
   rssListModal: {

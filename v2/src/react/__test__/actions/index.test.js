@@ -39,6 +39,10 @@ test('onRssListURLClick', () => {
   expect(actions.onRssListURLClick('url')).toEqual({type: actionTypes.OPEN_RSSURL, url: 'url'});
 });
 
+test('loadingItemList', () => {
+  expect(actions.loadingItemList()).toEqual({type: actionTypes.ITEMLISTLOADING});
+})
+
 // describe('onRssInputClick', () => {
 //   test.skip('fetch失敗', () => {
 //     var store = mockStore({});

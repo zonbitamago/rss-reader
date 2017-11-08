@@ -2,12 +2,14 @@
 jest.dontMock('../../reducers/itemList');
 import itemList from '../../reducers/itemList';
 import * as actionTypes from '../../utils/actionTypes';
+import moment from 'moment';
 
 const initialAppState = {
   itemList: [
     {}
   ],
-  loading: false
+  loading: false,
+  updated: ''
 };
 
 describe('reducers', () => {
@@ -19,7 +21,12 @@ describe('reducers', () => {
         itemList: []
       };
       var itemListAction = itemList(initialAppState, action);
-      expect(itemListAction).toEqual({itemList: [], loading: false, state: initialAppState});
+      expect(itemListAction).toEqual({
+        itemList: [],
+        loading: false,
+        updated: 'updated:' + moment().format('LTS'),
+        state: initialAppState
+      });
     });
 
     test('記事が1個の場合', () => {
@@ -39,6 +46,7 @@ describe('reducers', () => {
           }
         ],
         loading: false,
+        updated: 'updated:' + moment().format('LTS'),
         state: initialAppState
       });
     });
@@ -64,6 +72,7 @@ describe('reducers', () => {
           }
         ],
         loading: false,
+        updated: 'updated:' + moment().format('LTS'),
         state: initialAppState
       });
     });
@@ -71,12 +80,12 @@ describe('reducers', () => {
 
   test('loading', () => {
     var action = {
-      type: actionTypes.ITEMLISTLOADING,
-      itemList: [],
-      loading: true
+      type: actionTypes.ITEMLISTLOADING
     };
     var itemListAction = itemList(initialAppState, action);
-    expect(itemListAction).toEqual({itemList: [], loading: true, state: initialAppState});
+    expect(itemListAction).toEqual({itemList: [
+        {}
+      ], loading: true, updated: initialAppState.updated, state: initialAppState});
   });
 
   test('else', () => {

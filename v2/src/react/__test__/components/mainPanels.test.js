@@ -9,9 +9,11 @@ mockdate.set(new Date(2017, 10, 15, 7, 12, 5));
 
 const onHomeClick = jest.fn();
 const loadItemList = jest.fn();
+const loadingItemList = jest.fn();
 const actions = {
   onHomeClick: onHomeClick,
-  loadItemList: loadItemList
+  loadItemList: loadItemList,
+  loadingItemList: loadingItemList
 };
 const store = {
   dispatch: jest.fn()
@@ -22,6 +24,7 @@ describe('snapshot', () => {
   test('記事が0個', () => {
     const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList}/>).toJSON();
     expect(tree).toMatchSnapshot();
+    expect(loadingItemList).toHaveBeenCalled();
     expect(loadItemList).toHaveBeenCalled();
   });
 
@@ -35,6 +38,7 @@ describe('snapshot', () => {
     ];
     const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList}/>).toJSON();
     expect(tree).toMatchSnapshot();
+    expect(loadingItemList).toHaveBeenCalled();
     expect(loadItemList).toHaveBeenCalled();
   });
 
@@ -53,7 +57,12 @@ describe('snapshot', () => {
 
     const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList}/>).toJSON();
     expect(tree).toMatchSnapshot();
+    expect(loadingItemList).toHaveBeenCalled();
     expect(loadItemList).toHaveBeenCalled();
   });
 
+});
+
+describe('timer', () => {
+  test('timer処理で記事ロード処理呼び出し');
 });

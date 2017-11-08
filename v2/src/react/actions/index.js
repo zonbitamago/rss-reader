@@ -12,7 +12,7 @@ export const onHomeClick = () => ({type: actionTypes.HOME});
 export const onRssListModalClick = () => ({type: actionTypes.RSSLISTMODAL});
 export const onRssListDeleteClick = (name, url) => ({type: actionTypes.RSSLISTDELETE, name: name, url: url});
 export const onRssListURLClick = (url) => ({type: actionTypes.OPEN_RSSURL, url: url});
-// export const loadItemList = () => ({type: actionTypes.ITEMLISTLOAD, itemList: [{},{}]});
+export const loadingItemList = () => ({type: actionTypes.ITEMLISTLOADING});
 export const loadItemList = () => {
   return(dispatch) => {
     var dataList = [];
