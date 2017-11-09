@@ -1,7 +1,9 @@
-'user strict';
+'use strict';
 jest.dontMock('../../components/mainPanels.jsx');
+jest.useFakeTimers();
 import React from 'react';
 import renderer from 'react-test-renderer';
+import {mount} from 'enzyme';
 import MainPanels from '../../components/mainPanels.jsx';
 import mockdate from 'mockdate';
 
@@ -19,10 +21,18 @@ const store = {
   dispatch: jest.fn()
 };
 
+const updateInterval = 1000;
+
+beforeEach(() => {
+  onHomeClick.mockReset();
+  loadItemList.mockReset();
+  loadingItemList.mockReset();
+})
+
 describe('snapshot', () => {
   var itemList = [];
   test('記事が0個', () => {
-    const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList}/>).toJSON();
+    const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList} updateInterval={updateInterval}/>).toJSON();
     expect(tree).toMatchSnapshot();
     expect(loadingItemList).toHaveBeenCalled();
     expect(loadItemList).toHaveBeenCalled();
@@ -36,7 +46,7 @@ describe('snapshot', () => {
         title: 'title1'
       }
     ];
-    const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList}/>).toJSON();
+    const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList} updateInterval={updateInterval}/>).toJSON();
     expect(tree).toMatchSnapshot();
     expect(loadingItemList).toHaveBeenCalled();
     expect(loadItemList).toHaveBeenCalled();
@@ -55,7 +65,7 @@ describe('snapshot', () => {
       }
     ];
 
-    const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList}/>).toJSON();
+    const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList} updateInterval={updateInterval}/>).toJSON();
     expect(tree).toMatchSnapshot();
     expect(loadingItemList).toHaveBeenCalled();
     expect(loadItemList).toHaveBeenCalled();
@@ -64,5 +74,18 @@ describe('snapshot', () => {
 });
 
 describe('timer', () => {
-  test('timer処理で記事ロード処理呼び出し');
+  test('timer処理で記事ロード処理呼び出し', () => {
+    var itemList = [];
+    const MainPanels = mount(<MainPanels actions={actions} store={store} itemList={itemList}/>);
+    // const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList} updateInterval={updateInterval}/>);
+    expect(loadingItemList).toHaveBeenCalled();
+    expect(loadItemList).toHaveBeenCalled();
+    expect(loadingItemList.mock.calls.length).toBe(1);
+    expect(loadItemList.mock.calls.length).toBe(1);
+
+    jest.runOnlyPendingTimers();
+    expect(loadingItemList.mock.calls.length).toBe(2);
+    expect(loadItemList.mock.calls.length).toBe(2);
+
+  });
 });
