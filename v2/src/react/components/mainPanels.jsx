@@ -10,8 +10,11 @@ import styles from '../styles/mainPanels.css';
 
 class MainPanels extends React.Component {
   componentWillMount() {
-    actionUtils.loadItem(this.props.store, this.props.actions.loadingItemList, this.props.actions.loadItemList);
-    setInterval(actionUtils.loadItem(this.props.store, this.props.actions.loadingItemList, this.props.actions.loadItemList),this.props.updateInterval);
+    var loadItem = () => {
+      actionUtils.loadItem(this.props.store, this.props.actions.loadingItemList, this.props.actions.loadItemList);
+    }
+    loadItem();
+    setInterval(loadItem,this.props.updateInterval);
   }
   render() {
     var itemPanel;

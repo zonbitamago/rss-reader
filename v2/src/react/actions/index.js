@@ -13,11 +13,10 @@ export const onRssListModalClick = () => ({type: actionTypes.RSSLISTMODAL});
 export const onRssListDeleteClick = (name, url) => ({type: actionTypes.RSSLISTDELETE, name: name, url: url});
 export const onRssListURLClick = (url) => ({type: actionTypes.OPEN_RSSURL, url: url});
 export const loadingItemList = () => ({type: actionTypes.ITEMLISTLOADING});
+export const onSettingsModalClick = () => ({type: actionTypes.SETTINGSMODAL});
 export const loadItemList = () => {
   return(dispatch) => {
     var dataList = [];
-
-    dispatch(() => ({type: actionTypes.ITEMLISTLOADING, itemList: dataList}));
 
     var rssList = utils.getRssList();
     if (rssList == undefined) {
@@ -66,14 +65,8 @@ export const loadItemList = () => {
 export const onRssInputClick = (name, url) => {
   console.log('onRssInputClick!');
   return(dispatch) => {
-    dispatch(() => ({type: actionTypes.RSSISLOADING, name: name, url: url}));
     return fetch(url).then((response) => {
-      try {
-        return response.text()
-      } catch (e) {
-        console.log(e);
-        throw e;
-      }
+      return response.text()
     }, (error) => {
       throw error;
     }).then((xml) => {

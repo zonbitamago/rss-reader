@@ -5,9 +5,7 @@ import * as actionTypes from '../../utils/actionTypes';
 import moment from 'moment';
 
 const initialAppState = {
-  itemList: [
-    {}
-  ],
+  itemList: [],
   loading: false,
   updated: ''
 };
@@ -83,16 +81,14 @@ describe('reducers', () => {
       type: actionTypes.ITEMLISTLOADING
     };
     var itemListAction = itemList(initialAppState, action);
-    expect(itemListAction).toEqual({itemList: [
-        {}
-      ], loading: true, updated: initialAppState.updated, state: initialAppState});
+    expect(itemListAction).toEqual({itemList: [], loading: true, updated: initialAppState.updated, state: initialAppState});
   });
 
   test('else', () => {
     var action = {
       type: 'else'
     };
-    var itemListAction = itemList(initialAppState, action);
+    var itemListAction = itemList(undefined, action);
     expect(itemListAction).toEqual(initialAppState);
   });
 

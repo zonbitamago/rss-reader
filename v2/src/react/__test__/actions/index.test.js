@@ -11,6 +11,9 @@ import thunk from 'redux-thunk'
 
 const mockStore = configureMockStore([thunk]);
 
+afterEach(() => {
+  fetch.resetMocks();
+});
 test('onShutDownClick', () => {
   expect(actions.onShutDownClick()).toEqual({type: actionTypes.SHUTDOWN});
 });
@@ -43,28 +46,59 @@ test('loadingItemList', () => {
   expect(actions.loadingItemList()).toEqual({type: actionTypes.ITEMLISTLOADING});
 })
 
-// describe('onRssInputClick', () => {
-//   test.skip('fetch失敗', () => {
-//     var store = mockStore({});
-//     const expectedActions = [
-//       {
-//         type: actionTypes.RSSISLOADING,
-//         name: 'name1',
-//         url: 'NG'
-//       }, {
-//         type: actionTypes.RSSINPUT,
-//         name: 'name1',
-//         url: 'NG',
-//         status: constants.FEED_STATUS_ERROR
-//       }
-//     ]
-//     return store.dispatch(actions.onRssInputClick('name1', 'NG')).then(() => {
-//        return of async actions
-//       expect(store.getActions()).toEqual(expectedActions);
-//     })
-//   });
-//
-//   test('fetch成功-parse失敗');
-//
-//   test('fetch成功-parse成功');
-// });
+test('onSettingsModalClick', () => {
+  expect(actions.onSettingsModalClick()).toEqual({type: actionTypes.SETTINGSMODAL});
+});
+
+describe('onRssInputClick', () => {
+  test('fetch失敗', () => {
+    var store = mockStore({});
+    const expectedActions = {
+      type: actionTypes.RSSINPUT,
+      name: 'name1',
+      url: 'NG',
+      status: constants.FEED_STATUS_ERROR
+    };
+
+    return store.dispatch(actions.onRssInputClick('name1', 'NG')).then((receiveActions) => {
+      // return of async actions
+      expect(receiveActions).toEqual(expectedActions);
+    })
+  });
+
+  test('fetch成功-parse失敗', () => {
+    var store = mockStore({});
+    const expectedActions = {
+      type: actionTypes.RSSINPUT,
+      name: 'name1',
+      url: 'http://example.com/NG',
+      status: constants.FEED_STATUS_ERROR
+    };
+
+    fetch.mockResponse({hello: 'world'});
+
+    return store.dispatch(actions.onRssInputClick('name1', 'http://example.com/NG')).then((receiveActions) => {
+      // return of async actions
+      expect(receiveActions).toEqual(expectedActions);
+    });
+
+  });
+
+  test('fetch成功-parse成功', () => {
+    var store = mockStore({});
+    const expectedActions = {
+      type: actionTypes.RSSINPUT,
+      name: 'name1',
+      url: 'http://www.feedforall.com/sample-feed.xml',
+      status: constants.FEED_STATUS_SUCCESS
+    };
+
+    // fetch.mockResponse({hello: 'world'});
+
+    return store.dispatch(actions.onRssInputClick('name1', 'http://www.feedforall.com/sample-feed.xml')).then((receiveActions) => {
+      // return of async actions
+      expect(receiveActions).toEqual(expectedActions);
+    });
+  });
+
+});

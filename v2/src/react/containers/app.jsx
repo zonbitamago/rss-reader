@@ -14,7 +14,7 @@ export class App extends React.Component {
     const {mapstate, actions, store} = this.props;
     return (<main className={styles.main}>
       <Side actions={actions} rssListModal={mapstate.rssListModal.rssListModalOpen} rssList={mapstate.rssListModal.rssList} loading={mapstate.itemList.loading} store={store}/>
-      <MainPanels actions={actions} store={store} itemList={mapstate.itemList.itemList} updated={mapstate.itemList.updated}/>
+      <MainPanels actions={actions} store={store} itemList={mapstate.itemList.itemList} updated={mapstate.itemList.updated} updateInterval={1000*60*5}/>
     </main>)
   }
 }

@@ -24,10 +24,14 @@ const store = {
 const updateInterval = 1000;
 
 beforeEach(() => {
-  onHomeClick.mockReset();
-  loadItemList.mockReset();
-  loadingItemList.mockReset();
+  onHomeClick.mockClear();
+  loadItemList.mockClear();
+  loadingItemList.mockClear();
 })
+
+afterEach(() => {
+  jest.clearAllTimers()
+});
 
 describe('snapshot', () => {
   var itemList = [];
@@ -76,8 +80,7 @@ describe('snapshot', () => {
 describe('timer', () => {
   test('timer処理で記事ロード処理呼び出し', () => {
     var itemList = [];
-    const MainPanels = mount(<MainPanels actions={actions} store={store} itemList={itemList}/>);
-    // const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList} updateInterval={updateInterval}/>);
+    const wrapper = mount(<MainPanels actions={actions} store={store} itemList={itemList} updateInterval={updateInterval}/>);
     expect(loadingItemList).toHaveBeenCalled();
     expect(loadItemList).toHaveBeenCalled();
     expect(loadingItemList.mock.calls.length).toBe(1);

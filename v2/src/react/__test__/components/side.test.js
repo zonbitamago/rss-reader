@@ -49,7 +49,7 @@ describe('functions', () => {
     mockdate.set(new Date(1989, 3, 13, 13, 45, 50));
     const side2 = ReactTestUtils.renderIntoDocument(<Side actions={actions} store={store}/>);
     // 1秒待ち、setIntervalを実行する。
-    jest.runTimersToTime(1000);
+    jest.runOnlyPendingTimers();
     expect(side2.state.MMDD).toBe('4/13');
     expect(side2.state.HHmmss).toBe('13:45:50');
     mockdate.reset();

@@ -93,7 +93,7 @@ describe('reducers', () => {
     var action = {
       type: 'else'
     };
-    var elseaction = rssListModal(initialAppState, action);
+    var elseaction = rssListModal(undefined, action);
     expect(elseaction).toEqual(initialAppState);
   });
 });

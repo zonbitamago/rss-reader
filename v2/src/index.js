@@ -43,7 +43,7 @@ app.on("ready", e => {
   mainWindow.loadURL(`${ROOT_PATH}/index.html`);
   loadDevtool(loadDevtool.REACT_DEVELOPER_TOOLS);
 
-  mainWindow.openDevTools();
+  // mainWindow.openDevTools();
 });
 
 app.on("window-all-closed", e => {

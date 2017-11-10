@@ -39,7 +39,7 @@ describe('reducers', () => {
     var action = {
       type: 'else'
     }
-    var elseaction = side(initialAppState, action);
+    var elseaction = side(undefined, action);
     expect(elseaction).toEqual(initialAppState);
   });
 });
