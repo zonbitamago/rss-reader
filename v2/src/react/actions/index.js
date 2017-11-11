@@ -14,13 +14,20 @@ export const onRssListDeleteClick = (name, url) => ({type: actionTypes.RSSLISTDE
 export const onRssListURLClick = (url) => ({type: actionTypes.OPEN_RSSURL, url: url});
 export const loadingItemList = () => ({type: actionTypes.ITEMLISTLOADING});
 export const onSettingsModalClick = () => ({type: actionTypes.SETTINGSMODAL});
+export const setSettings = (updateDuration) => ({type: actionTypes.SETSETTINGS, updateDuration: updateDuration});
 export const loadItemList = () => {
   return(dispatch) => {
     var dataList = [];
 
     var rssList = utils.getRssList();
     if (rssList == undefined) {
-      return dispatch(() => ({type: actionTypes.ITEMLISTLOAD, itemList: dataList}));
+      console.log('rssList undefined!');
+      return new Promise((resolve, reject) => {
+        resolve();
+      }).then(() => {
+        return dispatch(() => ({type: actionTypes.ITEMLISTLOAD, itemList: dataList}));
+      });
+
     };
     var promiseList = rssList.map((item, idx) => {
       return fetch(item.url).then((response) => {
@@ -63,14 +70,12 @@ export const loadItemList = () => {
 };
 
 export const onRssInputClick = (name, url) => {
-  console.log('onRssInputClick!');
   return(dispatch) => {
     return fetch(url).then((response) => {
       return response.text()
     }, (error) => {
       throw error;
     }).then((xml) => {
-      console.log('parse!');
       try {
         var parser = new FeedMe(true);
         parser.write(xml);
@@ -80,7 +85,6 @@ export const onRssInputClick = (name, url) => {
         return dispatch(() => ({type: actionTypes.RSSINPUT, name: name, url: url, status: constants.FEED_STATUS_ERROR}))
       }
     }, (reason) => {
-      console.log('catch!');
       return dispatch(() => ({type: actionTypes.RSSINPUT, name: name, url: url, status: constants.FEED_STATUS_ERROR}))
     })
   }
