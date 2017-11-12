@@ -2,7 +2,6 @@
 jest.dontMock('../../components/rssListModal.jsx');
 import React from 'react';
 import renderer from 'react-test-renderer';
-import $ from 'jquery';
 import {mount} from 'enzyme';
 import RssListModal from '../../components/rssListModal.jsx';
 

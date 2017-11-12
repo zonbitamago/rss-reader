@@ -14,12 +14,14 @@ const onMimizeClick = jest.fn();
 const onOpenGithubClick = jest.fn();
 const loadItemList = jest.fn();
 const loadingItemList = jest.fn();
+const onSettingsModalClick = jest.fn();
 var actions = {
   onShutDownClick: onShutDownClick,
   onMimizeClick: onMimizeClick,
   onOpenGithubClick: onOpenGithubClick,
   loadItemList: loadItemList,
-  loadingItemList: loadingItemList
+  loadingItemList: loadingItemList,
+  onSettingsModalClick: onSettingsModalClick
 }
 const store = {
   dispatch: jest.fn()

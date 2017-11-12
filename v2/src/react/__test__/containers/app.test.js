@@ -7,11 +7,15 @@ import mockdate from 'mockdate';
 
 const actions = {
   loadItemList: jest.fn(),
-  loadingItemList:jest.fn()
+  loadingItemList: jest.fn(),
+  onSettingsModalClick: jest.fn()
 };
 const mapstate = {
   rssListModal: {
     rssListModalOpen: false
+  },
+  settingsModal: {
+    settingsModalOpen: false
   },
   itemList: []
 };

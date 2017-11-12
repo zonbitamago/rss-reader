@@ -61,6 +61,11 @@ exports[`snapshot 1`] = `
         <i
           aria-hidden="true"
           className="teal settings icon"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         />
       </i>
       <i

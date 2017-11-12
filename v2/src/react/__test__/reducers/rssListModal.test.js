@@ -12,10 +12,9 @@ const initialAppState = {
 };
 
 beforeEach(() => {
-  // localStorage.rssList = undefined;
   localStorage.clear();
-  // console.log(localStorage);
-})
+});
+
 describe('reducers', () => {
 
   test('rssListModal', () => {

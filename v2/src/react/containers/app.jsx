@@ -13,7 +13,7 @@ export class App extends React.Component {
   render() {
     const {mapstate, actions, store} = this.props;
     return (<main className={styles.main}>
-      <Side actions={actions} rssListModal={mapstate.rssListModal.rssListModalOpen} rssList={mapstate.rssListModal.rssList} loading={mapstate.itemList.loading} store={store}/>
+      <Side actions={actions} rssListModal={mapstate.rssListModal.rssListModalOpen} settingsModal={mapstate.settingsModal.settingsModalOpen} rssList={mapstate.rssListModal.rssList} loading={mapstate.itemList.loading} store={store}/>
       <MainPanels actions={actions} store={store} itemList={mapstate.itemList.itemList} updated={mapstate.itemList.updated} updateInterval={1000*60*5}/>
     </main>)
   }

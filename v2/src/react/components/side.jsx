@@ -4,6 +4,7 @@ import React from 'react';
 import {Icon, Sidebar, Menu} from 'semantic-ui-react'
 import moment from 'moment';
 import RssListModal from './rssListModal.jsx';
+import SettingsModal from './settingsModal.jsx';
 import styles from '../styles/side.css';
 import * as actionUtils from '../actions/actionUtils';
 
@@ -48,8 +49,8 @@ class Side extends React.Component {
           <Menu.Item link name='minus square' as={Icon} className={styles.icon} onClick={this.props.actions.onMimizeClick}>
             <Icon color='green' name='minus square'/>
           </Menu.Item>
-          <Menu.Item link name='settings' as={Icon} className={styles.icon}>
-            <Icon color='teal' name='settings'/>
+          <Menu.Item link name='settings' as={Icon} className={styles.icon} onClick={this.props.actions.onSettingsModalClick}>
+            <SettingsModal actions={this.props.actions} open={this.props.settingsModal}/>
           </Menu.Item>
           <Menu.Item link name='github' as={Icon} className={styles.icon} onClick={this.props.actions.onOpenGithubClick}>
             <Icon color='olive' name='github'/>
