@@ -57,8 +57,3 @@ describe('時刻整形処理', () => {
     expect(utils.transformDate(timeInMS)).toEqual('November 15, 2017');
   });
 });
-
-describe('numbercheck',() => {
-  test('数値以外入力');
-  test('数値を入力');
-})

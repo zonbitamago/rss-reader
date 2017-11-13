@@ -14,6 +14,7 @@ class ItemPanel extends React.Component {
     }
     var domain = url.split('/')[2];
     var favicon_url = "http://www.google.com/s2/favicons?domain=" + domain;
+    // var favicon_url = "http://favicon.hatena.ne.jp/?url=http://" + domain;
 
     var openBrowser = () => {
       //メインプロセスへ送信する

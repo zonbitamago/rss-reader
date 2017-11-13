@@ -15,7 +15,8 @@ const mapstate = {
     rssListModalOpen: false
   },
   settingsModal: {
-    settingsModalOpen: false
+    settingsModalOpen: false,
+    updateDuration: 5
   },
   itemList: []
 };

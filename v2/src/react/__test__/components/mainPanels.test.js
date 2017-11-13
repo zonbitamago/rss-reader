@@ -36,7 +36,7 @@ afterEach(() => {
 describe('snapshot', () => {
   var itemList = [];
   test('記事が0個', () => {
-    const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList} updateInterval={updateInterval}/>).toJSON();
+    const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList}/>).toJSON();
     expect(tree).toMatchSnapshot();
     expect(loadingItemList).toHaveBeenCalled();
     expect(loadItemList).toHaveBeenCalled();
@@ -50,7 +50,7 @@ describe('snapshot', () => {
         title: 'title1'
       }
     ];
-    const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList} updateInterval={updateInterval}/>).toJSON();
+    const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList}/>).toJSON();
     expect(tree).toMatchSnapshot();
     expect(loadingItemList).toHaveBeenCalled();
     expect(loadItemList).toHaveBeenCalled();
@@ -69,26 +69,10 @@ describe('snapshot', () => {
       }
     ];
 
-    const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList} updateInterval={updateInterval}/>).toJSON();
+    const tree = renderer.create(<MainPanels actions={actions} store={store} itemList={itemList}/>).toJSON();
     expect(tree).toMatchSnapshot();
     expect(loadingItemList).toHaveBeenCalled();
     expect(loadItemList).toHaveBeenCalled();
   });
 
-});
-
-describe('timer', () => {
-  test('timer処理で記事ロード処理呼び出し', () => {
-    var itemList = [];
-    const wrapper = mount(<MainPanels actions={actions} store={store} itemList={itemList} updateInterval={updateInterval}/>);
-    expect(loadingItemList).toHaveBeenCalled();
-    expect(loadItemList).toHaveBeenCalled();
-    expect(loadingItemList.mock.calls.length).toBe(1);
-    expect(loadItemList.mock.calls.length).toBe(1);
-
-    jest.runOnlyPendingTimers();
-    expect(loadingItemList.mock.calls.length).toBe(2);
-    expect(loadItemList.mock.calls.length).toBe(2);
-
-  });
 });

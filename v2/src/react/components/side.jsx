@@ -50,7 +50,7 @@ class Side extends React.Component {
             <Icon color='green' name='minus square'/>
           </Menu.Item>
           <Menu.Item link name='settings' as={Icon} className={styles.icon} onClick={this.props.actions.onSettingsModalClick}>
-            <SettingsModal actions={this.props.actions} open={this.props.settingsModal}/>
+            <SettingsModal actions={this.props.actions} store={this.props.store} open={this.props.settingsModal} updateDuration={this.props.updateDuration}/>
           </Menu.Item>
           <Menu.Item link name='github' as={Icon} className={styles.icon} onClick={this.props.actions.onOpenGithubClick}>
             <Icon color='olive' name='github'/>

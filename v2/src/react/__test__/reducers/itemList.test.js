@@ -92,4 +92,13 @@ describe('reducers', () => {
     expect(itemListAction).toEqual(initialAppState);
   });
 
+  describe('filter',() => {
+    test('何も入力しない');
+
+    test('RSS登録名で検索');
+
+    test('記事名で検索');
+
+  });
+
 });
