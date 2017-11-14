@@ -93,11 +93,11 @@ describe('reducers', () => {
   });
 
   describe('filter',() => {
-    test('何も入力しない');
+    test.skip('何も入力しない');
 
-    test('RSS登録名で検索');
+    test.skip('RSS登録名で検索');
 
-    test('記事名で検索');
+    test.skip('記事名で検索');
 
   });
 
