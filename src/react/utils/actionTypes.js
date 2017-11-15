@@ -1,0 +1,14 @@
+'use strict';
+export const SHUTDOWN = 'SHUTDOWN';
+export const MINIMIZE = 'MINIMIZE';
+export const OPEN_GITHUB = 'OPEN_GITHUB';
+export const HOME = 'HOME';
+export const RSSLISTMODAL = 'RSSLISTMODAL';
+export const RSSINPUT = 'RSSINPUT';
+export const RSSISLOADING = 'RSSISLOADING';
+export const RSSLISTDELETE = 'RSSLISTDELETE';
+export const OPEN_RSSURL = 'OPEN_RSSURL';
+export const ITEMLISTLOAD = 'ITEMLISTLOAD';
+export const ITEMLISTLOADING = 'ITEMLISTLOADING';
+export const SETTINGSMODAL = 'SETTINGSMODAL';
+export const SETSETTINGS = 'SETSETTINGS';

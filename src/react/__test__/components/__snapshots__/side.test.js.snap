@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<aside>
+  <div
+    className="ui small inverted vertical labeled icon ui left very thin visible sidebar menu"
+  >
+    <i
+      aria-hidden="true"
+      className="icon link item icon"
+      onClick={[Function]}
+    >
+      <i
+        aria-hidden="true"
+        className="red shutdown icon"
+      />
+    </i>
+    <i
+      aria-hidden="true"
+      className="icon link item icon"
+      onClick={[Function]}
+    >
+      <i
+        aria-hidden="true"
+        className="refresh icon"
+      />
+    </i>
+    <i
+      aria-hidden="true"
+      className="icon link item icon"
+      onClick={[Function]}
+    >
+      <i
+        aria-hidden="true"
+        className="yellow rss icon"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+    </i>
+    <i
+      aria-hidden="true"
+      className="icon link item icon"
+      onClick={[Function]}
+    >
+      <i
+        aria-hidden="true"
+        className="green minus square icon"
+      />
+    </i>
+    <i
+      aria-hidden="true"
+      className="icon link item icon"
+      onClick={[Function]}
+    >
+      <i
+        aria-hidden="true"
+        className="teal settings icon"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+    </i>
+    <i
+      aria-hidden="true"
+      className="icon link item icon"
+      onClick={[Function]}
+    >
+      <i
+        aria-hidden="true"
+        className="olive github icon"
+      />
+    </i>
+  </div>
+  <div
+    className="sidetime"
+  >
+    <time
+      className="MMDD"
+    >
+      6/15
+    </time>
+    <br />
+    <time
+      className="HHmmss"
+    >
+      07:12:05
+    </time>
+  </div>
+</aside>
+`;
