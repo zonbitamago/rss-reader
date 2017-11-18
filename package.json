@@ -25,7 +25,8 @@
   "jest": {
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/",
-      "<rootDir>/dist/"
+      "<rootDir>/dist/",
+      "<rootDir>/v2/"
     ],
     "unmockedModulePathPatterns": [
       "<rootDir>/node_modules/react",
