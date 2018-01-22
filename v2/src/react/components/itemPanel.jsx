@@ -11,7 +11,10 @@ class ItemPanel extends React.Component {
     var url = item.link;
     if (Object.prototype.toString.call(item.link) == '[object Array]') {
       url = item.link[0].href;
+    }else if (url.href != undefined) {
+      url = url.href
     }
+
     var domain = url.split('/')[2];
     var favicon_url = "http://www.google.com/s2/favicons?domain=" + domain;
     // var favicon_url = "http://favicon.hatena.ne.jp/?url=http://" + domain;
