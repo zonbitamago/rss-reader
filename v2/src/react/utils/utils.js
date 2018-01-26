@@ -1,17 +1,19 @@
-'use strict';
-import moment from 'moment';
+"use strict";
+import moment from "moment";
 
 export function getRssList() {
-  return localStorage.getItem('rssList') == null
+  return localStorage.getItem("rssList") == null
     ? undefined
-    : JSON.parse(localStorage.getItem('rssList'));
-};
+    : JSON.parse(localStorage.getItem("rssList"));
+}
 
 export function transformDate(timeInMS) {
   var momentDate = moment(timeInMS);
-  var momentNow = moment(new Date);
-  if (momentNow.diff(momentDate, 'days') > 0) {
-    return momentDate.format('LL');
+  var momentNow = moment(new Date());
+  if (momentNow.diff(momentDate, "days") > 0) {
+    return momentDate.format("LL");
   }
-  return momentDate.startOf('minute').fromNow();
-};
+  return momentDate.startOf("minute").fromNow();
+}
+
+export function feedParse(url) {}
