@@ -2,8 +2,9 @@
 import * as actionTypes from "../utils/actionTypes";
 import * as constants from "../utils/constants";
 import * as utils from "../utils/utils";
-import fetch from "isomorphic-fetch";
+import axios from "axios";
 import FeedMe from "feedme";
+import FeedParser from "feedparser";
 
 export const onShutDownClick = () => ({ type: actionTypes.SHUTDOWN });
 export const onMimizeClick = () => ({ type: actionTypes.MINIMIZE });
@@ -42,9 +43,10 @@ export const loadItemList = () => {
       });
     }
     var promiseList = rssList.map((item, idx) => {
-      return fetch(item.url)
+      return axios
+        .get(item.url)
         .then(response => {
-          return response.text();
+          return response.data;
         })
         .then(rss => {
           var parser = new FeedMe(true);
@@ -87,10 +89,11 @@ export const loadItemList = () => {
 
 export const onRssInputClick = (name, url) => {
   return dispatch => {
-    return fetch(url)
+    return axios
+      .get(url)
       .then(
         response => {
-          return response.text();
+          return response.data;
         },
         error => {
           throw error;
@@ -109,7 +112,6 @@ export const onRssInputClick = (name, url) => {
               status: constants.FEED_STATUS_SUCCESS
             }));
           } catch (e) {
-            console.log(e);
             return dispatch(() => ({
               type: actionTypes.RSSINPUT,
               name: name,
