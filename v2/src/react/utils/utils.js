@@ -1,5 +1,7 @@
 "use strict";
 import moment from "moment";
+import axios from "axios";
+import Feedparser from "feedparser";
 
 export function getRssList() {
   return localStorage.getItem("rssList") == null
@@ -16,4 +18,38 @@ export function transformDate(timeInMS) {
   return momentDate.startOf("minute").fromNow();
 }
 
-export function feedParse(url) {}
+export function feedParse(url) {
+  var feedparser = new Feedparser();
+  return axios({ method: "get", url: url, responseType: "stream" })
+    .then(res => {
+      res.data.pipe(feedparser);
+    })
+    .then(() => {
+      var promise = new Promise((resolve, reject) => {
+        let items = [];
+        feedparser.on("readable", function() {
+          var stream = this;
+          var item;
+          while ((item = stream.read())) {
+            items.push(item);
+          }
+        });
+
+        feedparser.on("end", () => {
+          resolve(items);
+        });
+
+        feedparser.on("error", err => {
+          reject(err);
+        });
+      });
+
+      return Promise.all([promise])
+        .then(feed => {
+          return feed;
+        })
+        .catch(err => {
+          throw err;
+        });
+    });
+}
