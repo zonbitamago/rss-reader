@@ -2,7 +2,6 @@
 import * as actionTypes from "../utils/actionTypes";
 import * as constants from "../utils/constants";
 import * as utils from "../utils/utils";
-import FeedMe from "feedme";
 import { ipcRenderer } from "electron";
 
 const initialAppState = {

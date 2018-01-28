@@ -2,6 +2,7 @@
 import moment from "moment";
 import axios from "axios";
 import Feedparser from "feedparser";
+import stringToStream from "string-to-stream";
 
 export function getRssList() {
   return localStorage.getItem("rssList") == null
@@ -20,9 +21,10 @@ export function transformDate(timeInMS) {
 
 export function feedParse(url) {
   var feedparser = new Feedparser();
-  return axios({ method: "get", url: url, responseType: "stream" })
+  return axios({ method: "get", url: url })
     .then(res => {
-      res.data.pipe(feedparser);
+      // res.data.pipe(feedparser);
+      stringToStream(res.data).pipe(feedparser);
     })
     .then(() => {
       var promise = new Promise((resolve, reject) => {
@@ -46,7 +48,7 @@ export function feedParse(url) {
 
       return Promise.all([promise])
         .then(feed => {
-          return feed;
+          return feed[0];
         })
         .catch(err => {
           throw err;
