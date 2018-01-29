@@ -2,8 +2,7 @@
 import * as actionTypes from "../utils/actionTypes";
 import * as constants from "../utils/constants";
 import * as utils from "../utils/utils";
-import fetch from "isomorphic-fetch";
-import FeedMe from "feedme";
+import axios from "axios";
 
 export const onShutDownClick = () => ({ type: actionTypes.SHUTDOWN });
 export const onMimizeClick = () => ({ type: actionTypes.MINIMIZE });
@@ -42,29 +41,22 @@ export const loadItemList = () => {
       });
     }
     var promiseList = rssList.map((item, idx) => {
-      return fetch(item.url)
-        .then(response => {
-          return response.text();
-        })
-        .then(rss => {
-          var parser = new FeedMe(true);
-          parser.write(rss);
-
-          var json = parser.done();
-          json.items.map((node, idx) => {
-            node.name = item.name;
-            node.created = node.pubdate
-              ? Date.parse(node.pubdate)
-              : Date.parse(node.updated);
-          });
-          return json;
+      return utils.feedParse(item.url).then(rss => {
+        var json = rss;
+        json.map((node, idx) => {
+          node.name = item.name;
+          node.created = node.pubdate
+            ? Date.parse(node.pubdate)
+            : Date.parse(node.updated);
         });
+        return json;
+      });
     });
 
     return Promise.all(promiseList).then(jsonList => {
       // 配列を一つにまとめる
       jsonList.map((rss, idx) => {
-        Array.prototype.push.apply(dataList, rss.items);
+        Array.prototype.push.apply(dataList, rss);
       });
 
       // 新しい順に並べ替える。
@@ -87,38 +79,16 @@ export const loadItemList = () => {
 
 export const onRssInputClick = (name, url) => {
   return dispatch => {
-    return fetch(url)
-      .then(
-        response => {
-          return response.text();
-        },
-        error => {
-          throw error;
-        }
-      )
-      .then(
-        xml => {
-          try {
-            var parser = new FeedMe(true);
-            parser.write(xml);
-            parser.done();
-            return dispatch(() => ({
-              type: actionTypes.RSSINPUT,
-              name: name,
-              url: url,
-              status: constants.FEED_STATUS_SUCCESS
-            }));
-          } catch (e) {
-            console.log(e);
-            return dispatch(() => ({
-              type: actionTypes.RSSINPUT,
-              name: name,
-              url: url,
-              status: constants.FEED_STATUS_ERROR
-            }));
-          }
-        },
-        reason => {
+    return utils.feedParse(url).then(
+      json => {
+        try {
+          return dispatch(() => ({
+            type: actionTypes.RSSINPUT,
+            name: name,
+            url: url,
+            status: constants.FEED_STATUS_SUCCESS
+          }));
+        } catch (e) {
           return dispatch(() => ({
             type: actionTypes.RSSINPUT,
             name: name,
@@ -126,6 +96,15 @@ export const onRssInputClick = (name, url) => {
             status: constants.FEED_STATUS_ERROR
           }));
         }
-      );
+      },
+      reason => {
+        return dispatch(() => ({
+          type: actionTypes.RSSINPUT,
+          name: name,
+          url: url,
+          status: constants.FEED_STATUS_ERROR
+        }));
+      }
+    );
   };
 };

@@ -19,12 +19,10 @@ module.exports = {
               NODE_ENV: JSON.stringify("production")
             }
           }),
-          new UglifyESPlugin(),
-          new DashboardPlugin()
+          new UglifyESPlugin()
         ]
       : [new UglifyESPlugin(), new DashboardPlugin()],
   target: "electron-main",
-  // devtool: '#inline-source-map',
   cache: true,
   module: {
     rules: [

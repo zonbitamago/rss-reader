@@ -1,10 +1,8 @@
-'use strict';
-import * as actionTypes from '../utils/actionTypes';
-import * as constants from '../utils/constants';
-import * as utils from '../utils/utils';
-import FeedMe from 'feedme';
-import request from 'sync-request';
-import {ipcRenderer} from 'electron';
+"use strict";
+import * as actionTypes from "../utils/actionTypes";
+import * as constants from "../utils/constants";
+import * as utils from "../utils/utils";
+import { ipcRenderer } from "electron";
 
 const initialAppState = {
   rssListModalOpen: false,
@@ -22,31 +20,53 @@ const rssListModal = (state = initialAppState, action) => {
     };
   } else if (action.type === actionTypes.RSSINPUT) {
     save(action.name, action.url, action.status);
-    return {state, rssListModalOpen: state.rssListModalOpen, rssList: utils.getRssList(), isLoading: false};
+    return {
+      state,
+      rssListModalOpen: state.rssListModalOpen,
+      rssList: utils.getRssList(),
+      isLoading: false
+    };
   } else if (action.type === actionTypes.RSSISLOADING) {
-    return {state, rssListModalOpen: state.rssListModalOpen, rssList: utils.getRssList(), isLoading: true};
+    return {
+      state,
+      rssListModalOpen: state.rssListModalOpen,
+      rssList: utils.getRssList(),
+      isLoading: true
+    };
   } else if (action.type === actionTypes.RSSLISTDELETE) {
     deleteRssList(action.name, action.url);
-    return {state, rssListModalOpen: state.rssListModalOpen, rssList: utils.getRssList(), isLoading: false};
+    return {
+      state,
+      rssListModalOpen: state.rssListModalOpen,
+      rssList: utils.getRssList(),
+      isLoading: false
+    };
   } else if (action.type === actionTypes.OPEN_RSSURL) {
-    ipcRenderer.send('openBrowser', action.url);
-    return {state, rssListModalOpen: state.rssListModalOpen, rssList: utils.getRssList(), isLoading: state.isLoading};
+    ipcRenderer.send("openBrowser", action.url);
+    return {
+      state,
+      rssListModalOpen: state.rssListModalOpen,
+      rssList: utils.getRssList(),
+      isLoading: state.isLoading
+    };
   } else {
     return state;
   }
-
 };
 
 export var save = (name, url, status) => {
   if (status === constants.FEED_STATUS_ERROR) {
-    alert('登録できないURLです。')
+    alert("登録できないURLです。");
     return;
-  };
-  localStorage.setItem('rssList', JSON.stringify(setRssList(name, url)));
+  }
+  localStorage.setItem("rssList", JSON.stringify(setRssList(name, url)));
 };
 
 var setRssList = (name, url) => {
-  if (localStorage.getItem('rssList') == undefined || localStorage.getItem('rssList').length == 0) {
+  if (
+    localStorage.getItem("rssList") == undefined ||
+    localStorage.getItem("rssList").length == 0
+  ) {
     var rssList = [
       {
         name: name,
@@ -55,15 +75,18 @@ var setRssList = (name, url) => {
     ];
     return rssList;
   } else {
-    var rssList = setURLContent(JSON.parse(localStorage.getItem('rssList')), name, url);
+    var rssList = setURLContent(
+      JSON.parse(localStorage.getItem("rssList")),
+      name,
+      url
+    );
     return rssList;
   }
-
 };
 
 var setURLContent = (rssList, name, url) => {
   var exists = false;
-  rssList.forEach((val) => {
+  rssList.forEach(val => {
     if (val.name == name) {
       exists = true;
       val.url = url;
@@ -71,20 +94,20 @@ var setURLContent = (rssList, name, url) => {
   });
 
   if (!exists) {
-    rssList.push({name: name, url: url});
+    rssList.push({ name: name, url: url });
   }
   return rssList;
 };
 
 export var deleteRssList = (name, url) => {
-  var rssList = JSON.parse(localStorage.getItem('rssList'));
-  rssList = rssList.filter((v) => {
+  var rssList = JSON.parse(localStorage.getItem("rssList"));
+  rssList = rssList.filter(v => {
     return !(v.name == name && v.url == url);
-  })
+  });
   if (rssList.length > 0) {
-    localStorage.setItem('rssList', JSON.stringify(rssList));
+    localStorage.setItem("rssList", JSON.stringify(rssList));
   } else {
-    localStorage.removeItem('rssList');
+    localStorage.removeItem("rssList");
   }
 };
 

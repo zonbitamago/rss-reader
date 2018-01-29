@@ -1,12 +1,15 @@
 const path = require("path");
 const webpack = require("webpack");
 const UglifyESPlugin = require("uglify-es-webpack-plugin");
+const DashboardPlugin = require("webpack-dashboard/plugin");
 const PROD = JSON.stringify(process.env.NODE_ENV === "production");
 
 module.exports = {
-  entry: "./src/react/init.jsx",
+  entry: {
+    app: "./src/react/init.jsx"
+  },
   output: {
-    filename: "./src/bundle.js"
+    filename: "./src/[name].bundle.js"
   },
   plugins:
     PROD == "true"
@@ -18,15 +21,15 @@ module.exports = {
           }),
           new UglifyESPlugin()
         ]
-      : [new UglifyESPlugin()],
+      : [new UglifyESPlugin(), new DashboardPlugin()],
   target: "electron-main",
-  // devtool: '#inline-source-map',
   cache: true,
   module: {
     rules: [
       {
         test: /\.(jsx|js)/,
         exclude: /node_modules/,
+        include: path.resolve(__dirname, "src/react"),
         use: {
           loader: "babel-loader",
           options: {
