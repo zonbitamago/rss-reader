@@ -8,17 +8,18 @@
     "test": "node test/spectron_test.js && jest",
     "jest": "jest",
     "jest:dev": "jest --watchAll --coverage --verbose",
-    "build":
-      "NODE_ENV=production ./node_modules/.bin/webpack --progress && node build.js",
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress && node build.js",
     "build:jsx": "webpack-dashboard -m -- webpack ",
     "build:dev": "webpack-dashboard -m -- webpack --watch",
     "pack": "NODE_ENV=production webpack --progress && electron-builder --dir",
     "dist": "NODE_ENV=production webpack --progress && electron-builder",
-    "dist:win":
-      "NODE_ENV=production webpack --progress && electron-builder --win"
+    "dist:win": "NODE_ENV=production webpack --progress && electron-builder --win"
   },
   "babel": {
-    "presets": ["react", "es2015"]
+    "presets": [
+      "react",
+      "es2015"
+    ]
   },
   "jest": {
     "testPathIgnorePatterns": [
@@ -36,8 +37,7 @@
       "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest"
     },
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/__mocks__/fileMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy"
     },
     "setupFiles": [
@@ -53,7 +53,12 @@
       "target": "dmg"
     }
   },
-  "keywords": ["rss-reader", "RSS", "Atom", "electron"],
+  "keywords": [
+    "rss-reader",
+    "RSS",
+    "Atom",
+    "electron"
+  ],
   "author": "zonbitamago",
   "license": "ISC",
   "dependencies": {
