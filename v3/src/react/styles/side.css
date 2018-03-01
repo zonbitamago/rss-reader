@@ -1,0 +1,17 @@
+.side {
+  color: #ffffff;
+}
+
+.icon {
+  min-width: inherit !important;
+  width: 56.5px !important;
+}
+
+.sidetime {
+  position: fixed;
+  bottom: 5px;
+  left: 7px;
+  font-size: 11px;
+  color: #ffffff;
+  z-index: 1000;
+}
