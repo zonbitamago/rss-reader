@@ -41,16 +41,21 @@ export const loadItemList = () => {
       });
     }
     var promiseList = rssList.map((item, idx) => {
-      return utils.feedParse(item.url).then(rss => {
-        var json = rss;
-        json.map((node, idx) => {
-          node.name = item.name;
-          node.created = node.pubdate
-            ? Date.parse(node.pubdate)
-            : Date.parse(node.updated);
+      return utils
+        .feedParse(item.url)
+        .then(rss => {
+          var json = rss;
+          json.map((node, idx) => {
+            node.name = item.name;
+            node.created = node.pubdate
+              ? Date.parse(node.pubdate)
+              : Date.parse(node.updated);
+          });
+          return json;
+        })
+        .catch(() => {
+          return [];
         });
-        return json;
-      });
     });
 
     return Promise.all(promiseList).then(jsonList => {

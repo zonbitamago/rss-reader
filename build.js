@@ -7,7 +7,6 @@ packager(
     name: package["name"],
     dir: "./", // ソースフォルダのパス
     out: "./dist", // 出力先フォルダのパス
-    ignore: "./v2",
     // icon: "./source/icon.ico",// アイコンのパス
     platform: "darwin",
     // platform: "win32", //windows用

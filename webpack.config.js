@@ -1,29 +1,14 @@
 const path = require("path");
-const webpack = require("webpack");
-const UglifyESPlugin = require("uglify-es-webpack-plugin");
-const DashboardPlugin = require("webpack-dashboard/plugin");
-const PROD = JSON.stringify(process.env.NODE_ENV === "production");
 
 module.exports = {
   entry: {
     app: "./src/react/init.jsx"
   },
   output: {
-    filename: "./src/[name].bundle.js"
+    filename: "./src/[name].bundle.js",
+    path: path.resolve(".")
   },
-  plugins:
-    PROD == "true"
-      ? [
-          new webpack.DefinePlugin({
-            "process.env": {
-              NODE_ENV: JSON.stringify("production")
-            }
-          }),
-          new UglifyESPlugin()
-        ]
-      : [new UglifyESPlugin(), new DashboardPlugin()],
   target: "electron-main",
-  cache: true,
   module: {
     rules: [
       {

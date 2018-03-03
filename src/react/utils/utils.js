@@ -21,7 +21,7 @@ export function transformDate(timeInMS) {
 
 export function feedParse(url) {
   var feedparser = new Feedparser();
-  return axios({ method: "get", url: url })
+  return axios({ method: "get", url: url, timeout: 3000 })
     .then(res => {
       // res.data.pipe(feedparser);
       stringToStream(res.data).pipe(feedparser);
@@ -53,5 +53,8 @@ export function feedParse(url) {
         .catch(err => {
           throw err;
         });
+    })
+    .catch(e => {
+      throw new Error();
     });
 }
