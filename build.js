@@ -8,8 +8,8 @@ packager(
     dir: "./", // ソースフォルダのパス
     out: "./dist", // 出力先フォルダのパス
     // icon: "./source/icon.ico",// アイコンのパス
-    platform: "darwin",
-    // platform: "win32", //windows用
+    // platform: "darwin",
+    platform: "win32", //windows用
     arch: "x64",
     electronVersion: "1.6.11", // Electronのバージョン
     overwrite: true, // 上書き

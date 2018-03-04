@@ -13,7 +13,7 @@
     "build:dev": "webpack --mode development --watch",
     "pack": "webpack --mode production && electron-builder --dir",
     "dist": "webpack --mode production && electron-builder",
-    "dist:win": "webpack --mode production && electron-builder"
+    "dist:win": "webpack --mode production && node build.js"
   },
   "babel": {
     "presets": ["react", "es2015"]
