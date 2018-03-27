@@ -1,8 +1,8 @@
-'use strict';
-import * as actionTypes from '../utils/actionTypes';
-import moment from 'moment'
+"use strict";
+import * as actionTypes from "../utils/actionTypes";
+import moment from "moment";
 
-var updated = '';
+var updated = "";
 
 const initialAppState = {
   itemList: [],
@@ -12,13 +12,23 @@ const initialAppState = {
 
 const itemList = (state = initialAppState, action) => {
   if (action.type === actionTypes.ITEMLISTLOAD) {
-    updated = 'updated:' + moment().format('LTS');
-    return {state, itemList: action.itemList, loading: false, updated: updated}
+    updated = "updated:" + moment().format("LTS");
+    return {
+      state: initialAppState,
+      itemList: action.itemList,
+      loading: false,
+      updated: updated
+    };
   } else if (action.type === actionTypes.ITEMLISTLOADING) {
-    return {state, itemList: state.itemList, loading: true, updated: state.updated}
+    return {
+      state: initialAppState,
+      itemList: state.itemList,
+      loading: true,
+      updated: state.updated
+    };
   } else {
     return state;
   }
-}
+};
 
 export default itemList;

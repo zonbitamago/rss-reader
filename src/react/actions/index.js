@@ -26,7 +26,7 @@ export const setSettings = updateDuration => ({
 });
 export const loadItemList = () => {
   return dispatch => {
-    var dataList = [];
+    // var dataList = [];
 
     var rssList = utils.getRssList();
     if (rssList == undefined) {
@@ -36,7 +36,7 @@ export const loadItemList = () => {
       }).then(() => {
         return dispatch(() => ({
           type: actionTypes.ITEMLISTLOAD,
-          itemList: dataList
+          itemList: []
         }));
       });
     }
@@ -59,6 +59,7 @@ export const loadItemList = () => {
     });
 
     return Promise.all(promiseList).then(jsonList => {
+      var dataList = [];
       // 配列を一つにまとめる
       jsonList.map((rss, idx) => {
         Array.prototype.push.apply(dataList, rss);
