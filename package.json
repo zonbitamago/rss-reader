@@ -1,6 +1,6 @@
 {
   "name": "rss-reader",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Desktop rss-reader for RSS/Atom/RDF",
   "main": "src/index.js",
   "scripts": {
