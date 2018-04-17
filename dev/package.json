@@ -1,0 +1,15 @@
+{
+  "name": "rss-reader",
+  "version": "4.0.10",
+  "description": "Desktop rss-reader for RSS/Atom/RDF",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "zonbitamago",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^1.8.4"
+  }
+}
