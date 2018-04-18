@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>rss-reader</title>
+  <script src="https://cdn.ravenjs.com/3.22.1/raven.min.js" crossorigin="anonymous"></script>
+  <script>Raven.config('https://ed014ed32ae84b7b8109b23a629f3598@sentry.io/284515').install()</script>
+</head>
+
+<body style="-webkit-app-region: drag">
+  node <script>document.write(process.versions.node)</script>、
+Chrome <script>document.write(process.versions.chrome)</script>、
+Electron <script>document.write(process.versions.electron)</script>を使用しています。
+  <div id="root-dom"></div>
+  <script src="app.bundle.js"></script>
+</body>
+
+</html>
