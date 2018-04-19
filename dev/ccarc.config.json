@@ -1,0 +1,11 @@
+{
+  "type": "class",
+  "path": "./src/react/components",
+  "jsExtension": "js",
+  "cssExtension": "css",
+  "includeTests": true,
+  "includeStories": true,
+  "indexFile": false,
+  "connected": false,
+  "componentMethods": []
+}
