@@ -1,6 +1,6 @@
 .Menus {
   width: inherit;
-  height: inherit;
+  height: 18em;
   display: flex;
   flex-direction: column;
 }

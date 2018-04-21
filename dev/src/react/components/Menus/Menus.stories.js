@@ -5,7 +5,7 @@ import Menus from "./Menus";
 
 storiesOf("Molecules/Menus", module)
   .addDecorator(story => (
-    <div style={{ backgroundColor: "#0D47A1", height: "18em", width: "3em" }}>
+    <div style={{ backgroundColor: "#01579B", height: "18em", width: "3em" }}>
       {story()}
     </div>
   ))

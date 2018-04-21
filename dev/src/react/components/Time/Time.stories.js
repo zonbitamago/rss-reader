@@ -5,7 +5,7 @@ import Time from "./Time";
 
 storiesOf("Atoms/Time", module)
   .addDecorator(story => (
-    <div style={{ backgroundColor: "#0D47A1", height: "3em", width: "3em" }}>
+    <div style={{ backgroundColor: "#01579B", height: "3em", width: "3em" }}>
       {story()}
     </div>
   ))

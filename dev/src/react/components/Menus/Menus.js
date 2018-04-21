@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styles from "./Menus.css";
 import Icon from "../Icon/Icon";
+import PowerSettingsNew from "@material-ui/icons/PowerSettingsNew";
 import Refresh from "@material-ui/icons/Refresh";
-import Home from "@material-ui/icons/Home";
 import RssFeed from "@material-ui/icons/RssFeed";
 import IndeterminateCheckBox from "@material-ui/icons/IndeterminateCheckBox";
 import Settings from "@material-ui/icons/Settings";
-import Help from "@material-ui/icons/Help";
+import Github from "react-icons/lib/go/mark-github";
 
 class Menus extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class Menus extends Component {
     return (
       <div className="Menus">
         <Icon>
-          <Home />
+          <PowerSettingsNew />
         </Icon>
         <Icon>
           <Refresh />
@@ -33,7 +33,7 @@ class Menus extends Component {
           <Settings />
         </Icon>
         <Icon>
-          <Help />
+          <Github />
         </Icon>
       </div>
     );

@@ -19,7 +19,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Icon>
-          <pure(Home) />
+          <pure(PowerSettingsNew) />
         </Icon>,
         <Icon>
           <pure(Refresh) />
@@ -34,7 +34,7 @@ ShallowWrapper {
           <pure(Settings) />
         </Icon>,
         <Icon>
-          <pure(Help) />
+          <GoMarkGithub />
         </Icon>,
       ],
       "className": "Menus",
@@ -46,7 +46,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": <pure(Home) />,
+          "children": <pure(PowerSettingsNew) />,
         },
         "ref": null,
         "rendered": Object {
@@ -141,13 +141,13 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": <pure(Help) />,
+          "children": <GoMarkGithub />,
         },
         "ref": null,
         "rendered": Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {},
           "ref": null,
           "rendered": null,
@@ -166,7 +166,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Icon>
-            <pure(Home) />
+            <pure(PowerSettingsNew) />
           </Icon>,
           <Icon>
             <pure(Refresh) />
@@ -181,7 +181,7 @@ ShallowWrapper {
             <pure(Settings) />
           </Icon>,
           <Icon>
-            <pure(Help) />
+            <GoMarkGithub />
           </Icon>,
         ],
         "className": "Menus",
@@ -193,7 +193,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": <pure(Home) />,
+            "children": <pure(PowerSettingsNew) />,
           },
           "ref": null,
           "rendered": Object {
@@ -288,13 +288,13 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": <pure(Help) />,
+            "children": <GoMarkGithub />,
           },
           "ref": null,
           "rendered": Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {},
             "ref": null,
             "rendered": null,

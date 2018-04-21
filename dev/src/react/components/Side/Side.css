@@ -1,0 +1,8 @@
+.Side {
+  background-color: #01579b;
+  width: 3em;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
