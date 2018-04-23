@@ -8,8 +8,6 @@
 }
 
 .Icon > svg {
-  width: inherit;
-  height: inherit;
-  max-width: 1.5em;
-  max-height: 1.5em;
+  width: 36px;
+  height: 36px;
 }

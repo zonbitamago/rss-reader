@@ -1,0 +1,4 @@
+.Page {
+  display: grid;
+  grid-template-columns: 3em 1fr;
+}

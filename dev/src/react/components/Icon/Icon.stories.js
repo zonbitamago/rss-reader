@@ -7,7 +7,7 @@ import RssFeed from "@material-ui/icons/RssFeed";
 import IndeterminateCheckBox from "@material-ui/icons/IndeterminateCheckBox";
 import Settings from "@material-ui/icons/Settings";
 import Github from "react-icons/lib/go/mark-github";
-import Twitter from "react-icons/lib/io/social-twitter";
+import Twitter from "react-icons/lib/ti/social-twitter";
 
 import Icon from "./Icon";
 

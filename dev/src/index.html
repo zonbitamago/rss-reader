@@ -7,15 +7,13 @@
   <script src="https://cdn.ravenjs.com/3.22.1/raven.min.js" crossorigin="anonymous"></script>
   <script>Raven.config('https://ed014ed32ae84b7b8109b23a629f3598@sentry.io/284515').install()</script>
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"> -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
 </head>
 
-<body style="-webkit-app-region: drag">
-  node <script>document.write(process.versions.node)</script>、
-Chrome <script>document.write(process.versions.chrome)</script>、
-Electron <script>document.write(process.versions.electron)</script>を使用しています。
+<body style="-webkit-app-region: drag;margin:initial">
   <div id="root-dom"></div>
+  <script src="common.bundle.js"></script>
   <script src="app.bundle.js"></script>
 </body>
 
