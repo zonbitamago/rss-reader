@@ -6,12 +6,20 @@ import TextField from "material-ui/TextField";
 class Input extends Component {
   constructor(props) {
     super(props);
+    this.state = { val: "" };
   }
 
   render() {
     return (
       <div className="Input">
-        <TextField required id={this.props.name} label={this.props.name} />
+        <TextField
+          required
+          id={this.props.name}
+          label={this.props.name}
+          onChange={e => {
+            this.setState({ val: e.target.value });
+          }}
+        />
       </div>
     );
   }

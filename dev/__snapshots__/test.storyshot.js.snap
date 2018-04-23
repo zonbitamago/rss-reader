@@ -386,13 +386,18 @@ exports[`Storyshots Atoms/Input Name 1`] = `
       htmlFor="Name"
     >
       Name
+      <span
+        className="MuiFormLabel-asterisk-163"
+      >
+         *
+      </span>
     </label>
     <div
       className="MuiInput-root-164 MuiInput-formControl-165 MuiInput-underline-168"
     >
       <input
         aria-invalid={false}
-        aria-required={false}
+        aria-required={true}
         autoComplete={undefined}
         autoFocus={undefined}
         className="MuiInput-input-172"
@@ -407,7 +412,7 @@ exports[`Storyshots Atoms/Input Name 1`] = `
         onKeyUp={undefined}
         placeholder={undefined}
         readOnly={undefined}
-        required={undefined}
+        required={true}
         rows={undefined}
         type="text"
         value={undefined}
@@ -420,13 +425,53 @@ exports[`Storyshots Atoms/Input Name 1`] = `
 exports[`Storyshots Atoms/Input URL 1`] = `
 <div
   className="Input"
-/>
-`;
-
-exports[`Storyshots Atoms/Input/Input  1`] = `
-<div
-  className="Input"
-/>
+>
+  <div
+    aria-describedby={undefined}
+    className="MuiFormControl-root-123"
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <label
+      className="MuiFormLabel-root-132 MuiInputLabel-root-127 MuiInputLabel-formControl-128 MuiInputLabel-animated-131"
+      data-shrink={false}
+      htmlFor="URL"
+    >
+      URL
+      <span
+        className="MuiFormLabel-asterisk-136"
+      >
+         *
+      </span>
+    </label>
+    <div
+      className="MuiInput-root-137 MuiInput-formControl-138 MuiInput-underline-141"
+    >
+      <input
+        aria-invalid={false}
+        aria-required={true}
+        autoComplete={undefined}
+        autoFocus={undefined}
+        className="MuiInput-input-145"
+        defaultValue={undefined}
+        disabled={false}
+        id="URL"
+        name={undefined}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={undefined}
+        onKeyUp={undefined}
+        placeholder={undefined}
+        readOnly={undefined}
+        required={true}
+        rows={undefined}
+        type="text"
+        value={undefined}
+      />
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Storyshots Atoms/Time 現在日時 1`] = `
@@ -456,12 +501,6 @@ exports[`Storyshots Atoms/Time 現在日時 1`] = `
 </div>
 `;
 
-exports[`Storyshots Input Example 1 1`] = `
-<div
-  className="Input"
-/>
-`;
-
 exports[`Storyshots Molecules/Menus Side Menu 1`] = `
 <div
   style={
@@ -480,7 +519,7 @@ exports[`Storyshots Molecules/Menus Side Menu 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="MuiSvgIcon-root-123"
+        className="MuiSvgIcon-root-177"
         color={undefined}
         focusable="false"
         viewBox="0 0 24 24"
@@ -497,7 +536,7 @@ exports[`Storyshots Molecules/Menus Side Menu 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="MuiSvgIcon-root-123"
+        className="MuiSvgIcon-root-177"
         color={undefined}
         focusable="false"
         viewBox="0 0 24 24"
@@ -514,7 +553,7 @@ exports[`Storyshots Molecules/Menus Side Menu 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="MuiSvgIcon-root-123"
+        className="MuiSvgIcon-root-177"
         color={undefined}
         focusable="false"
         viewBox="0 0 24 24"
@@ -536,7 +575,7 @@ exports[`Storyshots Molecules/Menus Side Menu 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="MuiSvgIcon-root-123"
+        className="MuiSvgIcon-root-177"
         color={undefined}
         focusable="false"
         viewBox="0 0 24 24"
@@ -553,7 +592,7 @@ exports[`Storyshots Molecules/Menus Side Menu 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="MuiSvgIcon-root-123"
+        className="MuiSvgIcon-root-177"
         color={undefined}
         focusable="false"
         viewBox="0 0 24 24"
@@ -697,7 +736,7 @@ exports[`Storyshots Organisms/Side Side 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-159"
+          className="MuiSvgIcon-root-213"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -714,7 +753,7 @@ exports[`Storyshots Organisms/Side Side 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-159"
+          className="MuiSvgIcon-root-213"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -731,7 +770,7 @@ exports[`Storyshots Organisms/Side Side 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-159"
+          className="MuiSvgIcon-root-213"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -753,7 +792,7 @@ exports[`Storyshots Organisms/Side Side 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-159"
+          className="MuiSvgIcon-root-213"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -770,7 +809,7 @@ exports[`Storyshots Organisms/Side Side 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-159"
+          className="MuiSvgIcon-root-213"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -846,7 +885,7 @@ exports[`Storyshots Pages/Page Page 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="MuiSvgIcon-root-129"
+            className="MuiSvgIcon-root-183"
             color={undefined}
             focusable="false"
             viewBox="0 0 24 24"
@@ -863,7 +902,7 @@ exports[`Storyshots Pages/Page Page 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="MuiSvgIcon-root-129"
+            className="MuiSvgIcon-root-183"
             color={undefined}
             focusable="false"
             viewBox="0 0 24 24"
@@ -880,7 +919,7 @@ exports[`Storyshots Pages/Page Page 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="MuiSvgIcon-root-129"
+            className="MuiSvgIcon-root-183"
             color={undefined}
             focusable="false"
             viewBox="0 0 24 24"
@@ -902,7 +941,7 @@ exports[`Storyshots Pages/Page Page 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="MuiSvgIcon-root-129"
+            className="MuiSvgIcon-root-183"
             color={undefined}
             focusable="false"
             viewBox="0 0 24 24"
@@ -919,7 +958,7 @@ exports[`Storyshots Pages/Page Page 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="MuiSvgIcon-root-129"
+            className="MuiSvgIcon-root-183"
             color={undefined}
             focusable="false"
             viewBox="0 0 24 24"
@@ -986,7 +1025,7 @@ exports[`Storyshots Pages/Page Page 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-129"
+          className="MuiSvgIcon-root-183"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -1007,7 +1046,7 @@ exports[`Storyshots Pages/Page Page 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-129"
+          className="MuiSvgIcon-root-183"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -1025,7 +1064,7 @@ exports[`Storyshots Pages/Page Page 1`] = `
         </svg>
       </div>
       <h3
-        className="MuiTypography-root-135 MuiTypography-subheading-142 MuiTypography-colorInherit-154"
+        className="MuiTypography-root-189 MuiTypography-subheading-196 MuiTypography-colorInherit-208"
       >
         +
       </h3>
@@ -1053,7 +1092,7 @@ exports[`Storyshots Pages/Page Page 1`] = `
         </svg>
       </div>
       <h3
-        className="MuiTypography-root-135 MuiTypography-subheading-142 MuiTypography-colorInherit-154"
+        className="MuiTypography-root-189 MuiTypography-subheading-196 MuiTypography-colorInherit-208"
       >
         Feed
       </h3>
