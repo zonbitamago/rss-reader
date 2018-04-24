@@ -474,6 +474,78 @@ exports[`Storyshots Atoms/Input URL 1`] = `
 </div>
 `;
 
+exports[`Storyshots Atoms/RssListItem RssListItem 1`] = `
+<ul
+  className="MuiList-root-213 MuiList-padding-214"
+>
+  <div
+    className="RssListItem"
+  >
+    <li
+      className="MuiListItem-container-218"
+    >
+      <a
+        className="MuiListItem-root-217 MuiListItem-default-220 MuiListItem-gutters-224 MuiListItem-secondaryAction-226"
+        disabled={false}
+        href="https://www.google.co.jp/"
+      >
+        <div
+          className="MuiListItemText-root-227 RssListItem-Text"
+        >
+          <h3
+            className="MuiTypography-root-233 MuiTypography-subheading-240 MuiListItemText-primary-230"
+          >
+            sample
+          </h3>
+        </div>
+      </a>
+      <div
+        className="MuiListItemSecondaryAction-root-257"
+      >
+        <button
+          aria-label="Delete"
+          className="MuiButtonBase-root-264 MuiIconButton-root-258"
+          disabled={false}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label-263"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root-267"
+              color={undefined}
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <g>
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+              </g>
+            </svg>
+          </span>
+          <span
+            className="MuiTouchRipple-root-273"
+          />
+        </button>
+      </div>
+    </li>
+  </div>
+</ul>
+`;
+
 exports[`Storyshots Atoms/Time 現在日時 1`] = `
 <div
   style={
@@ -736,7 +808,7 @@ exports[`Storyshots Organisms/Side Side 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-213"
+          className="MuiSvgIcon-root-280"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -753,7 +825,7 @@ exports[`Storyshots Organisms/Side Side 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-213"
+          className="MuiSvgIcon-root-280"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -770,7 +842,7 @@ exports[`Storyshots Organisms/Side Side 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-213"
+          className="MuiSvgIcon-root-280"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -792,7 +864,7 @@ exports[`Storyshots Organisms/Side Side 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-213"
+          className="MuiSvgIcon-root-280"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -809,7 +881,7 @@ exports[`Storyshots Organisms/Side Side 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-213"
+          className="MuiSvgIcon-root-280"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
