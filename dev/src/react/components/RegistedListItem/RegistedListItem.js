@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import styles from "./RssListItem.css";
+import styles from "./RegistedListItem.css";
 import {
   ListItem,
   ListItemText,
@@ -9,17 +9,17 @@ import {
 import IconButton from "material-ui/IconButton";
 import Delete from "@material-ui/icons/Delete";
 
-class RssListItem extends Component {
+class RegistedListItem extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <div className="RssListItem">
+      <div className="RegistedListItem">
         <ListItem component="a" href={this.props.url}>
           <ListItemText
-            className="RssListItem-Text"
+            className="RegistedListItem-Text"
             primary={this.props.text}
           />
           <ListItemSecondaryAction>
@@ -33,11 +33,11 @@ class RssListItem extends Component {
   }
 }
 
-RssListItem.propTypes = {
+RegistedListItem.propTypes = {
   text: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired
 };
 
-RssListItem.defaultProps = {};
+RegistedListItem.defaultProps = {};
 
-export default RssListItem;
+export default RegistedListItem;

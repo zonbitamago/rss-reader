@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RssListItem should 1`] = `
+exports[`RegistedListItem should 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <RssListItem
+  Symbol(enzyme.__unrendered__): <RegistedListItem
     text="test"
     url="https://google/co.jp"
   />,
@@ -25,7 +25,7 @@ ShallowWrapper {
         href="https://google/co.jp"
       >
         <WithStyles(ListItemText)
-          className="RssListItem-Text"
+          className="RegistedListItem-Text"
           primary="test"
         />
         <WithStyles(ListItemSecondaryAction)>
@@ -36,7 +36,7 @@ ShallowWrapper {
           </WithStyles(IconButton)>
         </WithStyles(ListItemSecondaryAction)>
       </WithStyles(ListItem)>,
-      "className": "RssListItem",
+      "className": "RegistedListItem",
     },
     "ref": null,
     "rendered": Object {
@@ -46,7 +46,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <WithStyles(ListItemText)
-            className="RssListItem-Text"
+            className="RegistedListItem-Text"
             primary="test"
           />,
           <WithStyles(ListItemSecondaryAction)>
@@ -67,7 +67,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "className": "RssListItem-Text",
+            "className": "RegistedListItem-Text",
             "primary": "test",
           },
           "ref": null,
@@ -124,7 +124,7 @@ ShallowWrapper {
           href="https://google/co.jp"
         >
           <WithStyles(ListItemText)
-            className="RssListItem-Text"
+            className="RegistedListItem-Text"
             primary="test"
           />
           <WithStyles(ListItemSecondaryAction)>
@@ -135,7 +135,7 @@ ShallowWrapper {
             </WithStyles(IconButton)>
           </WithStyles(ListItemSecondaryAction)>
         </WithStyles(ListItem)>,
-        "className": "RssListItem",
+        "className": "RegistedListItem",
       },
       "ref": null,
       "rendered": Object {
@@ -145,7 +145,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <WithStyles(ListItemText)
-              className="RssListItem-Text"
+              className="RegistedListItem-Text"
               primary="test"
             />,
             <WithStyles(ListItemSecondaryAction)>
@@ -166,7 +166,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "className": "RssListItem-Text",
+              "className": "RegistedListItem-Text",
               "primary": "test",
             },
             "ref": null,

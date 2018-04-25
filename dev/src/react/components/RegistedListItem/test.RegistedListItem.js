@@ -1,14 +1,14 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import RssListItem from "./RssListItem";
+import RegistedListItem from "./RegistedListItem";
 
-describe("RssListItem", () => {
+describe("RegistedListItem", () => {
   let component, props;
 
   beforeEach(() => {
     props = { text: "test", url: "https://google/co.jp" };
-    component = shallow(<RssListItem {...props} />);
+    component = shallow(<RegistedListItem {...props} />);
   });
 
   it("should", () => {
