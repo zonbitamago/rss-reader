@@ -1,17 +1,27 @@
-import React from 'react'
-import { shallow } from 'enzyme'
+import React from "react";
+import { mount } from "enzyme";
 
-import RegistedListModal from './RegistedListModal'
+import RegistedListModal from "./RegistedListModal";
 
-describe('RegistedListModal', () => {
-  let component, props
+describe("RegistedListModal", () => {
+  let component, props, mockfn;
 
   beforeEach(() => {
-    props = {}
-    component = shallow(<RegistedListModal {...props} />)
-  })
+    mockfn = jest.fn();
+    props = {
+      open: true,
+      handleClose: mockfn
+    };
+    component = mount(<RegistedListModal {...props} />);
+  });
 
-  it('should', () => {
-    expect(component).toMatchSnapshot()
-  })
-})
+  it("yesボタンクリック", () => {
+    component.find(".Button > #yes").simulate("click");
+    expect(mockfn.mock.calls.length).toBe(1);
+  });
+
+  it("noボタンクリック", () => {
+    component.find(".Button > #no").simulate("click");
+    expect(mockfn.mock.calls.length).toBe(1);
+  });
+});

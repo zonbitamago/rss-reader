@@ -24,7 +24,11 @@ class Button extends Component {
     if (this.props.type == "yes") {
       return (
         <div className="Button">
-          <MaterialButton variant="raised" style={StyleYes}>
+          <MaterialButton
+            id="yes"
+            onClick={this.props.handleClick}
+            variant="raised"
+            style={StyleYes}>
             Yes
           </MaterialButton>
         </div>
@@ -32,7 +36,11 @@ class Button extends Component {
     } else if (this.props.type == "no") {
       return (
         <div className="Button">
-          <MaterialButton variant="raised" style={StyleNo}>
+          <MaterialButton
+            id="no"
+            onClick={this.props.handleClick}
+            variant="raised"
+            style={StyleNo}>
             No
           </MaterialButton>
         </div>
@@ -41,7 +49,10 @@ class Button extends Component {
   }
 }
 
-Button.propTypes = { type: PropTypes.string.isRequired };
+Button.propTypes = {
+  type: PropTypes.string.isRequired,
+  handleClick: PropTypes.func
+};
 
 Button.defaultProps = {};
 

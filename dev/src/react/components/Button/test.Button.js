@@ -3,18 +3,41 @@ import { shallow } from "enzyme";
 
 import Button from "./Button";
 
-describe("Button", () => {
-  let component, props, component2, props2;
+describe("Button yes", () => {
+  let component, props;
 
   beforeEach(() => {
     props = { type: "yes" };
     component = shallow(<Button {...props} />);
-    props2 = { type: "no" };
-    component2 = shallow(<Button {...props} />);
   });
 
   it("should", () => {
     expect(component).toMatchSnapshot();
-    expect(component2).toMatchSnapshot();
+  });
+});
+
+describe("Button no", () => {
+  let component, props;
+
+  beforeEach(() => {
+    props = { type: "no" };
+    component = shallow(<Button {...props} />);
+  });
+
+  it("should", () => {
+    expect(component).toMatchSnapshot();
+  });
+});
+
+describe("Button else", () => {
+  let component, props;
+
+  beforeEach(() => {
+    props = { type: "else" };
+    component = shallow(<Button {...props} />);
+  });
+
+  it("should", () => {
+    expect(component).toMatchSnapshot();
   });
 });

@@ -27,8 +27,8 @@ class RegistedListModal extends Component {
             <Input name="URL" />
           </DialogContent>
           <DialogActions>
-            <Button type="yes" />
-            <Button type="no" />
+            <Button type="yes" handleClick={this.props.handleClose} />
+            <Button type="no" handleClick={this.props.handleClose} />
           </DialogActions>
         </Dialog>
       </div>
