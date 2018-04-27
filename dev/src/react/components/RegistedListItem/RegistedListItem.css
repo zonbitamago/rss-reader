@@ -1,4 +1,5 @@
 .RegistedListItem {
+  list-style: none;
 }
 
 .RegistedListItem-Text > h3 {

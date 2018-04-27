@@ -11,6 +11,10 @@ storiesOf("Organisms/RegistedListModal", module).add("open", () => (
       handleClose={() => {
         console.log("test");
       }}
+      registedlist={[
+        { text: "google", url: "https://www.google.co.jp/" },
+        { text: "yahoo", url: "https://www.yahoo.co.jp/" }
+      ]}
     />
   </div>
 ));

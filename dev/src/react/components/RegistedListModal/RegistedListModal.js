@@ -8,6 +8,7 @@ import Dialog, {
 } from "material-ui/Dialog";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
+import RegistedListItem from "../RegistedListItem/RegistedListItem";
 
 class RegistedListModal extends Component {
   constructor(props) {
@@ -15,6 +16,12 @@ class RegistedListModal extends Component {
   }
 
   render() {
+    var urlList;
+    if (this.props.registedlist.length > 0) {
+      urlList = this.props.registedlist.map((item, idx) => {
+        return <RegistedListItem key={idx} text={item.text} url={item.url} />;
+      });
+    }
     return (
       <div className="RegistedListModal">
         <Dialog
@@ -23,6 +30,7 @@ class RegistedListModal extends Component {
           aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">RegistedListModal</DialogTitle>
           <DialogContent>
+            {urlList}
             <Input name="Name" />
             <Input name="URL" />
           </DialogContent>
@@ -38,7 +46,8 @@ class RegistedListModal extends Component {
 
 RegistedListModal.propTypes = {
   open: PropTypes.bool,
-  handleClose: PropTypes.func
+  handleClose: PropTypes.func,
+  registedlist: PropTypes.array
 };
 
 RegistedListModal.defaultProps = {};

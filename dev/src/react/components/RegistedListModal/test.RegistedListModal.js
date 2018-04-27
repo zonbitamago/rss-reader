@@ -1,5 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
+// import { createMount } from "material-ui/test-utils";
 
 import RegistedListModal from "./RegistedListModal";
 
@@ -10,7 +11,11 @@ describe("RegistedListModal", () => {
     mockfn = jest.fn();
     props = {
       open: true,
-      handleClose: mockfn
+      handleClose: mockfn,
+      registedlist: [
+        { text: "google", url: "https://www.google.co.jp/" },
+        { text: "yahoo", url: "https://www.yahoo.co.jp/" }
+      ]
     };
     component = mount(<RegistedListModal {...props} />);
   });
@@ -24,4 +29,14 @@ describe("RegistedListModal", () => {
     component.find(".Button > #no").simulate("click");
     expect(mockfn.mock.calls.length).toBe(1);
   });
+
+  // it("rss・twitter登録なし", () => {
+  //   props = {
+  //     open: true,
+  //     handleClose: mockfn,
+  //     registedlist: []
+  //   };
+  //   component = createMount(<RegistedListModal {...props} />);
+  //   expect(component).toMatchSnapshot();
+  // });
 });
