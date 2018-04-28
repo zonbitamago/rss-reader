@@ -8,10 +8,14 @@ import RssFeed from "@material-ui/icons/RssFeed";
 import IndeterminateCheckBox from "@material-ui/icons/IndeterminateCheckBox";
 import Settings from "@material-ui/icons/Settings";
 import Github from "react-icons/lib/go/mark-github";
+import RegistedListModal from "../RegistedListModal/RegistedListModal";
 
 class Menus extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      open: false
+    };
   }
 
   render() {
@@ -24,7 +28,18 @@ class Menus extends Component {
           <Refresh />
         </Icon>
         <Icon>
-          <RssFeed />
+          <RssFeed
+            onClick={() => {
+              this.setState({ open: true });
+            }}
+          />
+          <RegistedListModal
+            open={this.state.open}
+            handleClose={() => {
+              this.setState({ open: false });
+            }}
+            registedlist={[]}
+          />
         </Icon>
         <Icon>
           <IndeterminateCheckBox />

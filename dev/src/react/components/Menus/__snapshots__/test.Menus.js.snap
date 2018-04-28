@@ -11,7 +11,14 @@ exports[`Menus should 1`] = `
     <pure(Refresh) />
   </Icon>
   <Icon>
-    <pure(RssFeed) />
+    <pure(RssFeed)
+      onClick={[Function]}
+    />
+    <RegistedListModal
+      handleClose={[Function]}
+      open={false}
+      registedlist={Array []}
+    />
   </Icon>
   <Icon>
     <pure(IndeterminateCheckBox) />
