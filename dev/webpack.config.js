@@ -13,6 +13,7 @@ module.exports = {
       chunks: "initial"
     }
   },
+  // target: "electron-main",
   module: {
     rules: [
       {

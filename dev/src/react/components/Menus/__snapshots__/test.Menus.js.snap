@@ -24,7 +24,13 @@ exports[`Menus should 1`] = `
     <pure(IndeterminateCheckBox) />
   </Icon>
   <Icon>
-    <pure(Settings) />
+    <pure(Settings)
+      onClick={[Function]}
+    />
+    <SettingModal
+      handleClose={[Function]}
+      open={false}
+    />
   </Icon>
   <Icon>
     <GoMarkGithub />

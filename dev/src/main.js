@@ -1,6 +1,8 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain, shell } = require("electron");
 const path = require("path");
 const url = require("url");
+const fs = require("fs");
+const info_path = path.join(app.getPath("userData"), "bounds-info.json");
 
 // window オブジェクトはグローバル参照しなければなりません。
 // これがない場合、JavaScriptのオブジェクトがガベージコレクトされた時に、
@@ -8,8 +10,19 @@ const url = require("url");
 let win;
 
 function createWindow() {
+  let bounds_info;
+  try {
+    bounds_info = JSON.parse(fs.readFileSync(info_path, "utf8"));
+  } catch (e) {
+    bounds_info = {
+      width: 800,
+      height: 600
+    }; // デフォルトバリュー
+  }
+  bounds_info.frame = false;
+
   // browser window を生成する
-  win = new BrowserWindow({ width: 800, height: 600 });
+  win = new BrowserWindow(bounds_info);
 
   // アプリの index.html を読み込む
   win.loadURL(
@@ -22,6 +35,30 @@ function createWindow() {
 
   // DevToolsを開く
   // win.webContents.openDevTools();
+
+  // ブラウザを開く
+  ipcMain.on("openBrowser", (event, arg) => {
+    // イベントバインディング
+    shell.openExternal(arg);
+  });
+
+  // アプリを閉じる
+  ipcMain.on("closeApp", (event, arg) => {
+    // イベントバインディング
+    fs.writeFileSync(info_path, JSON.stringify(mainWindow.getBounds()));
+    app.quit();
+  });
+
+  // アプリを最小化
+  ipcMain.on("minimizeApp", (event, arg) => {
+    // イベントバインディング
+    mainWindow.minimize();
+  });
+
+  // ウィンドウが閉じられる直前に発火
+  win.on("close", e => {
+    fs.writeFileSync(info_path, JSON.stringify(win.getBounds()));
+  });
 
   // ウィンドウが閉じられた時に発火
   win.on("closed", () => {

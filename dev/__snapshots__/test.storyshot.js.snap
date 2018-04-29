@@ -36,6 +36,8 @@ exports[`Storyshots Organisms/Header Header 1`] = `[Function]`;
 
 exports[`Storyshots Organisms/RegistedListModal open 1`] = `[Function]`;
 
+exports[`Storyshots Organisms/SettingModal open 1`] = `[Function]`;
+
 exports[`Storyshots Organisms/Side Side 1`] = `[Function]`;
 
 exports[`Storyshots Pages/Page Page 1`] = `[Function]`;

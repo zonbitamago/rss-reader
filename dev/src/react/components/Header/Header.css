@@ -19,3 +19,7 @@
 .Header-Center > div {
   margin: 0px 5px 0px 5px;
 }
+
+.Header-Left > .Icon {
+  cursor: pointer;
+}

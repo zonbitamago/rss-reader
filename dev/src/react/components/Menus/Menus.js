@@ -9,12 +9,14 @@ import IndeterminateCheckBox from "@material-ui/icons/IndeterminateCheckBox";
 import Settings from "@material-ui/icons/Settings";
 import Github from "react-icons/lib/go/mark-github";
 import RegistedListModal from "../RegistedListModal/RegistedListModal";
+import SettingModal from "../SettingModal/SettingModal";
 
 class Menus extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      registedListModalOpen: false,
+      settingModalOpen: false
     };
   }
 
@@ -30,13 +32,13 @@ class Menus extends Component {
         <Icon>
           <RssFeed
             onClick={() => {
-              this.setState({ open: true });
+              this.setState({ registedListModalOpen: true });
             }}
           />
           <RegistedListModal
-            open={this.state.open}
+            open={this.state.registedListModalOpen}
             handleClose={() => {
-              this.setState({ open: false });
+              this.setState({ registedListModalOpen: false });
             }}
             registedlist={[]}
           />
@@ -45,7 +47,17 @@ class Menus extends Component {
           <IndeterminateCheckBox />
         </Icon>
         <Icon>
-          <Settings />
+          <Settings
+            onClick={() => {
+              this.setState({ settingModalOpen: true });
+            }}
+          />
+          <SettingModal
+            open={this.state.settingModalOpen}
+            handleClose={() => {
+              this.setState({ settingModalOpen: false });
+            }}
+          />
         </Icon>
         <Icon>
           <Github />

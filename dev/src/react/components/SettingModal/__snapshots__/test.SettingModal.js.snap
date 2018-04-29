@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SettingModal should 1`] = `
+<div
+  className="SettingModal"
+>
+   
+  <WithStyles(Dialog)
+    aria-labelledby="form-dialog-title"
+  >
+    <WithStyles(DialogTitle)
+      id="form-dialog-title"
+    >
+      Settings
+    </WithStyles(DialogTitle)>
+    <WithStyles(DialogContent)>
+      <Input
+        name="Update Duration"
+      />
+    </WithStyles(DialogContent)>
+    <WithStyles(DialogActions)>
+      <Button
+        type="yes"
+      />
+      <Button
+        type="no"
+      />
+    </WithStyles(DialogActions)>
+  </WithStyles(Dialog)>
+</div>
+`;

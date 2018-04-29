@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import styles from "./RegistedListModal.css";
+import styles from "./SettingModal.css";
 import Dialog, {
   DialogActions,
   DialogContent,
@@ -8,31 +8,23 @@ import Dialog, {
 } from "material-ui/Dialog";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
-import RegistedListItem from "../RegistedListItem/RegistedListItem";
 
-class RegistedListModal extends Component {
+class SettingModal extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    var urlList;
-    if (this.props.registedlist.length > 0) {
-      urlList = this.props.registedlist.map((item, idx) => {
-        return <RegistedListItem key={idx} text={item.text} url={item.url} />;
-      });
-    }
     return (
-      <div className="RegistedListModal">
+      <div className="SettingModal">
+        {" "}
         <Dialog
           open={this.props.open}
           onClose={this.props.handleClose}
           aria-labelledby="form-dialog-title">
-          <DialogTitle id="form-dialog-title">RegistedList</DialogTitle>
+          <DialogTitle id="form-dialog-title">Settings</DialogTitle>
           <DialogContent>
-            {urlList}
-            <Input name="Name" />
-            <Input name="URL" />
+            <Input name="Update Duration" />
           </DialogContent>
           <DialogActions>
             <Button type="yes" handleClick={this.props.handleClose} />
@@ -44,12 +36,11 @@ class RegistedListModal extends Component {
   }
 }
 
-RegistedListModal.propTypes = {
+SettingModal.propTypes = {
   open: PropTypes.bool,
-  handleClose: PropTypes.func,
-  registedlist: PropTypes.array
+  handleClose: PropTypes.func
 };
 
-RegistedListModal.defaultProps = {};
+SettingModal.defaultProps = {};
 
-export default RegistedListModal;
+export default SettingModal;
