@@ -7,13 +7,14 @@ module.exports = {
     filename: "[name].bundle.js",
     path: path.join(__dirname, "src")
   },
-  optimization: {
-    splitChunks: {
-      name: "common",
-      chunks: "initial"
-    }
-  },
-  // target: "electron-main",
+  // electronが上手くスプリットできない
+  // optimization: {
+  //   splitChunks: {
+  //     name: "common",
+  //     chunks: "initial"
+  //   }
+  // },
+  target: "electron-main",
   module: {
     rules: [
       {

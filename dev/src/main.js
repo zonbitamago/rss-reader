@@ -45,14 +45,14 @@ function createWindow() {
   // アプリを閉じる
   ipcMain.on("closeApp", (event, arg) => {
     // イベントバインディング
-    fs.writeFileSync(info_path, JSON.stringify(mainWindow.getBounds()));
+    fs.writeFileSync(info_path, JSON.stringify(win.getBounds()));
     app.quit();
   });
 
   // アプリを最小化
   ipcMain.on("minimizeApp", (event, arg) => {
     // イベントバインディング
-    mainWindow.minimize();
+    win.minimize();
   });
 
   // ウィンドウが閉じられる直前に発火

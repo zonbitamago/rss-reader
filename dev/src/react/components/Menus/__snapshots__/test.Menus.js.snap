@@ -5,7 +5,9 @@ exports[`Menus should 1`] = `
   className="Menus"
 >
   <Icon>
-    <pure(PowerSettingsNew) />
+    <pure(PowerSettingsNew)
+      onClick={[Function]}
+    />
   </Icon>
   <Icon>
     <pure(Refresh) />
@@ -21,7 +23,9 @@ exports[`Menus should 1`] = `
     />
   </Icon>
   <Icon>
-    <pure(IndeterminateCheckBox) />
+    <pure(IndeterminateCheckBox)
+      onClick={[Function]}
+    />
   </Icon>
   <Icon>
     <pure(Settings)
@@ -33,7 +37,9 @@ exports[`Menus should 1`] = `
     />
   </Icon>
   <Icon>
-    <GoMarkGithub />
+    <GoMarkGithub
+      onClick={[Function]}
+    />
   </Icon>
 </div>
 `;
