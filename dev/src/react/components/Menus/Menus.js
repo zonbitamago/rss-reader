@@ -10,7 +10,7 @@ import Settings from "@material-ui/icons/Settings";
 import Github from "react-icons/lib/go/mark-github";
 import RegistedListModal from "../RegistedListModal/RegistedListModal";
 import SettingModal from "../SettingModal/SettingModal";
-import { ipcRenderer } from "electron";
+import electron from "electron";
 
 class Menus extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class Menus extends Component {
         <Icon>
           <PowerSettingsNew
             onClick={() => {
-              ipcRenderer.send("closeApp");
+              electron.ipcRenderer.send("closeApp");
             }}
           />
         </Icon>
@@ -51,7 +51,7 @@ class Menus extends Component {
         <Icon>
           <IndeterminateCheckBox
             onClick={() => {
-              ipcRenderer.send("minimizeApp");
+              electron.ipcRenderer.send("minimizeApp");
             }}
           />
         </Icon>
@@ -71,7 +71,7 @@ class Menus extends Component {
         <Icon>
           <Github
             onClick={() => {
-              ipcRenderer.send(
+              electron.ipcRenderer.send(
                 "openBrowser",
                 "https://github.com/zonbitamago/rss-reader/blob/master/README.md"
               );
