@@ -13,7 +13,7 @@ class Side extends Component {
     return (
       <div className="Side">
         <div className="Side-Top">
-          <Menus />
+          <Menus electronUtil={this.props.electronUtil} />
         </div>
         <div className="Side-Bottom">
           <Time />

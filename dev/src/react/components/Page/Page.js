@@ -12,7 +12,7 @@ class Page extends Component {
   render() {
     return (
       <div className="Page">
-        <Side />
+        <Side electronUtil={this.props.electronUtil} />
         <Header />
       </div>
     );
