@@ -2,19 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 
 import Menus from "./Menus";
-
-const electronUtil = {
-  closeApp: () => {
-    console.log("closeApp");
-  },
-  minimizeApp: () => {
-    console.log("minimizeApp");
-  },
-  openBrowser: url => {
-    console.log("openBrowser");
-    console.log(url);
-  }
-};
+import { electronUtil } from "../../../../__mocks__/electronUtilSettings";
 
 storiesOf("Molecules/Menus", module)
   .addDecorator(story => (
