@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item should 1`] = `
+<div
+  className="Item"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="left"
+    >
+      <DomainIcon
+        src="http://www.google.com/s2/favicons?domain=qiita.com"
+      />
+    </div>
+    <div
+      className="top"
+    >
+      <h5
+        className="domainName"
+      >
+         
+        Qiita.com
+      </h5>
+      <h6
+        className="date"
+      >
+        a few seconds ago
+      </h6>
+    </div>
+    <div
+      className="bottom"
+    >
+      <a
+        href="javascript:void(0);"
+        onClick={[Function]}
+      >
+        CSS Grid Layout を極める！（基礎編）
+      </a>
+    </div>
+  </div>
+  <WithStyles(Divider)
+    className="divider"
+  />
+</div>
+`;

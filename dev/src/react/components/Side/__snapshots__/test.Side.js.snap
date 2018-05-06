@@ -7,7 +7,15 @@ exports[`Side should 1`] = `
   <div
     className="Side-Top"
   >
-    <Menus />
+    <Menus
+      electronUtil={
+        Object {
+          "closeApp": [Function],
+          "minimizeApp": [Function],
+          "openBrowser": [Function],
+        }
+      }
+    />
   </div>
   <div
     className="Side-Bottom"

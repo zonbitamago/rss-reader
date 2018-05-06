@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DomainIcon should 1`] = `
+<div
+  className="DomainIcon"
+>
+  <img
+    src="http://www.google.com/s2/favicons?domain=qiita.com"
+  />
+</div>
+`;

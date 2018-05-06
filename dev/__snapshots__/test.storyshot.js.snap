@@ -4,6 +4,8 @@ exports[`Storyshots Atoms/Button No 1`] = `[Function]`;
 
 exports[`Storyshots Atoms/Button Yes 1`] = `[Function]`;
 
+exports[`Storyshots Atoms/DomainIcon DomainIcon 1`] = `[Function]`;
+
 exports[`Storyshots Atoms/Icon/Header Home 1`] = `[Function]`;
 
 exports[`Storyshots Atoms/Icon/Header RssFeed 1`] = `[Function]`;
@@ -29,6 +31,8 @@ exports[`Storyshots Atoms/Input URL 1`] = `[Function]`;
 exports[`Storyshots Atoms/RegistedListItem RegistedListItem 1`] = `[Function]`;
 
 exports[`Storyshots Atoms/Time 現在日時 1`] = `[Function]`;
+
+exports[`Storyshots Molecules/Item Item 1`] = `[Function]`;
 
 exports[`Storyshots Molecules/Menus Side Menu 1`] = `[Function]`;
 
