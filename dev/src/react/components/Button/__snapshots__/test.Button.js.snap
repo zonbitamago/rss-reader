@@ -30,7 +30,7 @@ exports[`Button yes should 1`] = `
     id="yes"
     style={
       Object {
-        "background": "#448AFF",
+        "background": "#03A9F4",
         "borderRadius": "5px",
         "color": "white",
       }

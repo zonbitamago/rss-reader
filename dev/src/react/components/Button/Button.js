@@ -4,7 +4,7 @@ import styles from "./Button.css";
 import MaterialButton from "material-ui/Button";
 
 const StyleYes = {
-  background: "#448AFF",
+  background: "#03A9F4",
   color: "white",
   borderRadius: "5px"
 };
@@ -28,7 +28,8 @@ class Button extends Component {
             id="yes"
             onClick={this.props.handleClick}
             variant="raised"
-            style={StyleYes}>
+            style={StyleYes}
+          >
             Yes
           </MaterialButton>
         </div>
@@ -40,7 +41,8 @@ class Button extends Component {
             id="no"
             onClick={this.props.handleClick}
             variant="raised"
-            style={StyleNo}>
+            style={StyleNo}
+          >
             No
           </MaterialButton>
         </div>

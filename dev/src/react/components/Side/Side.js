@@ -23,7 +23,7 @@ class Side extends Component {
   }
 }
 
-Side.propTypes = {};
+Side.propTypes = { electronUtil: PropTypes.object };
 
 Side.defaultProps = {};
 

@@ -2,6 +2,7 @@
   display: grid;
   grid-template-rows: 30px 1fr;
   grid-template-columns: 40px 1fr;
+  margin-top: 10px;
 }
 .Item .left {
   grid-row: 1/3;
