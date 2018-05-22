@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styles from "./Item.css";
 import DomainIcon from "../DomainIcon/DomainIcon";
-import Divider from "material-ui/Divider";
+import Divider from "@material-ui/core/Divider";
 import * as timeUitl from "../../util/timeUtil";
 
 class Item extends Component {

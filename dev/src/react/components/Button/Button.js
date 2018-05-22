@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styles from "./Button.css";
-import MaterialButton from "material-ui/Button";
+import MaterialButton from "@material-ui/core/Button";
 
 const StyleYes = {
   background: "#03A9F4",

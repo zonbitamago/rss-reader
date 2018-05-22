@@ -5,7 +5,7 @@ import Icon from "../Icon/Icon";
 import Home from "@material-ui/icons/Home";
 import RssFeed from "@material-ui/icons/RssFeed";
 import Twitter from "react-icons/lib/ti/social-twitter";
-import Typography from "material-ui/Typography";
+import Typography from "@material-ui/core/Typography";
 
 class Header extends Component {
   constructor(props) {

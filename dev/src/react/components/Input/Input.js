@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styles from "./Input.css";
-import TextField from "material-ui/TextField";
+import TextField from "@material-ui/core/TextField";
 
 class Input extends Component {
   constructor(props) {

@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styles from "./RegistedListItem.css";
-import {
-  ListItem,
-  ListItemText,
-  ListItemSecondaryAction
-} from "material-ui/List";
-import IconButton from "material-ui/IconButton";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import IconButton from "@material-ui/core/IconButton";
 import Delete from "@material-ui/icons/Delete";
 
 class RegistedListItem extends Component {
