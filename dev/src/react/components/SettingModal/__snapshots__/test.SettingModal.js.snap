@@ -4,7 +4,6 @@ exports[`SettingModal should 1`] = `
 <div
   className="SettingModal"
 >
-   
   <WithStyles(Dialog)
     aria-labelledby="form-dialog-title"
   >
@@ -15,7 +14,9 @@ exports[`SettingModal should 1`] = `
     </WithStyles(DialogTitle)>
     <WithStyles(DialogContent)>
       <Input
+        changeParentVal={[Function]}
         name="Update Duration"
+        value={5}
       />
     </WithStyles(DialogContent)>
     <WithStyles(DialogActions)>

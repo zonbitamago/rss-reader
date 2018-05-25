@@ -28,6 +28,8 @@ exports[`Storyshots Atoms/Input Name 1`] = `[Function]`;
 
 exports[`Storyshots Atoms/Input URL 1`] = `[Function]`;
 
+exports[`Storyshots Atoms/Input UpdateDuration 1`] = `[Function]`;
+
 exports[`Storyshots Atoms/RegistedListItem RegistedListItem 1`] = `[Function]`;
 
 exports[`Storyshots Atoms/Time 現在日時 1`] = `[Function]`;

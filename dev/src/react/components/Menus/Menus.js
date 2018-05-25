@@ -65,6 +65,7 @@ class Menus extends Component {
             handleClose={() => {
               this.setState({ settingModalOpen: false });
             }}
+            store={this.props.store}
           />
         </Icon>
         <Icon>
@@ -81,7 +82,10 @@ class Menus extends Component {
   }
 }
 
-Menus.propTypes = { electronUtil: PropTypes.object.isRequired };
+Menus.propTypes = {
+  electronUtil: PropTypes.object.isRequired,
+  store: PropTypes.object
+};
 
 Menus.defaultProps = {};
 

@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 
 import Page from "./Page";
 import { electronUtil } from "../../../../__mocks__/electronUtilSettings";
+import { store } from "../../../../__mocks__/storeSettings";
 
 var items = [];
 var item = {
@@ -16,5 +17,5 @@ for (let index = 0; index < 10; index++) {
   items.push(item);
 }
 storiesOf("Pages/Page", module).add("Page", () => (
-  <Page electronUtil={electronUtil} items={items} />
+  <Page electronUtil={electronUtil} items={items} store={store} />
 ));

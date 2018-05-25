@@ -1,17 +1,18 @@
-import React from 'react'
-import { shallow } from 'enzyme'
+import React from "react";
+import { shallow } from "enzyme";
 
-import SettingModal from './SettingModal'
+import SettingModal from "./SettingModal";
+import { store } from "../../../../__mocks__/storeSettings";
 
-describe('SettingModal', () => {
-  let component, props
+describe("SettingModal", () => {
+  let component, props;
 
   beforeEach(() => {
-    props = {}
-    component = shallow(<SettingModal {...props} />)
-  })
+    props = { store: store };
+    component = shallow(<SettingModal {...props} />);
+  });
 
-  it('should', () => {
-    expect(component).toMatchSnapshot()
-  })
-})
+  it("should", () => {
+    expect(component).toMatchSnapshot();
+  });
+});

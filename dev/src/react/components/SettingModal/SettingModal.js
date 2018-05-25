@@ -7,7 +7,9 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
+import { observer } from "mobx-react";
 
+@observer
 class SettingModal extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,6 @@ class SettingModal extends Component {
   render() {
     return (
       <div className="SettingModal">
-        {" "}
         <Dialog
           open={this.props.open}
           onClose={this.props.handleClose}
@@ -24,7 +25,13 @@ class SettingModal extends Component {
         >
           <DialogTitle id="form-dialog-title">Settings</DialogTitle>
           <DialogContent>
-            <Input name="Update Duration" />
+            <Input
+              name="Update Duration"
+              value={this.props.store.SettingStore.updateDuration}
+              changeParentVal={val => {
+                this.props.store.SettingStore.updateDuration = val;
+              }}
+            />
           </DialogContent>
           <DialogActions>
             <Button type="yes" handleClick={this.props.handleClose} />
@@ -38,7 +45,8 @@ class SettingModal extends Component {
 
 SettingModal.propTypes = {
   open: PropTypes.bool,
-  handleClose: PropTypes.func
+  handleClose: PropTypes.func,
+  store: PropTypes.object
 };
 
 SettingModal.defaultProps = {};

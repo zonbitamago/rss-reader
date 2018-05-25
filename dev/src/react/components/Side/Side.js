@@ -13,7 +13,10 @@ class Side extends Component {
     return (
       <div className="Side">
         <div className="Side-Top">
-          <Menus electronUtil={this.props.electronUtil} />
+          <Menus
+            electronUtil={this.props.electronUtil}
+            store={this.props.store}
+          />
         </div>
         <div className="Side-Bottom">
           <Time />
@@ -23,7 +26,7 @@ class Side extends Component {
   }
 }
 
-Side.propTypes = { electronUtil: PropTypes.object };
+Side.propTypes = { electronUtil: PropTypes.object, store: PropTypes.object };
 
 Side.defaultProps = {};
 

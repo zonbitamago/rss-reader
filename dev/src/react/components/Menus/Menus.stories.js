@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 
 import Menus from "./Menus";
 import { electronUtil } from "../../../../__mocks__/electronUtilSettings";
+import { store } from "../../../../__mocks__/storeSettings";
 
 storiesOf("Molecules/Menus", module)
   .addDecorator(story => (
@@ -10,4 +11,4 @@ storiesOf("Molecules/Menus", module)
       {story()}
     </div>
   ))
-  .add("Side Menu", () => <Menus electronUtil={electronUtil} />);
+  .add("Side Menu", () => <Menus electronUtil={electronUtil} store={store} />);

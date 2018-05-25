@@ -29,7 +29,7 @@ class Page extends Component {
     }
     return (
       <div className="Page">
-        <Side electronUtil={this.props.electronUtil} />
+        <Side electronUtil={this.props.electronUtil} store={this.props.store} />
         <Header />
         <div className="main">{showItems}</div>
       </div>
@@ -37,7 +37,11 @@ class Page extends Component {
   }
 }
 
-Page.propTypes = { electronUtil: PropTypes.object, items: PropTypes.array };
+Page.propTypes = {
+  electronUtil: PropTypes.object,
+  items: PropTypes.array,
+  store: PropTypes.object
+};
 
 Page.defaultProps = {};
 
