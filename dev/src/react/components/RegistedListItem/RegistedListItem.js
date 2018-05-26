@@ -18,7 +18,7 @@ class RegistedListItem extends Component {
         <ListItem component="a" href={this.props.url}>
           <ListItemText
             className="RegistedListItem-Text"
-            primary={this.props.text}
+            primary={this.props.name}
           />
           <ListItemSecondaryAction>
             <IconButton aria-label="Delete">
@@ -32,7 +32,7 @@ class RegistedListItem extends Component {
 }
 
 RegistedListItem.propTypes = {
-  text: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired
 };
 

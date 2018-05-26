@@ -15,12 +15,13 @@ exports[`SettingModal should 1`] = `
     <WithStyles(DialogContent)>
       <Input
         changeParentVal={[Function]}
-        name="Update Duration"
+        name="UpdateDuration"
         value={5}
       />
     </WithStyles(DialogContent)>
     <WithStyles(DialogActions)>
       <Button
+        handleClick={[Function]}
         type="yes"
       />
       <Button

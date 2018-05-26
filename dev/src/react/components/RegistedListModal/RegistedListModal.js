@@ -18,7 +18,7 @@ class RegistedListModal extends Component {
     var urlList;
     if (this.props.registedlist.length > 0) {
       urlList = this.props.registedlist.map((item, idx) => {
-        return <RegistedListItem key={idx} text={item.text} url={item.url} />;
+        return <RegistedListItem key={idx} name={item.name} url={item.url} />;
       });
     }
     return (

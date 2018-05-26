@@ -13,8 +13,8 @@ describe("RegistedListModal", () => {
       open: true,
       handleClose: mockfn,
       registedlist: [
-        { text: "google", url: "https://www.google.co.jp/" },
-        { text: "yahoo", url: "https://www.yahoo.co.jp/" }
+        { name: "google", url: "https://www.google.co.jp/" },
+        { name: "yahoo", url: "https://www.yahoo.co.jp/" }
       ]
     };
     component = mount(<RegistedListModal {...props} />);

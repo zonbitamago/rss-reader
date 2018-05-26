@@ -7,5 +7,5 @@ import List from "@material-ui/core/List";
 storiesOf("Atoms/RegistedListItem", module)
   .addDecorator(story => <List>{story()}</List>)
   .add("RegistedListItem", () => (
-    <RegistedListItem text="sample" url="https://www.google.co.jp/" />
+    <RegistedListItem name="sample" url="https://www.google.co.jp/" />
   ));

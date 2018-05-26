@@ -13,6 +13,12 @@ import { observer } from "mobx-react";
 class SettingModal extends Component {
   constructor(props) {
     super(props);
+    this.yesButtonClick = this.yesButtonClick.bind(this);
+  }
+
+  yesButtonClick() {
+    this.props.store.SettingStore.setSetting();
+    this.props.handleClose();
   }
 
   render() {
@@ -26,7 +32,7 @@ class SettingModal extends Component {
           <DialogTitle id="form-dialog-title">Settings</DialogTitle>
           <DialogContent>
             <Input
-              name="Update Duration"
+              name="UpdateDuration"
               value={this.props.store.SettingStore.updateDuration}
               changeParentVal={val => {
                 this.props.store.SettingStore.updateDuration = val;
@@ -34,7 +40,7 @@ class SettingModal extends Component {
             />
           </DialogContent>
           <DialogActions>
-            <Button type="yes" handleClick={this.props.handleClose} />
+            <Button type="yes" handleClick={this.yesButtonClick} />
             <Button type="no" handleClick={this.props.handleClose} />
           </DialogActions>
         </Dialog>

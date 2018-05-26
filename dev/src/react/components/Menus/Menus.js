@@ -10,7 +10,9 @@ import Settings from "@material-ui/icons/Settings";
 import Github from "react-icons/lib/go/mark-github";
 import RegistedListModal from "../RegistedListModal/RegistedListModal";
 import SettingModal from "../SettingModal/SettingModal";
+import { observer } from "mobx-react";
 
+@observer
 class Menus extends Component {
   constructor(props) {
     super(props);
@@ -57,6 +59,7 @@ class Menus extends Component {
         <Icon>
           <Settings
             onClick={() => {
+              this.props.store.SettingStore.getSettings();
               this.setState({ settingModalOpen: true });
             }}
           />

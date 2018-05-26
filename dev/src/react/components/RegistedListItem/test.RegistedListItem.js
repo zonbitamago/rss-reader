@@ -7,7 +7,7 @@ describe("RegistedListItem", () => {
   let component, props;
 
   beforeEach(() => {
-    props = { text: "test", url: "https://google/co.jp" };
+    props = { name: "test", url: "https://google/co.jp" };
     component = shallow(<RegistedListItem {...props} />);
   });
 
