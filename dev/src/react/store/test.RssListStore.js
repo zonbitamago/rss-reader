@@ -58,12 +58,36 @@ describe("RssListStore", () => {
     it("Not Regsited", () => {
       var name = "google.com";
       var url = "https://google.com";
+      store = new RssListStore();
       store.setRssList(name, url);
-      expect(store.rssList.length).toBe(0);
+      expect(JSON.parse(localStorage.getItem("rssList"))).toBe(1);
     });
 
     it("Registed", () => {
-      expect(store.rssList.length).toBe(1);
+      store = new RssListStore();
+      var name = "google.com";
+      var url = "https://google.com";
+      store = new RssListStore();
+      store.setRssList(name, url);
+      expect(JSON.parse(localStorage.getItem("rssList"))).toBe(2);
+    });
+
+    it("Duplicate", () => {
+      store = new RssListStore();
+      var name = "google.com";
+      var url = "https://google.com";
+      store = new RssListStore();
+      store.setRssList(name, url);
+      expect(JSON.parse(localStorage.getItem("rssList"))).toBe(1);
+    });
+
+    it("Not URL", () => {
+      store = new RssListStore();
+      var name = "google.com";
+      var url = "https://google.com";
+      store = new RssListStore();
+      store.setRssList(name, url);
+      expect(JSON.parse(localStorage.getItem("rssList"))).toBe(0);
     });
   });
 });
