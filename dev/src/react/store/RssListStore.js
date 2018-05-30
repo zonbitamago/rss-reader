@@ -16,7 +16,10 @@ class RssListStore {
   }
 
   @action.bound
-  setRssList(name, url) {}
+  setRssList(name, url) {
+    // 正しいURLかどうか
+    // 正しいURLではない場合、return
+  }
 }
 
 export default RssListStore;

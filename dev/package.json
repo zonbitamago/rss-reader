@@ -48,9 +48,12 @@
   "dependencies": {
     "@material-ui/core": "^1.0.0",
     "@material-ui/icons": "^1.0.0",
+    "axios": "^0.18.0",
+    "feedparser": "^2.2.9",
     "moment": "^2.22.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-icons": "^2.2.7"
+    "react-icons": "^2.2.7",
+    "string-to-stream": "^1.1.1"
   }
 }
