@@ -37,6 +37,7 @@
     "enzyme-to-json": "^3.3.4",
     "jest-cli": "^22.4.4",
     "jest-localstorage-mock": "^2.2.0",
+    "jest-mock-axios": "^2.1.11",
     "mobx": "^4.2.1",
     "mobx-react": "^5.1.2",
     "mockdate": "^2.0.2",
