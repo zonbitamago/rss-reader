@@ -31,7 +31,7 @@ export default function feedParse(url) {
 
       return Promise.all([promise])
         .then(feed => {
-          console.log(2);
+          // console.log(2);
 
           return feed[0];
         })

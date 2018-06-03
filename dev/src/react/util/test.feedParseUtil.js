@@ -60,15 +60,18 @@ describe("feedParseUtil", () => {
 
       var feed = feedParse("http://example.com/");
 
-      feed.then(thenFn).catch(catchFn);
-
       mockAxios.mockResponse(responseObj);
 
-      console.log(feed);
+      //   console.log(feed.data);
+      //   console.log(1);
 
-      //   expect(thenFn).toHaveBeenCalled();
-      //   expect(catchFn).not.toHaveBeenCalled();
-      expect(feed.error).toBeUndefined();
+      return feed.then(a => {
+        // console.log(a);
+        // console.log(2);
+        // return a.then(b => {
+        //   console.log(b);
+        // });
+      });
     });
 
     it("RSS2.0", () => {});
