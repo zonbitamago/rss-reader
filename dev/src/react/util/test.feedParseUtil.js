@@ -62,15 +62,8 @@ describe("feedParseUtil", () => {
 
       mockAxios.mockResponse(responseObj);
 
-      //   console.log(feed.data);
-      //   console.log(1);
-
       return feed.then(a => {
-        // console.log(a);
-        // console.log(2);
-        // return a.then(b => {
-        //   console.log(b);
-        // });
+        expect(a).toBe("a");
       });
     });
 
@@ -80,6 +73,20 @@ describe("feedParseUtil", () => {
   });
 
   describe("異常系", () => {
-    it("axios error", () => {});
+    it("axios error", () => {
+      //   var responseObj = {
+      //     status: 500,
+      //     statusText: "Error",
+      //     data: ``
+      //   };
+
+      var feed = feedParse("http://example.com/");
+
+      try {
+        mockAxios.mockError(new Error());
+      } catch (error) {
+        expect(error).toEqual(new Error());
+      }
+    });
   });
 });
