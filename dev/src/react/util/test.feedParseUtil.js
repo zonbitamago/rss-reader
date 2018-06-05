@@ -18,43 +18,48 @@ describe("feedParseUtil", () => {
         status: 200,
         statusText: "OK",
         data: `
-            <? xml version = "1.0" encoding = "UTF-8" ?>
-                <rdf: RDF xmlns="http://purl.org/rss/1.0/"
-                    xmlns: rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                    xmlns: dc="http://purl.org/dc/elements/1.1/"
-                    xmlns: content="http://purl.org/rss/1.0/modules/content/"
-                    xml: lang="ja">
-
-                    <channel rdf: about="サイトのRSSのURL">
-        <title>サイトのタイトル</title>
-                    <link>サイトのURL</link>
-                    <description>サイトの内容</description>
-                    <dc: date>RSSの最終更新日時</dc: date >
-                <dc: language>ja</dc: language>
-                    <items>
-                        <rdf: Seq>
-        <rdf: li rdf:resource="記事1のURL" />
-        <rdf: li rdf:resource="記事2のURL" />
-        </rdf: Seq >
-        </items >
-    </channel >
-
-            <item rdf: about="記事1のURL">
-                <title>記事1のタイトル</title>
-                <link>記事1のURL</link>
-                <description><![CDATA[記事1の内容]]></description>
-                <dc: creator>記事1の作者名</dc: creator >
-                    <dc: date>記事1の作成日時</dc: date >
-    </item >
-
-            <item rdf: about="記事2のURL">
-                <title>記事2のタイトル</title>
-                <link>記事2のURL</link>
-                <description><![CDATA[記事2の内容]]></description>
-                <dc: creator>記事2の作者名</dc: creator >
-                    <dc: date>記事2の作成日時</dc: date >
-    </item >
-</rdf: RDF >
+            <?xml version="1.0"?>
+<rss version="2.0">
+   <channel>
+      <title>Liftoff News</title>
+      <link>http://liftoff.msfc.nasa.gov/</link>
+      <description>Liftoff to Space Exploration.</description>
+      <language>en-us</language>
+      <pubDate>Tue, 10 Jun 2003 04:00:00 GMT</pubDate>
+      <lastBuildDate>Tue, 10 Jun 2003 09:41:01 GMT</lastBuildDate>
+      <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+      <generator>Weblog Editor 2.0</generator>
+      <managingEditor>editor@example.com</managingEditor>
+      <webMaster>webmaster@example.com</webMaster>
+      <item>
+         <title>Star City</title>
+         <author>writer@example.com (Writer)</author>
+         <link>http://liftoff.msfc.nasa.gov/news/2003/news-starcity.asp</link>
+         <description>How do Americans get ready to work with Russians aboard the International Space Station? They take a crash course in culture, language and protocol at Russia's &lt;a href="http://howe.iki.rssi.ru/GCTC/gctc_e.htm"&gt;Star City&lt;/a&gt;.</description>
+         <pubDate>Tue, 03 Jun 2003 09:39:21 GMT</pubDate>
+         <guid>http://liftoff.msfc.nasa.gov/2003/06/03.html#item573</guid>
+      </item>
+      <item>
+         <description>Sky watchers in Europe, Asia, and parts of Alaska and Canada will experience a &lt;a href="http://science.nasa.gov/headlines/y2003/30may_solareclipse.htm"&gt;partial eclipse of the Sun&lt;/a&gt; on Saturday, May 31st.</description>
+         <pubDate>Fri, 30 May 2003 11:06:42 GMT</pubDate>
+         <guid>http://liftoff.msfc.nasa.gov/2003/05/30.html#item572</guid>
+      </item>
+      <item>
+         <title>The Engine That Does More</title>
+         <link>http://liftoff.msfc.nasa.gov/news/2003/news-VASIMR.asp</link>
+         <description>Before man travels to Mars, NASA hopes to design new engines that will let us fly through the Solar System more quickly.  The proposed VASIMR engine would do that.</description>
+         <pubDate>Tue, 27 May 2003 08:37:32 GMT</pubDate>
+         <guid>http://liftoff.msfc.nasa.gov/2003/05/27.html#item571</guid>
+      </item>
+      <item>
+         <title>Astronauts' Dirty Laundry</title>
+         <link>http://liftoff.msfc.nasa.gov/news/2003/news-laundry.asp</link>
+         <description>Compared to earlier spacecraft, the International Space Station has many luxuries, but laundry facilities are not one of them.  Instead, astronauts have other options.</description>
+         <pubDate>Tue, 20 May 2003 08:56:02 GMT</pubDate>
+         <guid>http://liftoff.msfc.nasa.gov/2003/05/20.html#item570</guid>
+      </item>
+   </channel>
+</rss>
 `
       };
 
@@ -63,6 +68,9 @@ describe("feedParseUtil", () => {
       mockAxios.mockResponse(responseObj);
 
       return feed.then(a => {
+        a.then(b => {
+          expect(b).toBe("b");
+        });
         expect(a).toBe("a");
       });
     });
@@ -74,12 +82,6 @@ describe("feedParseUtil", () => {
 
   describe("異常系", () => {
     it("axios error", () => {
-      //   var responseObj = {
-      //     status: 500,
-      //     statusText: "Error",
-      //     data: ``
-      //   };
-
       var feed = feedParse("http://example.com/");
 
       try {
