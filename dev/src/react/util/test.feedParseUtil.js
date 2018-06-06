@@ -13,7 +13,7 @@ describe("feedParseUtil", () => {
   });
 
   describe("正常系", () => {
-    it("RSS1.0", () => {
+    it("RSS2.0", () => {
       var responseObj = {
         status: 200,
         statusText: "OK",
@@ -67,15 +67,17 @@ describe("feedParseUtil", () => {
 
       mockAxios.mockResponse(responseObj);
 
+      expect.assertions(1);
       return feed.then(a => {
-        a.then(b => {
-          expect(b).toBe("b");
-        });
-        expect(a).toBe("a");
+        // a.then(b => {
+        //   expect(b).toBe("b");
+        // });
+
+        return expect(a).resolves.toBe("b");
       });
     });
 
-    it("RSS2.0", () => {});
+    it("RSS1.0", () => {});
 
     it("Atom", () => {});
   });
