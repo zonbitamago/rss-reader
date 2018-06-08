@@ -69,17 +69,17 @@ describe("feedParseUtil", () => {
 
       expect.assertions(1);
       return feed.then(a => {
-        // a.then(b => {
-        //   expect(b).toBe("b");
-        // });
+        a.then(b => {
+          expect(b).toBe("b");
+        });
 
         return expect(a).resolves.toBe("b");
       });
     });
 
-    it("RSS1.0", () => {});
+    // it("RSS1.0", () => {});
 
-    it("Atom", () => {});
+    // it("Atom", () => {});
   });
 
   describe("異常系", () => {
