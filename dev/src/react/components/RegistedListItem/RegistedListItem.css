@@ -2,7 +2,7 @@
   list-style: none;
 }
 
-.RegistedListItem-Text > h3 {
+.RegistedListItem span {
   color: #42a5f5;
   text-decoration: underline;
 }

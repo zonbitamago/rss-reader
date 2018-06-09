@@ -1,11 +1,11 @@
 module.exports = {
   ipcRenderer: {
-    send: jest.genMockFunction()
+    send: jest.fn()
   },
   remote: {
     app: {
       getPath: () => {
-        return '';
+        return "";
       }
     }
   }
