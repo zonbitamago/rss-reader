@@ -1,0 +1,894 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`feedParseUtil 正常系 feedParser Atom 1`] = `
+Array [
+  Object {
+    "atom:@": Object {},
+    "atom:id": Object {
+      "#": "urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a",
+      "@": Object {},
+    },
+    "atom:link": Object {
+      "@": Object {
+        "href": "http://example.org/2003/12/13/atom03",
+      },
+    },
+    "atom:summary": Object {
+      "#": "Some text.",
+      "@": Object {},
+    },
+    "atom:title": Object {
+      "#": "Atom-Powered Robots Run Amok",
+      "@": Object {},
+    },
+    "atom:updated": Object {
+      "#": "2003-12-13T18:30:02Z",
+      "@": Object {},
+    },
+    "author": "John Doe",
+    "categories": Array [],
+    "comments": null,
+    "date": 2003-12-13T18:30:02.000Z,
+    "description": "Some text.",
+    "enclosures": Array [],
+    "guid": "urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a",
+    "image": Object {},
+    "link": "http://example.org/2003/12/13/atom03",
+    "meta": Object {
+      "#ns": Array [
+        Object {
+          "xmlns": "http://www.w3.org/2005/Atom",
+        },
+      ],
+      "#type": "atom",
+      "#version": "1.0",
+      "#xml": Object {
+        "encoding": "utf-8",
+        "version": "1.0",
+      },
+      "@": Array [
+        Object {
+          "xmlns": "http://www.w3.org/2005/Atom",
+        },
+      ],
+      "atom:@": Object {
+        "xmlns": "http://www.w3.org/2005/Atom",
+      },
+      "atom:author": Object {
+        "@": Object {},
+        "email": Object {
+          "#": "johndoe@example.com",
+          "@": Object {},
+        },
+        "name": Object {
+          "#": "John Doe",
+          "@": Object {},
+        },
+      },
+      "atom:id": Object {
+        "#": "urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6",
+        "@": Object {},
+      },
+      "atom:link": Object {
+        "@": Object {
+          "href": "http://example.org/",
+        },
+      },
+      "atom:subtitle": Object {
+        "#": "Insert witty or insightful remark here",
+        "@": Object {},
+      },
+      "atom:title": Object {
+        "#": "Example Feed",
+        "@": Object {},
+      },
+      "atom:updated": Object {
+        "#": "2003-12-13T18:30:02Z",
+        "@": Object {},
+      },
+      "author": "John Doe",
+      "categories": Array [],
+      "cloud": Object {},
+      "copyright": null,
+      "date": 2003-12-13T18:30:02.000Z,
+      "description": "Insert witty or insightful remark here",
+      "favicon": null,
+      "generator": null,
+      "image": Object {},
+      "language": null,
+      "link": "http://example.org/",
+      "pubDate": 2003-12-13T18:30:02.000Z,
+      "pubdate": 2003-12-13T18:30:02.000Z,
+      "title": "Example Feed",
+      "xmlUrl": null,
+      "xmlurl": null,
+    },
+    "origlink": null,
+    "pubDate": 2003-12-13T18:30:02.000Z,
+    "pubdate": 2003-12-13T18:30:02.000Z,
+    "source": Object {},
+    "summary": "Some text.",
+    "title": "Atom-Powered Robots Run Amok",
+  },
+  Object {
+    "atom:@": Object {},
+    "atom:id": Object {
+      "#": "urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a",
+      "@": Object {},
+    },
+    "atom:link": Object {
+      "@": Object {
+        "href": "http://example.org/2003/12/13/atom03",
+      },
+    },
+    "atom:summary": Object {
+      "#": "Some text.",
+      "@": Object {},
+    },
+    "atom:title": Object {
+      "#": "Atom-Powered Robots Run Amok",
+      "@": Object {},
+    },
+    "atom:updated": Object {
+      "#": "2003-12-13T18:30:02Z",
+      "@": Object {},
+    },
+    "author": "John Doe",
+    "categories": Array [],
+    "comments": null,
+    "date": 2003-12-13T18:30:02.000Z,
+    "description": "Some text.",
+    "enclosures": Array [],
+    "guid": "urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a",
+    "image": Object {},
+    "link": "http://example.org/2003/12/13/atom03",
+    "meta": Object {
+      "#ns": Array [
+        Object {
+          "xmlns": "http://www.w3.org/2005/Atom",
+        },
+      ],
+      "#type": "atom",
+      "#version": "1.0",
+      "#xml": Object {
+        "encoding": "utf-8",
+        "version": "1.0",
+      },
+      "@": Array [
+        Object {
+          "xmlns": "http://www.w3.org/2005/Atom",
+        },
+      ],
+      "atom:@": Object {
+        "xmlns": "http://www.w3.org/2005/Atom",
+      },
+      "atom:author": Object {
+        "@": Object {},
+        "email": Object {
+          "#": "johndoe@example.com",
+          "@": Object {},
+        },
+        "name": Object {
+          "#": "John Doe",
+          "@": Object {},
+        },
+      },
+      "atom:id": Object {
+        "#": "urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6",
+        "@": Object {},
+      },
+      "atom:link": Object {
+        "@": Object {
+          "href": "http://example.org/",
+        },
+      },
+      "atom:subtitle": Object {
+        "#": "Insert witty or insightful remark here",
+        "@": Object {},
+      },
+      "atom:title": Object {
+        "#": "Example Feed",
+        "@": Object {},
+      },
+      "atom:updated": Object {
+        "#": "2003-12-13T18:30:02Z",
+        "@": Object {},
+      },
+      "author": "John Doe",
+      "categories": Array [],
+      "cloud": Object {},
+      "copyright": null,
+      "date": 2003-12-13T18:30:02.000Z,
+      "description": "Insert witty or insightful remark here",
+      "favicon": null,
+      "generator": null,
+      "image": Object {},
+      "language": null,
+      "link": "http://example.org/",
+      "pubDate": 2003-12-13T18:30:02.000Z,
+      "pubdate": 2003-12-13T18:30:02.000Z,
+      "title": "Example Feed",
+      "xmlUrl": null,
+      "xmlurl": null,
+    },
+    "origlink": null,
+    "pubDate": 2003-12-13T18:30:02.000Z,
+    "pubdate": 2003-12-13T18:30:02.000Z,
+    "source": Object {},
+    "summary": "Some text.",
+    "title": "Atom-Powered Robots Run Amok",
+  },
+]
+`;
+
+exports[`feedParseUtil 正常系 feedParser RSS1.0 1`] = `
+Array [
+  Object {
+    "author": null,
+    "categories": Array [
+      "ここの値を指定",
+    ],
+    "comments": null,
+    "date": 2014-11-23T00:00:00.000Z,
+    "dc:date": Object {
+      "#": "2014-11-23",
+      "@": Object {},
+    },
+    "dc:subject": Object {
+      "#": "ここの値を指定",
+      "@": Object {},
+    },
+    "description": "PHPを使って、RSS、Atomのフィード・ファイルを作成する方法を解説します。",
+    "enclosures": Array [],
+    "guid": "http://syncer.jp/how-to-make-feed-by-php",
+    "image": Object {},
+    "link": "http://syncer.jp/how-to-make-feed-by-php",
+    "meta": Object {
+      "#ns": Array [
+        Object {
+          "xmlns:dc": "http://purl.org/dc/elements/1.1/",
+        },
+        Object {
+          "xmlns:rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        },
+        Object {
+          "xmlns": "http://purl.org/rss/1.0/",
+        },
+      ],
+      "#type": "rdf",
+      "#version": "1.0",
+      "#xml": Object {
+        "encoding": "utf-8",
+        "version": "1.0",
+      },
+      "@": Array [
+        Object {
+          "xmlns:dc": "http://purl.org/dc/elements/1.1/",
+        },
+        Object {
+          "xmlns:rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        },
+        Object {
+          "xmlns": "http://purl.org/rss/1.0/",
+        },
+      ],
+      "author": null,
+      "categories": Array [],
+      "cloud": Object {},
+      "copyright": null,
+      "date": null,
+      "description": "知識と感動を同期(Sync)するブログ",
+      "favicon": null,
+      "generator": null,
+      "image": Object {},
+      "language": null,
+      "link": "http://syncer.jp/",
+      "pubDate": null,
+      "pubdate": null,
+      "rdf:@": Object {
+        "about": "http://syncer.jp/about",
+      },
+      "rdf:description": Object {
+        "#": "知識と感動を同期(Sync)するブログ",
+        "@": Object {},
+      },
+      "rdf:items": Object {
+        "@": Object {},
+        "seq": Object {
+          "@": Object {},
+          "li": Object {
+            "@": Object {
+              "resource": "http://syncer.jp/how-to-make-feed-by-php",
+            },
+          },
+        },
+      },
+      "rdf:link": Object {
+        "#": "http://syncer.jp/",
+        "@": Object {},
+      },
+      "rdf:title": Object {
+        "#": "Syncer",
+        "@": Object {},
+      },
+      "title": "Syncer",
+      "xmlUrl": null,
+      "xmlurl": null,
+    },
+    "origlink": null,
+    "pubDate": 2014-11-23T00:00:00.000Z,
+    "pubdate": 2014-11-23T00:00:00.000Z,
+    "rdf:@": Object {
+      "about": "http://syncer.jp/how-to-make-feed-by-php",
+    },
+    "rdf:description": Object {
+      "#": "PHPを使って、RSS、Atomのフィード・ファイルを作成する方法を解説します。",
+      "@": Object {},
+    },
+    "rdf:link": Object {
+      "#": "http://syncer.jp/how-to-make-feed-by-php",
+      "@": Object {},
+    },
+    "rdf:title": Object {
+      "#": "PHPでRSS、AtomのFeedを作成する方法",
+      "@": Object {},
+    },
+    "source": Object {},
+    "summary": "PHPを使って、RSS、Atomのフィード・ファイルを作成する方法を解説します。",
+    "title": "PHPでRSS、AtomのFeedを作成する方法",
+  },
+  Object {
+    "author": null,
+    "categories": Array [
+      "ここの値を指定",
+    ],
+    "comments": null,
+    "date": 2014-11-23T00:00:00.000Z,
+    "dc:date": Object {
+      "#": "2014-11-23",
+      "@": Object {},
+    },
+    "dc:subject": Object {
+      "#": "ここの値を指定",
+      "@": Object {},
+    },
+    "description": "PHPを使って、RSS、Atomのフィード・ファイルを作成する方法を解説します。",
+    "enclosures": Array [],
+    "guid": "http://syncer.jp/how-to-make-feed-by-php",
+    "image": Object {},
+    "link": "http://syncer.jp/how-to-make-feed-by-php",
+    "meta": Object {
+      "#ns": Array [
+        Object {
+          "xmlns:dc": "http://purl.org/dc/elements/1.1/",
+        },
+        Object {
+          "xmlns:rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        },
+        Object {
+          "xmlns": "http://purl.org/rss/1.0/",
+        },
+      ],
+      "#type": "rdf",
+      "#version": "1.0",
+      "#xml": Object {
+        "encoding": "utf-8",
+        "version": "1.0",
+      },
+      "@": Array [
+        Object {
+          "xmlns:dc": "http://purl.org/dc/elements/1.1/",
+        },
+        Object {
+          "xmlns:rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        },
+        Object {
+          "xmlns": "http://purl.org/rss/1.0/",
+        },
+      ],
+      "author": null,
+      "categories": Array [],
+      "cloud": Object {},
+      "copyright": null,
+      "date": null,
+      "description": "知識と感動を同期(Sync)するブログ",
+      "favicon": null,
+      "generator": null,
+      "image": Object {},
+      "language": null,
+      "link": "http://syncer.jp/",
+      "pubDate": null,
+      "pubdate": null,
+      "rdf:@": Object {
+        "about": "http://syncer.jp/about",
+      },
+      "rdf:description": Object {
+        "#": "知識と感動を同期(Sync)するブログ",
+        "@": Object {},
+      },
+      "rdf:items": Object {
+        "@": Object {},
+        "seq": Object {
+          "@": Object {},
+          "li": Object {
+            "@": Object {
+              "resource": "http://syncer.jp/how-to-make-feed-by-php",
+            },
+          },
+        },
+      },
+      "rdf:link": Object {
+        "#": "http://syncer.jp/",
+        "@": Object {},
+      },
+      "rdf:title": Object {
+        "#": "Syncer",
+        "@": Object {},
+      },
+      "title": "Syncer",
+      "xmlUrl": null,
+      "xmlurl": null,
+    },
+    "origlink": null,
+    "pubDate": 2014-11-23T00:00:00.000Z,
+    "pubdate": 2014-11-23T00:00:00.000Z,
+    "rdf:@": Object {
+      "about": "http://syncer.jp/how-to-make-feed-by-php",
+    },
+    "rdf:description": Object {
+      "#": "PHPを使って、RSS、Atomのフィード・ファイルを作成する方法を解説します。",
+      "@": Object {},
+    },
+    "rdf:link": Object {
+      "#": "http://syncer.jp/how-to-make-feed-by-php",
+      "@": Object {},
+    },
+    "rdf:title": Object {
+      "#": "PHPでRSS、AtomのFeedを作成する方法",
+      "@": Object {},
+    },
+    "source": Object {},
+    "summary": "PHPを使って、RSS、Atomのフィード・ファイルを作成する方法を解説します。",
+    "title": "PHPでRSS、AtomのFeedを作成する方法",
+  },
+]
+`;
+
+exports[`feedParseUtil 正常系 feedParser RSS2.0 1`] = `
+Array [
+  Object {
+    "author": "Writer",
+    "categories": Array [],
+    "comments": null,
+    "date": 2003-06-03T09:39:21.000Z,
+    "description": "How do Americans get ready to work with Russians aboard the International Space Station? They take a crash course in culture, language and protocol at Russia's <a href=\\"http://howe.iki.rssi.ru/GCTC/gctc_e.htm\\">Star City</a>.",
+    "enclosures": Array [],
+    "guid": "http://liftoff.msfc.nasa.gov/2003/06/03.html#item573",
+    "image": Object {},
+    "link": "http://liftoff.msfc.nasa.gov/news/2003/news-starcity.asp",
+    "meta": Object {
+      "#ns": Array [],
+      "#type": "rss",
+      "#version": "2.0",
+      "#xml": Object {
+        "version": "1.0",
+      },
+      "@": Array [],
+      "author": "editor@example.com",
+      "categories": Array [],
+      "cloud": Object {},
+      "copyright": null,
+      "date": 2003-06-10T09:41:01.000Z,
+      "description": "Liftoff to Space Exploration.",
+      "favicon": null,
+      "generator": "Weblog Editor 2.0",
+      "image": Object {},
+      "language": "en-us",
+      "link": "http://liftoff.msfc.nasa.gov/",
+      "pubDate": 2003-06-10T04:00:00.000Z,
+      "pubdate": 2003-06-10T04:00:00.000Z,
+      "rss:@": Object {},
+      "rss:description": Object {
+        "#": "Liftoff to Space Exploration.",
+        "@": Object {},
+      },
+      "rss:docs": Object {
+        "#": "http://blogs.law.harvard.edu/tech/rss",
+        "@": Object {},
+      },
+      "rss:generator": Object {
+        "#": "Weblog Editor 2.0",
+        "@": Object {},
+      },
+      "rss:language": Object {
+        "#": "en-us",
+        "@": Object {},
+      },
+      "rss:lastbuilddate": Object {
+        "#": "Tue, 10 Jun 2003 09:41:01 GMT",
+        "@": Object {},
+      },
+      "rss:link": Object {
+        "#": "http://liftoff.msfc.nasa.gov/",
+        "@": Object {},
+      },
+      "rss:managingeditor": Object {
+        "#": "editor@example.com",
+        "@": Object {},
+        "email": "editor@example.com",
+        "name": "",
+      },
+      "rss:pubdate": Object {
+        "#": "Tue, 10 Jun 2003 04:00:00 GMT",
+        "@": Object {},
+      },
+      "rss:title": Object {
+        "#": "Liftoff News",
+        "@": Object {},
+      },
+      "rss:webmaster": Object {
+        "#": "webmaster@example.com",
+        "@": Object {},
+        "email": "webmaster@example.com",
+        "name": "",
+      },
+      "title": "Liftoff News",
+      "xmlUrl": null,
+      "xmlurl": null,
+    },
+    "origlink": null,
+    "permalink": "http://liftoff.msfc.nasa.gov/2003/06/03.html#item573",
+    "pubDate": 2003-06-03T09:39:21.000Z,
+    "pubdate": 2003-06-03T09:39:21.000Z,
+    "rss:@": Object {},
+    "rss:author": Object {
+      "#": "writer@example.com (Writer)",
+      "@": Object {},
+      "email": "writer@example.com",
+      "name": "Writer",
+    },
+    "rss:description": Object {
+      "#": "How do Americans get ready to work with Russians aboard the International Space Station? They take a crash course in culture, language and protocol at Russia's <a href=\\"http://howe.iki.rssi.ru/GCTC/gctc_e.htm\\">Star City</a>.",
+      "@": Object {},
+    },
+    "rss:guid": Object {
+      "#": "http://liftoff.msfc.nasa.gov/2003/06/03.html#item573",
+      "@": Object {},
+    },
+    "rss:link": Object {
+      "#": "http://liftoff.msfc.nasa.gov/news/2003/news-starcity.asp",
+      "@": Object {},
+    },
+    "rss:pubdate": Object {
+      "#": "Tue, 03 Jun 2003 09:39:21 GMT",
+      "@": Object {},
+    },
+    "rss:title": Object {
+      "#": "Star City",
+      "@": Object {},
+    },
+    "source": Object {},
+    "summary": "How do Americans get ready to work with Russians aboard the International Space Station? They take a crash course in culture, language and protocol at Russia's <a href=\\"http://howe.iki.rssi.ru/GCTC/gctc_e.htm\\">Star City</a>.",
+    "title": "Star City",
+  },
+  Object {
+    "author": "editor@example.com",
+    "categories": Array [],
+    "comments": null,
+    "date": 2003-05-30T11:06:42.000Z,
+    "description": "Sky watchers in Europe, Asia, and parts of Alaska and Canada will experience a <a href=\\"http://science.nasa.gov/headlines/y2003/30may_solareclipse.htm\\">partial eclipse of the Sun</a> on Saturday, May 31st.",
+    "enclosures": Array [],
+    "guid": "http://liftoff.msfc.nasa.gov/2003/05/30.html#item572",
+    "image": Object {},
+    "link": "http://liftoff.msfc.nasa.gov/2003/05/30.html#item572",
+    "meta": Object {
+      "#ns": Array [],
+      "#type": "rss",
+      "#version": "2.0",
+      "#xml": Object {
+        "version": "1.0",
+      },
+      "@": Array [],
+      "author": "editor@example.com",
+      "categories": Array [],
+      "cloud": Object {},
+      "copyright": null,
+      "date": 2003-06-10T09:41:01.000Z,
+      "description": "Liftoff to Space Exploration.",
+      "favicon": null,
+      "generator": "Weblog Editor 2.0",
+      "image": Object {},
+      "language": "en-us",
+      "link": "http://liftoff.msfc.nasa.gov/",
+      "pubDate": 2003-06-10T04:00:00.000Z,
+      "pubdate": 2003-06-10T04:00:00.000Z,
+      "rss:@": Object {},
+      "rss:description": Object {
+        "#": "Liftoff to Space Exploration.",
+        "@": Object {},
+      },
+      "rss:docs": Object {
+        "#": "http://blogs.law.harvard.edu/tech/rss",
+        "@": Object {},
+      },
+      "rss:generator": Object {
+        "#": "Weblog Editor 2.0",
+        "@": Object {},
+      },
+      "rss:language": Object {
+        "#": "en-us",
+        "@": Object {},
+      },
+      "rss:lastbuilddate": Object {
+        "#": "Tue, 10 Jun 2003 09:41:01 GMT",
+        "@": Object {},
+      },
+      "rss:link": Object {
+        "#": "http://liftoff.msfc.nasa.gov/",
+        "@": Object {},
+      },
+      "rss:managingeditor": Object {
+        "#": "editor@example.com",
+        "@": Object {},
+        "email": "editor@example.com",
+        "name": "",
+      },
+      "rss:pubdate": Object {
+        "#": "Tue, 10 Jun 2003 04:00:00 GMT",
+        "@": Object {},
+      },
+      "rss:title": Object {
+        "#": "Liftoff News",
+        "@": Object {},
+      },
+      "rss:webmaster": Object {
+        "#": "webmaster@example.com",
+        "@": Object {},
+        "email": "webmaster@example.com",
+        "name": "",
+      },
+      "title": "Liftoff News",
+      "xmlUrl": null,
+      "xmlurl": null,
+    },
+    "origlink": null,
+    "permalink": "http://liftoff.msfc.nasa.gov/2003/05/30.html#item572",
+    "pubDate": 2003-05-30T11:06:42.000Z,
+    "pubdate": 2003-05-30T11:06:42.000Z,
+    "rss:@": Object {},
+    "rss:description": Object {
+      "#": "Sky watchers in Europe, Asia, and parts of Alaska and Canada will experience a <a href=\\"http://science.nasa.gov/headlines/y2003/30may_solareclipse.htm\\">partial eclipse of the Sun</a> on Saturday, May 31st.",
+      "@": Object {},
+    },
+    "rss:guid": Object {
+      "#": "http://liftoff.msfc.nasa.gov/2003/05/30.html#item572",
+      "@": Object {},
+    },
+    "rss:pubdate": Object {
+      "#": "Fri, 30 May 2003 11:06:42 GMT",
+      "@": Object {},
+    },
+    "source": Object {},
+    "summary": "Sky watchers in Europe, Asia, and parts of Alaska and Canada will experience a <a href=\\"http://science.nasa.gov/headlines/y2003/30may_solareclipse.htm\\">partial eclipse of the Sun</a> on Saturday, May 31st.",
+    "title": null,
+  },
+  Object {
+    "author": "editor@example.com",
+    "categories": Array [],
+    "comments": null,
+    "date": 2003-05-27T08:37:32.000Z,
+    "description": "Before man travels to Mars, NASA hopes to design new engines that will let us fly through the Solar System more quickly.  The proposed VASIMR engine would do that.",
+    "enclosures": Array [],
+    "guid": "http://liftoff.msfc.nasa.gov/2003/05/27.html#item571",
+    "image": Object {},
+    "link": "http://liftoff.msfc.nasa.gov/news/2003/news-VASIMR.asp",
+    "meta": Object {
+      "#ns": Array [],
+      "#type": "rss",
+      "#version": "2.0",
+      "#xml": Object {
+        "version": "1.0",
+      },
+      "@": Array [],
+      "author": "editor@example.com",
+      "categories": Array [],
+      "cloud": Object {},
+      "copyright": null,
+      "date": 2003-06-10T09:41:01.000Z,
+      "description": "Liftoff to Space Exploration.",
+      "favicon": null,
+      "generator": "Weblog Editor 2.0",
+      "image": Object {},
+      "language": "en-us",
+      "link": "http://liftoff.msfc.nasa.gov/",
+      "pubDate": 2003-06-10T04:00:00.000Z,
+      "pubdate": 2003-06-10T04:00:00.000Z,
+      "rss:@": Object {},
+      "rss:description": Object {
+        "#": "Liftoff to Space Exploration.",
+        "@": Object {},
+      },
+      "rss:docs": Object {
+        "#": "http://blogs.law.harvard.edu/tech/rss",
+        "@": Object {},
+      },
+      "rss:generator": Object {
+        "#": "Weblog Editor 2.0",
+        "@": Object {},
+      },
+      "rss:language": Object {
+        "#": "en-us",
+        "@": Object {},
+      },
+      "rss:lastbuilddate": Object {
+        "#": "Tue, 10 Jun 2003 09:41:01 GMT",
+        "@": Object {},
+      },
+      "rss:link": Object {
+        "#": "http://liftoff.msfc.nasa.gov/",
+        "@": Object {},
+      },
+      "rss:managingeditor": Object {
+        "#": "editor@example.com",
+        "@": Object {},
+        "email": "editor@example.com",
+        "name": "",
+      },
+      "rss:pubdate": Object {
+        "#": "Tue, 10 Jun 2003 04:00:00 GMT",
+        "@": Object {},
+      },
+      "rss:title": Object {
+        "#": "Liftoff News",
+        "@": Object {},
+      },
+      "rss:webmaster": Object {
+        "#": "webmaster@example.com",
+        "@": Object {},
+        "email": "webmaster@example.com",
+        "name": "",
+      },
+      "title": "Liftoff News",
+      "xmlUrl": null,
+      "xmlurl": null,
+    },
+    "origlink": null,
+    "permalink": "http://liftoff.msfc.nasa.gov/2003/05/27.html#item571",
+    "pubDate": 2003-05-27T08:37:32.000Z,
+    "pubdate": 2003-05-27T08:37:32.000Z,
+    "rss:@": Object {},
+    "rss:description": Object {
+      "#": "Before man travels to Mars, NASA hopes to design new engines that will let us fly through the Solar System more quickly.  The proposed VASIMR engine would do that.",
+      "@": Object {},
+    },
+    "rss:guid": Object {
+      "#": "http://liftoff.msfc.nasa.gov/2003/05/27.html#item571",
+      "@": Object {},
+    },
+    "rss:link": Object {
+      "#": "http://liftoff.msfc.nasa.gov/news/2003/news-VASIMR.asp",
+      "@": Object {},
+    },
+    "rss:pubdate": Object {
+      "#": "Tue, 27 May 2003 08:37:32 GMT",
+      "@": Object {},
+    },
+    "rss:title": Object {
+      "#": "The Engine That Does More",
+      "@": Object {},
+    },
+    "source": Object {},
+    "summary": "Before man travels to Mars, NASA hopes to design new engines that will let us fly through the Solar System more quickly.  The proposed VASIMR engine would do that.",
+    "title": "The Engine That Does More",
+  },
+  Object {
+    "author": "editor@example.com",
+    "categories": Array [],
+    "comments": null,
+    "date": 2003-05-20T08:56:02.000Z,
+    "description": "Compared to earlier spacecraft, the International Space Station has many luxuries, but laundry facilities are not one of them.  Instead, astronauts have other options.",
+    "enclosures": Array [],
+    "guid": "http://liftoff.msfc.nasa.gov/2003/05/20.html#item570",
+    "image": Object {},
+    "link": "http://liftoff.msfc.nasa.gov/news/2003/news-laundry.asp",
+    "meta": Object {
+      "#ns": Array [],
+      "#type": "rss",
+      "#version": "2.0",
+      "#xml": Object {
+        "version": "1.0",
+      },
+      "@": Array [],
+      "author": "editor@example.com",
+      "categories": Array [],
+      "cloud": Object {},
+      "copyright": null,
+      "date": 2003-06-10T09:41:01.000Z,
+      "description": "Liftoff to Space Exploration.",
+      "favicon": null,
+      "generator": "Weblog Editor 2.0",
+      "image": Object {},
+      "language": "en-us",
+      "link": "http://liftoff.msfc.nasa.gov/",
+      "pubDate": 2003-06-10T04:00:00.000Z,
+      "pubdate": 2003-06-10T04:00:00.000Z,
+      "rss:@": Object {},
+      "rss:description": Object {
+        "#": "Liftoff to Space Exploration.",
+        "@": Object {},
+      },
+      "rss:docs": Object {
+        "#": "http://blogs.law.harvard.edu/tech/rss",
+        "@": Object {},
+      },
+      "rss:generator": Object {
+        "#": "Weblog Editor 2.0",
+        "@": Object {},
+      },
+      "rss:language": Object {
+        "#": "en-us",
+        "@": Object {},
+      },
+      "rss:lastbuilddate": Object {
+        "#": "Tue, 10 Jun 2003 09:41:01 GMT",
+        "@": Object {},
+      },
+      "rss:link": Object {
+        "#": "http://liftoff.msfc.nasa.gov/",
+        "@": Object {},
+      },
+      "rss:managingeditor": Object {
+        "#": "editor@example.com",
+        "@": Object {},
+        "email": "editor@example.com",
+        "name": "",
+      },
+      "rss:pubdate": Object {
+        "#": "Tue, 10 Jun 2003 04:00:00 GMT",
+        "@": Object {},
+      },
+      "rss:title": Object {
+        "#": "Liftoff News",
+        "@": Object {},
+      },
+      "rss:webmaster": Object {
+        "#": "webmaster@example.com",
+        "@": Object {},
+        "email": "webmaster@example.com",
+        "name": "",
+      },
+      "title": "Liftoff News",
+      "xmlUrl": null,
+      "xmlurl": null,
+    },
+    "origlink": null,
+    "permalink": "http://liftoff.msfc.nasa.gov/2003/05/20.html#item570",
+    "pubDate": 2003-05-20T08:56:02.000Z,
+    "pubdate": 2003-05-20T08:56:02.000Z,
+    "rss:@": Object {},
+    "rss:description": Object {
+      "#": "Compared to earlier spacecraft, the International Space Station has many luxuries, but laundry facilities are not one of them.  Instead, astronauts have other options.",
+      "@": Object {},
+    },
+    "rss:guid": Object {
+      "#": "http://liftoff.msfc.nasa.gov/2003/05/20.html#item570",
+      "@": Object {},
+    },
+    "rss:link": Object {
+      "#": "http://liftoff.msfc.nasa.gov/news/2003/news-laundry.asp",
+      "@": Object {},
+    },
+    "rss:pubdate": Object {
+      "#": "Tue, 20 May 2003 08:56:02 GMT",
+      "@": Object {},
+    },
+    "rss:title": Object {
+      "#": "Astronauts' Dirty Laundry",
+      "@": Object {},
+    },
+    "source": Object {},
+    "summary": "Compared to earlier spacecraft, the International Space Station has many luxuries, but laundry facilities are not one of them.  Instead, astronauts have other options.",
+    "title": "Astronauts' Dirty Laundry",
+  },
+]
+`;
