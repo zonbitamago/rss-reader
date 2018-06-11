@@ -1,4 +1,7 @@
 import RssListStore from "./RssListStore";
+import feedParseUtil from "../util/feedParseUtil";
+
+jest.mock("../util/feedParseUtil");
 
 describe("RssListStore", () => {
   let store;
@@ -55,14 +58,24 @@ describe("RssListStore", () => {
   });
 
   describe("setRssList", () => {
-    it("Not Regsited", async () => {
+    it("Not Regsited", () => {
+      var resp;
+      console.log(feedParseUtil.mock.instances);
+
+      feedParseUtil.mock.instances[0].feedParse.mockResolvedValue(resp);
+
       var name = "google.com";
       var url = "https://google.com";
       store = new RssListStore();
-      await store.setRssList(name, url);
 
-      expect.assertions(1);
-      expect(JSON.parse(localStorage.getItem("rssList"))).toBe(1);
+      var promise = store.setRssList(name, url);
+
+      return promise.then(ret => {
+        console.log(ret);
+
+        expect(ret).toBe(true);
+        expect(JSON.parse(localStorage.getItem("rssList"))).toBe(1);
+      });
     });
 
     // it("Registed", () => {
