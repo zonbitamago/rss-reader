@@ -3,6 +3,7 @@ import { mount } from "enzyme";
 // import { createMount } from "material-ui/test-utils";
 
 import RegistedListModal from "./RegistedListModal";
+import { store } from "../../../../__mocks__/storeSettings";
 
 describe("RegistedListModal", () => {
   let component, props, mockfn;
@@ -12,10 +13,7 @@ describe("RegistedListModal", () => {
     props = {
       open: true,
       handleClose: mockfn,
-      registedlist: [
-        { name: "google", url: "https://www.google.co.jp/" },
-        { name: "yahoo", url: "https://www.yahoo.co.jp/" }
-      ]
+      store: store
     };
     component = mount(<RegistedListModal {...props} />);
   });

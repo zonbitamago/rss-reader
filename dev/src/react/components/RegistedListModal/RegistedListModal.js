@@ -8,7 +8,9 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import RegistedListItem from "../RegistedListItem/RegistedListItem";
+import { observer } from "mobx-react";
 
+@observer
 class RegistedListModal extends Component {
   constructor(props) {
     super(props);
@@ -16,8 +18,8 @@ class RegistedListModal extends Component {
 
   render() {
     var urlList;
-    if (this.props.registedlist.length > 0) {
-      urlList = this.props.registedlist.map((item, idx) => {
+    if (this.props.store.RssListStore.rssList.length > 0) {
+      urlList = this.props.store.RssListStore.rssList.map((item, idx) => {
         return <RegistedListItem key={idx} name={item.name} url={item.url} />;
       });
     }

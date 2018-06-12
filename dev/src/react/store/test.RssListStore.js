@@ -1,5 +1,6 @@
 import RssListStore from "./RssListStore";
 import feedParseUtil from "../util/feedParseUtil";
+import { Promise, reject } from "bluebird-lst";
 
 jest.mock("../util/feedParseUtil");
 
@@ -59,10 +60,15 @@ describe("RssListStore", () => {
 
   describe("setRssList", () => {
     it("Not Regsited", () => {
-      var resp;
-      console.log(feedParseUtil.mock.instances);
-
-      feedParseUtil.mock.instances[0].feedParse.mockResolvedValue(resp);
+      feedParseUtil.mockImplementation(() => {
+        return {
+          feedParse: url => {
+            return new Promise(resolve => {
+              resolve("test");
+            });
+          }
+        };
+      });
 
       var name = "google.com";
       var url = "https://google.com";
@@ -71,40 +77,103 @@ describe("RssListStore", () => {
       var promise = store.setRssList(name, url);
 
       return promise.then(ret => {
-        console.log(ret);
-
         expect(ret).toBe(true);
-        expect(JSON.parse(localStorage.getItem("rssList"))).toBe(1);
+        expect(JSON.parse(localStorage.getItem("rssList")).length).toBe(1);
+        expect(JSON.parse(localStorage.getItem("rssList"))).toMatchSnapshot();
       });
     });
 
-    // it("Registed", () => {
-    //   store = new RssListStore();
-    //   var name = "google.com";
-    //   var url = "https://google.com";
-    //   store = new RssListStore();
-    //   store.setRssList(name, url);
-    //   expect(JSON.parse(localStorage.getItem("rssList"))).toBe(2);
-    // });
+    it("Registed", () => {
+      feedParseUtil.mockImplementation(() => {
+        return {
+          feedParse: url => {
+            return new Promise(resolve => {
+              resolve("test");
+            });
+          }
+        };
+      });
 
-    // it("Duplicate", () => {
-    //   store = new RssListStore();
-    //   var name = "google.com";
-    //   var url = "https://google.com";
-    //   store = new RssListStore();
-    //   store.setRssList(name, url);
-    //   expect(JSON.parse(localStorage.getItem("rssList"))).toBe(1);
-    // });
+      localStorage.setItem(
+        "rssList",
+        JSON.stringify([
+          {
+            name: "google.com",
+            url: "https://google.com"
+          }
+        ])
+      );
 
-    // it("Not URL", async () => {
-    //   store = new RssListStore();
-    //   var name = "google.com";
-    //   var url = "https://google.com";
-    //   store = new RssListStore();
-    //   await store.setRssList(name, url);
+      var name = "yahoo.com";
+      var url = "https://yahoo.com";
+      store = new RssListStore();
+      store.getRssList();
 
-    //   expect.assertions(1);
-    //   expect(JSON.parse(localStorage.getItem("rssList"))).toBe(0);
-    // });
+      var promise = store.setRssList(name, url);
+
+      return promise.then(ret => {
+        expect(ret).toBe(true);
+        expect(JSON.parse(localStorage.getItem("rssList")).length).toBe(2);
+        expect(JSON.parse(localStorage.getItem("rssList"))).toMatchSnapshot();
+      });
+    });
+
+    it("Duplicate", () => {
+      feedParseUtil.mockImplementation(() => {
+        return {
+          feedParse: url => {
+            return new Promise(resolve => {
+              resolve("test");
+            });
+          }
+        };
+      });
+
+      localStorage.setItem(
+        "rssList",
+        JSON.stringify([
+          {
+            name: "google.com",
+            url: "https://google.com"
+          }
+        ])
+      );
+
+      var name = "google.com";
+      var url = "https://google.com";
+      store = new RssListStore();
+      store.getRssList();
+
+      var promise = store.setRssList(name, url);
+
+      return promise.then(ret => {
+        expect(ret).toBe(false);
+        expect(JSON.parse(localStorage.getItem("rssList")).length).toBe(1);
+        expect(JSON.parse(localStorage.getItem("rssList"))).toMatchSnapshot();
+      });
+    });
+
+    it("Not URL", async () => {
+      feedParseUtil.mockImplementation(() => {
+        return {
+          feedParse: url => {
+            return new Promise((resolve, reject) => {
+              reject(new Error());
+            });
+          }
+        };
+      });
+
+      var name = "google.com";
+      var url = "https://google.com";
+      store = new RssListStore();
+
+      var promise = store.setRssList(name, url);
+
+      return promise.then(ret => {
+        expect(ret).toBe(false);
+        expect(JSON.parse(localStorage.getItem("rssList"))).toMatchSnapshot();
+      });
+    });
   });
 });
