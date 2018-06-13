@@ -1,6 +1,6 @@
 import RssListStore from "./RssListStore";
 import feedParseUtil from "../util/feedParseUtil";
-import { Promise, reject } from "bluebird-lst";
+import { Promise } from "bluebird-lst";
 
 jest.mock("../util/feedParseUtil");
 
@@ -174,6 +174,53 @@ describe("RssListStore", () => {
         expect(ret).toBe(false);
         expect(JSON.parse(localStorage.getItem("rssList"))).toMatchSnapshot();
       });
+    });
+  });
+
+  describe("deleteRssList", () => {
+    it("delete　single", () => {
+      store = new RssListStore();
+
+      var rssList = [
+        {
+          name: "google.com",
+          url: "https://google.com"
+        },
+        {
+          name: "yahoo.com",
+          url: "https://yahoo.com"
+        }
+      ];
+      localStorage.setItem("rssList", JSON.stringify(rssList));
+      store.rssList = rssList;
+
+      store.deleteRssList("google.com");
+
+      expect(store.rssList.length).toBe(1);
+      expect(JSON.parse(localStorage.getItem("rssList")).length).toBe(1);
+    });
+
+    it("delete　double", () => {
+      store = new RssListStore();
+
+      var rssList = [
+        {
+          name: "google.com",
+          url: "https://google.com"
+        },
+        {
+          name: "yahoo.com",
+          url: "https://yahoo.com"
+        }
+      ];
+      localStorage.setItem("rssList", JSON.stringify(rssList));
+      store.rssList = rssList;
+
+      store.deleteRssList("google.com");
+      store.deleteRssList("yahoo.com");
+
+      expect(store.rssList.length).toBe(0);
+      expect(JSON.parse(localStorage.getItem("rssList")).length).toBe(0);
     });
   });
 });

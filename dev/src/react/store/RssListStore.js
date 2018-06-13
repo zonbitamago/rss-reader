@@ -34,7 +34,7 @@ class RssListStore {
         }
 
         this.rssList.push({ name: name, url: url });
-        localStorage.setItem("rssList", JSON.stringify(this.rssList));
+        this.setlocalStorage();
 
         return true;
       })
@@ -43,6 +43,16 @@ class RssListStore {
 
         return false;
       });
+  }
+
+  @action.bound
+  deleteRssList(name) {
+    this.rssList = this.rssList.filter(item => item.name != name);
+    this.setlocalStorage();
+  }
+
+  setlocalStorage() {
+    localStorage.setItem("rssList", JSON.stringify(this.rssList));
   }
 }
 
