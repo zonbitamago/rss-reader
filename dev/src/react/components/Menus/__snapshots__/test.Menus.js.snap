@@ -17,9 +17,15 @@ exports[`Menus should 1`] = `
       onClick={[Function]}
     />
     <RegistedListModal
+      electronUtil={
+        Object {
+          "closeApp": [Function],
+          "minimizeApp": [Function],
+          "openBrowser": [Function],
+        }
+      }
       handleClose={[Function]}
       open={false}
-      registedlist={Array []}
     />
   </Icon>
   <Icon>

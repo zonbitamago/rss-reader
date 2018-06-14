@@ -3,6 +3,7 @@ import { mount } from "enzyme";
 // import { createMount } from "material-ui/test-utils";
 
 import RegistedListModal from "./RegistedListModal";
+import { electronUtil } from "../../../../__mocks__/electronUtilSettings";
 import { store } from "../../../../__mocks__/storeSettings";
 
 describe("RegistedListModal", () => {
@@ -13,7 +14,8 @@ describe("RegistedListModal", () => {
     props = {
       open: true,
       handleClose: mockfn,
-      store: store
+      store: store,
+      electronUtil: electronUtil
     };
     component = mount(<RegistedListModal {...props} />);
   });

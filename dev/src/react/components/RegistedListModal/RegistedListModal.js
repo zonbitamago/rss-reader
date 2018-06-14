@@ -20,7 +20,15 @@ class RegistedListModal extends Component {
     var urlList;
     if (this.props.store.RssListStore.rssList.length > 0) {
       urlList = this.props.store.RssListStore.rssList.map((item, idx) => {
-        return <RegistedListItem key={idx} name={item.name} url={item.url} />;
+        return (
+          <RegistedListItem
+            key={idx}
+            name={item.name}
+            url={item.url}
+            store={this.props.store}
+            electronUtil={this.props.electronUtil}
+          />
+        );
       });
     }
     return (
@@ -47,9 +55,10 @@ class RegistedListModal extends Component {
 }
 
 RegistedListModal.propTypes = {
-  open: PropTypes.bool,
-  handleClose: PropTypes.func,
-  registedlist: PropTypes.array
+  open: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  store: PropTypes.object,
+  electronUtil: PropTypes.object.isRequired
 };
 
 RegistedListModal.defaultProps = {};

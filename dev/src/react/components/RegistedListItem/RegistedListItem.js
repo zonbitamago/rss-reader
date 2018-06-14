@@ -15,14 +15,23 @@ class RegistedListItem extends Component {
   render() {
     return (
       <div className="RegistedListItem">
-        <ListItem component="a" href={this.props.url}>
+        <ListItem component="a">
           <ListItemText
             className="RegistedListItem-Text"
             primary={this.props.name}
+            onClick={this.props.electronUtil.openBrowser.bind(
+              this,
+              this.props.url
+            )}
           />
           <ListItemSecondaryAction>
             <IconButton aria-label="Delete">
-              <Delete />
+              <Delete
+                onClick={this.props.store.RssListStore.deleteRssList.bind(
+                  this,
+                  this.props.name
+                )}
+              />
             </IconButton>
           </ListItemSecondaryAction>
         </ListItem>
@@ -33,7 +42,9 @@ class RegistedListItem extends Component {
 
 RegistedListItem.propTypes = {
   name: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired
+  url: PropTypes.string.isRequired,
+  store: PropTypes.object,
+  electronUtil: PropTypes.object.isRequired
 };
 
 RegistedListItem.defaultProps = {};

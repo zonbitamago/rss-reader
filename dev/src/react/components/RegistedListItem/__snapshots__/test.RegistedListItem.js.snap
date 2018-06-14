@@ -6,10 +6,10 @@ exports[`RegistedListItem should 1`] = `
 >
   <WithStyles(ListItem)
     component="a"
-    href="https://google/co.jp"
   >
     <WithStyles(ListItemText)
       className="RegistedListItem-Text"
+      onClick={[Function]}
       primary="test"
     />
     <WithStyles(ListItemSecondaryAction)>

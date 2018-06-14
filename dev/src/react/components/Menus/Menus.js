@@ -48,7 +48,7 @@ class Menus extends Component {
               this.setState({ registedListModalOpen: false });
             }}
             store={this.props.store}
-            registedlist={[]}
+            electronUtil={this.props.electronUtil}
           />
         </Icon>
         <Icon>

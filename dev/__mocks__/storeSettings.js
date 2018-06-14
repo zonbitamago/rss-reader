@@ -11,6 +11,7 @@ export let store = {
       { name: "yahoo", url: "https://www.yahoo.co.jp/" }
     ],
     getRssList: () => console.log("getRssList"),
-    setRssList: () => console.log("setRssList")
+    setRssList: () => console.log("setRssList"),
+    deleteRssList: () => console.log("deleteRssList")
   }
 };
