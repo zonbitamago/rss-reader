@@ -70,11 +70,11 @@ describe("RssListStore", () => {
         };
       });
 
-      var name = "google.com";
-      var url = "https://google.com";
       store = new RssListStore();
+      store.name = "google.com";
+      store.url = "https://google.com";
 
-      var promise = store.setRssList(name, url);
+      var promise = store.setRssList();
 
       return promise.then(ret => {
         expect(ret).toBe(true);
@@ -104,12 +104,12 @@ describe("RssListStore", () => {
         ])
       );
 
-      var name = "yahoo.com";
-      var url = "https://yahoo.com";
       store = new RssListStore();
+      store.name = "yahoo.com";
+      store.url = "https://yahoo.com";
       store.getRssList();
 
-      var promise = store.setRssList(name, url);
+      var promise = store.setRssList();
 
       return promise.then(ret => {
         expect(ret).toBe(true);
@@ -139,12 +139,12 @@ describe("RssListStore", () => {
         ])
       );
 
-      var name = "google.com";
-      var url = "https://google.com";
       store = new RssListStore();
+      store.name = "google.com";
+      store.url = "https://google.com";
       store.getRssList();
 
-      var promise = store.setRssList(name, url);
+      var promise = store.setRssList();
 
       return promise.then(ret => {
         expect(ret).toBe(false);
@@ -164,11 +164,11 @@ describe("RssListStore", () => {
         };
       });
 
-      var name = "google.com";
-      var url = "https://google.com";
       store = new RssListStore();
+      store.name = "google.com";
+      store.url = "https://google.com";
 
-      var promise = store.setRssList(name, url);
+      var promise = store.setRssList();
 
       return promise.then(ret => {
         expect(ret).toBe(false);

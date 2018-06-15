@@ -3,6 +3,8 @@ import feedParseUtil from "../util/feedParseUtil";
 
 class RssListStore {
   @observable rssList = [];
+  @observable name = "";
+  @observable url = "";
 
   @action.bound
   getRssList() {
@@ -17,13 +19,13 @@ class RssListStore {
   }
 
   @action.bound
-  setRssList(name, url) {
+  setRssList() {
     var util = new feedParseUtil();
-    var ret = util.feedParse(url);
+    var ret = util.feedParse(this.url);
     return ret
       .then(() => {
         var duplicateList = this.rssList.filter(item => {
-          if (item.name == name) {
+          if (item.name == this.name) {
             return item;
           }
         });
@@ -33,7 +35,7 @@ class RssListStore {
           return false;
         }
 
-        this.rssList.push({ name: name, url: url });
+        this.rssList.push({ name: this.name, url: this.url });
         this.setlocalStorage();
 
         return true;
