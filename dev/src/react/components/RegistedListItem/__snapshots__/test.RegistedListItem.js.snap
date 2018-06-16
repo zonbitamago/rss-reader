@@ -16,7 +16,9 @@ exports[`RegistedListItem should 1`] = `
       <WithStyles(IconButton)
         aria-label="Delete"
       >
-        <pure(Delete) />
+        <pure(Delete)
+          onClick={[Function]}
+        />
       </WithStyles(IconButton)>
     </WithStyles(ListItemSecondaryAction)>
   </WithStyles(ListItem)>

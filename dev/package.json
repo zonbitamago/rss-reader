@@ -50,6 +50,7 @@
     "@material-ui/core": "^1.2.0",
     "@material-ui/icons": "^1.1.0",
     "axios": "^0.18.0",
+    "electron-load-devtool": "^1.0.0",
     "feedparser": "^2.2.9",
     "moment": "^2.22.2",
     "react": "^16.4.0",

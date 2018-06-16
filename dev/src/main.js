@@ -3,6 +3,8 @@ const path = require("path");
 const url = require("url");
 const fs = require("fs");
 const info_path = path.join(app.getPath("userData"), "bounds-info.json");
+const loadDevtool = require("electron-load-devtool");
+const ROOT_PATH = `file://${__dirname}`;
 
 // window オブジェクトはグローバル参照しなければなりません。
 // これがない場合、JavaScriptのオブジェクトがガベージコレクトされた時に、
@@ -68,6 +70,9 @@ function createWindow() {
     // ここは該当する要素を削除するタイミング。
     win = null;
   });
+
+  win.loadURL(`${ROOT_PATH}/index.html`);
+  loadDevtool(loadDevtool.REACT_DEVELOPER_TOOLS);
 }
 
 // このイベントは、Electronが初期化処理と

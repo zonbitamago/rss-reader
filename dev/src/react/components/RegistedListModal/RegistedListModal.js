@@ -14,6 +14,13 @@ import { observer } from "mobx-react";
 class RegistedListModal extends Component {
   constructor(props) {
     super(props);
+
+    this.yesButtonClick = this.yesButtonClick.bind(this);
+  }
+
+  yesButtonClick() {
+    this.props.store.RssListStore.setRssList();
+    // this.props.handleClose();
   }
 
   render() {
@@ -41,11 +48,23 @@ class RegistedListModal extends Component {
           <DialogTitle id="form-dialog-title">RegistedList</DialogTitle>
           <DialogContent>
             {urlList}
-            <Input name="Name" />
-            <Input name="URL" />
+            <Input
+              name="Name"
+              value={this.props.store.RssListStore.name}
+              changeParentVal={val => {
+                this.props.store.RssListStore.name = val;
+              }}
+            />
+            <Input
+              name="URL"
+              value={this.props.store.RssListStore.url}
+              changeParentVal={val => {
+                this.props.store.RssListStore.url = val;
+              }}
+            />
           </DialogContent>
           <DialogActions>
-            <Button type="yes" handleClick={this.props.handleClose} />
+            <Button type="yes" handleClick={this.yesButtonClick} />
             <Button type="no" handleClick={this.props.handleClose} />
           </DialogActions>
         </Dialog>
