@@ -15,11 +15,27 @@ class RegistedListModal extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      success: false,
+      error: false
+    };
+
     this.yesButtonClick = this.yesButtonClick.bind(this);
   }
 
   yesButtonClick() {
-    this.props.store.RssListStore.setRssList();
+    var promise = this.props.store.RssListStore.setRssList();
+    promise
+      .then(ret => {
+        if (ret) {
+          this.setState({ success: true });
+        } else {
+          this.setState({ error: true });
+        }
+      })
+      .catch(() => {
+        this.setState({ error: true });
+      });
     // this.props.handleClose();
   }
 

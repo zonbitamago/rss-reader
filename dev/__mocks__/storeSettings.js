@@ -1,3 +1,5 @@
+import { resolve } from "bluebird-lst";
+
 export let store = {
   ItemStore: { items: [], add: () => console.log("add") },
   SettingStore: {
@@ -11,7 +13,12 @@ export let store = {
       { name: "yahoo", url: "https://www.yahoo.co.jp/" }
     ],
     getRssList: () => console.log("getRssList"),
-    setRssList: () => console.log("setRssList"),
+    setRssList: () => {
+      console.log("setRssList");
+      return new Promise(resolve).then(() => {
+        return true;
+      });
+    },
     deleteRssList: () => console.log("deleteRssList")
   }
 };

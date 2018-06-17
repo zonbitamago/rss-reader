@@ -22,7 +22,7 @@ describe("RegistedListModal", () => {
 
   it("yesボタンクリック", () => {
     component.find(".Button > #yes").simulate("click");
-    expect(mockfn.mock.calls.length).toBe(1);
+    expect(mockfn.mock.calls.length).toBe(0);
   });
 
   it("noボタンクリック", () => {
