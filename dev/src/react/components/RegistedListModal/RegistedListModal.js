@@ -9,6 +9,7 @@ import Input from "../Input/Input";
 import Button from "../Button/Button";
 import RegistedListItem from "../RegistedListItem/RegistedListItem";
 import { observer } from "mobx-react";
+import Snackbar from "@material-ui/core/Snackbar";
 
 @observer
 class RegistedListModal extends Component {
@@ -16,11 +17,11 @@ class RegistedListModal extends Component {
     super(props);
 
     this.state = {
-      success: false,
-      error: false
+      open: false
     };
 
     this.yesButtonClick = this.yesButtonClick.bind(this);
+    this.snackbarClose = this.snackbarClose.bind(this);
   }
 
   yesButtonClick() {
@@ -28,15 +29,19 @@ class RegistedListModal extends Component {
     promise
       .then(ret => {
         if (ret) {
-          this.setState({ success: true });
+          this.setState({ open: true });
         } else {
-          this.setState({ error: true });
+          this.setState({ open: true });
         }
       })
       .catch(() => {
-        this.setState({ error: true });
+        this.setState({ open: true });
       });
     // this.props.handleClose();
+  }
+
+  snackbarClose() {
+    this.setState({ open: false });
   }
 
   render() {
@@ -84,6 +89,13 @@ class RegistedListModal extends Component {
             <Button type="no" handleClick={this.props.handleClose} />
           </DialogActions>
         </Dialog>
+        <Snackbar
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+          open={this.state.open}
+          onClose={this.snackbarClose}
+          ContentProps={{ "aria-describedby": "message-id" }}
+          message={<span id="message-id">I love snacks</span>}
+        />
       </div>
     );
   }
