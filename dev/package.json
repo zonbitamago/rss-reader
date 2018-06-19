@@ -23,7 +23,7 @@
   "author": "zonbitamago",
   "license": "ISC",
   "devDependencies": {
-    "@storybook/addon-storyshots": "^3.4.6",
+    "@storybook/addon-storyshots": "^3.4.7",
     "@storybook/react": "^4.0.0-alpha.1",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-decorators-legacy": "^1.3.5",
@@ -38,23 +38,23 @@
     "jest-cli": "^23.1.0",
     "jest-localstorage-mock": "^2.2.0",
     "jest-mock-axios": "^2.1.11",
-    "mobx": "^5.0.0",
-    "mobx-react": "^5.2.2",
+    "mobx": "^5.0.2",
+    "mobx-react": "^5.2.3",
     "mockdate": "^2.0.2",
-    "rc-util": "^4.5.0",
+    "rc-util": "^4.5.1",
     "style-loader": "^0.21.0",
     "webpack": "^4.12.0",
-    "webpack-cli": "^3.0.3"
+    "webpack-cli": "^3.0.8"
   },
   "dependencies": {
-    "@material-ui/core": "^1.2.0",
+    "@material-ui/core": "^1.2.1",
     "@material-ui/icons": "^1.1.0",
     "axios": "^0.18.0",
     "electron-load-devtool": "^1.0.0",
     "feedparser": "^2.2.9",
     "moment": "^2.22.2",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "react-icons": "^2.2.7",
     "string-to-stream": "^1.1.1"
   }
