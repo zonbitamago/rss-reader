@@ -10,6 +10,9 @@ import Button from "../Button/Button";
 import RegistedListItem from "../RegistedListItem/RegistedListItem";
 import { observer } from "mobx-react";
 import Snackbar from "@material-ui/core/Snackbar";
+import InfoIcon from "@material-ui/icons/Info";
+import CloseIcon from "@material-ui/icons/Close";
+import IconButton from "@material-ui/core/IconButton";
 
 @observer
 class RegistedListModal extends Component {
@@ -17,7 +20,9 @@ class RegistedListModal extends Component {
     super(props);
 
     this.state = {
-      open: false
+      open: false,
+      message: "",
+      class: ""
     };
 
     this.yesButtonClick = this.yesButtonClick.bind(this);
@@ -29,13 +34,25 @@ class RegistedListModal extends Component {
     promise
       .then(ret => {
         if (ret) {
-          this.setState({ open: true });
+          this.setState({
+            open: true,
+            message: "登録が完了しました。",
+            class: "success"
+          });
         } else {
-          this.setState({ open: true });
+          this.setState({
+            open: true,
+            message: "このURLは登録できません。",
+            class: "error"
+          });
         }
       })
       .catch(() => {
-        this.setState({ open: true });
+        this.setState({
+          open: true,
+          message: "このURLは登録できません。",
+          class: "error"
+        });
       });
     // this.props.handleClose();
   }
@@ -94,7 +111,24 @@ class RegistedListModal extends Component {
           open={this.state.open}
           onClose={this.snackbarClose}
           ContentProps={{ "aria-describedby": "message-id" }}
-          message={<span id="message-id">I love snacks</span>}
+          autoHideDuration={6000}
+          message={
+            <span id="message-id">
+              <InfoIcon />
+              {this.state.message}
+            </span>
+          }
+          action={[
+            <IconButton
+              key="close"
+              aria-label="Close"
+              color="inherit"
+              onClick={this.snackbarClose}
+            >
+              <CloseIcon className="close" />
+            </IconButton>
+          ]}
+          className={this.state.class}
         />
       </div>
     );

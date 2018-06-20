@@ -1,2 +1,12 @@
-.RegistedListModal {
+.RegistedListModal #message-id {
+  display: flex;
+  align-items: center;
+}
+
+.RegistedListModal .success > * {
+  background-color: #2196f3;
+}
+
+.RegistedListModal .error > * {
+  background-color: #f44336;
 }
