@@ -1,4 +1,8 @@
 import ItemStore from "./ItemStore";
+import feedParseUtil from "../util/feedParseUtil";
+import * as rssConstants from "../../../__mocks__/rssConstants";
+
+jest.mock("../util/feedParseUtil");
 
 describe("ItemStore", () => {
   let store;
@@ -12,7 +16,17 @@ describe("ItemStore", () => {
   });
 
   it("add", () => {
-    store.add();
+    feedParseUtil.mockImplementation(() => {
+      return {
+        feedParse: url => {
+          return new Promise(resolve => {
+            resolve(rssConstants.RSS2_FEED);
+          });
+        }
+      };
+    });
+
+    var promise = store.add();
     expect(store.items.length).toBe(1);
     expect(store.items[0].src).toBe("testSrc");
     expect(store.items[0].alt).toBe("testAlt");
