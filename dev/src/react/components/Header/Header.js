@@ -6,6 +6,7 @@ import Home from "@material-ui/icons/Home";
 import RssFeed from "@material-ui/icons/RssFeed";
 import Twitter from "react-icons/lib/ti/social-twitter";
 import Typography from "@material-ui/core/Typography";
+import $ from "jquery";
 
 class Header extends Component {
   constructor(props) {
@@ -17,7 +18,11 @@ class Header extends Component {
       <div className="Header">
         <div className="Header-Left">
           <Icon>
-            <Home />
+            <Home
+              onClick={() => {
+                $(".main").animate({ scrollTop: 0 });
+              }}
+            />
           </Icon>
         </div>
         <div className="Header-Center">
@@ -34,7 +39,9 @@ class Header extends Component {
             Feed
           </Typography>
         </div>
-        <div className="Header-Right" />
+        <div className="Header-Right">
+          <div>update : {this.props.store.ItemStore.updateDate}</div>
+        </div>
       </div>
     );
   }

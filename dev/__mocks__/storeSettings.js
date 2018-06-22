@@ -1,7 +1,13 @@
 import { resolve } from "bluebird-lst";
+import moment from "moment";
 
 export let store = {
-  ItemStore: { items: [], add: () => console.log("add") },
+  ItemStore: {
+    items: [],
+    loading: false,
+    updateDate: moment("2012-06-20 09:12:34").format("HH:mm:ss"),
+    add: () => console.log("add")
+  },
   SettingStore: {
     updateDuration: 5,
     getSettings: () => console.log("getSettings"),

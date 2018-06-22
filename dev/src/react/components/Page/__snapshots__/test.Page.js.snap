@@ -4,8 +4,70 @@ exports[`Page should 1`] = `
 <div
   className="Page"
 >
-  <Side />
-  <Header />
+  <Side
+    store={
+      Object {
+        "ItemStore": Object {
+          "add": [Function],
+          "items": Array [],
+          "loading": false,
+          "updateDate": "09:12:34",
+        },
+        "RssListStore": Object {
+          "deleteRssList": [Function],
+          "getRssList": [Function],
+          "rssList": Array [
+            Object {
+              "name": "google",
+              "url": "https://www.google.co.jp/",
+            },
+            Object {
+              "name": "yahoo",
+              "url": "https://www.yahoo.co.jp/",
+            },
+          ],
+          "setRssList": [Function],
+        },
+        "SettingStore": Object {
+          "getSettings": [Function],
+          "setSetting": [Function],
+          "updateDuration": 5,
+        },
+      }
+    }
+  />
+  <Header
+    store={
+      Object {
+        "ItemStore": Object {
+          "add": [Function],
+          "items": Array [],
+          "loading": false,
+          "updateDate": "09:12:34",
+        },
+        "RssListStore": Object {
+          "deleteRssList": [Function],
+          "getRssList": [Function],
+          "rssList": Array [
+            Object {
+              "name": "google",
+              "url": "https://www.google.co.jp/",
+            },
+            Object {
+              "name": "yahoo",
+              "url": "https://www.yahoo.co.jp/",
+            },
+          ],
+          "setRssList": [Function],
+        },
+        "SettingStore": Object {
+          "getSettings": [Function],
+          "setSetting": [Function],
+          "updateDuration": 5,
+        },
+      }
+    }
+  />
   <div
     className="main"
   />

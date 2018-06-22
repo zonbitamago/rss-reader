@@ -101,7 +101,7 @@ export const ATOM = `
 </feed>
 `;
 
-export const RSS2_FEED = [
+export const RSS_FEED = [
   {
     author: "Writer",
     categories: [],
@@ -224,7 +224,7 @@ export const RSS2_FEED = [
     author: "editor@example.com",
     categories: [],
     comments: null,
-    date: "2003-05-30T11:06:42.000Z",
+    date: "2003-05-31T11:06:42.000Z",
     description:
       'Sky watchers in Europe, Asia, and parts of Alaska and Canada will experience a <a href=\\"http://science.nasa.gov/headlines/y2003/30may_solareclipse.htm\\">partial eclipse of the Sun</a> on Saturday, May 31st.',
     enclosures: [],
@@ -303,8 +303,8 @@ export const RSS2_FEED = [
     },
     origlink: null,
     permalink: "http://liftoff.msfc.nasa.gov/2003/05/30.html#item572",
-    pubDate: "2003-05-30T11:06:42.000Z",
-    pubdate: "2003-05-30T11:06:42.000Z",
+    pubDate: "2003-05-31T11:06:42.000Z",
+    pubdate: "2003-05-31T11:06:42.000Z",
     "rss:@": {},
     "rss:description": {
       "#":

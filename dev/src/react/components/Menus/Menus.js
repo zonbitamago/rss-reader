@@ -23,6 +23,7 @@ class Menus extends Component {
   }
 
   render() {
+    var loadingClassName = this.props.store.ItemStore.loading ? "loading" : "";
     return (
       <div className="Menus">
         <Icon>
@@ -33,7 +34,12 @@ class Menus extends Component {
           />
         </Icon>
         <Icon>
-          <Refresh />
+          <Refresh
+            className={loadingClassName}
+            onClick={() => {
+              this.props.store.ItemStore.add();
+            }}
+          />
         </Icon>
         <Icon>
           <RssFeed

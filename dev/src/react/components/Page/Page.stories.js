@@ -16,6 +16,8 @@ var item = {
 for (let index = 0; index < 10; index++) {
   items.push(item);
 }
+
+store.ItemStore.items = items;
 storiesOf("Pages/Page", module).add("Page", () => (
-  <Page electronUtil={electronUtil} items={items} store={store} />
+  <Page electronUtil={electronUtil} store={store} />
 ));

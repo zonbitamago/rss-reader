@@ -8,6 +8,7 @@ describe("ItemStore", () => {
   let store;
 
   beforeEach(() => {
+    localStorage.clear();
     store = new ItemStore();
   });
 
@@ -20,19 +21,34 @@ describe("ItemStore", () => {
       return {
         feedParse: url => {
           return new Promise(resolve => {
-            resolve(rssConstants.RSS2_FEED);
+            resolve(rssConstants.RSS_FEED);
           });
         }
       };
     });
+    localStorage.setItem(
+      "rssList",
+      JSON.stringify([
+        {
+          name: "google.com",
+          url: "https://google.com"
+        }
+      ])
+    );
 
     var promise = store.add();
-    expect(store.items.length).toBe(1);
-    expect(store.items[0].src).toBe("testSrc");
-    expect(store.items[0].alt).toBe("testAlt");
-    expect(store.items[0].domainName).toBe("testDomainName");
-    expect(store.items[0].url).toBe("testUrl");
-    expect(store.items[0].itemName).toBe("testItemName");
-    expect(store.items[0].date).toBe("testDate");
+    return promise.then(() => {
+      expect(store.items.length).toBe(4);
+      expect(store.items[0].src).toBe(
+        "http://www.google.com/s2/favicons?domain=liftoff.msfc.nasa.gov"
+      );
+      expect(store.items[0].alt).toBe("google.com");
+      expect(store.items[0].domainName).toBe("google.com");
+      expect(store.items[0].url).toBe(
+        "http://liftoff.msfc.nasa.gov/news/2003/news-starcity.asp"
+      );
+      expect(store.items[0].itemName).toBe("Star City");
+      expect(store.items[0].date).toBe(1054633161000);
+    });
   });
 });

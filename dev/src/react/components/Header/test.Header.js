@@ -1,17 +1,18 @@
-import React from 'react'
-import { shallow } from 'enzyme'
+import React from "react";
+import { shallow } from "enzyme";
+import { store } from "../../../../__mocks__/storeSettings";
 
-import Header from './Header'
+import Header from "./Header";
 
-describe('Header', () => {
-  let component, props
+describe("Header", () => {
+  let component, props;
 
   beforeEach(() => {
-    props = {}
-    component = shallow(<Header {...props} />)
-  })
+    props = { store: store };
+    component = shallow(<Header {...props} />);
+  });
 
-  it('should', () => {
-    expect(component).toMatchSnapshot()
-  })
-})
+  it("should", () => {
+    expect(component).toMatchSnapshot();
+  });
+});

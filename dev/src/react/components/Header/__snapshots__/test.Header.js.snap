@@ -8,7 +8,9 @@ exports[`Header should 1`] = `
     className="Header-Left"
   >
     <Icon>
-      <pure(Home) />
+      <pure(Home)
+        onClick={[Function]}
+      />
     </Icon>
   </div>
   <div
@@ -35,6 +37,11 @@ exports[`Header should 1`] = `
   </div>
   <div
     className="Header-Right"
-  />
+  >
+    <div>
+      update : 
+      09:12:34
+    </div>
+  </div>
 </div>
 `;

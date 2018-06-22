@@ -8,3 +8,15 @@
 .Menus > .Icon {
   cursor: pointer;
 }
+
+.Menus .loading {
+  animation: rotate-anime 1.5s linear infinite;
+}
+@keyframes rotate-anime {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -10,7 +10,10 @@ exports[`Menus should 1`] = `
     />
   </Icon>
   <Icon>
-    <pure(Refresh) />
+    <pure(Refresh)
+      className=""
+      onClick={[Function]}
+    />
   </Icon>
   <Icon>
     <pure(RssFeed)
@@ -26,6 +29,36 @@ exports[`Menus should 1`] = `
       }
       handleClose={[Function]}
       open={false}
+      store={
+        Object {
+          "ItemStore": Object {
+            "add": [Function],
+            "items": Array [],
+            "loading": false,
+            "updateDate": "09:12:34",
+          },
+          "RssListStore": Object {
+            "deleteRssList": [Function],
+            "getRssList": [Function],
+            "rssList": Array [
+              Object {
+                "name": "google",
+                "url": "https://www.google.co.jp/",
+              },
+              Object {
+                "name": "yahoo",
+                "url": "https://www.yahoo.co.jp/",
+              },
+            ],
+            "setRssList": [Function],
+          },
+          "SettingStore": Object {
+            "getSettings": [Function],
+            "setSetting": [Function],
+            "updateDuration": 5,
+          },
+        }
+      }
     />
   </Icon>
   <Icon>
@@ -40,6 +73,36 @@ exports[`Menus should 1`] = `
     <SettingModal
       handleClose={[Function]}
       open={false}
+      store={
+        Object {
+          "ItemStore": Object {
+            "add": [Function],
+            "items": Array [],
+            "loading": false,
+            "updateDate": "09:12:34",
+          },
+          "RssListStore": Object {
+            "deleteRssList": [Function],
+            "getRssList": [Function],
+            "rssList": Array [
+              Object {
+                "name": "google",
+                "url": "https://www.google.co.jp/",
+              },
+              Object {
+                "name": "yahoo",
+                "url": "https://www.yahoo.co.jp/",
+              },
+            ],
+            "setRssList": [Function],
+          },
+          "SettingStore": Object {
+            "getSettings": [Function],
+            "setSetting": [Function],
+            "updateDuration": 5,
+          },
+        }
+      }
     />
   </Icon>
   <Icon>
