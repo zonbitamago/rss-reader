@@ -1,6 +1,6 @@
 import SettingStore from "./SettingStore";
 
-describe("SettingStore", () => {
+describe.skip("SettingStore", () => {
   let store;
 
   beforeEach(() => {

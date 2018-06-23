@@ -67,7 +67,7 @@ class Menus extends Component {
         <Icon>
           <Settings
             onClick={() => {
-              this.props.store.SettingStore.getSettings();
+              this.props.store.ItemStore.getSettings();
               this.setState({ settingModalOpen: true });
             }}
           />

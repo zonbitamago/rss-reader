@@ -6,13 +6,16 @@ export let store = {
     items: [],
     loading: false,
     updateDate: moment("2012-06-20 09:12:34").format("HH:mm:ss"),
-    add: () => console.log("add")
-  },
-  SettingStore: {
     updateDuration: 5,
+    add: () => console.log("add"),
     getSettings: () => console.log("getSettings"),
     setSetting: () => console.log("setSetting")
   },
+  // SettingStore: {
+  //   updateDuration: 5,
+  //   getSettings: () => console.log("getSettings"),
+  //   setSetting: () => console.log("setSetting")
+  // },
   RssListStore: {
     rssList: [
       { name: "google", url: "https://www.google.co.jp/" },

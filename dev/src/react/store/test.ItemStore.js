@@ -14,6 +14,8 @@ describe("ItemStore", () => {
 
   it("init", () => {
     expect(store.items.length).toBe(0);
+    expect(store.updateDuration).toBe(5);
+    expect(store.loading).toBe(false);
   });
 
   it("add", () => {
@@ -50,5 +52,24 @@ describe("ItemStore", () => {
       expect(store.items[0].itemName).toBe("Star City");
       expect(store.items[0].date).toBe(1054633161000);
     });
+  });
+
+  describe("getSettings", () => {
+    it("Not Registed LocalStoreage", () => {
+      store.getSettings();
+      expect(store.updateDuration).toBe(5);
+    });
+
+    it("Registed LocalStoreage", () => {
+      localStorage.setItem("settings", JSON.stringify({ updateDuration: 10 }));
+      store.getSettings();
+      expect(store.updateDuration).toBe(10);
+    });
+  });
+
+  it("setSettings", () => {
+    store.updateDuration = 7;
+    store.setSetting();
+    expect(JSON.parse(localStorage.getItem("settings")).updateDuration).toBe(7);
   });
 });

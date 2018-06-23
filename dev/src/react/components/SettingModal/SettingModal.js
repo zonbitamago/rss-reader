@@ -17,7 +17,7 @@ class SettingModal extends Component {
   }
 
   yesButtonClick() {
-    this.props.store.SettingStore.setSetting();
+    this.props.store.ItemStore.setSetting();
     this.props.handleClose();
   }
 
@@ -33,9 +33,9 @@ class SettingModal extends Component {
           <DialogContent>
             <Input
               name="UpdateDuration"
-              value={this.props.store.SettingStore.updateDuration}
+              value={this.props.store.ItemStore.updateDuration}
               changeParentVal={val => {
-                this.props.store.SettingStore.updateDuration = val;
+                this.props.store.ItemStore.updateDuration = val;
               }}
             />
           </DialogContent>

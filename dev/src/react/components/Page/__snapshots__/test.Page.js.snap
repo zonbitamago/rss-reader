@@ -9,9 +9,12 @@ exports[`Page should 1`] = `
       Object {
         "ItemStore": Object {
           "add": [Function],
+          "getSettings": [Function],
           "items": Array [],
           "loading": false,
+          "setSetting": [Function],
           "updateDate": "09:12:34",
+          "updateDuration": 5,
         },
         "RssListStore": Object {
           "deleteRssList": [Function],
@@ -27,11 +30,6 @@ exports[`Page should 1`] = `
             },
           ],
           "setRssList": [Function],
-        },
-        "SettingStore": Object {
-          "getSettings": [Function],
-          "setSetting": [Function],
-          "updateDuration": 5,
         },
       }
     }
@@ -41,9 +39,12 @@ exports[`Page should 1`] = `
       Object {
         "ItemStore": Object {
           "add": [Function],
+          "getSettings": [Function],
           "items": Array [],
           "loading": false,
+          "setSetting": [Function],
           "updateDate": "09:12:34",
+          "updateDuration": 5,
         },
         "RssListStore": Object {
           "deleteRssList": [Function],
@@ -59,11 +60,6 @@ exports[`Page should 1`] = `
             },
           ],
           "setRssList": [Function],
-        },
-        "SettingStore": Object {
-          "getSettings": [Function],
-          "setSetting": [Function],
-          "updateDuration": 5,
         },
       }
     }

@@ -6,6 +6,7 @@ class ItemStore {
   @observable items = [];
   @observable updateDate = moment().format("HH:mm:ss");
   @observable loading = false;
+  @observable updateDuration = 5;
 
   @action.bound
   add() {
@@ -78,6 +79,26 @@ class ItemStore {
 
       this.loading = false;
     });
+  }
+
+  @action.bound
+  getSettings() {
+    if (localStorage.getItem("settings") == undefined) {
+      this.updateDuration = 5;
+    } else {
+      this.updateDuration = JSON.parse(
+        localStorage.getItem("settings")
+      ).updateDuration;
+    }
+  }
+  @action.bound
+  setSetting() {
+    localStorage.setItem(
+      "settings",
+      JSON.stringify({
+        updateDuration: this.updateDuration
+      })
+    );
   }
 }
 
