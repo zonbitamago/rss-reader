@@ -7,15 +7,12 @@ export let store = {
     loading: false,
     updateDate: moment("2012-06-20 09:12:34").format("HH:mm:ss"),
     updateDuration: 5,
+    timerId: "dummy",
     add: () => console.log("add"),
     getSettings: () => console.log("getSettings"),
-    setSetting: () => console.log("setSetting")
+    setSetting: () => console.log("setSetting"),
+    setTimer: () => console.log("setTimer")
   },
-  // SettingStore: {
-  //   updateDuration: 5,
-  //   getSettings: () => console.log("getSettings"),
-  //   setSetting: () => console.log("setSetting")
-  // },
   RssListStore: {
     rssList: [
       { name: "google", url: "https://www.google.co.jp/" },

@@ -6,12 +6,20 @@ class ItemStore {
   @observable items = [];
   @observable updateDate = moment().format("HH:mm:ss");
   @observable loading = false;
-  @observable updateDuration = 5;
+  @observable
+  updateDuration =
+    localStorage.getItem("settings") == undefined
+      ? 5
+      : JSON.parse(localStorage.getItem("settings")).updateDuration;
+  timerId = "";
 
   @action.bound
   add() {
     this.loading = true;
     var urlList = JSON.parse(localStorage.getItem("rssList"));
+    if (urlList == undefined) {
+      return;
+    }
     var promiseList = urlList.map(urlNode => {
       var util = new feedParseUtil();
       return util
@@ -99,6 +107,17 @@ class ItemStore {
         updateDuration: this.updateDuration
       })
     );
+  }
+
+  @action.bound
+  setTimer() {
+    if (this.timerId != "") {
+      clearInterval(this.timerId);
+    }
+
+    // 初回呼び出し
+    this.add();
+    this.timerId = setInterval(this.add, this.updateDuration * 60 * 1000);
   }
 }
 

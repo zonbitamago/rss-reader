@@ -12,7 +12,7 @@ const store = {
   RssListStore: new RssListStore()
 };
 
-store.ItemStore.add();
+store.ItemStore.setTimer();
 
 const rootDom = document.getElementById("root-dom");
 ReactDOM.render(<Page electronUtil={electronUtil} store={store} />, rootDom);

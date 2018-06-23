@@ -18,6 +18,7 @@ class SettingModal extends Component {
 
   yesButtonClick() {
     this.props.store.ItemStore.setSetting();
+    this.props.store.ItemStore.setTimer();
     this.props.handleClose();
   }
 

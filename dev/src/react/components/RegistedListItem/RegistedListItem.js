@@ -10,6 +10,12 @@ import Delete from "@material-ui/icons/Delete";
 class RegistedListItem extends Component {
   constructor(props) {
     super(props);
+    this.deleteClick = this.deleteClick.bind(this);
+  }
+
+  deleteClick() {
+    this.props.store.RssListStore.deleteRssList(this.props.name);
+    this.props.store.ItemStore.setTimer();
   }
 
   render() {
@@ -26,12 +32,7 @@ class RegistedListItem extends Component {
           />
           <ListItemSecondaryAction>
             <IconButton aria-label="Delete">
-              <Delete
-                onClick={this.props.store.RssListStore.deleteRssList.bind(
-                  this,
-                  this.props.name
-                )}
-              />
+              <Delete onClick={this.deleteClick} />
             </IconButton>
           </ListItemSecondaryAction>
         </ListItem>

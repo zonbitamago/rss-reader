@@ -16,6 +16,7 @@ describe("ItemStore", () => {
     expect(store.items.length).toBe(0);
     expect(store.updateDuration).toBe(5);
     expect(store.loading).toBe(false);
+    expect(store.timerId).toBe("");
   });
 
   it("add", () => {
@@ -71,5 +72,18 @@ describe("ItemStore", () => {
     store.updateDuration = 7;
     store.setSetting();
     expect(JSON.parse(localStorage.getItem("settings")).updateDuration).toBe(7);
+  });
+
+  describe("setTimer", () => {
+    it("initialTimer", () => {
+      store.setTimer();
+      expect(store.timerId).not.toBe("");
+    });
+
+    it("initialTimer", () => {
+      store.timerId = "dummy";
+      store.setTimer();
+      expect(store.timerId).not.toBe("dummy");
+    });
   });
 });

@@ -37,7 +37,7 @@ class Menus extends Component {
           <Refresh
             className={loadingClassName}
             onClick={() => {
-              this.props.store.ItemStore.add();
+              this.props.store.ItemStore.setTimer();
             }}
           />
         </Icon>
