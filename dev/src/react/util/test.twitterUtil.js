@@ -1,5 +1,11 @@
-import * as twitterUtil from "./twitterUtil";
+import twitterUtil from "./twitterUtil";
 
 describe("twitterUtil", () => {
-  it.skip("init", () => {});
+  let twitterUtiltest;
+  beforeEach(() => {
+    twitterUtiltest = new twitterUtil();
+  });
+  it("init", () => {
+    twitterUtiltest.get();
+  });
 });
