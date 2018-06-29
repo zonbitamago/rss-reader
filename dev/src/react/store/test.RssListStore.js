@@ -1,8 +1,10 @@
 import RssListStore from "./RssListStore";
 import feedParseUtil from "../util/feedParseUtil";
+import twitterUtil from "../util/twitterUtil";
 import { Promise } from "bluebird-lst";
 
 jest.mock("../util/feedParseUtil");
+jest.mock("../util/twitterUtil");
 
 describe("RssListStore", () => {
   let store;
@@ -173,6 +175,30 @@ describe("RssListStore", () => {
       return promise.then(ret => {
         expect(ret).toBe(false);
         expect(JSON.parse(localStorage.getItem("rssList"))).toMatchSnapshot();
+      });
+    });
+
+    describe("twitter_list URL", () => {
+      it("success", () => {
+        twitterUtil.mockImplementation(() => {
+          return {
+            get: url => {
+              return new Promise(resolve => {
+                resolve("test");
+              });
+            }
+          };
+        });
+
+        store = new RssListStore();
+        store.name = "twitter_test";
+        store.url = "https://twitter.com/DZonbitamago/lists/test";
+
+        return store.setRssList().then(ret => {
+          expect(ret).toBe(true);
+          expect(JSON.parse(localStorage.getItem("rssList")).length).toBe(1);
+          expect(JSON.parse(localStorage.getItem("rssList"))).toMatchSnapshot();
+        });
       });
     });
   });

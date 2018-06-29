@@ -11,22 +11,30 @@ export default class twitterUtil {
     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
   });
 
-  get() {
-    // console.log("env:", process.env.TWITTER_CONSUMER_KEY);
+  get(url) {
+    var host = url
+      .split("#")[0]
+      .split("?")[0]
+      .split("/")[2];
+    var path = url
+      .split("#")[0]
+      .split("?")[0]
+      .replace(host, "")
+      .replace(/^https*:[\/]{3}/, "");
 
-    var params = { owner_screen_name: "DZonbitamago", slug: "test" };
-    this.client.get(
-      "lists/statuses.json",
-      params,
-      (error, tweets, response) => {
-        if (error) {
-          console.log("error:", error);
+    var owner_screen_name = path.split("/")[0];
+    var slug = path.split("/")[2];
+    var params = { owner_screen_name: owner_screen_name, slug: slug };
 
-          return;
-        }
-        console.log(tweets);
-        // console.log(response); // Raw response object.
-      }
-    );
+    return this.client
+      .get("lists/statuses.json", params)
+      .then(tweet => {
+        // console.log(tweet[0]);
+
+        return tweet;
+      })
+      .catch(error => {
+        throw error;
+      });
   }
 }
