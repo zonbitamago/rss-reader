@@ -1,6 +1,8 @@
-import { observable, computed, action } from "mobx";
-import feedParseUtil from "../util/feedParseUtil";
+import { action, observable } from "mobx";
 import moment from "moment";
+import feedParseUtil from "../util/feedParseUtil";
+import twitterUtil, { getHost } from "../util/twitterUtil";
+import * as constants from "../util/constants";
 
 class ItemStore {
   @observable items = [];
@@ -8,37 +10,68 @@ class ItemStore {
   @observable loading = false;
   @observable
   updateDuration =
-    localStorage.getItem("settings") == undefined
+    localStorage.getItem(constants.SETTINGS) == undefined
       ? 5
-      : JSON.parse(localStorage.getItem("settings")).updateDuration;
+      : JSON.parse(localStorage.getItem(constants.SETTINGS)).updateDuration;
   timerId = "";
 
   @action.bound
   add() {
     this.loading = true;
-    var urlList = JSON.parse(localStorage.getItem("rssList"));
+    var urlList = JSON.parse(localStorage.getItem(constants.FEED_LIST));
     if (urlList == undefined) {
       return;
     }
     var promiseList = urlList.map(urlNode => {
-      var util = new feedParseUtil();
-      return util
-        .feedParse(urlNode.url)
-        .then(item => {
+      if (getHost(urlNode.url) == constants.TWITTER_DOMAIN) {
+        var util = new twitterUtil();
+        return util.get(urlNode.url).then(item => {
           return item.map(node => {
-            node.name = urlNode.name;
-            node.created = node.pubdate
-              ? Date.parse(node.pubdate)
-              : Date.parse(node.updated);
-
+            node.name = node.user.screen_name;
+            node.src = node.user.profile_image_url_https;
+            node.url = "https://twitter.com/zonbitamago/status/" + node.id;
+            node.title = node.text;
+            var date = new Date("Sat Jun 23 05: 24: 50 +0000 2018");
+            node.created = date.getTime();
             return node;
           });
-        })
-        .catch(error => {
-          console.warn("error:" + urlNode.name);
-          console.warn(error);
-          return [];
         });
+      } else {
+        var util = new feedParseUtil();
+        return util
+          .feedParse(urlNode.url)
+          .then(item => {
+            return item.map(node => {
+              node.name = urlNode.name;
+              node.created = node.pubdate
+                ? Date.parse(node.pubdate)
+                : Date.parse(node.updated);
+
+              var url = node.link;
+              if (
+                Object.prototype.toString.call(node.link) == "[object Array]"
+              ) {
+                url = node.link[0].href;
+              } else if (url.href != undefined) {
+                url = url.href;
+              }
+              node.url = url;
+
+              var domain = url.split("/")[2];
+              var favicon_url =
+                "http://www.google.com/s2/favicons?domain=" + domain;
+              // var favicon_url = "http://favicon.hatena.ne.jp/?url=http://" + domain;
+              node.src = favicon_url;
+
+              return node;
+            });
+          })
+          .catch(error => {
+            console.warn("error:" + urlNode.name);
+            console.warn(error);
+            return [];
+          });
+      }
     });
 
     return Promise.all(promiseList).then(feedList => {
@@ -63,23 +96,11 @@ class ItemStore {
           }
         })
         .forEach(data => {
-          var url = data.link;
-          if (Object.prototype.toString.call(data.link) == "[object Array]") {
-            url = data.link[0].href;
-          } else if (url.href != undefined) {
-            url = url.href;
-          }
-
-          var domain = url.split("/")[2];
-          var favicon_url =
-            "http://www.google.com/s2/favicons?domain=" + domain;
-          // var favicon_url = "http://favicon.hatena.ne.jp/?url=http://" + domain;
-
           this.items.push({
-            src: favicon_url,
+            src: data.src,
             alt: data.name,
             domainName: data.name,
-            url: url,
+            url: data.url,
             itemName: data.title,
             date: data.created
           });
@@ -91,18 +112,18 @@ class ItemStore {
 
   @action.bound
   getSettings() {
-    if (localStorage.getItem("settings") == undefined) {
+    if (localStorage.getItem(constants.SETTINGS) == undefined) {
       this.updateDuration = 5;
     } else {
       this.updateDuration = JSON.parse(
-        localStorage.getItem("settings")
+        localStorage.getItem(constants.SETTINGS)
       ).updateDuration;
     }
   }
   @action.bound
   setSetting() {
     localStorage.setItem(
-      "settings",
+      constants.SETTINGS,
       JSON.stringify({
         updateDuration: this.updateDuration
       })

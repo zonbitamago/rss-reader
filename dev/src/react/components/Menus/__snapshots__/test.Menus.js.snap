@@ -31,6 +31,21 @@ exports[`Menus should 1`] = `
       open={false}
       store={
         Object {
+          "FeedListStore": Object {
+            "deleteFeedList": [Function],
+            "feedList": Array [
+              Object {
+                "name": "google",
+                "url": "https://www.google.co.jp/",
+              },
+              Object {
+                "name": "yahoo",
+                "url": "https://www.yahoo.co.jp/",
+              },
+            ],
+            "getFeedList": [Function],
+            "setFeedList": [Function],
+          },
           "ItemStore": Object {
             "add": [Function],
             "getSettings": [Function],
@@ -41,21 +56,6 @@ exports[`Menus should 1`] = `
             "timerId": "dummy",
             "updateDate": "09:12:34",
             "updateDuration": 5,
-          },
-          "RssListStore": Object {
-            "deleteRssList": [Function],
-            "getRssList": [Function],
-            "rssList": Array [
-              Object {
-                "name": "google",
-                "url": "https://www.google.co.jp/",
-              },
-              Object {
-                "name": "yahoo",
-                "url": "https://www.yahoo.co.jp/",
-              },
-            ],
-            "setRssList": [Function],
           },
         }
       }
@@ -75,6 +75,21 @@ exports[`Menus should 1`] = `
       open={false}
       store={
         Object {
+          "FeedListStore": Object {
+            "deleteFeedList": [Function],
+            "feedList": Array [
+              Object {
+                "name": "google",
+                "url": "https://www.google.co.jp/",
+              },
+              Object {
+                "name": "yahoo",
+                "url": "https://www.yahoo.co.jp/",
+              },
+            ],
+            "getFeedList": [Function],
+            "setFeedList": [Function],
+          },
           "ItemStore": Object {
             "add": [Function],
             "getSettings": [Function],
@@ -85,21 +100,6 @@ exports[`Menus should 1`] = `
             "timerId": "dummy",
             "updateDate": "09:12:34",
             "updateDuration": 5,
-          },
-          "RssListStore": Object {
-            "deleteRssList": [Function],
-            "getRssList": [Function],
-            "rssList": Array [
-              Object {
-                "name": "google",
-                "url": "https://www.google.co.jp/",
-              },
-              Object {
-                "name": "yahoo",
-                "url": "https://www.yahoo.co.jp/",
-              },
-            ],
-            "setRssList": [Function],
           },
         }
       }

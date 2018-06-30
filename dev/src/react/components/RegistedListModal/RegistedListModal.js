@@ -30,7 +30,7 @@ class RegistedListModal extends Component {
   }
 
   yesButtonClick() {
-    var promise = this.props.store.RssListStore.setRssList();
+    var promise = this.props.store.FeedListStore.setFeedList();
     promise
       .then(ret => {
         if (ret) {
@@ -64,8 +64,8 @@ class RegistedListModal extends Component {
 
   render() {
     var urlList;
-    if (this.props.store.RssListStore.rssList.length > 0) {
-      urlList = this.props.store.RssListStore.rssList.map((item, idx) => {
+    if (this.props.store.FeedListStore.feedList.length > 0) {
+      urlList = this.props.store.FeedListStore.feedList.map((item, idx) => {
         return (
           <RegistedListItem
             key={idx}
@@ -89,16 +89,16 @@ class RegistedListModal extends Component {
             {urlList}
             <Input
               name="Name"
-              value={this.props.store.RssListStore.name}
+              value={this.props.store.FeedListStore.name}
               changeParentVal={val => {
-                this.props.store.RssListStore.name = val;
+                this.props.store.FeedListStore.name = val;
               }}
             />
             <Input
               name="URL"
-              value={this.props.store.RssListStore.url}
+              value={this.props.store.FeedListStore.url}
               changeParentVal={val => {
-                this.props.store.RssListStore.url = val;
+                this.props.store.FeedListStore.url = val;
               }}
             />
           </DialogContent>

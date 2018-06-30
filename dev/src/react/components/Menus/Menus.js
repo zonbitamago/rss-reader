@@ -44,7 +44,7 @@ class Menus extends Component {
         <Icon>
           <RssFeed
             onClick={() => {
-              this.props.store.RssListStore.getRssList();
+              this.props.store.FeedListStore.getFeedList();
               this.setState({ registedListModalOpen: true });
             }}
           />

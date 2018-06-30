@@ -1,12 +1,13 @@
-import RssListStore from "./RssListStore";
+import { Promise } from "bluebird-lst";
+import * as constants from "../util/constants";
 import feedParseUtil from "../util/feedParseUtil";
 import twitterUtil from "../util/twitterUtil";
-import { Promise } from "bluebird-lst";
+import FeedListStore from "./FeedListStore";
 
 jest.mock("../util/feedParseUtil");
 jest.mock("../util/twitterUtil");
 
-describe("RssListStore", () => {
+describe("FeedListStore", () => {
   let store;
 
   beforeEach(() => {
@@ -14,20 +15,20 @@ describe("RssListStore", () => {
   });
 
   it("init", () => {
-    store = new RssListStore();
-    expect(store.rssList.length).toBe(0);
+    store = new FeedListStore();
+    expect(store.feedList.length).toBe(0);
   });
 
-  describe("getRssList", () => {
+  describe("getFeedList", () => {
     it("Not Registed", () => {
-      store = new RssListStore();
-      store.getRssList();
-      expect(store.rssList.length).toBe(0);
+      store = new FeedListStore();
+      store.getFeedList();
+      expect(store.feedList.length).toBe(0);
     });
 
     it("Registed 1items", () => {
       localStorage.setItem(
-        "rssList",
+        constants.FEED_LIST,
         JSON.stringify([
           {
             name: "google.com",
@@ -35,14 +36,14 @@ describe("RssListStore", () => {
           }
         ])
       );
-      store = new RssListStore();
-      store.getRssList();
-      expect(store.rssList.length).toBe(1);
+      store = new FeedListStore();
+      store.getFeedList();
+      expect(store.feedList.length).toBe(1);
     });
 
     it("Registed 2items", () => {
       localStorage.setItem(
-        "rssList",
+        constants.FEED_LIST,
         JSON.stringify([
           {
             name: "google.com",
@@ -54,13 +55,30 @@ describe("RssListStore", () => {
           }
         ])
       );
-      store = new RssListStore();
-      store.getRssList();
-      expect(store.rssList.length).toBe(2);
+      store = new FeedListStore();
+      store.getFeedList();
+      expect(store.feedList.length).toBe(2);
+    });
+
+    it("rssList_to_feedList", () => {
+      localStorage.setItem(
+        constants.RSS_LIST,
+        JSON.stringify([
+          {
+            name: "google.com",
+            url: "https://google.com"
+          }
+        ])
+      );
+      store = new FeedListStore();
+      store.getFeedList();
+
+      expect(localStorage.getItem(constants.FEED_LIST)).not.toBeNull();
+      expect(localStorage.getItem(constants.RSS_LIST)).toBeNull();
     });
   });
 
-  describe("setRssList", () => {
+  describe("setFeedList", () => {
     it("Not Regsited", () => {
       feedParseUtil.mockImplementation(() => {
         return {
@@ -72,16 +90,20 @@ describe("RssListStore", () => {
         };
       });
 
-      store = new RssListStore();
+      store = new FeedListStore();
       store.name = "google.com";
       store.url = "https://google.com";
 
-      var promise = store.setRssList();
+      var promise = store.setFeedList();
 
       return promise.then(ret => {
         expect(ret).toBe(true);
-        expect(JSON.parse(localStorage.getItem("rssList")).length).toBe(1);
-        expect(JSON.parse(localStorage.getItem("rssList"))).toMatchSnapshot();
+        expect(
+          JSON.parse(localStorage.getItem(constants.FEED_LIST)).length
+        ).toBe(1);
+        expect(
+          JSON.parse(localStorage.getItem(constants.FEED_LIST))
+        ).toMatchSnapshot();
       });
     });
 
@@ -97,7 +119,7 @@ describe("RssListStore", () => {
       });
 
       localStorage.setItem(
-        "rssList",
+        constants.FEED_LIST,
         JSON.stringify([
           {
             name: "google.com",
@@ -106,17 +128,21 @@ describe("RssListStore", () => {
         ])
       );
 
-      store = new RssListStore();
+      store = new FeedListStore();
       store.name = "yahoo.com";
       store.url = "https://yahoo.com";
-      store.getRssList();
+      store.getFeedList();
 
-      var promise = store.setRssList();
+      var promise = store.setFeedList();
 
       return promise.then(ret => {
         expect(ret).toBe(true);
-        expect(JSON.parse(localStorage.getItem("rssList")).length).toBe(2);
-        expect(JSON.parse(localStorage.getItem("rssList"))).toMatchSnapshot();
+        expect(
+          JSON.parse(localStorage.getItem(constants.FEED_LIST)).length
+        ).toBe(2);
+        expect(
+          JSON.parse(localStorage.getItem(constants.FEED_LIST))
+        ).toMatchSnapshot();
       });
     });
 
@@ -132,7 +158,7 @@ describe("RssListStore", () => {
       });
 
       localStorage.setItem(
-        "rssList",
+        constants.FEED_LIST,
         JSON.stringify([
           {
             name: "google.com",
@@ -141,17 +167,21 @@ describe("RssListStore", () => {
         ])
       );
 
-      store = new RssListStore();
+      store = new FeedListStore();
       store.name = "google.com";
       store.url = "https://google.com";
-      store.getRssList();
+      store.getFeedList();
 
-      var promise = store.setRssList();
+      var promise = store.setFeedList();
 
       return promise.then(ret => {
         expect(ret).toBe(false);
-        expect(JSON.parse(localStorage.getItem("rssList")).length).toBe(1);
-        expect(JSON.parse(localStorage.getItem("rssList"))).toMatchSnapshot();
+        expect(
+          JSON.parse(localStorage.getItem(constants.FEED_LIST)).length
+        ).toBe(1);
+        expect(
+          JSON.parse(localStorage.getItem(constants.FEED_LIST))
+        ).toMatchSnapshot();
       });
     });
 
@@ -166,15 +196,17 @@ describe("RssListStore", () => {
         };
       });
 
-      store = new RssListStore();
+      store = new FeedListStore();
       store.name = "google.com";
       store.url = "https://google.com";
 
-      var promise = store.setRssList();
+      var promise = store.setFeedList();
 
       return promise.then(ret => {
         expect(ret).toBe(false);
-        expect(JSON.parse(localStorage.getItem("rssList"))).toMatchSnapshot();
+        expect(
+          JSON.parse(localStorage.getItem(constants.FEED_LIST))
+        ).toMatchSnapshot();
       });
     });
 
@@ -190,24 +222,28 @@ describe("RssListStore", () => {
           };
         });
 
-        store = new RssListStore();
+        store = new FeedListStore();
         store.name = "twitter_test";
         store.url = "https://twitter.com/DZonbitamago/lists/test";
 
-        return store.setRssList().then(ret => {
+        return store.setFeedList().then(ret => {
           expect(ret).toBe(true);
-          expect(JSON.parse(localStorage.getItem("rssList")).length).toBe(1);
-          expect(JSON.parse(localStorage.getItem("rssList"))).toMatchSnapshot();
+          expect(
+            JSON.parse(localStorage.getItem(constants.FEED_LIST)).length
+          ).toBe(1);
+          expect(
+            JSON.parse(localStorage.getItem(constants.FEED_LIST))
+          ).toMatchSnapshot();
         });
       });
     });
   });
 
-  describe("deleteRssList", () => {
+  describe("deleteFeedList", () => {
     it("delete　single", () => {
-      store = new RssListStore();
+      store = new FeedListStore();
 
-      var rssList = [
+      var feedList = [
         {
           name: "google.com",
           url: "https://google.com"
@@ -217,19 +253,21 @@ describe("RssListStore", () => {
           url: "https://yahoo.com"
         }
       ];
-      localStorage.setItem("rssList", JSON.stringify(rssList));
-      store.rssList = rssList;
+      localStorage.setItem(constants.FEED_LIST, JSON.stringify(feedList));
+      store.feedList = feedList;
 
-      store.deleteRssList("google.com");
+      store.deleteFeedList("google.com");
 
-      expect(store.rssList.length).toBe(1);
-      expect(JSON.parse(localStorage.getItem("rssList")).length).toBe(1);
+      expect(store.feedList.length).toBe(1);
+      expect(JSON.parse(localStorage.getItem(constants.FEED_LIST)).length).toBe(
+        1
+      );
     });
 
     it("delete　double", () => {
-      store = new RssListStore();
+      store = new FeedListStore();
 
-      var rssList = [
+      var feedList = [
         {
           name: "google.com",
           url: "https://google.com"
@@ -239,14 +277,16 @@ describe("RssListStore", () => {
           url: "https://yahoo.com"
         }
       ];
-      localStorage.setItem("rssList", JSON.stringify(rssList));
-      store.rssList = rssList;
+      localStorage.setItem(constants.FEED_LIST, JSON.stringify(feedList));
+      store.feedList = feedList;
 
-      store.deleteRssList("google.com");
-      store.deleteRssList("yahoo.com");
+      store.deleteFeedList("google.com");
+      store.deleteFeedList("yahoo.com");
 
-      expect(store.rssList.length).toBe(0);
-      expect(JSON.parse(localStorage.getItem("rssList")).length).toBe(0);
+      expect(store.feedList.length).toBe(0);
+      expect(JSON.parse(localStorage.getItem(constants.FEED_LIST)).length).toBe(
+        0
+      );
     });
   });
 });

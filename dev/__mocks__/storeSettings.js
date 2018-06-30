@@ -13,18 +13,18 @@ export let store = {
     setSetting: () => console.log("setSetting"),
     setTimer: () => console.log("setTimer")
   },
-  RssListStore: {
-    rssList: [
+  FeedListStore: {
+    feedList: [
       { name: "google", url: "https://www.google.co.jp/" },
       { name: "yahoo", url: "https://www.yahoo.co.jp/" }
     ],
-    getRssList: () => console.log("getRssList"),
-    setRssList: () => {
-      console.log("setRssList");
+    getFeedList: () => console.log("getFeedList"),
+    setFeedList: () => {
+      console.log("setFeedList");
       return new Promise(resolve).then(() => {
         return true;
       });
     },
-    deleteRssList: () => console.log("deleteRssList")
+    deleteFeedList: () => console.log("deleteFeedList")
   }
 };

@@ -4,12 +4,12 @@ import Page from "./components/Page/Page";
 import * as electronUtil from "./util/electronUtil";
 // import SettingStore from "./store/SettingStore";
 import ItemStore from "./store/ItemStore";
-import RssListStore from "./store/RssListStore";
+import FeedListStore from "./store/FeedListStore";
 
 const store = {
   // SettingStore: new SettingStore(),
   ItemStore: new ItemStore(),
-  RssListStore: new RssListStore()
+  FeedListStore: new FeedListStore()
 };
 
 store.ItemStore.setTimer();

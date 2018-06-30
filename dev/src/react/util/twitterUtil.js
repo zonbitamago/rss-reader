@@ -1,5 +1,5 @@
-import Twitter from "twitter";
 import dotenv from "dotenv";
+import Twitter from "twitter";
 
 dotenv.config();
 
@@ -12,15 +12,7 @@ export default class twitterUtil {
   });
 
   get(url) {
-    var host = url
-      .split("#")[0]
-      .split("?")[0]
-      .split("/")[2];
-    var path = url
-      .split("#")[0]
-      .split("?")[0]
-      .replace(host, "")
-      .replace(/^https*:[\/]{3}/, "");
+    var path = getPath(url);
 
     var owner_screen_name = path.split("/")[0];
     var slug = path.split("/")[2];
@@ -37,4 +29,20 @@ export default class twitterUtil {
         throw error;
       });
   }
+}
+
+export function getHost(url) {
+  return url
+    .split("#")[0]
+    .split("?")[0]
+    .split("/")[2];
+}
+
+export function getPath(url) {
+  var host = getHost(url);
+  return url
+    .split("#")[0]
+    .split("?")[0]
+    .replace(host, "")
+    .replace(/^https*:[\/]{3}/, "");
 }

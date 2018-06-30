@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeedListStore setFeedList Duplicate 1`] = `
+Array [
+  Object {
+    "name": "google.com",
+    "url": "https://google.com",
+  },
+]
+`;
+
+exports[`FeedListStore setFeedList Not Regsited 1`] = `
+Array [
+  Object {
+    "name": "google.com",
+    "url": "https://google.com",
+  },
+]
+`;
+
+exports[`FeedListStore setFeedList Not URL 1`] = `null`;
+
+exports[`FeedListStore setFeedList Registed 1`] = `
+Array [
+  Object {
+    "name": "google.com",
+    "url": "https://google.com",
+  },
+  Object {
+    "name": "yahoo.com",
+    "url": "https://yahoo.com",
+  },
+]
+`;
+
+exports[`FeedListStore setFeedList twitter_list URL success 1`] = `
+Array [
+  Object {
+    "name": "twitter_test",
+    "url": "https://twitter.com/DZonbitamago/lists/test",
+  },
+]
+`;
