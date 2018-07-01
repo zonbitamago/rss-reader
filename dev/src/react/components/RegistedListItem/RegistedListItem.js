@@ -14,7 +14,7 @@ class RegistedListItem extends Component {
   }
 
   deleteClick() {
-    this.props.store.FeedListSotre.deleteFeedList(this.props.name);
+    this.props.store.FeedListStore.deleteFeedList(this.props.name);
     this.props.store.ItemStore.setTimer();
   }
 

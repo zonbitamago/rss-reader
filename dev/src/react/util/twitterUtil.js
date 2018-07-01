@@ -5,11 +5,15 @@ dotenv.config();
 
 export default class twitterUtil {
   client = new Twitter({
-    consumer_key: process.env.TWITTER_CONSUMER_KEY,
-    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-    access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+    consumer_key: dotenv.config().TWITTER_CONSUMER_KEY,
+    consumer_secret: dotenv.config().TWITTER_CONSUMER_SECRET,
+    access_token_key: dotenv.config().TWITTER_ACCESS_TOKEN_KEY,
+    access_token_secret: dotenv.config().TWITTER_ACCESS_TOKEN_SECRET
   });
+
+  constructor() {
+    console.log(dotenv.config().TWITTER_CONSUMER_KEY);
+  }
 
   get(url) {
     var path = getPath(url);
@@ -21,11 +25,11 @@ export default class twitterUtil {
     return this.client
       .get("lists/statuses.json", params)
       .then(tweet => {
-        // console.log(tweet[0]);
-
         return tweet;
       })
       .catch(error => {
+        console.error("error", error);
+
         throw error;
       });
   }

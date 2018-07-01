@@ -87,19 +87,19 @@ describe("ItemStore", () => {
 
       var promise = store.add();
       return promise.then(() => {
-        expect(store.items.length).toBe(1);
+        expect(store.items.length).toBe(2);
         expect(store.items[0].src).toBe(
-          "https: //pbs.twimg.com/profile_images/928067133/STIL0017_normal.jpg"
+          "https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png"
         );
-        expect(store.items[0].alt).toBe("zonbitamago");
-        expect(store.items[0].domainName).toBe("zonbitamago");
+        expect(store.items[0].alt).toBe("Twitter API");
+        expect(store.items[0].domainName).toBe("Twitter API");
         expect(store.items[0].url).toBe(
-          "https://twitter.com/zonbitamago/status/1010393219274698800"
+          "https://twitter.com/zonbitamago/status/850007368138018800"
         );
         expect(store.items[0].itemName).toBe(
-          "RT @eri_sai: 息子よ...問題を読みなさい https: //t.co/qedW1jUMRK"
+          "RT @TwitterDev: 1/ Today we’re sharing our vision for the future of the Twitter API platform!nhttps://t.co/XweGngmxlP"
         );
-        expect(store.items[0].date).toBe(1529731490000);
+        expect(store.items[0].date).toBe(1491492523000);
       });
     });
   });

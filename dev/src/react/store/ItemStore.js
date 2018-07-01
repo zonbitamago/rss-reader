@@ -27,11 +27,11 @@ class ItemStore {
         var util = new twitterUtil();
         return util.get(urlNode.url).then(item => {
           return item.map(node => {
-            node.name = node.user.screen_name;
+            node.name = node.user.name;
             node.src = node.user.profile_image_url_https;
             node.url = "https://twitter.com/zonbitamago/status/" + node.id;
             node.title = node.text;
-            var date = new Date("Sat Jun 23 05: 24: 50 +0000 2018");
+            var date = new Date(node.created_at);
             node.created = date.getTime();
             return node;
           });
