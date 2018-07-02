@@ -1,9 +1,11 @@
 import twitterUtil, { getHost, getPath } from "./twitterUtil";
 import * as constants from "../util/constants";
+import dotenv from "dotenv";
 
 describe("twitterUtil", () => {
   let twitterUtiltest, correct_url, error_url;
   beforeEach(() => {
+    dotenv.config({ path: __dirname + "/../../.env" });
     correct_url = "https://twitter.com/DZonbitamago/lists/test";
     error_url = "https://twitter.com/DZonbitamago/lists/nothing";
     twitterUtiltest = new twitterUtil();

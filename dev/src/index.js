@@ -11,6 +11,9 @@ const ROOT_PATH = `file://${__dirname}`;
 // ウィンドウが自動的に閉じてしまうでしょう。
 let win;
 
+// レンダープロセスに環境変数を渡すため、メインプロセスで環境変数ファイルを読み込む
+require("dotenv").config({ path: __dirname + "/.env" });
+
 function createWindow() {
   let bounds_info;
   try {
