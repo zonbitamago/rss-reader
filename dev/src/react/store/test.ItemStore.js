@@ -94,7 +94,7 @@ describe("ItemStore", () => {
         expect(store.items[0].alt).toBe("Twitter API");
         expect(store.items[0].domainName).toBe("Twitter API");
         expect(store.items[0].url).toBe(
-          "https://twitter.com/twitterapi/status/850007368138018800"
+          "https://twitter.com/twitterapi/status/850007368138018817"
         );
         expect(store.items[0].itemName).toBe(
           "RT @TwitterDev: 1/ Today we’re sharing our vision for the future of the Twitter API platform!nhttps://t.co/XweGngmxlP"

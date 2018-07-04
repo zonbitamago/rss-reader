@@ -33,7 +33,7 @@ class ItemStore {
               "https://twitter.com/" +
               node.user.screen_name +
               "/status/" +
-              node.id;
+              node.id_str;
             node.title = node.text;
             var date = new Date(node.created_at);
             node.created = date.getTime();
@@ -88,7 +88,7 @@ class ItemStore {
         Array.prototype.push.apply(dataList, feed);
       });
 
-      dataList
+      this.items = dataList
         .sort((val1, val2) => {
           // 降順でならべかえ
           var val1 = val1.created;
@@ -99,15 +99,15 @@ class ItemStore {
             return -1;
           }
         })
-        .forEach(data => {
-          this.items.push({
+        .map(data => {
+          return {
             src: data.src,
             alt: data.name,
             domainName: data.name,
             url: data.url,
             itemName: data.title,
             date: data.created
-          });
+          };
         });
 
       this.loading = false;
