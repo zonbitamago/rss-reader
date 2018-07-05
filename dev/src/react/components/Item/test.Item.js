@@ -1,8 +1,7 @@
-import React from "react";
 import { shallow } from "enzyme";
 import mockdate from "mockdate";
+import React from "react";
 import { electronUtil } from "../../../../__mocks__/electronUtilSettings";
-
 import Item from "./Item";
 
 describe("Item", () => {

@@ -29,11 +29,7 @@ class ItemStore {
           return item.map(node => {
             node.name = node.user.name;
             node.src = node.user.profile_image_url_https;
-            node.url =
-              "https://twitter.com/" +
-              node.user.screen_name +
-              "/status/" +
-              node.id_str;
+            node.url = "";
             node.title = node.text;
             var date = new Date(node.created_at);
             node.created = date.getTime();
