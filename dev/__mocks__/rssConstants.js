@@ -230,7 +230,7 @@ export const RSS_FEED = [
     enclosures: [],
     guid: "http://liftoff.msfc.nasa.gov/2003/05/30.html#item572",
     image: {},
-    link: "http://liftoff.msfc.nasa.gov/2003/05/30.html#item572",
+    link: [{ href: "http://liftoff.msfc.nasa.gov/2003/05/30.html#item572" }],
     meta: {
       "#ns": [],
       "#type": "rss",
@@ -334,7 +334,7 @@ export const RSS_FEED = [
     enclosures: [],
     guid: "http://liftoff.msfc.nasa.gov/2003/05/27.html#item571",
     image: {},
-    link: "http://liftoff.msfc.nasa.gov/news/2003/news-VASIMR.asp",
+    link: { href: "http://liftoff.msfc.nasa.gov/news/2003/news-VASIMR.asp" },
     meta: {
       "#ns": [],
       "#type": "rss",
@@ -407,8 +407,8 @@ export const RSS_FEED = [
     },
     origlink: null,
     permalink: "http://liftoff.msfc.nasa.gov/2003/05/27.html#item571",
-    pubDate: "2003-05-27T08:37:32.000Z",
-    pubdate: "2003-05-27T08:37:32.000Z",
+    pubDate: "2003-08-27T08:37:32.000Z",
+    pubdate: "2003-08-27T08:37:32.000Z",
     "rss:@": {},
     "rss:description": {
       "#":

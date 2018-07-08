@@ -25,21 +25,28 @@ class ItemStore {
     var promiseList = urlList.map(urlNode => {
       if (getHost(urlNode.url) == constants.TWITTER_DOMAIN) {
         var util = new twitterUtil();
-        return util.get(urlNode.url).then(item => {
-          return item.map(node => {
-            node.name = node.user.name;
-            node.src = node.user.profile_image_url_https;
-            node.url =
-              "https://twitter.com/" +
-              node.user.screen_name +
-              "/status/" +
-              node.id_str;
-            node.title = node.text;
-            var date = new Date(node.created_at);
-            node.created = date.getTime();
-            return node;
+        return util
+          .get(urlNode.url)
+          .then(item => {
+            return item.map(node => {
+              node.name = node.user.name;
+              node.src = node.user.profile_image_url_https;
+              node.url =
+                "https://twitter.com/" +
+                node.user.screen_name +
+                "/status/" +
+                node.id_str;
+              node.title = node.text;
+              var date = new Date(node.created_at);
+              node.created = date.getTime();
+              return node;
+            });
+          })
+          .catch(error => {
+            console.warn("error:" + urlNode.name);
+            console.warn(error);
+            return [];
           });
-        });
       } else {
         var util = new feedParseUtil();
         return util

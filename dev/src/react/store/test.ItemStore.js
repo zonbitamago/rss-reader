@@ -24,84 +24,114 @@ describe("ItemStore", () => {
   });
 
   describe("add", () => {
-    it("RSS", () => {
-      feedParseUtil.mockImplementation(() => {
-        return {
-          feedParse: url => {
-            return new Promise(resolve => {
-              resolve(rssConstants.RSS_FEED);
-            });
-          }
-        };
-      });
-      localStorage.setItem(
-        constants.FEED_LIST,
-        JSON.stringify([
-          {
-            name: "google.com",
-            url: "https://google.com"
-          }
-        ])
-      );
+    describe("正常系", () => {
+      it("RSS", () => {
+        feedParseUtil.mockImplementation(() => {
+          return {
+            feedParse: url => {
+              return new Promise(resolve => {
+                resolve(rssConstants.RSS_FEED);
+              });
+            }
+          };
+        });
+        localStorage.setItem(
+          constants.FEED_LIST,
+          JSON.stringify([
+            {
+              name: "google.com",
+              url: "https://google.com"
+            }
+          ])
+        );
 
-      var promise = store.add();
-      return promise.then(() => {
-        expect(store.items.length).toBe(4);
-        expect(store.items[0].src).toBe(
-          "http://www.google.com/s2/favicons?domain=liftoff.msfc.nasa.gov"
+        var promise = store.add();
+        return promise.then(() => {
+          expect(store.items.length).toBe(4);
+          expect(store.items[0].src).toBe(
+            "http://www.google.com/s2/favicons?domain=liftoff.msfc.nasa.gov"
+          );
+          expect(store.items[0].alt).toBe("google.com");
+          expect(store.items[0].domainName).toBe("google.com");
+          expect(store.items[0].url).toBe(
+            "http://liftoff.msfc.nasa.gov/news/2003/news-VASIMR.asp"
+          );
+          expect(store.items[0].itemName).toBe("The Engine That Does More");
+          expect(store.items[0].date).toBe(1061973452000);
+        });
+      });
+
+      it("twitter", () => {
+        twitterUtil.mockImplementation(() => {
+          return {
+            get: url => {
+              return new Promise(resolve => {
+                resolve(tweetConstants.TWEET_LIST);
+              });
+            }
+          };
+        });
+
+        getHost.mockImplementation(() => {
+          return constants.TWITTER_DOMAIN;
+        });
+
+        localStorage.setItem(
+          constants.FEED_LIST,
+          JSON.stringify([
+            {
+              name: "twitter_list_test",
+              url: "https://twitter.com/DZonbitamago/lists/test"
+            }
+          ])
         );
-        expect(store.items[0].alt).toBe("google.com");
-        expect(store.items[0].domainName).toBe("google.com");
-        expect(store.items[0].url).toBe(
-          "http://liftoff.msfc.nasa.gov/news/2003/news-starcity.asp"
-        );
-        expect(store.items[0].itemName).toBe("Star City");
-        expect(store.items[0].date).toBe(1054633161000);
+
+        var promise = store.add();
+        return promise.then(() => {
+          expect(store.items.length).toBe(2);
+          expect(store.items[0].src).toBe(
+            "https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png"
+          );
+          expect(store.items[0].alt).toBe("Twitter API");
+          expect(store.items[0].domainName).toBe("Twitter API");
+          expect(store.items[0].url).toBe(
+            "https://twitter.com/twitterapi/status/850007368138018817"
+          );
+          expect(store.items[0].itemName).toBe(
+            "RT @TwitterDev: 1/ Today we’re sharing our vision for the future of the Twitter API platform!nhttps://t.co/XweGngmxlP"
+          );
+          expect(store.items[0].date).toBe(1491492523000);
+        });
       });
     });
 
-    it("twitter", () => {
-      twitterUtil.mockImplementation(() => {
-        return {
-          get: url => {
-            return new Promise(resolve => {
-              resolve(tweetConstants.TWEET_LIST);
-            });
-          }
-        };
-      });
+    // describe("異常系", () => {
+    //   it("RSS", () => {
+    //     feedParseUtil.mockImplementation(() => {
+    //       return {
+    //         feedParse: url => {
+    //           return new Promise(resolve, reject => {
+    //             reject(new Error());
+    //           });
+    //         }
+    //       };
+    //     });
+    //     localStorage.setItem(
+    //       constants.FEED_LIST,
+    //       JSON.stringify([
+    //         {
+    //           name: "google.com",
+    //           url: "https://google.com"
+    //         }
+    //       ])
+    //     );
 
-      getHost.mockImplementation(() => {
-        return constants.TWITTER_DOMAIN;
-      });
-
-      localStorage.setItem(
-        constants.FEED_LIST,
-        JSON.stringify([
-          {
-            name: "twitter_list_test",
-            url: "https://twitter.com/DZonbitamago/lists/test"
-          }
-        ])
-      );
-
-      var promise = store.add();
-      return promise.then(() => {
-        expect(store.items.length).toBe(2);
-        expect(store.items[0].src).toBe(
-          "https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png"
-        );
-        expect(store.items[0].alt).toBe("Twitter API");
-        expect(store.items[0].domainName).toBe("Twitter API");
-        expect(store.items[0].url).toBe(
-          "https://twitter.com/twitterapi/status/850007368138018817"
-        );
-        expect(store.items[0].itemName).toBe(
-          "RT @TwitterDev: 1/ Today we’re sharing our vision for the future of the Twitter API platform!nhttps://t.co/XweGngmxlP"
-        );
-        expect(store.items[0].date).toBe(1491492523000);
-      });
-    });
+    //     var promise = store.add();
+    //     return promise.then(() => {
+    //       expect(store.items.length).toBe(0);
+    //     });
+    //   });
+    // });
   });
 
   describe("getSettings", () => {
