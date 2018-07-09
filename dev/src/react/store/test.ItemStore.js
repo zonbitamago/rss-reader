@@ -1,3 +1,6 @@
+jest.mock("../util/twitterUtil");
+jest.mock("../util/feedParseUtil");
+
 import * as rssConstants from "../../../__mocks__/rssConstants";
 import * as tweetConstants from "../../../__mocks__/tweetConstants";
 import * as constants from "../util/constants";
@@ -5,15 +8,15 @@ import feedParseUtil from "../util/feedParseUtil";
 import twitterUtil, { getHost } from "../util/twitterUtil";
 import ItemStore from "./ItemStore";
 
-jest.mock("../util/feedParseUtil");
-jest.mock("../util/twitterUtil");
-
 describe("ItemStore", () => {
   let store;
 
   beforeEach(() => {
     localStorage.clear();
     store = new ItemStore();
+    feedParseUtil.mockRestore();
+    twitterUtil.mockRestore();
+    getHost.mockRestore();
   });
 
   it("init", () => {
@@ -35,6 +38,7 @@ describe("ItemStore", () => {
             }
           };
         });
+
         localStorage.setItem(
           constants.FEED_LIST,
           JSON.stringify([
@@ -105,33 +109,65 @@ describe("ItemStore", () => {
       });
     });
 
-    // describe("異常系", () => {
-    //   it("RSS", () => {
-    //     feedParseUtil.mockImplementation(() => {
-    //       return {
-    //         feedParse: url => {
-    //           return new Promise(resolve, reject => {
-    //             reject(new Error());
-    //           });
-    //         }
-    //       };
-    //     });
-    //     localStorage.setItem(
-    //       constants.FEED_LIST,
-    //       JSON.stringify([
-    //         {
-    //           name: "google.com",
-    //           url: "https://google.com"
-    //         }
-    //       ])
-    //     );
+    describe("異常系", () => {
+      it("RSS", () => {
+        feedParseUtil.mockImplementation(() => {
+          return {
+            feedParse: url => {
+              return new Promise(resolve => {
+                resolve("a");
+              });
+            }
+          };
+        });
 
-    //     var promise = store.add();
-    //     return promise.then(() => {
-    //       expect(store.items.length).toBe(0);
-    //     });
-    //   });
-    // });
+        localStorage.setItem(
+          constants.FEED_LIST,
+          JSON.stringify([
+            {
+              name: "google.com",
+              url: "https://google.com"
+            }
+          ])
+        );
+
+        var promise = store.add();
+        return promise.then(() => {
+          expect(store.items.length).toBe(0);
+        });
+      });
+
+      it("twitter", () => {
+        twitterUtil.mockImplementation(() => {
+          return {
+            get: url => {
+              return new Promise(resolve => {
+                resolve("a");
+              });
+            }
+          };
+        });
+
+        getHost.mockImplementation(() => {
+          return constants.TWITTER_DOMAIN;
+        });
+
+        localStorage.setItem(
+          constants.FEED_LIST,
+          JSON.stringify([
+            {
+              name: "twitter_list_test",
+              url: "https://twitter.com/DZonbitamago/lists/test"
+            }
+          ])
+        );
+
+        var promise = store.add();
+        return promise.then(() => {
+          expect(store.items.length).toBe(0);
+        });
+      });
+    });
   });
 
   describe("getSettings", () => {

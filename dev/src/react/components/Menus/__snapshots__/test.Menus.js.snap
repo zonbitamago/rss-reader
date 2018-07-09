@@ -22,9 +22,9 @@ exports[`Menus should 1`] = `
     <RegistedListModal
       electronUtil={
         Object {
-          "closeApp": [Function],
-          "minimizeApp": [Function],
-          "openBrowser": [Function],
+          "closeApp": [MockFunction],
+          "minimizeApp": [MockFunction],
+          "openBrowser": [MockFunction],
         }
       }
       handleClose={[Function]}
@@ -32,27 +32,18 @@ exports[`Menus should 1`] = `
       store={
         Object {
           "FeedListStore": Object {
-            "deleteFeedList": [Function],
-            "feedList": Array [
-              Object {
-                "name": "google",
-                "url": "https://www.google.co.jp/",
-              },
-              Object {
-                "name": "yahoo",
-                "url": "https://www.yahoo.co.jp/",
-              },
-            ],
-            "getFeedList": [Function],
-            "setFeedList": [Function],
+            "deleteFeedList": [MockFunction],
+            "feedList": Array [],
+            "getFeedList": [MockFunction],
+            "setFeedList": [MockFunction],
           },
           "ItemStore": Object {
-            "add": [Function],
-            "getSettings": [Function],
+            "add": [MockFunction],
+            "getSettings": [MockFunction],
             "items": Array [],
             "loading": false,
-            "setSetting": [Function],
-            "setTimer": [Function],
+            "setSetting": [MockFunction],
+            "setTimer": [MockFunction],
             "timerId": "dummy",
             "updateDate": "09:12:34",
             "updateDuration": 5,
@@ -76,27 +67,18 @@ exports[`Menus should 1`] = `
       store={
         Object {
           "FeedListStore": Object {
-            "deleteFeedList": [Function],
-            "feedList": Array [
-              Object {
-                "name": "google",
-                "url": "https://www.google.co.jp/",
-              },
-              Object {
-                "name": "yahoo",
-                "url": "https://www.yahoo.co.jp/",
-              },
-            ],
-            "getFeedList": [Function],
-            "setFeedList": [Function],
+            "deleteFeedList": [MockFunction],
+            "feedList": Array [],
+            "getFeedList": [MockFunction],
+            "setFeedList": [MockFunction],
           },
           "ItemStore": Object {
-            "add": [Function],
-            "getSettings": [Function],
+            "add": [MockFunction],
+            "getSettings": [MockFunction],
             "items": Array [],
             "loading": false,
-            "setSetting": [Function],
-            "setTimer": [Function],
+            "setSetting": [MockFunction],
+            "setTimer": [MockFunction],
             "timerId": "dummy",
             "updateDate": "09:12:34",
             "updateDuration": 5,

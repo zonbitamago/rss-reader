@@ -1,8 +1,10 @@
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import mockdate from "mockdate";
 import React from "react";
 import { electronUtil } from "../../../../__mocks__/electronUtilSettings";
 import Item from "./Item";
+
+jest.mock("../../../../__mocks__/electronUtilSettings");
 
 describe("Item", () => {
   let component, props;
@@ -23,5 +25,12 @@ describe("Item", () => {
 
   it("should", () => {
     expect(component).toMatchSnapshot();
+  });
+
+  it("link click", () => {
+    var wrapper = mount(<Item {...props} />);
+    wrapper.find(".bottom a").simulate("click");
+
+    expect(electronUtil.openBrowser.mock.calls.length).toBe(1);
   });
 });
