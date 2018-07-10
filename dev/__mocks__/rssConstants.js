@@ -185,8 +185,8 @@ export const RSS_FEED = [
     },
     origlink: null,
     permalink: "http://liftoff.msfc.nasa.gov/2003/06/03.html#item573",
-    pubDate: "2003-06-03T09:39:21.000Z",
-    pubdate: "2003-06-03T09:39:21.000Z",
+    upDated: "2003-06-03T09:39:21.000Z",
+    updated: "2003-06-03T09:39:21.000Z",
     "rss:@": {},
     "rss:author": {
       "#": "writer@example.com (Writer)",

@@ -6,6 +6,8 @@ exports[`SettingModal should 1`] = `
 >
   <WithStyles(Dialog)
     aria-labelledby="form-dialog-title"
+    onClose={[MockFunction]}
+    open={true}
   >
     <WithStyles(DialogTitle)
       id="form-dialog-title"
@@ -16,7 +18,7 @@ exports[`SettingModal should 1`] = `
       <Input
         changeParentVal={[Function]}
         name="UpdateDuration"
-        value={5}
+        value=""
       />
     </WithStyles(DialogContent)>
     <WithStyles(DialogActions)>
@@ -25,6 +27,7 @@ exports[`SettingModal should 1`] = `
         type="yes"
       />
       <Button
+        handleClick={[MockFunction]}
         type="no"
       />
     </WithStyles(DialogActions)>

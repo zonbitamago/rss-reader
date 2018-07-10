@@ -55,7 +55,6 @@ class RegistedListModal extends Component {
           class: "error"
         });
       });
-    // this.props.handleClose();
   }
 
   snackbarClose() {

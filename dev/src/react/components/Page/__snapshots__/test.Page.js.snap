@@ -1,5 +1,302 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Page Exists Items 1`] = `
+<div
+  className="Page"
+>
+  <Side
+    store={
+      Object {
+        "FeedListStore": Object {
+          "deleteFeedList": [Function],
+          "feedList": Array [
+            Object {
+              "name": "google",
+              "url": "https://www.google.co.jp/",
+            },
+            Object {
+              "name": "yahoo",
+              "url": "https://www.yahoo.co.jp/",
+            },
+          ],
+          "getFeedList": [Function],
+          "setFeedList": [Function],
+        },
+        "ItemStore": Object {
+          "add": [Function],
+          "getSettings": [Function],
+          "items": Array [
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+          ],
+          "loading": false,
+          "setSetting": [Function],
+          "setTimer": [Function],
+          "timerId": "dummy",
+          "updateDate": "09:12:34",
+          "updateDuration": 5,
+        },
+      }
+    }
+  />
+  <Header
+    store={
+      Object {
+        "FeedListStore": Object {
+          "deleteFeedList": [Function],
+          "feedList": Array [
+            Object {
+              "name": "google",
+              "url": "https://www.google.co.jp/",
+            },
+            Object {
+              "name": "yahoo",
+              "url": "https://www.yahoo.co.jp/",
+            },
+          ],
+          "getFeedList": [Function],
+          "setFeedList": [Function],
+        },
+        "ItemStore": Object {
+          "add": [Function],
+          "getSettings": [Function],
+          "items": Array [
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+            Object {
+              "date": 1510697525000,
+              "domainName": "Qiita.com",
+              "itemName": "CSS Grid Layout を極める！（基礎編）",
+              "src": "http://www.google.com/s2/favicons?domain=qiita.com",
+              "url": "https://qiita.com/kura07/items/e633b35e33e43240d363",
+            },
+          ],
+          "loading": false,
+          "setSetting": [Function],
+          "setTimer": [Function],
+          "timerId": "dummy",
+          "updateDate": "09:12:34",
+          "updateDuration": 5,
+        },
+      }
+    }
+  />
+  <div
+    className="main"
+  >
+    <Item
+      date={1510697525000}
+      domainName="Qiita.com"
+      itemName="CSS Grid Layout を極める！（基礎編）"
+      key="0"
+      src="http://www.google.com/s2/favicons?domain=qiita.com"
+      url="https://qiita.com/kura07/items/e633b35e33e43240d363"
+    />
+    <Item
+      date={1510697525000}
+      domainName="Qiita.com"
+      itemName="CSS Grid Layout を極める！（基礎編）"
+      key="1"
+      src="http://www.google.com/s2/favicons?domain=qiita.com"
+      url="https://qiita.com/kura07/items/e633b35e33e43240d363"
+    />
+    <Item
+      date={1510697525000}
+      domainName="Qiita.com"
+      itemName="CSS Grid Layout を極める！（基礎編）"
+      key="2"
+      src="http://www.google.com/s2/favicons?domain=qiita.com"
+      url="https://qiita.com/kura07/items/e633b35e33e43240d363"
+    />
+    <Item
+      date={1510697525000}
+      domainName="Qiita.com"
+      itemName="CSS Grid Layout を極める！（基礎編）"
+      key="3"
+      src="http://www.google.com/s2/favicons?domain=qiita.com"
+      url="https://qiita.com/kura07/items/e633b35e33e43240d363"
+    />
+    <Item
+      date={1510697525000}
+      domainName="Qiita.com"
+      itemName="CSS Grid Layout を極める！（基礎編）"
+      key="4"
+      src="http://www.google.com/s2/favicons?domain=qiita.com"
+      url="https://qiita.com/kura07/items/e633b35e33e43240d363"
+    />
+    <Item
+      date={1510697525000}
+      domainName="Qiita.com"
+      itemName="CSS Grid Layout を極める！（基礎編）"
+      key="5"
+      src="http://www.google.com/s2/favicons?domain=qiita.com"
+      url="https://qiita.com/kura07/items/e633b35e33e43240d363"
+    />
+    <Item
+      date={1510697525000}
+      domainName="Qiita.com"
+      itemName="CSS Grid Layout を極める！（基礎編）"
+      key="6"
+      src="http://www.google.com/s2/favicons?domain=qiita.com"
+      url="https://qiita.com/kura07/items/e633b35e33e43240d363"
+    />
+    <Item
+      date={1510697525000}
+      domainName="Qiita.com"
+      itemName="CSS Grid Layout を極める！（基礎編）"
+      key="7"
+      src="http://www.google.com/s2/favicons?domain=qiita.com"
+      url="https://qiita.com/kura07/items/e633b35e33e43240d363"
+    />
+    <Item
+      date={1510697525000}
+      domainName="Qiita.com"
+      itemName="CSS Grid Layout を極める！（基礎編）"
+      key="8"
+      src="http://www.google.com/s2/favicons?domain=qiita.com"
+      url="https://qiita.com/kura07/items/e633b35e33e43240d363"
+    />
+    <Item
+      date={1510697525000}
+      domainName="Qiita.com"
+      itemName="CSS Grid Layout を極める！（基礎編）"
+      key="9"
+      src="http://www.google.com/s2/favicons?domain=qiita.com"
+      url="https://qiita.com/kura07/items/e633b35e33e43240d363"
+    />
+  </div>
+</div>
+`;
+
 exports[`Page should 1`] = `
 <div
   className="Page"

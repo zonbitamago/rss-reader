@@ -1,5 +1,6 @@
 import Divider from "@material-ui/core/Divider";
 import PropTypes from "prop-types";
+import styles from "./Item.css";
 import React, { Component } from "react";
 import * as timeUitl from "../../util/timeUtil";
 import DomainIcon from "../DomainIcon/DomainIcon";
