@@ -294,6 +294,29 @@ exports[`Page Exists Items 1`] = `
       url="https://qiita.com/kura07/items/e633b35e33e43240d363"
     />
   </div>
+  <WithStyles(Snackbar)
+    ContentProps={
+      Object {
+        "aria-describedby": "message-id",
+      }
+    }
+    TransitionComponent={[Function]}
+    anchorOrigin={
+      Object {
+        "horizontal": "center",
+        "vertical": "bottom",
+      }
+    }
+    className="update"
+    message={
+      <span
+        id="message-id"
+      >
+        新しい更新を確認する
+      </span>
+    }
+    onClick={[Function]}
+  />
 </div>
 `;
 
@@ -367,6 +390,29 @@ exports[`Page should 1`] = `
   />
   <div
     className="main"
+  />
+  <WithStyles(Snackbar)
+    ContentProps={
+      Object {
+        "aria-describedby": "message-id",
+      }
+    }
+    TransitionComponent={[Function]}
+    anchorOrigin={
+      Object {
+        "horizontal": "center",
+        "vertical": "bottom",
+      }
+    }
+    className="update"
+    message={
+      <span
+        id="message-id"
+      >
+        新しい更新を確認する
+      </span>
+    }
+    onClick={[Function]}
   />
 </div>
 `;

@@ -5,6 +5,8 @@ import Side from "../Side/Side";
 import Header from "../Header/Header";
 import Item from "../Item/Item";
 import { observer } from "mobx-react";
+import Snackbar from "@material-ui/core/Snackbar";
+import Fade from "@material-ui/core/Fade";
 
 @observer
 class Page extends Component {
@@ -26,11 +28,21 @@ class Page extends Component {
         />
       );
     });
+
     return (
       <div className="Page">
         <Side electronUtil={this.props.electronUtil} store={this.props.store} />
         <Header store={this.props.store} />
         <div className="main">{showItems}</div>
+        <Snackbar
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          open={this.props.store.ItemStore.hasUpdate}
+          ContentProps={{ "aria-describedby": "message-id" }}
+          message={<span id="message-id">新しい更新を確認する</span>}
+          onClick={() => this.props.store.ItemStore.update()}
+          TransitionComponent={Fade}
+          className="update"
+        />
       </div>
     );
   }

@@ -21,9 +21,23 @@ describe("ItemStore", () => {
 
   it("init", () => {
     expect(store.items.length).toBe(0);
+    expect(store.saveItems.length).toBe(0);
     expect(store.updateDuration).toBe(5);
     expect(store.loading).toBe(false);
     expect(store.timerId).toBe("");
+  });
+
+  describe("update", () => {
+    it("update", () => {
+      store.saveItems = [1, 2];
+      expect(store.items.length).toBe(0);
+      expect(store.saveItems.length).toBe(2);
+
+      store.update();
+
+      expect(store.items.length).toBe(2);
+      expect(store.saveItems.length).toBe(2);
+    });
   });
 
   describe("add", () => {
@@ -51,17 +65,17 @@ describe("ItemStore", () => {
 
         var promise = store.add();
         return promise.then(() => {
-          expect(store.items.length).toBe(4);
-          expect(store.items[0].src).toBe(
+          expect(store.saveItems.length).toBe(4);
+          expect(store.saveItems[0].src).toBe(
             "http://www.google.com/s2/favicons?domain=liftoff.msfc.nasa.gov"
           );
-          expect(store.items[0].alt).toBe("google.com");
-          expect(store.items[0].domainName).toBe("google.com");
-          expect(store.items[0].url).toBe(
+          expect(store.saveItems[0].alt).toBe("google.com");
+          expect(store.saveItems[0].domainName).toBe("google.com");
+          expect(store.saveItems[0].url).toBe(
             "http://liftoff.msfc.nasa.gov/news/2003/news-VASIMR.asp"
           );
-          expect(store.items[0].itemName).toBe("The Engine That Does More");
-          expect(store.items[0].date).toBe(1061973452000);
+          expect(store.saveItems[0].itemName).toBe("The Engine That Does More");
+          expect(store.saveItems[0].date).toBe(1061973452000);
         });
       });
 
@@ -92,19 +106,19 @@ describe("ItemStore", () => {
 
         var promise = store.add();
         return promise.then(() => {
-          expect(store.items.length).toBe(2);
-          expect(store.items[0].src).toBe(
+          expect(store.saveItems.length).toBe(2);
+          expect(store.saveItems[0].src).toBe(
             "https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png"
           );
-          expect(store.items[0].alt).toBe("Twitter API");
-          expect(store.items[0].domainName).toBe("Twitter API");
-          expect(store.items[0].url).toBe(
+          expect(store.saveItems[0].alt).toBe("Twitter API");
+          expect(store.saveItems[0].domainName).toBe("Twitter API");
+          expect(store.saveItems[0].url).toBe(
             "https://twitter.com/twitterapi/status/850007368138018817"
           );
-          expect(store.items[0].itemName).toBe(
+          expect(store.saveItems[0].itemName).toBe(
             "RT @TwitterDev: 1/ Today we’re sharing our vision for the future of the Twitter API platform!nhttps://t.co/XweGngmxlP"
           );
-          expect(store.items[0].date).toBe(1491492523000);
+          expect(store.saveItems[0].date).toBe(1491492523000);
         });
       });
     });
@@ -133,7 +147,7 @@ describe("ItemStore", () => {
 
         var promise = store.add();
         return promise.then(() => {
-          expect(store.items.length).toBe(0);
+          expect(store.saveItems.length).toBe(0);
         });
       });
 
@@ -164,7 +178,7 @@ describe("ItemStore", () => {
 
         var promise = store.add();
         return promise.then(() => {
-          expect(store.items.length).toBe(0);
+          expect(store.saveItems.length).toBe(0);
         });
       });
     });

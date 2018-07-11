@@ -26,3 +26,11 @@
   overflow-y: scroll;
   -webkit-app-region: no-drag;
 }
+
+.Page .update > * {
+  background-color: #2196f3;
+  flex-grow: 0 !important;
+  margin-bottom: 2em;
+  border-radius: 1em;
+  cursor: pointer;
+}

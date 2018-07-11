@@ -6,6 +6,8 @@ import * as constants from "../util/constants";
 
 class ItemStore {
   @observable items = [];
+  @observable saveItems = [];
+  @observable hasUpdate = false;
   @observable updateDate = moment().format("HH:mm:ss");
   @observable loading = false;
   @observable
@@ -14,6 +16,13 @@ class ItemStore {
       ? 5
       : JSON.parse(localStorage.getItem(constants.SETTINGS)).updateDuration;
   timerId = "";
+
+  @action.bound
+  update() {
+    this.items = this.saveItems;
+    this.hasUpdate =
+      JSON.stringify(this.items) != JSON.stringify(this.saveItems);
+  }
 
   @action.bound
   add() {
@@ -86,7 +95,6 @@ class ItemStore {
     });
 
     return Promise.all(promiseList).then(feedList => {
-      this.items = [];
       this.updateDate = moment().format("HH:mm:ss");
 
       var dataList = [];
@@ -95,7 +103,7 @@ class ItemStore {
         Array.prototype.push.apply(dataList, feed);
       });
 
-      this.items = dataList
+      this.saveItems = dataList
         .sort((val1, val2) => {
           // 降順でならべかえ
           var val1 = val1.created;
@@ -116,6 +124,13 @@ class ItemStore {
             date: data.created
           };
         });
+
+      if (this.items.length == 0) {
+        this.items = this.saveItems;
+      }
+
+      this.hasUpdate =
+        JSON.stringify(this.items) != JSON.stringify(this.saveItems);
 
       this.loading = false;
     });
