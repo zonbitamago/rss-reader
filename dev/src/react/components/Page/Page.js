@@ -29,6 +29,10 @@ class Page extends Component {
       );
     });
 
+    if (this.props.store.FeedListStore.feedList.length == 0) {
+      // 何も登録がない場合に、使い方説明を表示する。
+    }
+
     return (
       <div className="Page">
         <Side electronUtil={this.props.electronUtil} store={this.props.store} />
