@@ -41,6 +41,7 @@ class Page extends Component {
         <Snackbar
           anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           open={this.props.store.ItemStore.hasUpdate}
+          // open={true}
           ContentProps={{ "aria-describedby": "message-id" }}
           message={<span id="message-id">新しい更新を確認する</span>}
           onClick={() => this.props.store.ItemStore.update()}
