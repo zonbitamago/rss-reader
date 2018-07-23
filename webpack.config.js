@@ -1,46 +1,38 @@
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
-  entry: {
-    app: "./src/react/init.jsx"
-  },
+  entry: { app: "./src/react/init.js" },
   output: {
-    filename: "./src/[name].bundle.js",
-    path: path.resolve(".")
+    filename: "[name].bundle.js",
+    path: path.join(__dirname, "src")
   },
+  // electronが上手くスプリットできない
+  // optimization: {
+  //   splitChunks: {
+  //     name: "common",
+  //     chunks: "initial"
+  //   }
+  // },
   target: "electron-main",
   module: {
     rules: [
       {
-        test: /\.(jsx|js)/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        include: path.resolve(__dirname, "src/react"),
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["es2015", "react"],
-            plugins: [
-              [
-                "lodash",
-                {
-                  id: ["lodash", "semantic-ui-react"]
-                }
-              ]
-            ]
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["es2015", "react", "stage-0"],
+              plugins: ["transform-decorators-legacy"]
+            }
           }
-        }
-      },
-      {
-        test: /\.css$/,
-        loader: [
-          "style-loader",
-          "css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]"
         ]
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png)$/,
-        loader:
-          "file-loader?name=semantic/dist/themes/default/assets/fonts/[name].[ext]"
+        test: /\.css$/,
+        use: ["style-loader", { loader: "css-loader", options: { url: false } }]
       }
     ]
   }
