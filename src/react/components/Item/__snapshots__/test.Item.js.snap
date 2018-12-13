@@ -26,7 +26,7 @@ exports[`Item should 1`] = `
       <h6
         className="date"
       >
-        a few seconds ago
+        2017/11/15 07:12:05
       </h6>
     </div>
     <div
