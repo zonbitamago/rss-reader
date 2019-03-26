@@ -6,6 +6,8 @@
   "scripts": {
     "start": "electron src/index.js",
     "test": "jest --watchAll",
+    "test:window": "jest --watchAll --notify --config=jest.window.config.js",
+    "test:node": "jest --watchAll --notify --config=jest.node.config.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "cca": "create-component-app --config ccarc.config.json",
     "build": "webpack --mode production --progress",

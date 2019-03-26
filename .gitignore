@@ -5,6 +5,8 @@
 
 # testing
 /coverage
+/coverage_window
+/coverage_node
 
 # production
 /build
