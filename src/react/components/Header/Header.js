@@ -4,7 +4,7 @@ import styles from "./Header.css";
 import Icon from "../Icon/Icon";
 import Home from "@material-ui/icons/Home";
 import RssFeed from "@material-ui/icons/RssFeed";
-import Twitter from "react-icons/lib/ti/social-twitter";
+import { TiSocialTwitter } from "react-icons/ti";
 import Typography from "@material-ui/core/Typography";
 import $ from "jquery";
 
@@ -33,7 +33,7 @@ class Header extends Component {
             +
           </Typography>
           <Icon>
-            <Twitter />
+            <TiSocialTwitter />
           </Icon>
           <Typography color="inherit" variant="subheading">
             Feed

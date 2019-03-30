@@ -7,7 +7,7 @@ import Refresh from "@material-ui/icons/Refresh";
 import RssFeed from "@material-ui/icons/RssFeed";
 import IndeterminateCheckBox from "@material-ui/icons/IndeterminateCheckBox";
 import Settings from "@material-ui/icons/Settings";
-import Github from "react-icons/lib/go/mark-github";
+import { GoMarkGithub } from "react-icons/go";
 import RegistedListModal from "../RegistedListModal/RegistedListModal";
 import SettingModal from "../SettingModal/SettingModal";
 import { observer } from "mobx-react";
@@ -80,7 +80,7 @@ class Menus extends Component {
           />
         </Icon>
         <Icon>
-          <Github
+          <GoMarkGithub
             onClick={() => {
               this.props.electronUtil.openBrowser(
                 "https://github.com/zonbitamago/rss-reader/blob/master/README.md"
