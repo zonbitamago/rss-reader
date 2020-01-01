@@ -2,7 +2,7 @@ import { action, observable } from "mobx";
 import feedParseUtil from "../util/feedParseUtil";
 import twitterUtil from "../util/twitterUtil";
 import * as constants from "../util/constants";
-
+z;
 class FeedListStore {
   @observable feedList = [];
   @observable name = "";
